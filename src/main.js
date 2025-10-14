@@ -27,6 +27,17 @@ function main() {
 			}
 		}
 	}
+
+	//ポイント計算
+	for (let performance of performances) {
+		if (performance.audience > 30) {
+			point += (performance.audience - 30) * 1;
+		}
+		if (plays[performance.playID].type === "comedy") {
+			point += (performance.audience / 5) * 1;
+		}
+	}
+	
 }
 
 main();
