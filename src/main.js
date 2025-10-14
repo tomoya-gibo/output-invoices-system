@@ -1,6 +1,3 @@
-  const fs = require("fs");
-
-  function main() {
   //概要
   //与えられたJSONファイルより請求書を出力するサブシステムを作成する。
 
@@ -10,10 +7,34 @@
     なるべく少ない行数で記述すること。
     手続き的な書き方で実装すること
   */
+
   //機能
   //請求情報の算定
   //請求情報の出力
 
+  /*
+  金額の算定方法
+  喜劇：As You Like It
+  悲劇：Hamlet、Othello
+
+  悲劇の場合:
+  基本料金$40000
+  観客数が30人を超過する場合、超過一人につき$1000を追加
+  喜劇の場合:
+  基本料金$30000
+  観客数が20人を超える場合、$10000を追加した上で、さらに超過一人につき$500を追加
+  また、超過に関わらず、一人につき$300の追加
+  */
+
+  /*
+  ポイントの算定方法
+  喜劇：As You Like It
+  悲劇：Hamlet、Othello
+
+（悲劇、喜劇どちらにも適用）一回の劇発注で、観客数が30人を超過した場合は、超過一人につき1ポイント追加
+（喜劇のみに適用）観客数5人につき1ポイント追加
+  金額はドル換算です。
+  */  
   //出力項目
   // 会社名
   // 発注演目とその観客数および金額
@@ -27,7 +48,7 @@
    必用な変数:
    出力する文字列を入れる変数
    入力データを入れる変数
-   料金を入れる変数 基本料金、観客数による追加料金,
+   料金を入れる変数 基本料金、観客数による追加料金,ポイントを入れる変数
    必用な処理:
    入力データの読み込み
    演目の内容ごとの料金の算定
@@ -36,27 +57,56 @@
   */
   //3コーディングする
 
-  //入力データの読み込み
-  const invoices = JSON.parse(fs.readFileSync('input/invoices.json', 'utf8'));
-  const plays = JSON.parse(fs.readFileSync('input/plays.json', 'utf8'));
-
-  //出力するデータを格納する変数
-  let output = "請求書\n株式会社ビッグカンパニー\n";
-
-  //　悲劇の基本料金
-  let tragedyBasePrice = 40000;
-  // 喜劇の基本料金
-  let comedyBasePrice = 30000;
-
-  console.log(output);
-
-  console.log(invoices);
-  console.log(plays);
-
-  //演目の内容ごとの料金の算定
 
 
-}
-main();
-
-
+  function main() {
+    const fs = require("fs");
+    //入力データの読み込み
+    const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
+    const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
+  
+    // 出力用変数
+    let output = "請求書\n株式会社ビッグカンパニー\n\n";
+  
+    // 基本料金
+    const tragedyBasePrice = 40000;
+    const comedyBasePrice = 30000;
+  
+    // 合計金額・ポイント
+    let totalAmount = 0;
+    let totalPoint = 0;
+  
+    //請求書の内容ごとの料金算定
+    for (const invoice of invoices) {
+      for (const performance of invoice.performances) {
+        const play = plays[performance.playID];
+        let thisAmount = 0;
+        let thisPoint = 0;
+  
+        switch (play.type) {
+          case "tragedy":
+            thisAmount = tragedyBasePrice;
+            if (performance.audience > 30) {
+              thisAmount += (performance.audience - 30) * 1000;
+            }
+            break;
+  
+          case "comedy":
+            thisAmount = comedyBasePrice;
+            if (performance.audience > 20) {
+              thisAmount += 10000;
+              thisAmount += (performance.audience - 20) * 500;
+            }
+            thisAmount += performance.audience * 300;
+            break;
+        }
+        totalAmount += thisAmount;
+        totalPoint += thisPoint;
+        output += `${play.name}: (${performance.audience}人 ${thisAmount})\n`;
+      }
+    }
+    console.log(output);
+  }
+  
+  main();
+  
