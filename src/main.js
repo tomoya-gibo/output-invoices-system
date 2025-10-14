@@ -123,6 +123,7 @@
         output += `・${play.name}(観客数 : ${performance.audience}、金額 : $${thisAmount})\n`;
       }
     }
+    output += `\n 合計金額 : ${totalAmount}`
     console.log(output)
   }
   
