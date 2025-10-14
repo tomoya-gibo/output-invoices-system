@@ -54,6 +54,7 @@
    演目の内容ごとの料金の算定
    合計金額の算定
    ポイントの算定
+   請求書のイメージに沿った形にテキストを出力
   */
   //3コーディングする
 
@@ -83,7 +84,6 @@
       for (let performance of invoice.performances) {
         // playsのキーとperformance.playIDを照合してplayに代入
         const play = plays[performance.playID];
-        console.log(play);
         //料金を入れる変数
         let thisAmount = 0;
         let thisPoint = 0;
@@ -110,7 +110,6 @@
             if (performance.audience > 30){
               thisPoint += (performance.audience - 30)
             }
-            
             //喜劇の場合のみ超過にかかわらず一人につき$300の追加
             thisAmount += performance.audience * 300;
             //観客数5人につき1ポイント追加
@@ -121,11 +120,10 @@
         totalAmount += thisAmount;
         //獲得ポイントの合計
         totalPoint += thisPoint
+        output += `${play.name} (観客数 : ${performance.audience}、金額 : $${thisAmount})`;
       }
-
     }
-    console.log(totalAmount);
-    console.log(totalPoint)
+    console.log(output)
   }
   
   main();
