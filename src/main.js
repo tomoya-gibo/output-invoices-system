@@ -61,7 +61,7 @@
 
   function main() {
     const fs = require("fs");
-    //入力データの読み込み
+    // 1 入力データの読み込み
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
   
@@ -76,16 +76,23 @@
     let totalAmount = 0;
     let totalPoint = 0;
   
-    //請求書の内容ごとの料金算定
-    for (const invoice of invoices) {
-      for (const performance of invoice.performances) {
+    // 2 請求書の内容ごとの料金算定
+    // for文でinvoicesの中身を取り出す
+    for (let invoice of invoices) {
+      // for文でinvoice.performancesの中身を取り出す
+      for (let performance of invoice.performances) {
+        // playsのキーとperformance.playIDを照合してplayに代入
         const play = plays[performance.playID];
+        console.log(play);
+        //料金を入れる変数
         let thisAmount = 0;
         let thisPoint = 0;
   
+        //演目の種別ごとの料金算定
         switch (play.type) {
           case "tragedy":
             thisAmount = tragedyBasePrice;
+            //超過料金の算定
             if (performance.audience > 30) {
               thisAmount += (performance.audience - 30) * 1000;
             }
@@ -93,19 +100,17 @@
   
           case "comedy":
             thisAmount = comedyBasePrice;
+            //超過料金の算定
             if (performance.audience > 20) {
               thisAmount += 10000;
               thisAmount += (performance.audience - 20) * 500;
             }
+            //喜劇の場合のみ超過にかかわらず一人につき$300の追加
             thisAmount += performance.audience * 300;
             break;
         }
-        totalAmount += thisAmount;
-        totalPoint += thisPoint;
-        output += `${play.name}: (${performance.audience}人 ${thisAmount})\n`;
       }
     }
-    console.log(output);
   }
   
   main();
