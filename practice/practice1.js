@@ -84,22 +84,22 @@ function formatUserProfile(user) {
     // }
 
     function setAgeGroup(user) {
-        let ageGroup = '未設定';
+        let result = '未設定';
         if (user.age) {
             if (user.age < 13) {
-                ageGroup = '子ども';
+                result = '子ども';
             } else if (user.age < 20) {
-                ageGroup = '10代';
+                result = '10代';
             } else if (user.age < 30) {
-                ageGroup = '20代';
+                result = '20代';
             } else if (user.age < 40) {
-                ageGroup = '30代';
+                result = '30代';
             } else if (user.age < 50) {
-                ageGroup = '40代';
+                result = '40代';
             } else if (user.age < 60) {
-                ageGroup = '50代';
+                result = '50代';
             } else {
-                ageGroup = '60代以上';
+                result = '60代以上';
             }
         }
     }
