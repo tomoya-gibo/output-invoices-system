@@ -16,31 +16,10 @@ function formatUserProfile(user) {
     const registrationDate = registrateDate(now);
     const registrationTime = registrateTime(now);
 
-    // プロフィールの生成
-    const profile = {
-        personalInfo: {
-            firstName: firstName,
-            lastName: lastName,
-            fullName: user.name.trim(),
-            email: formattedEmail,
-            age: user.age || '未設定',
-            ageGroup: ageGroup
-        },
-        systemInfo: {
-            registrationDate: registrationDate,
-            registrationTime: registrationTime,
-            formattedAt: now.toISOString()
-        },
-        display: {
-            welcomeMessage: `ようこそ、${firstName}さん！`,
-            emailDisplay: `メール: ${formattedEmail}`,
-            ageDisplay: user.age ? `${user.age}歳 (${ageGroup})` : '年齢未設定'
-        }
-    };
+    return createProfile();
+
     
-    return profile;
-    
-    
+
     function checkUser(user) {
         if (!user.name || user.name.trim() === '') {
             throw new Error('ユーザー名が必須です');
@@ -96,6 +75,29 @@ function formatUserProfile(user) {
     function registrateTime (now) {
         return now.toTimeString().split(' ')[0];
     }
+
+    function createProfile() {
+        return profile = {
+            personalInfo: {
+                firstName: firstName,
+                lastName: lastName,
+                fullName: user.name.trim(),
+                email: formattedEmail,
+                age: user.age || '未設定',
+                ageGroup: ageGroup
+            },
+            systemInfo: {
+                registrationDate: registrationDate,
+                registrationTime: registrationTime,
+                formattedAt: now.toISOString()
+            },
+            display: {
+                welcomeMessage: `ようこそ、${firstName}さん！`,
+                emailDisplay: `メール: ${formattedEmail}`,
+                ageDisplay: user.age ? `${user.age}歳 (${ageGroup})` : '年齢未設定'
+            }
+        };
+    }   
 }
 
 function main() {
