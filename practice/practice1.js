@@ -108,10 +108,18 @@ function formatUserProfile(user) {
     const ageGroup = setAgeGroup(user);
     
     // 登録日時のフォーマット
+    // const now = new Date();
+    // const registrationDate = now.toISOString().split('T')[0];
+    // const registrationTime = now.toTimeString().split(' ')[0];
+
     const now = new Date();
-    const registrationDate = now.toISOString().split('T')[0];
-    const registrationTime = now.toTimeString().split(' ')[0];
-    
+    function registrateDate (now) {
+        return now.toISOString().split('T')[0];
+    }
+    function registrateTime (now) {
+        return now.toTimeString().split(' ')[0];
+    }
+
     // プロフィールの生成
     const profile = {
         personalInfo: {
