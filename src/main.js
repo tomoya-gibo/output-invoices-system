@@ -2,12 +2,32 @@
   //2025/10/15
   //リファクタリング開始
 
+  //リファクタリングの目的
+  /*
+  コードの重複を減らす
+  理解しやすく、修正しやすい形にする
+  バグを生みにくくする
+  後の機能追加を安全に、少ない労力で行えるようにする
+  */
 
-  //喜劇と悲劇の共通部分の処理を抽出
-  function calculateBasePoint(performance) {
+  //リファクタリングの進め方
+  /*
+  1.リファクタリングする前の処理がそれぞれどんな役割を持っているかを考える
+  2.処理を関数として抽出したりクラスに分けたりする前に、関数に持たせたい役割や処理内容を明確にする
+  3.実際にリファクタリングを行い、main()と個々の関数の責任を分離する
+  4.動作が変わっていないかテストや出力結果を確認する
+  5.コード全体を読み直し、重複や命名の不整合を再度見直す
+  6.少しずつ変更し、都度コミットする
+  */
+
+  //ポイントの計算処理
+  function calculateBasePoint(performance,play) {
     let result = 0
     if (performance.audience > 30){
       result += (performance.audience - 30)
+    }
+    if (play.type === 'comedy'){
+      result += Math.floor(performance.audience / 5)
     }
     return result
   }
@@ -15,6 +35,29 @@
   //公演IDから演目データを取得する処理をplayForとして分離
   function playFor(performance, plays) {
     return plays[performance.playID];
+  }
+
+  //演目の種別ごとの料金算定
+  function amontFor(play){
+    switch (play.type) {
+      case "tragedy":
+        thisAmount = tragedyBasePrice;
+      //超過料金の算定
+      if (performance.audience > 30) {
+        thisAmount += (performance.audience - 30) * 1000;
+      }
+      break;
+      case "comedy":
+        thisAmount = comedyBasePrice;
+      //超過料金の算定
+      if (performance.audience > 20) {
+        thisAmount += 10000;
+        thisAmount += (performance.audience - 20) * 500;
+      }
+        //喜劇の場合のみ超過にかかわらず一人につき$300の追加
+        thisAmount += performance.audience * 300;
+      break;
+    }
   }
 
   function main() {
@@ -44,30 +87,11 @@
         //料金を入れる変数
         let thisAmount = 0;
         let thisPoint = 0;
-  
-        //演目の種別ごとの料金算定
-        switch (play.type) {
-          case "tragedy":
-            thisAmount = tragedyBasePrice;
-            //超過料金の算定
-            if (performance.audience > 30) {
-              thisAmount += (performance.audience - 30) * 1000;
-            }
-            break;
-          case "comedy":
-            thisAmount = comedyBasePrice;
-            //超過料金の算定
-            if (performance.audience > 20) {
-              thisAmount += 10000;
-              thisAmount += (performance.audience - 20) * 500;
-            }
-            //喜劇の場合のみ超過にかかわらず一人につき$300の追加
-            thisAmount += performance.audience * 300;
-            //観客数5人につき1ポイント追加
-            thisPoint += Math.floor(performance.audience / 5)
-            break;
-        }
-        thisPoint = calculateBasePoint(performance);
+
+
+
+
+        thisPoint = calculateBasePoint(performance,play);
         //合計金額
         totalAmount += thisAmount;
         //獲得ポイントの合計
