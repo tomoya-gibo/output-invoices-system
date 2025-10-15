@@ -95,7 +95,7 @@
         totalAmount += thisAmount;
         //獲得ポイントの合計
         totalPoint += thisPoint
-        output += `・${play.name} (観客数: ${performance.audience}、金額: $${thisAmount})\n`;
+        output += `・${play.name} (観客数: ${performance.audience}人、金額: $${thisAmount})\n`;
       }
     }
     output += `\n 合計金額: $${totalAmount}`
