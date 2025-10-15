@@ -3,15 +3,14 @@ const plays = require('../input/plays.json');
 const fs = require("fs");
 
 function main() {
-	//△let/const
-	let performances = invoices[0].performances;	//演目(dic)
+	const performances = invoices[0].performances;	//演目(dic)
 	let point = 0;				//ポイント
 	let amount = 0;				//金額
 	let totalAmount = 0;		//合計金額
 	let resultData = "請求書\n\n株式会社ビッグカンパニー\n\n";		//請求内容出力用
 	
 	//金額計算
-	for (let performance of performances) {
+	for (const performance of performances) {
 		amount = 0;
 		if (plays[performance.playID].type === "tragedy") {		//悲劇の場合
 			amount += 40000;
@@ -31,7 +30,7 @@ function main() {
 	}	
 
 	//ポイント計算
-	for (let performance of performances) {
+	for (const performance of performances) {
 		if (performance.audience > 30) {
 			point += (performance.audience - 30) * 1;
 		}
@@ -42,8 +41,8 @@ function main() {
 
 	resultData += `\n合計金額：$${totalAmount}\n\n`;
 	resultData += `獲得ポイント：${point}pt\n`;
-	
-	//ファイルへ書き込む
+
+	// ファイルへ書き込む
 	fs.writeFileSync("../output/invoice.txt", resultData);
 }
 
