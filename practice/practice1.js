@@ -1,5 +1,6 @@
 // リファクタリングタスク: 関数の抽出を行ってください
 
+//10/15
 function formatUserProfile(user) {
     // ユーザー情報のバリデーション
     if (!user.name || user.name.trim() === '') {
