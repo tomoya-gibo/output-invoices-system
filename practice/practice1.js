@@ -102,8 +102,10 @@ function formatUserProfile(user) {
                 result = '60代以上';
             }
         }
+        return result;
     }
-    
+
+    const ageGroup = setAgeGroup(user);
     
     // 登録日時のフォーマット
     const now = new Date();
