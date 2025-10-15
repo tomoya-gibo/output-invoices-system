@@ -12,6 +12,10 @@
     return result
   }
 
+  function playFor(performance, plays) {
+    return plays[performance.playID];
+  }
+
   function main() {
     const fs = require("fs");
     // 1 入力データの読み込み
@@ -35,7 +39,7 @@
       // for文でinvoice.performancesの中身を取り出す
       for (let performance of invoice.performances) {
         // playsのキーとperformance.playIDを照合してplayに代入
-        const play = plays[performance.playID];
+        const play = playFor(performance, plays);
         //料金を入れる変数
         let thisAmount = 0;
         let thisPoint = 0;
