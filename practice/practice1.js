@@ -13,9 +13,32 @@ function userValidation(user) {
     }
 }
 
+//年齢グループの判別を行う関数
+function ageGroup(user) {
+    let result = '未設定';
+    if (user.age) {
+    if (user.age < 13) {
+        result = '子ども';
+    } else if (user.age < 20) {
+        result = '10代';
+    } else if (user.age < 30) {
+        result = '20代';
+    } else if (user.age < 40) {
+        result = '30代';
+    } else if (user.age < 50) {
+        result = '40代';
+    } else if (user.age < 60) {
+        result = '50代';
+    } else {
+        result = '60代以上';
+        }
+    return result
+    }
+}
+
 //10/15
+//ユーザー情報のフォーマットを行う関数
 function formatUserProfile(user) {
-    // ユーザー情報のバリデーション
     userValidation(user);
     // 名前のフォーマット（姓と名を分割）
     let firstName = '';
@@ -31,27 +54,8 @@ function formatUserProfile(user) {
     
     // メールアドレスのフォーマット（小文字化）
     const formattedEmail = user.email.toLowerCase().trim();
-    
-    // 年齢グループの計算
-    let ageGroup = '未設定';
-    if (user.age) {
-        if (user.age < 13) {
-            ageGroup = '子ども';
-        } else if (user.age < 20) {
-            ageGroup = '10代';
-        } else if (user.age < 30) {
-            ageGroup = '20代';
-        } else if (user.age < 40) {
-            ageGroup = '30代';
-        } else if (user.age < 50) {
-            ageGroup = '40代';
-        } else if (user.age < 60) {
-            ageGroup = '50代';
-        } else {
-            ageGroup = '60代以上';
-        }
-    }
-    
+    const userera = ageGroup(user)
+        
     // 登録日時のフォーマット
     const now = new Date();
     const registrationDate = now.toISOString().split('T')[0];
@@ -65,7 +69,7 @@ function formatUserProfile(user) {
             fullName: user.name.trim(),
             email: formattedEmail,
             age: user.age || '未設定',
-            ageGroup: ageGroup
+            ageGroup: userera
         },
         systemInfo: {
             registrationDate: registrationDate,
@@ -75,7 +79,7 @@ function formatUserProfile(user) {
         display: {
             welcomeMessage: `ようこそ、${firstName}さん！`,
             emailDisplay: `メール: ${formattedEmail}`,
-            ageDisplay: user.age ? `${user.age}歳 (${ageGroup})` : '年齢未設定'
+            ageDisplay: user.age ? `${user.age}歳 (${userera})` : '年齢未設定'
         }
     };
     
@@ -96,6 +100,7 @@ const testUser2 = {
 };
 
 // 関数実行テスト
+
 console.log('=== ユーザープロフィールフォーマットテスト ===');
 
 try {
