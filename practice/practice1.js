@@ -13,42 +13,59 @@ function userValidation(user) {
     }
 }
 
-//年齢グループの判別を行う関数
+// 年齢グループの判別を行う関数
 function ageGroup(user) {
     let result = '未設定';
     if (user.age) {
-    if (user.age < 13) {
-        result = '子ども';
-    } else if (user.age < 20) {
-        result = '10代';
-    } else if (user.age < 30) {
-        result = '20代';
-    } else if (user.age < 40) {
-        result = '30代';
-    } else if (user.age < 50) {
-        result = '40代';
-    } else if (user.age < 60) {
-        result = '50代';
-    } else {
-        result = '60代以上';
+        if (user.age < 13) {
+            result = '子ども';
+        } else if (user.age < 20) {
+            result = '10代';
+        } else if (user.age < 30) {
+            result = '20代';
+        } else if (user.age < 40) {
+            result = '30代';
+        } else if (user.age < 50) {
+            result = '40代';
+        } else if (user.age < 60) {
+            result = '50代';
+        } else {
+            result = '60代以上';
         }
-    return result
+        return result;
     }
 }
 
-//ユーザーの登録日時の作成を行う関数
+// ユーザーの登録日時の作成を行う関数
 function registrationDate() {
- const now = new Date();
+    const now = new Date();
 
- return {
-    registrationDate: now.toISOString().split('T')[0],
-    registrationTime: now.toTimeString().split(' ')[0],
-    formattedAt: now.toISOString()
- };
-    
+    return {
+        registrationDate: now.toISOString().split('T')[0],
+        registrationTime: now.toTimeString().split(' ')[0],
+        formattedAt: now.toISOString()
+    };
 }
 
-//ユーザー情報のフォーマットを行う関数
+function display(user) {
+    const view = formatUserProfile(user)
+    console.log(view + "viewの中身")
+}
+
+function createUser(user){
+    // プロフィールの生成
+    return {
+        personalInfo: formatUserProfile(user),
+        systemInfo: registrationDate(),
+        display: {
+            welcomeMessage: `ようこそ、${firstName}さん！`,
+            emailDisplay: `メール: ${formattedEmail}`,
+            ageDisplay: user.age ? `${user.age}歳 (${userAgeGroup})` : '年齢未設定'
+        }
+    };
+}
+
+// ユーザー情報のフォーマットを行う関数
 function formatUserProfile(user) {
     userValidation(user);
     // 名前のフォーマット（姓と名を分割）
@@ -62,33 +79,45 @@ function formatUserProfile(user) {
         firstName = nameParts[0];
         lastName = nameParts.slice(1).join(' ');
     }
-    
+
     // メールアドレスのフォーマット（小文字化）
     const formattedEmail = user.email.toLowerCase().trim();
-    const userAgeGroup = ageGroup(user)
-        
-    // 登録日時のフォーマット
-    //const now = registrationDate()
+
+    const userAgeGroup = ageGroup(user);
+    return {
+        firstName: firstName,
+        lastName: lastName,
+        fullName: user.name.trim(),
+        email: formattedEmail,
+        age: user.age || '未設定',
+        ageGroup: userAgeGroup    
+    }
     
-    // プロフィールの生成
-    const profile = {
-        personalInfo: {
-            firstName: firstName,
-            lastName: lastName,
-            fullName: user.name.trim(),
-            email: formattedEmail,
-            age: user.age || '未設定',
-            ageGroup: userAgeGroup
-        },
-        systemInfo:registrationDate(),
-        display: {
-            welcomeMessage: `ようこそ、${firstName}さん！`,
-            emailDisplay: `メール: ${formattedEmail}`,
-            ageDisplay: user.age ? `${user.age}歳 (${userAgeGroup})` : '年齢未設定'
-        }
-    };
-    return profile;
 }
+    
+
+    // // プロフィールの生成
+    // const profile = {
+    //     personalInfo: {
+    //         firstName: firstName,
+    //         lastName: lastName,
+    //         fullName: user.name.trim(),
+    //         email: formattedEmail,
+    //         age: user.age || '未設定',
+    //         ageGroup: userAgeGroup
+    //     },
+    //     systemInfo: registrationDate(),
+    //     display: {
+    //         welcomeMessage: `ようこそ、${firstName}さん！`,
+    //         emailDisplay: `メール: ${formattedEmail}`,
+    //         ageDisplay: user.age ? `${user.age}歳 (${userAgeGroup})` : '年齢未設定'
+    //     }
+    // };
+
+    // return profile;
+
+    //createUser(user);
+
 
 // テストデータ
 const testUser1 = {
@@ -104,7 +133,6 @@ const testUser2 = {
 };
 
 // 関数実行テスト
-
 console.log('=== ユーザープロフィールフォーマットテスト ===');
 
 try {
