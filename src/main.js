@@ -2,12 +2,22 @@
   //2025/10/15
   //リファクタリング開始
 
+
+  //喜劇と悲劇の共通部分の処理を抽出
+  function calculateBasePoint(performance) {
+    let result = 0
+    if (performance.audience > 30){
+      result += (performance.audience - 30)
+    }
+    return result
+  }
+
   function main() {
     const fs = require("fs");
     // 1 入力データの読み込み
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
-  
+
     // 出力用変数
     let output = "請求書\n株式会社ビッグカンパニー\n\n";
   
@@ -38,9 +48,7 @@
             if (performance.audience > 30) {
               thisAmount += (performance.audience - 30) * 1000;
             }
-            if (performance.audience > 30){
-              thisPoint += (performance.audience - 30)
-            }
+            thisPoint = calculateBasePoint(performance);
             break;
           case "comedy":
             thisAmount = comedyBasePrice;
@@ -49,9 +57,7 @@
               thisAmount += 10000;
               thisAmount += (performance.audience - 20) * 500;
             }
-            if (performance.audience > 30){
-              thisPoint += (performance.audience - 30)
-            }
+            thisPoint = calculateBasePoint(performance);
             //喜劇の場合のみ超過にかかわらず一人につき$300の追加
             thisAmount += performance.audience * 300;
             //観客数5人につき1ポイント追加
