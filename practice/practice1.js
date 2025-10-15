@@ -63,25 +63,47 @@ function formatUserProfile(user) {
 
     const formattedEmail = lowerCaseEmail(user);
 
-    // 年齢グループの計算
-    let ageGroup = '未設定';
-    if (user.age) {
-        if (user.age < 13) {
-            ageGroup = '子ども';
-        } else if (user.age < 20) {
-            ageGroup = '10代';
-        } else if (user.age < 30) {
-            ageGroup = '20代';
-        } else if (user.age < 40) {
-            ageGroup = '30代';
-        } else if (user.age < 50) {
-            ageGroup = '40代';
-        } else if (user.age < 60) {
-            ageGroup = '50代';
-        } else {
-            ageGroup = '60代以上';
+    // // 年齢グループの計算
+    // let ageGroup = '未設定';
+    // if (user.age) {
+    //     if (user.age < 13) {
+    //         ageGroup = '子ども';
+    //     } else if (user.age < 20) {
+    //         ageGroup = '10代';
+    //     } else if (user.age < 30) {
+    //         ageGroup = '20代';
+    //     } else if (user.age < 40) {
+    //         ageGroup = '30代';
+    //     } else if (user.age < 50) {
+    //         ageGroup = '40代';
+    //     } else if (user.age < 60) {
+    //         ageGroup = '50代';
+    //     } else {
+    //         ageGroup = '60代以上';
+    //     }
+    // }
+
+    function setAgeGroup(user) {
+        let ageGroup = '未設定';
+        if (user.age) {
+            if (user.age < 13) {
+                ageGroup = '子ども';
+            } else if (user.age < 20) {
+                ageGroup = '10代';
+            } else if (user.age < 30) {
+                ageGroup = '20代';
+            } else if (user.age < 40) {
+                ageGroup = '30代';
+            } else if (user.age < 50) {
+                ageGroup = '40代';
+            } else if (user.age < 60) {
+                ageGroup = '50代';
+            } else {
+                ageGroup = '60代以上';
+            }
         }
     }
+    
     
     // 登録日時のフォーマット
     const now = new Date();
