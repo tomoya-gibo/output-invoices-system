@@ -12,6 +12,18 @@ function formatUserProfile(user) {
         throw new Error('年齢は0〜150の範囲である必要があります');
     }
     
+    function checkUser(user) {
+        if (!user.name || user.name.trim() === '') {
+            throw new Error('ユーザー名が必須です');
+        }
+        if (!user.email || !user.email.includes('@')) {
+            throw new Error('有効なメールアドレスが必要です');
+        }
+        if (user.age && (user.age < 0 || user.age > 150)) {
+            throw new Error('年齢は0〜150の範囲である必要があります');
+        }
+    }
+
     // 名前のフォーマット（姓と名を分割）
     let firstName = '';
     let lastName = '';
