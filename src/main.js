@@ -34,9 +34,8 @@ function main() {
 		// console.log(`単価:${amount}`);
 		totalAmount += amount;
 		// console.log(`合計:${totalAmount}`);
-		resultData += `・${performance.playID} (観客数:${performance.audience}人、金額:$${amount})\n`;
-		//大文字にしたいし汎用性ない⚠️
-
+		resultData += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
+		
 	}	
 
 	//ポイント計算
