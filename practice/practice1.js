@@ -1,74 +1,18 @@
 // リファクタリングタスク: 関数の抽出を行ってください
 
 function formatUserProfile(user) {
-    function checkUser(user) {
-        if (!user.name || user.name.trim() === '') {
-            throw new Error('ユーザー名が必須です');
-        }
-        if (!user.email || !user.email.includes('@')) {
-            throw new Error('有効なメールアドレスが必要です');
-        }
-        if (user.age && (user.age < 0 || user.age > 150)) {
-            throw new Error('年齢は0〜150の範囲である必要があります');
-        }
-    }
-
     checkUser(user);
-    
+
     let firstName = '';
     let lastName = '';
 
-    function formatName (user) {
-        const nameParts = user.name.trim().split(' ');
-        if (nameParts.length === 1) {
-            firstName = nameParts[0];
-            lastName = '';
-        } else {
-            firstName = nameParts[0];
-            lastName = nameParts.slice(1).join(' ');
-        }
-    }
-
     formatName(user);
-
-    function lowerCaseEmail (user) {
-        return user.email.toLowerCase().trim();
-    }
-
+    
     const formattedEmail = lowerCaseEmail(user);
 
-    function setAgeGroup(user) {
-        let result = '未設定';
-        if (user.age) {
-            if (user.age < 13) {
-                result = '子ども';
-            } else if (user.age < 20) {
-                result = '10代';
-            } else if (user.age < 30) {
-                result = '20代';
-            } else if (user.age < 40) {
-                result = '30代';
-            } else if (user.age < 50) {
-                result = '40代';
-            } else if (user.age < 60) {
-                result = '50代';
-            } else {
-                result = '60代以上';
-            }
-        }
-        return result;
-    }
-
     const ageGroup = setAgeGroup(user);
-    
-    const now = new Date();
-    function registrateDate (now) {
-        return now.toISOString().split('T')[0];
-    }
-    function registrateTime (now) {
-        return now.toTimeString().split(' ')[0];
-    }
 
+    const now = new Date();
     const registrationDate = registrateDate(now);
     const registrationTime = registrateTime(now);
 
@@ -95,6 +39,63 @@ function formatUserProfile(user) {
     };
     
     return profile;
+    
+    
+    function checkUser(user) {
+        if (!user.name || user.name.trim() === '') {
+            throw new Error('ユーザー名が必須です');
+        }
+        if (!user.email || !user.email.includes('@')) {
+            throw new Error('有効なメールアドレスが必要です');
+        }
+        if (user.age && (user.age < 0 || user.age > 150)) {
+            throw new Error('年齢は0〜150の範囲である必要があります');
+        }
+    }
+
+    function formatName (user) {
+        const nameParts = user.name.trim().split(' ');
+        if (nameParts.length === 1) {
+            firstName = nameParts[0];
+            lastName = '';
+        } else {
+            firstName = nameParts[0];
+            lastName = nameParts.slice(1).join(' ');
+        }
+    }
+
+    function lowerCaseEmail (user) {
+        return user.email.toLowerCase().trim();
+    }
+
+    function setAgeGroup(user) {
+        let result = '未設定';
+        if (user.age) {
+            if (user.age < 13) {
+                result = '子ども';
+            } else if (user.age < 20) {
+                result = '10代';
+            } else if (user.age < 30) {
+                result = '20代';
+            } else if (user.age < 40) {
+                result = '30代';
+            } else if (user.age < 50) {
+                result = '40代';
+            } else if (user.age < 60) {
+                result = '50代';
+            } else {
+                result = '60代以上';
+            }
+        }
+        return result;
+    }
+
+    function registrateDate (now) {
+        return now.toISOString().split('T')[0];
+    }
+    function registrateTime (now) {
+        return now.toTimeString().split(' ')[0];
+    }
 }
 
 function main() {
