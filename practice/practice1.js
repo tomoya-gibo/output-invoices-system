@@ -56,7 +56,11 @@ function formatUserProfile(user) {
 
     // メールアドレスのフォーマット（小文字化）
     const formattedEmail = user.email.toLowerCase().trim();
-    
+
+    function lowerCaseEmail (user) {
+        return user.email.toLowerCase().trim();
+    }
+
     // 年齢グループの計算
     let ageGroup = '未設定';
     if (user.age) {
