@@ -1,8 +1,7 @@
 // リファクタリングタスク: 関数の抽出を行ってください
 
-//10/15
-function formatUserProfile(user) {
-    // ユーザー情報のバリデーション
+// ユーザー情報のバリデーション
+function userValidation(user) {
     if (!user.name || user.name.trim() === '') {
         throw new Error('ユーザー名が必須です');
     }
@@ -12,7 +11,12 @@ function formatUserProfile(user) {
     if (user.age && (user.age < 0 || user.age > 150)) {
         throw new Error('年齢は0〜150の範囲である必要があります');
     }
-    
+}
+
+//10/15
+function formatUserProfile(user) {
+    // ユーザー情報のバリデーション
+    userValidation(user);
     // 名前のフォーマット（姓と名を分割）
     let firstName = '';
     let lastName = '';
