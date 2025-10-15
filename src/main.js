@@ -1,4 +1,3 @@
-//jsonファイルのインポート
 const invoices = require('../input/invoices.json');
 const plays = require('../input/plays.json');
 const fs = require("fs");
@@ -9,9 +8,7 @@ function main() {
 	let point = 0;				//ポイント
 	let amount = 0;				//金額
 	let totalAmount = 0;		//合計金額
-
-	//請求内容　→これよろしくない、別の方法考えよう⚠️
-	let resultData = "請求書\n\n株式会社ビッグカンパニー\n\n";		
+	let resultData = "請求書\n\n株式会社ビッグカンパニー\n\n";		//請求内容出力用
 	
 	//金額計算
 	for (let performance of performances) {
