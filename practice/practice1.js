@@ -9,7 +9,7 @@ function formatUserProfile(user) {
    
     const formattedEmail = lowerCaseEmail(user.email);
 
-    const ageGroup = setAgeGroup(user);
+    const ageGroup = setAgeGroup(user.age);
 
     const now = new Date();
     const registrationDate = registrateDate(now);
@@ -49,20 +49,20 @@ function formatUserProfile(user) {
         return email.toLowerCase().trim();
     }
 
-    function setAgeGroup(user) {
+    function setAgeGroup(age) {
         let result = '未設定';
-        if (user.age) {
-            if (user.age < 13) {
+        if (age) {
+            if (age < 13) {
                 result = '子ども';
-            } else if (user.age < 20) {
+            } else if (age < 20) {
                 result = '10代';
-            } else if (user.age < 30) {
+            } else if (age < 30) {
                 result = '20代';
-            } else if (user.age < 40) {
+            } else if (age < 40) {
                 result = '30代';
-            } else if (user.age < 50) {
+            } else if (age < 50) {
                 result = '40代';
-            } else if (user.age < 60) {
+            } else if (age < 60) {
                 result = '50代';
             } else {
                 result = '60代以上';
