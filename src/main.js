@@ -4,8 +4,7 @@ const plays = require('../input/plays.json');
 const fs = require("fs");
 
 function main() {
-	//使いそうな変数　△let/const
-	const company = invoices[0].customer;			//会社名
+	//△let/const
 	let performances = invoices[0].performances;	//演目(dic)
 	let point = 0;				//ポイント
 	let amount = 0;				//金額
@@ -30,12 +29,8 @@ function main() {
 				amount += (performance.audience - 20) * 500;
 			}
 		}
-		
-		// console.log(`単価:${amount}`);
 		totalAmount += amount;
-		// console.log(`合計:${totalAmount}`);
 		resultData += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
-		
 	}	
 
 	//ポイント計算
@@ -50,10 +45,6 @@ function main() {
 
 	resultData += `\n合計金額：$${totalAmount}\n\n`;
 	resultData += `獲得ポイント：${point}pt\n`;
-	
-	// console.log(resultData);
-	
-	//結果の出力
 	
 	//ファイルへ書き込む
 	fs.writeFileSync("../output/invoice.txt", resultData);
