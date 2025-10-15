@@ -56,8 +56,8 @@ function main() {
 	
 	//結果の出力
 	
-	// //ファイルへ書き込む
-	// fs.writeFileSync("../output/invoice.txt", resultData);
+	//ファイルへ書き込む
+	fs.writeFileSync("../output/invoice.txt", resultData);
 }
 
 main();
