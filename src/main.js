@@ -39,6 +39,9 @@
 
   //演目の種別ごとの料金算定
   function amontFor(play){
+    // 基本料金
+    const tragedyBasePrice = 40000;
+    const comedyBasePrice = 30000;
     switch (play.type) {
       case "tragedy":
         thisAmount = tragedyBasePrice;
@@ -58,6 +61,7 @@
         thisAmount += performance.audience * 300;
       break;
     }
+    return thisAmount
   }
 
   function main() {
@@ -68,11 +72,7 @@
 
     // 出力用変数
     let output = "請求書\n株式会社ビッグカンパニー\n\n";
-  
-    // 基本料金
-    const tragedyBasePrice = 40000;
-    const comedyBasePrice = 30000;
-  
+    
     // 合計金額・ポイント
     let totalAmount = 0;
     let totalPoint = 0;
@@ -89,8 +89,7 @@
         let thisPoint = 0;
 
 
-
-
+        thisAmount += amontFor(play);
         thisPoint = calculateBasePoint(performance,play);
         //合計金額
         totalAmount += thisAmount;
