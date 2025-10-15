@@ -123,9 +123,10 @@
         output += `・${play.name} (観客数: ${performance.audience}、金額: $${thisAmount})\n`;
       }
     }
-    output += `\n 合計金額: ${totalAmount}`
-    output += `\n 獲得ポイント: ${totalPoint}`
+    output += `\n 合計金額: $${totalAmount}`
+    output += `\n 獲得ポイン: ${totalPoint}pt`
     console.log(output)
+    fs.writeFileSync("output.txt", output, 'utf-8');
   }
   
   main();
