@@ -12,6 +12,7 @@
     return result
   }
 
+  //公演IDから演目データを取得する処理をplayForとして分離
   function playFor(performance, plays) {
     return plays[performance.playID];
   }
@@ -52,7 +53,6 @@
             if (performance.audience > 30) {
               thisAmount += (performance.audience - 30) * 1000;
             }
-            thisPoint = calculateBasePoint(performance);
             break;
           case "comedy":
             thisAmount = comedyBasePrice;
@@ -61,13 +61,13 @@
               thisAmount += 10000;
               thisAmount += (performance.audience - 20) * 500;
             }
-            thisPoint = calculateBasePoint(performance);
             //喜劇の場合のみ超過にかかわらず一人につき$300の追加
             thisAmount += performance.audience * 300;
             //観客数5人につき1ポイント追加
             thisPoint += Math.floor(performance.audience / 5)
             break;
         }
+        thisPoint = calculateBasePoint(performance);
         //合計金額
         totalAmount += thisAmount;
         //獲得ポイントの合計
