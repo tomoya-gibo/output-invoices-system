@@ -120,6 +120,9 @@ function formatUserProfile(user) {
         return now.toTimeString().split(' ')[0];
     }
 
+    const registrationDate = registrateDate(now);
+    const registrationTime = registrateTime(now);
+
     // プロフィールの生成
     const profile = {
         personalInfo: {
