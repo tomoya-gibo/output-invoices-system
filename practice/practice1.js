@@ -1,6 +1,6 @@
 // リファクタリングタスク: 関数の抽出を行ってください
 
-// ユーザー情報のバリデーション
+// ユーザー情報のバリデーションチェック関数
 function userValidation(user) {
     if (!user.name || user.name.trim() === '') {
         throw new Error('ユーザー名が必須です');
@@ -36,7 +36,18 @@ function ageGroup(user) {
     }
 }
 
-//10/15
+//ユーザーの登録日時の作成を行う関数
+function registrationDate() {
+ const now = new Date();
+
+ return {
+    registrationDate: now.toISOString().split('T')[0],
+    registrationTime: now.toTimeString().split(' ')[0],
+    formattedAt: now.toISOString()
+ };
+    
+}
+
 //ユーザー情報のフォーマットを行う関数
 function formatUserProfile(user) {
     userValidation(user);
@@ -54,12 +65,10 @@ function formatUserProfile(user) {
     
     // メールアドレスのフォーマット（小文字化）
     const formattedEmail = user.email.toLowerCase().trim();
-    const userera = ageGroup(user)
+    const userAgeGroup = ageGroup(user)
         
     // 登録日時のフォーマット
-    const now = new Date();
-    const registrationDate = now.toISOString().split('T')[0];
-    const registrationTime = now.toTimeString().split(' ')[0];
+    //const now = registrationDate()
     
     // プロフィールの生成
     const profile = {
@@ -69,20 +78,15 @@ function formatUserProfile(user) {
             fullName: user.name.trim(),
             email: formattedEmail,
             age: user.age || '未設定',
-            ageGroup: userera
+            ageGroup: userAgeGroup
         },
-        systemInfo: {
-            registrationDate: registrationDate,
-            registrationTime: registrationTime,
-            formattedAt: now.toISOString()
-        },
+        systemInfo:registrationDate(),
         display: {
             welcomeMessage: `ようこそ、${firstName}さん！`,
             emailDisplay: `メール: ${formattedEmail}`,
-            ageDisplay: user.age ? `${user.age}歳 (${userera})` : '年齢未設定'
+            ageDisplay: user.age ? `${user.age}歳 (${userAgeGroup})` : '年齢未設定'
         }
     };
-    
     return profile;
 }
 
