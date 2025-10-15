@@ -26,21 +26,22 @@ function formatUserProfile(user) {
 
     checkUser(user);
     
-    // 名前のフォーマット（姓と名を分割）
+    // // 名前のフォーマット（姓と名を分割）
+    // let firstName = '';
+    // let lastName = '';
+    // const nameParts = user.name.trim().split(' ');
+    // if (nameParts.length === 1) {
+    //     firstName = nameParts[0];
+    //     lastName = '';
+    // } else {
+    //     firstName = nameParts[0];
+    //     lastName = nameParts.slice(1).join(' ');
+    // }
+    
     let firstName = '';
     let lastName = '';
-    const nameParts = user.name.trim().split(' ');
-    if (nameParts.length === 1) {
-        firstName = nameParts[0];
-        lastName = '';
-    } else {
-        firstName = nameParts[0];
-        lastName = nameParts.slice(1).join(' ');
-    }
-    
+
     function formatName (user) {
-        let firstName = '';
-        let lastName = '';
         const nameParts = user.name.trim().split(' ');
         if (nameParts.length === 1) {
             firstName = nameParts[0];
