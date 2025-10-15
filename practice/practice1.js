@@ -3,11 +3,11 @@
 function formatUserProfile(user) {
     checkUser(user);
 
-    const formattedName = formatName(user);
+    const formattedName = formatName(user.name);
     const firstName = formattedName[0];
     const lastName = formattedName[1];
    
-    const formattedEmail = lowerCaseEmail(user);
+    const formattedEmail = lowerCaseEmail(user.email);
 
     const ageGroup = setAgeGroup(user);
 
@@ -31,8 +31,8 @@ function formatUserProfile(user) {
         }
     }
 
-    function formatName (user) {
-        const nameParts = user.name.trim().split(' ');
+    function formatName (userName) {
+        const nameParts = userName.trim().split(' ');
         let firstName = '';
         let lastName = '';
         if (nameParts.length === 1) {
@@ -45,8 +45,8 @@ function formatUserProfile(user) {
         return [firstName, lastName];
     }
 
-    function lowerCaseEmail (user) {
-        return user.email.toLowerCase().trim();
+    function lowerCaseEmail (email) {
+        return email.toLowerCase().trim();
     }
 
     function setAgeGroup(user) {
