@@ -1,17 +1,6 @@
 // リファクタリングタスク: 関数の抽出を行ってください
 
 function formatUserProfile(user) {
-    // // ユーザー情報のバリデーション
-    // if (!user.name || user.name.trim() === '') {
-    //     throw new Error('ユーザー名が必須です');
-    // }
-    // if (!user.email || !user.email.includes('@')) {
-    //     throw new Error('有効なメールアドレスが必要です');
-    // }
-    // if (user.age && (user.age < 0 || user.age > 150)) {
-    //     throw new Error('年齢は0〜150の範囲である必要があります');
-    // }
-    
     function checkUser(user) {
         if (!user.name || user.name.trim() === '') {
             throw new Error('ユーザー名が必須です');
@@ -25,18 +14,6 @@ function formatUserProfile(user) {
     }
 
     checkUser(user);
-    
-    // // 名前のフォーマット（姓と名を分割）
-    // let firstName = '';
-    // let lastName = '';
-    // const nameParts = user.name.trim().split(' ');
-    // if (nameParts.length === 1) {
-    //     firstName = nameParts[0];
-    //     lastName = '';
-    // } else {
-    //     firstName = nameParts[0];
-    //     lastName = nameParts.slice(1).join(' ');
-    // }
     
     let firstName = '';
     let lastName = '';
@@ -54,34 +31,11 @@ function formatUserProfile(user) {
 
     formatName(user);
 
-    // // メールアドレスのフォーマット（小文字化）
-    // const formattedEmail = user.email.toLowerCase().trim();
-
     function lowerCaseEmail (user) {
         return user.email.toLowerCase().trim();
     }
 
     const formattedEmail = lowerCaseEmail(user);
-
-    // // 年齢グループの計算
-    // let ageGroup = '未設定';
-    // if (user.age) {
-    //     if (user.age < 13) {
-    //         ageGroup = '子ども';
-    //     } else if (user.age < 20) {
-    //         ageGroup = '10代';
-    //     } else if (user.age < 30) {
-    //         ageGroup = '20代';
-    //     } else if (user.age < 40) {
-    //         ageGroup = '30代';
-    //     } else if (user.age < 50) {
-    //         ageGroup = '40代';
-    //     } else if (user.age < 60) {
-    //         ageGroup = '50代';
-    //     } else {
-    //         ageGroup = '60代以上';
-    //     }
-    // }
 
     function setAgeGroup(user) {
         let result = '未設定';
@@ -107,11 +61,6 @@ function formatUserProfile(user) {
 
     const ageGroup = setAgeGroup(user);
     
-    // 登録日時のフォーマット
-    // const now = new Date();
-    // const registrationDate = now.toISOString().split('T')[0];
-    // const registrationTime = now.toTimeString().split(' ')[0];
-
     const now = new Date();
     function registrateDate (now) {
         return now.toISOString().split('T')[0];
