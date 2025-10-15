@@ -52,6 +52,8 @@ function formatUserProfile(user) {
         }
     }
 
+    formatName(user);
+
     // メールアドレスのフォーマット（小文字化）
     const formattedEmail = user.email.toLowerCase().trim();
     
