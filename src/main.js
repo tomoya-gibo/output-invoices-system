@@ -35,7 +35,7 @@ function main() {
 			point += (performance.audience - 30) * 1;
 		}
 		if (plays[performance.playID].type === "comedy") {
-			point += (performance.audience / 5) * 1;
+			point += Math.floor(performance.audience / 5) * 1;
 		}
 	}
 
