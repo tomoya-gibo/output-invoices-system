@@ -1,16 +1,16 @@
 // リファクタリングタスク: 関数の抽出を行ってください
 
 function formatUserProfile(user) {
-    // ユーザー情報のバリデーション
-    if (!user.name || user.name.trim() === '') {
-        throw new Error('ユーザー名が必須です');
-    }
-    if (!user.email || !user.email.includes('@')) {
-        throw new Error('有効なメールアドレスが必要です');
-    }
-    if (user.age && (user.age < 0 || user.age > 150)) {
-        throw new Error('年齢は0〜150の範囲である必要があります');
-    }
+    // // ユーザー情報のバリデーション
+    // if (!user.name || user.name.trim() === '') {
+    //     throw new Error('ユーザー名が必須です');
+    // }
+    // if (!user.email || !user.email.includes('@')) {
+    //     throw new Error('有効なメールアドレスが必要です');
+    // }
+    // if (user.age && (user.age < 0 || user.age > 150)) {
+    //     throw new Error('年齢は0〜150の範囲である必要があります');
+    // }
     
     function checkUser(user) {
         if (!user.name || user.name.trim() === '') {
@@ -24,6 +24,8 @@ function formatUserProfile(user) {
         }
     }
 
+    checkUser(user);
+    
     // 名前のフォーマット（姓と名を分割）
     let firstName = '';
     let lastName = '';
@@ -36,6 +38,19 @@ function formatUserProfile(user) {
         lastName = nameParts.slice(1).join(' ');
     }
     
+    function formatName (user) {
+        let firstName = '';
+        let lastName = '';
+        const nameParts = user.name.trim().split(' ');
+        if (nameParts.length === 1) {
+            firstName = nameParts[0];
+            lastName = '';
+        } else {
+            firstName = nameParts[0];
+            lastName = nameParts.slice(1).join(' ');
+        }
+    }
+
     // メールアドレスのフォーマット（小文字化）
     const formattedEmail = user.email.toLowerCase().trim();
     
@@ -89,29 +104,33 @@ function formatUserProfile(user) {
     return profile;
 }
 
-// テストデータ
-const testUser1 = {
-    name: '山田 太郎',
-    email: 'YAMADA@Example.COM',
-    age: 28
-};
+function main() {
+    // テストデータ
+    const testUser1 = {
+        name: '山田 太郎',
+        email: 'YAMADA@Example.COM',
+        age: 28
+    };
 
-const testUser2 = {
-    name: '鈴木',
-    email: 'suzuki@test.com'
-    // ageは未設定
-};
+    const testUser2 = {
+        name: '鈴木',
+        email: 'suzuki@test.com'
+        // ageは未設定
+    };
 
-// 関数実行テスト
-console.log('=== ユーザープロフィールフォーマットテスト ===');
+    // 関数実行テスト
+    console.log('=== ユーザープロフィールフォーマットテスト ===');
 
-try {
-    console.log('ユーザー1:');
-    console.log(JSON.stringify(formatUserProfile(testUser1), null, 2));
-    
-    console.log('\nユーザー2:');
-    console.log(JSON.stringify(formatUserProfile(testUser2), null, 2));
-    
-} catch (error) {
-    console.error('エラー:', error.message);
+    try {
+        console.log('ユーザー1:');
+        console.log(JSON.stringify(formatUserProfile(testUser1), null, 2));
+        
+        console.log('\nユーザー2:');
+        console.log(JSON.stringify(formatUserProfile(testUser2), null, 2));
+        
+    } catch (error) {
+        console.error('エラー:', error.message);
+    }
 }
+
+main()
