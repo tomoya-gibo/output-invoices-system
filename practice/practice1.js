@@ -54,11 +54,11 @@ function showUserData(user){
     return {
         personalInfo: userProfileData(user),
         systemInfo: registrationDate(),
-        display: {
-            welcomeMessage: `ようこそ、${firstName}さん！`,
-            emailDisplay: `メール: ${formattedEmail}`,
-            ageDisplay: user.age ? `${user.age}歳 (${user.ageGroup})` : '年齢未設定'
-        }
+        // display: {
+        //     welcomeMessage: `ようこそ、${firstName}さん！`,
+        //     emailDisplay: `メール: ${formattedEmail}`,
+        //     ageDisplay: user.age ? `${user.age}歳 (${user.ageGroup})` : '年齢未設定'
+        // }
     };
 }
 
@@ -69,9 +69,13 @@ function userProfileData(user){
     const userAgeGroup = ageGroup(user);
     const format = formatUserProfile(user)
     console.log(format);
+    let firstName = format.firstName;
+    console.log(firstName);
+    let lastName = format.lastName;
+    console.log(lastName);
     return {
-        firstName: format.firstName,
-        lastName: format.lastName,
+        firstName: firstName,
+        lastName: lastName,
         fullName: user.name.trim(),
         email: formattedEmail,
         age: user.age || '未設定',
