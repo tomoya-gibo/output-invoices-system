@@ -5,13 +5,11 @@
 // 追加仕様の詳細
 // htmlでの出力に対応する。ヒント：コマンドライン引数でユーザがtxtかhtmlか選べるようにする。
 
-import { stdin as input, stdout as output, exit } from "node:process";
-import * as readline from "node:readline/promises";
-
-
-
   function main() {
+    //ファイルを読み込むモジュール
     const fs = require("fs");
+    //コマンドラインからのユーザーの入力を受け取れるようにするモジュール
+    const readline = require("readline");
     // 1 入力データの読み込み
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
@@ -77,10 +75,11 @@ import * as readline from "node:readline/promises";
     output += `\n 獲得ポイント: ${totalPoint}pt`
     console.log(output)
 
-    const question = "txtとhtmlどちらで出力しますか?";
-    const options = ["txt", "html"];
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout,
+    });
 
-    fs.writeFileSync("output.txt", output, 'utf-8');
   }
   
   main();
