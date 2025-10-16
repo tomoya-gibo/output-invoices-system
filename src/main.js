@@ -80,6 +80,17 @@
       output: process.stdout,
     });
 
+    rl.question('txtとhtmlどちらの形式で出力しますか？ : ', (answer) => {
+      console.log(`${answer}の形式で出力します`);
+      if (answer === 'txt') {
+        fs.writeFileSync("output.txt", output, 'utf-8');
+      }
+      if (answer === 'html') {
+        fs.writeFileSync("output.html", output, 'utf-8');
+      }
+      rl.close();
+    });
+
   }
   
   main();
