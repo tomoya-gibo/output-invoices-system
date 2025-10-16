@@ -103,20 +103,21 @@ function formatUserProfile(user) {
     }   
 }
 
-function main() {
-    // テストデータ
-    const testUser1 = {
-        name: '山田 太郎',
-        email: 'YAMADA@Example.COM',
-        age: 28
-    };
 
-    const testUser2 = {
-        name: '鈴木',
-        email: 'suzuki@test.com'
-        // ageは未設定
-    };
+// テストデータ
+const testUser1 = {
+    name: '山田 太郎',
+    email: 'YAMADA@Example.COM',
+    age: 28
+};
 
+const testUser2 = {
+    name: '鈴木',
+    email: 'suzuki@test.com'
+    // ageは未設定
+};
+
+function test() {
     // 関数実行テスト
     console.log('=== ユーザープロフィールフォーマットテスト ===');
 
@@ -132,4 +133,4 @@ function main() {
     }
 }
 
-main()
+test();
