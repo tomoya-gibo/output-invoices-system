@@ -52,7 +52,7 @@ function displayUserData(user) {
 
 function showUserData(user){
     return {
-        personalInfo: formatUserProfile(user),
+        personalInfo: userProfileData(user),
         systemInfo: registrationDate(),
         display: {
             welcomeMessage: `ようこそ、${firstName}さん！`,
@@ -70,8 +70,8 @@ function userProfileData(user){
     const format = formatUserProfile(user)
     console.log(format);
     return {
-        firstName: firstName,
-        lastName: lastName,
+        firstName: format.firstName,
+        lastName: format.lastName,
         fullName: user.name.trim(),
         email: formattedEmail,
         age: user.age || '未設定',
@@ -151,11 +151,11 @@ const testUser2 = {
 console.log('=== ユーザープロフィールフォーマットテスト ===');
 
 try {
-    // console.log('ユーザー1:');
-    // console.log(JSON.stringify(formatUserProfile(testUser1), null, 2));
+    console.log('ユーザー1:');
+    console.log(JSON.stringify(showUserData(testUser1), null, 2));
     
-    console.log('\nユーザー2:');
-    console.log(JSON.stringify(formatUserProfile(testUser2), null, 2));
+    // console.log('\nユーザー2:');
+    // console.log(JSON.stringify(formatUserProfile(testUser2), null, 2));
 } catch (error) {
     console.error('エラー:', error.message);
 }
