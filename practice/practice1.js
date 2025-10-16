@@ -47,22 +47,36 @@ function registrationDate() {
     };
 }
 
-function display(user) {
-    const view = formatUserProfile(user)
-    console.log(view + "viewの中身")
+function displayUserData(user) {
 }
 
-function createUser(user){
-    // プロフィールの生成
+function showUserData(user){
     return {
         personalInfo: formatUserProfile(user),
         systemInfo: registrationDate(),
         display: {
             welcomeMessage: `ようこそ、${firstName}さん！`,
             emailDisplay: `メール: ${formattedEmail}`,
-            ageDisplay: user.age ? `${user.age}歳 (${userAgeGroup})` : '年齢未設定'
+            ageDisplay: user.age ? `${user.age}歳 (${user.ageGroup})` : '年齢未設定'
         }
     };
+}
+
+function userProfileData(user){
+    // メールアドレスのフォーマット（小文字化）
+    const formattedEmail = user.email.toLowerCase().trim();
+    // ユーザーの年齢区分
+    const userAgeGroup = ageGroup(user);
+    const format = formatUserProfile(user)
+    console.log(format);
+    return {
+        firstName: firstName,
+        lastName: lastName,
+        fullName: user.name.trim(),
+        email: formattedEmail,
+        age: user.age || '未設定',
+        ageGroup: userAgeGroup    
+    }
 }
 
 // ユーザー情報のフォーマットを行う関数
@@ -72,27 +86,28 @@ function formatUserProfile(user) {
     let firstName = '';
     let lastName = '';
     const nameParts = user.name.trim().split(' ');
+    console.log(nameParts)
     if (nameParts.length === 1) {
         firstName = nameParts[0];
         lastName = '';
+        return firstName;
     } else {
         firstName = nameParts[0];
         lastName = nameParts.slice(1).join(' ');
+        return {firstName, lastName};
     }
-
-    // メールアドレスのフォーマット（小文字化）
-    const formattedEmail = user.email.toLowerCase().trim();
-
-    const userAgeGroup = ageGroup(user);
-    return {
-        firstName: firstName,
-        lastName: lastName,
-        fullName: user.name.trim(),
-        email: formattedEmail,
-        age: user.age || '未設定',
-        ageGroup: userAgeGroup    
-    }
-    
+    // // メールアドレスのフォーマット（小文字化）
+    // const formattedEmail = user.email.toLowerCase().trim();
+    // // ユーザーの年齢区分
+    // const userAgeGroup = ageGroup(user);
+    // return {
+    //     firstName: firstName,
+    //     lastName: lastName,
+    //     fullName: user.name.trim(),
+    //     email: formattedEmail,
+    //     age: user.age || '未設定',
+    //     ageGroup: userAgeGroup    
+    // }
 }
     
 
@@ -136,12 +151,11 @@ const testUser2 = {
 console.log('=== ユーザープロフィールフォーマットテスト ===');
 
 try {
-    console.log('ユーザー1:');
-    console.log(JSON.stringify(formatUserProfile(testUser1), null, 2));
+    // console.log('ユーザー1:');
+    // console.log(JSON.stringify(formatUserProfile(testUser1), null, 2));
     
     console.log('\nユーザー2:');
     console.log(JSON.stringify(formatUserProfile(testUser2), null, 2));
-    
 } catch (error) {
     console.error('エラー:', error.message);
 }
