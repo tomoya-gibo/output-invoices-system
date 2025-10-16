@@ -9,7 +9,7 @@ function formatUserProfile(user) {
    
     const formattedEmail = lowerCaseEmail(user.email);
 
-    const ageGroup = setAgeGroup(user.age);
+    const ageGroup = selectAgeGroup(user.age);
 
     const now = new Date();
     const registrationDate = registrateDate(now);
@@ -49,7 +49,7 @@ function formatUserProfile(user) {
         return email.toLowerCase().trim();
     }
 
-    function setAgeGroup(age) {
+    function selectAgeGroup(age) {
         let result = '未設定';
         if (age) {
             if (age < 13) {
@@ -78,6 +78,7 @@ function formatUserProfile(user) {
         return now.toTimeString().split(' ')[0];
     }
 
+    //この関数は独立していない△（引数がたくさん必要）
     function createProfile() {
         return profile = {
             personalInfo: {
