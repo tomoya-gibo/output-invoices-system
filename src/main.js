@@ -33,8 +33,6 @@
     let thisAmount = 0;
     let thisPoint = 0;
 
-
-
     // 2 請求書の内容ごとの料金算定
     // for文でinvoicesの中身を取り出す
     for (let invoice of invoices) {
@@ -104,7 +102,7 @@
                   </ul>
 
                   <p>合計金額: $${totalAmount}</p>
-                  <p>獲得ポイント: ${thisPoint}pt</p>`
+                  <p>獲得ポイント: ${totalPoint}pt</p>`
 
         fs.writeFileSync("output.html", output, 'utf-8');
       }
