@@ -13,6 +13,10 @@
             {
                 "playID" : "othello",
                 "audience" : 40
+            },
+            {
+                "playID" : "romeo-and-juliet",
+                "audience" : 25
             }
         ]
     }
