@@ -17,6 +17,9 @@
   
     // 出力用変数
     let output = "請求書\n株式会社ビッグカンパニー\n\n";
+
+    // html出力用の変数
+    let outputHtml = "";
   
     // 基本料金
     const tragedyBasePrice = 40000;
@@ -29,6 +32,8 @@
     //料金を入れる変数
     let thisAmount = 0;
     let thisPoint = 0;
+
+
 
     // 2 請求書の内容ごとの料金算定
     // for文でinvoicesの中身を取り出す
@@ -70,6 +75,7 @@
         totalAmount += thisAmount;
         //獲得ポイントの合計
         totalPoint += thisPoint
+
         output += `・${play.name} (観客数: ${performance.audience}、金額: $${thisAmount})\n`;
       }
     }
@@ -90,16 +96,14 @@
       if (answer === 'html') {
 
         output = `<p>請求書</p>
-<p>株式会社ビッグカンパニー</p>
+                  <p>株式会社ビッグカンパニー</p>
 
-<ul>
-<li>${play.name} (観客数: ${performance.audience}、金額: $${thisAmount})\n
-<li>
-<li>
-</ul>
+                  <ul>
+                  
+                  </ul>
 
- <p>合計金額: $173000</p>
- <p>獲得ポイント: 47pt</p>`
+                  <p>合計金額: $${totalAmount}</p>
+                  <p>獲得ポイント: ${thisPoint}pt</p>`
 
         fs.writeFileSync("output.html", output, 'utf-8');
       }
