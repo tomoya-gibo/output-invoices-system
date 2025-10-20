@@ -100,7 +100,7 @@
                   <p>株式会社ビッグカンパニー</p>
 
                   <ul>
-                  
+                  ${outputHtml}
                   </ul>
 
                   <p>合計金額: $${totalAmount}</p>
