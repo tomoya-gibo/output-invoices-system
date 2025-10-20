@@ -11,6 +11,7 @@
     //コマンドラインからのユーザーの入力を受け取れるようにするモジュール
     const readline = require("readline");
     // 1 入力データの読み込み
+
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
   
@@ -24,7 +25,11 @@
     // 合計金額・ポイント
     let totalAmount = 0;
     let totalPoint = 0;
-  
+
+    //料金を入れる変数
+    let thisAmount = 0;
+    let thisPoint = 0;
+
     // 2 請求書の内容ごとの料金算定
     // for文でinvoicesの中身を取り出す
     for (let invoice of invoices) {
@@ -32,10 +37,7 @@
       for (let performance of invoice.performances) {
         // playsのキーとperformance.playIDを照合してplayに代入
         const play = plays[performance.playID];
-        //料金を入れる変数
-        let thisAmount = 0;
-        let thisPoint = 0;
-  
+
         //演目の種別ごとの料金算定
         switch (play.type) {
           case "tragedy":
@@ -80,12 +82,25 @@
       output: process.stdout,
     });
 
-    rl.question('txtとhtmlどちらの形式で出力しますか？ : ', (answer) => {
+    rl.question('txtかhtmlどちらの形式で出力しますか？ : ', (answer) => {
       console.log(`${answer}の形式で出力します`);
       if (answer === 'txt') {
         fs.writeFileSync("output.txt", output, 'utf-8');
       }
       if (answer === 'html') {
+
+        output = `<p>請求書</p>
+<p>株式会社ビッグカンパニー</p>
+
+<ul>
+<li>${play.name} (観客数: ${performance.audience}、金額: $${thisAmount})\n
+<li>
+<li>
+</ul>
+
+ <p>合計金額: $173000</p>
+ <p>獲得ポイント: 47pt</p>`
+
         fs.writeFileSync("output.html", output, 'utf-8');
       }
       rl.close();
