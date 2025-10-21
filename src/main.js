@@ -23,6 +23,7 @@
     // 基本料金
     const tragedyBasePrice = 40000;
     const comedyBasePrice = 30000;
+    const tragicomedyBasePrice = 30000;
   
     // 合計金額・ポイント
     let totalAmount = 0;
