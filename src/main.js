@@ -46,14 +46,13 @@ function main() {
 	resultHtml += `</ul><p>合計金額：$${totalAmount}</p><p>獲得ポイント：${point}pt</p>`;
 
 	// ファイルへ書き込む
+	console.log("args:" + args);
 	if (args === "txt") {
-		console.log("args:" + args);
 		fs.writeFileSync("../output/invoice.txt", resultTxt);
 	} else if (args === "html") {
-		console.log("args:" + args);
 		fs.writeFileSync("../output/invoice.html", resultHtml);
 	} else {
-		console.log("args:" + args);
+		console.log("想定外の引数");
 	}
 }
 
