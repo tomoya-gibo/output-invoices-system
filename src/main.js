@@ -48,11 +48,13 @@ function main() {
 
 	// ファイルへ書き込む
 	if (args === "txt") {
+		console.log(args);
 		fs.writeFileSync("../output/invoice.txt", resultTxt);
 	} else if (args === "html") {
+		console.log(args);
 		fs.writeFileSync("../output/invoice.html", resultHtml);
 	} else {
-		console.log("txt/html以外の入力");
+		console.log("args:" + args);
 	}
 }
 
