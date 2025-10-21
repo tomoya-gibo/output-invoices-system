@@ -7,8 +7,9 @@ function main() {
 	let point = 0;				//ポイント
 	let amount = 0;				//金額
 	let totalAmount = 0;		//合計金額
-	let resultTxt = "請求書\n\n株式会社ビッグカンパニー\n\n";		//請求内容出力用
-	
+	let resultTxt = "請求書\n\n株式会社ビッグカンパニー\n\n";		//出力用(txt)
+	let resultHtml = "<h2>請求書</h2><h3>株式会社ビッグカンパニー</h3><br>";	//出力用(html)
+
 	//金額計算
 	for (const performance of performances) {
 		amount = 0;
