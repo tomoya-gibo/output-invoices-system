@@ -1,6 +1,6 @@
 // リファクタリングタスク: 関数の抽出を行ってください
 
-function formatUserProfile(user) {
+export function formatUserProfile(user) {
     // ユーザー情報のバリデーション
     if (!user.name || user.name.trim() === '') {
         throw new Error('ユーザー名が必須です');
