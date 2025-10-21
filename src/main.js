@@ -1,3 +1,4 @@
+const { error } = require('console');
 const invoices = require('../input/invoices.json');
 const plays = require('../input/plays.json');
 const fs = require("fs");
@@ -9,6 +10,7 @@ function main() {
 	let totalAmount = 0;		//合計金額
 	let resultTxt = "請求書\n\n株式会社ビッグカンパニー\n\n";		//出力用(txt)
 	let resultHtml = "<h3>請求書</h3><h4>株式会社ビッグカンパニー</h4><ul>";	//出力用(html)
+	const args = process.argv.slice(2);		//コマンドライン引数(txt/html)
 
 	//金額計算
 	for (const performance of performances) {
@@ -44,10 +46,14 @@ function main() {
 	resultTxt += `\n合計金額：$${totalAmount}\n\n獲得ポイント：${point}pt\n`;
 	resultHtml += `</ul><p>合計金額：$${totalAmount}</p><p>獲得ポイント：${point}pt</p>`;
 
-// 	// ファイルへ書き込む
-// 	fs.writeFileSync("../output/invoice.txt", resultTxt);
-
-	fs.writeFileSync("../output/invoice.html", resultHtml);
+	// ファイルへ書き込む
+	if (args === "txt") {
+		fs.writeFileSync("../output/invoice.txt", resultTxt);
+	} else if (args === "html") {
+		fs.writeFileSync("../output/invoice.html", resultHtml);
+	} else {
+		console.log("txt/html以外の入力");
+	}
 }
 
 main();
