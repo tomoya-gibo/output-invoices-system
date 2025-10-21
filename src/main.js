@@ -44,8 +44,10 @@ function main() {
 	resultTxt += `\n合計金額：$${totalAmount}\n\n獲得ポイント：${point}pt\n`;
 	resultHtml += `<br><p>合計金額：$${totalAmount}</p><br><br><p>獲得ポイント：${point}pt</p><br>`;
 
-	// ファイルへ書き込む
-	fs.writeFileSync("../output/invoice.txt", resultTxt);
+	console.log(resultHtml);
+
+	// // ファイルへ書き込む
+	// fs.writeFileSync("../output/invoice.txt", resultTxt);
 }
 
 main();
