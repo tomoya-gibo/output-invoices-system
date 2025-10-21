@@ -16,7 +16,7 @@
     let output = "請求書\n株式会社ビッグカンパニー\n\n";
 
     // html出力用の変数
-    let outputHtml = "";
+    let outputList = "";
   
     // 基本料金
     const tragedyBasePrice = 40000;
@@ -82,7 +82,7 @@
         //獲得ポイントの合計
         totalPoint += thisPoint
 
-        outputHtml += `<li>${play.name} (観客数: ${performance.audience}人、金額: $${thisAmount})</li>`;
+        outputList += `<li>${play.name} (観客数: ${performance.audience}人、金額: $${thisAmount})</li>`;
         output += `・${play.name} (観客数: ${performance.audience}人、金額: $${thisAmount})\n`;
       }
     }
@@ -106,7 +106,7 @@
                   <p>株式会社ビッグカンパニー</p>
 
                   <ul>
-                  ${outputHtml}
+                  ${outputList}
                   </ul>
 
                   <p>合計金額: $${totalAmount}</p>
