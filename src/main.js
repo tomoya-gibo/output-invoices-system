@@ -20,13 +20,16 @@ function main() {
 			if (performance.audience > 30) {	//観客数の超過料金計算
 				amount += (performance.audience - 30) * 1000;
 			}
-		} else {	//喜劇の場合
+		} else if (plays[performance.playID].type === "comedy") {	//喜劇の場合
 			amount += 30000;
 			amount += performance.audience * 300;
 			if (performance.audience > 20) {
 				amount += 10000;
 				amount += (performance.audience - 20) * 500;
 			}
+		} else if (plays[performance.playID].type === "tragic-comedy") {	//悲喜劇の場合
+			amount += 30000;
+			amount += performance.audience * 500;
 		}
 		totalAmount += amount;
 		resultTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
