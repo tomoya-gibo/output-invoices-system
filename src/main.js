@@ -1,4 +1,3 @@
-const { error } = require('console');
 const invoices = require('../input/invoices.json');
 const plays = require('../input/plays.json');
 const fs = require("fs");
