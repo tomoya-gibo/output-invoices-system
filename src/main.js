@@ -9,7 +9,7 @@ function main() {
 	let totalAmount = 0;		//合計金額
 	let resultTxt = "請求書\n\n株式会社ビッグカンパニー\n\n";		//出力用(txt)
 	let resultHtml = "<h3>請求書</h3><h4>株式会社ビッグカンパニー</h4><ul>";	//出力用(html)
-	const args = process.argv.slice(2);		//コマンドライン引数(txt/html)
+	const args = process.argv[2];		//コマンドライン引数(txt/html)
 
 	//金額計算
 	for (const performance of performances) {
