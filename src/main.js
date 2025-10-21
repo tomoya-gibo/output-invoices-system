@@ -70,7 +70,9 @@
         }
 
         //悲劇、喜劇どちらにも適用）一回の劇発注で、観客数が30人を超過した場合は、超過一人につき1ポイント追加
-        thisPoint += Math.floor(performance.audience / 30);
+        if (performance.audience > 30) {
+          thisPoint += performance.audience - 30;
+        }
 
         //合計金額
         totalAmount += thisAmount;
