@@ -9,7 +9,8 @@ function main() {
 	let totalAmount = 0;		//合計金額
 	let resultTxt = "請求書\n\n株式会社ビッグカンパニー\n\n";		//出力用(txt)
 	let resultHtml = "<h3>請求書</h3><h4>株式会社ビッグカンパニー</h4><ul>";	//出力用(html)
-	const args = process.argv[2];		//コマンドライン引数(txt/html)
+	const args = process.argv.slice(2);
+	const arg = args[0];
 
 	//金額計算
 	for (const performance of performances) {
@@ -46,10 +47,10 @@ function main() {
 	resultHtml += `</ul><p>合計金額：$${totalAmount}</p><p>獲得ポイント：${point}pt</p>`;
 
 	// ファイルへ書き込む
-	console.log("args:" + args);
-	if (args === "txt") {
+	console.log("arg:" + arg);
+	if (arg === "txt") {
 		fs.writeFileSync("../output/invoice.txt", resultTxt);
-	} else if (args === "html") {
+	} else if (arg === "html") {
 		fs.writeFileSync("../output/invoice.html", resultHtml);
 	} else {
 		console.log("想定外の引数");
