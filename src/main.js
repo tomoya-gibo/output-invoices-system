@@ -15,9 +15,10 @@ function main() {
 	//金額計算
 	for (const performance of performances) {
 		amount = 0;
-		if (plays[performance.playID].type === "tragedy") {		//悲劇の場合
+
+		if (plays[performance.playID].type === "tragedy") {			//悲劇の場合
 			amount += 40000;
-			if (performance.audience > 30) {	//観客数の超過料金計算
+			if (performance.audience > 30) {						//観客数の超過料金計算
 				amount += (performance.audience - 30) * 1000;
 			}
 		} else if (plays[performance.playID].type === "comedy") {	//喜劇の場合
@@ -31,6 +32,7 @@ function main() {
 			amount += 30000;
 			amount += performance.audience * 500;
 		}
+
 		totalAmount += amount;
 		resultTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
 		resultHtml += `<li>${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})</li><br>`;
@@ -38,11 +40,11 @@ function main() {
 
 	//ポイント計算
 	for (const performance of performances) {
-		if(plays[performance.playID].type === "tragic-comedy") {
+		if(plays[performance.playID].type === "tragic-comedy") {	//喜悲劇の場合
 			point += (performance.audience - 20) * 1;
-		} else if (performance.audience > 30) {
+		} else if (performance.audience > 30) {						//悲劇・喜劇の両方
 			point += (performance.audience - 30) * 1;
-			if (plays[performance.playID].type === "comedy") {
+			if (plays[performance.playID].type === "comedy") {		//喜劇の場合加点あり
 			point += Math.floor(performance.audience / 5) * 1;
 			}
 		}
