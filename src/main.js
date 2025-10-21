@@ -38,11 +38,13 @@ function main() {
 
 	//ポイント計算
 	for (const performance of performances) {
-		if (performance.audience > 30) {
+		if(plays[performance.playID].type === "tragic-comedy") {
+			point += (performance.audience - 20) * 1;
+		} else if (performance.audience > 30) {
 			point += (performance.audience - 30) * 1;
-		}
-		if (plays[performance.playID].type === "comedy") {
+			if (plays[performance.playID].type === "comedy") {
 			point += Math.floor(performance.audience / 5) * 1;
+			}
 		}
 	}
 
