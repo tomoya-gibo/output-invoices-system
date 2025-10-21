@@ -8,7 +8,7 @@ function main() {
 	let amount = 0;				//金額
 	let totalAmount = 0;		//合計金額
 	let resultTxt = "請求書\n\n株式会社ビッグカンパニー\n\n";		//出力用(txt)
-	let resultHtml = "<h2>請求書</h2><h3>株式会社ビッグカンパニー</h3><br><br><ul>";	//出力用(html)
+	let resultHtml = "<h3>請求書</h3><h4>株式会社ビッグカンパニー</h4><ul>";	//出力用(html)
 
 	//金額計算
 	for (const performance of performances) {
@@ -28,7 +28,7 @@ function main() {
 		}
 		totalAmount += amount;
 		resultTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
-		resultHtml += `<li>・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})</li><br>`;
+		resultHtml += `<li>${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})</li><br>`;
 	}	
 
 	//ポイント計算
@@ -42,12 +42,12 @@ function main() {
 	}
 
 	resultTxt += `\n合計金額：$${totalAmount}\n\n獲得ポイント：${point}pt\n`;
-	resultHtml += `</ul><br><p>合計金額：$${totalAmount}</p><br><br><p>獲得ポイント：${point}pt</p><br>`;
+	resultHtml += `</ul><p>合計金額：$${totalAmount}</p><p>獲得ポイント：${point}pt</p>`;
 
-	console.log(resultHtml);
+// 	// ファイルへ書き込む
+// 	fs.writeFileSync("../output/invoice.txt", resultTxt);
 
-	// // ファイルへ書き込む
-	// fs.writeFileSync("../output/invoice.txt", resultTxt);
+	fs.writeFileSync("../output/invoice.html", resultHtml);
 }
 
 main();
