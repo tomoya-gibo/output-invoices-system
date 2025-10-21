@@ -28,6 +28,7 @@ function main() {
 		}
 		totalAmount += amount;
 		resultTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
+		resultHtml += `<li>・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})</li><br>`;
 	}	
 
 	//ポイント計算
@@ -41,6 +42,7 @@ function main() {
 	}
 
 	resultTxt += `\n合計金額：$${totalAmount}\n\n獲得ポイント：${point}pt\n`;
+	resultHtml += `<br><p>合計金額：$${totalAmount}</p><br><br><p>獲得ポイント：${point}pt</p><br>`;
 
 	// ファイルへ書き込む
 	fs.writeFileSync("../output/invoice.txt", resultTxt);
