@@ -72,7 +72,7 @@
             thisAmount += performance.audience * 500;
             if (performance.audience > 20) {
             //20人を超過したら一人につき1ポイント追加。
-            thisPoint += (performance.audience - 20);
+              thisPoint += (performance.audience - 20);
             }
             break;
         }
