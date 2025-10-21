@@ -7,7 +7,7 @@ function main() {
 	let point = 0;				//ポイント
 	let amount = 0;				//金額
 	let totalAmount = 0;		//合計金額
-	let resultData = "請求書\n\n株式会社ビッグカンパニー\n\n";		//請求内容出力用
+	let resultTxt = "請求書\n\n株式会社ビッグカンパニー\n\n";		//請求内容出力用
 	
 	//金額計算
 	for (const performance of performances) {
@@ -26,7 +26,7 @@ function main() {
 			}
 		}
 		totalAmount += amount;
-		resultData += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
+		resultTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
 	}	
 
 	//ポイント計算
@@ -39,11 +39,11 @@ function main() {
 		}
 	}
 
-	resultData += `\n合計金額：$${totalAmount}\n\n`;
-	resultData += `獲得ポイント：${point}pt\n`;
+	resultTxt += `\n合計金額：$${totalAmount}\n\n`;
+	resultTxt += `獲得ポイント：${point}pt\n`;
 
 	// ファイルへ書き込む
-	fs.writeFileSync("../output/invoice.txt", resultData);
+	fs.writeFileSync("../output/invoice.txt", resultTxt);
 }
 
 main();
