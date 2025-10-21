@@ -47,9 +47,6 @@
             if (performance.audience > 30) {
               thisAmount += (performance.audience - 30) * 1000;
             }
-            if (performance.audience > 30){
-              thisPoint += (performance.audience - 30);
-            }
             break;
           case "comedy":
             thisAmount = comedyBasePrice;
@@ -66,13 +63,13 @@
             //観客数5人につき1ポイント追加
             thisPoint += Math.floor(performance.audience / 5);
             break;
-            case "tragic-comedy":
+          case "tragic-comedy":
               thisAmount = tragicomedyBasePrice;
               //超過にかかわらず観客数一人につき$500追加
               thisAmount += performance.audience * 500;
               if (performance.audience > 20) {
                 //20人を超過したら一人につき1ポイント追加。
-                thisPoint += performance.audience - 20;
+                thisPoint += (performance.audience - 20);
               }
             break;
         }
