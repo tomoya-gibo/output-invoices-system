@@ -55,9 +55,6 @@
               thisAmount += 10000;
               thisAmount += (performance.audience - 20) * 500;
             }
-            if (performance.audience > 30){
-              thisPoint += (performance.audience - 30);
-            }
             //喜劇の場合のみ超過にかかわらず一人につき$300の追加
             thisAmount += performance.audience * 300;
             //観客数5人につき1ポイント追加
