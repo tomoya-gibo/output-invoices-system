@@ -47,3 +47,11 @@ function main() {
 }
 
 main();
+
+
+//resultDataの内容(String)
+// let resultData = "請求書\n\n株式会社ビッグカンパニー\n\n";
+// resultData += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
+// resultData += `\n合計金額：$${totalAmount}\n\n`;
+// resultData += `獲得ポイント：${point}pt\n`;
+
