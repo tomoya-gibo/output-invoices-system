@@ -13,8 +13,12 @@ function main() {
 	let resultHtml = "<h3>請求書</h3><h4>株式会社ビッグカンパニー</h4><ul>";	//出力用(html)
 	const args = process.argv.slice(2);
 	const arg = args[0];
+	let diffAmount = 0;		//前回との金額の差
+	let diffPoint = 0;		//前回とのポイントの差
+	const exTotalAmount = 0;	//前回の合計金額
+	const exPoint = 0;			//前回の獲得ポイント
 
-	//今回(受注2回目)分の処理
+	//今回(受注2回目)分の計算
 	//金額計算
 	for (const performance of performances2) {
 		amount = 0;
