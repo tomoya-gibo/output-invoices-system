@@ -47,7 +47,7 @@
             if (performance.audience > 30) {
               thisAmount += (performance.audience - 30) * 1000;
             }
-            if (performance.audience > 30){
+            if (performance.audience > 30) {
               thisPoint += (performance.audience - 30);
             }
             break;
@@ -95,6 +95,11 @@
       output: process.stdout,
     });
 
+    //10/22 追加仕様
+    //合計金額と獲得ポイントについて、前回との差分(previous.json)をHTMLかtxtで出す。
+    output += "\n-----------------------------------------"
+
+
     rl.question('txtかhtmlどちらの形式で出力しますか？ : ', (answer) => {
       console.log(`${answer}の形式で出力します`);
       if (answer === 'txt') {
@@ -117,9 +122,6 @@
       rl.close();
     });
 
-    //10/22 追加仕様
-    //合計金額と獲得ポイントについて、前回との差分を出す。
-    
 
   }
   
