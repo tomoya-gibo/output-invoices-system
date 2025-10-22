@@ -1,11 +1,11 @@
-const invoices = require('../input/invoices.json');		//演目1
-const invoices2 = require('../input/invoices2.json');	//演目2
+const invoices = require('../input/invoices.json');		//受注1
+const invoices2 = require('../input/invoices2.json');	//受注2
 const plays = require('../input/plays.json');
 const fs = require("fs");
 
 function main() {
-	const performances = invoices[0].performances;		//演目1
-	const performances2	= invoices2[0].performances;	//演目2
+	const performances = invoices[0].performances;		//受注1
+	const performances2	= invoices2[0].performances;	//受注2
 	let point = 0;				//ポイント
 	let amount = 0;				//金額
 	let totalAmount = 0;		//合計金額
@@ -13,9 +13,9 @@ function main() {
 	let resultHtml = "<h3>請求書</h3><h4>株式会社ビッグカンパニー</h4><ul>";	//出力用(html)
 	const args = process.argv.slice(2);
 	const arg = args[0];
-	let diffAmount = 0;		//前回との金額の差
-	let diffPoint = 0;		//前回とのポイントの差
-	let exTotalAmount = 0;	//前回の合計金額
+	let diffAmount = 0;			//前回との金額の差
+	let diffPoint = 0;			//前回とのポイントの差
+	let exTotalAmount = 0;		//前回の合計金額
 	let exPoint = 0;			//前回の獲得ポイント
 
 	//前回分の金額計算
@@ -42,12 +42,12 @@ function main() {
 
 	//前回分のポイント計算
 	for (const performance of performances2) {
-		if(plays[performance.playID].type === "tragic-comedy") {	//喜悲劇の場合
-			exPoint += (performance.audience - 20) * 1;
+		if(plays[performance.playID].type === "tragic-comedy") {	//悲喜劇の場合
+			exPoint += Math.max((performance.audience - 20), 0);
 		} else if (performance.audience > 30) {						//悲劇・喜劇の両方
-			exPoint += (performance.audience - 30) * 1;
+			exPoint += performance.audience - 30;
 			if (plays[performance.playID].type === "comedy") {		//喜劇の場合加点あり
-			exPoint += Math.floor(performance.audience / 5) * 1;
+			exPoint += Math.floor(performance.audience / 5);
 			}
 		}
 	}
@@ -76,20 +76,20 @@ function main() {
 		resultHtml += `<li>${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})</li><br>`;
 	}	
 
-	//今回分の計算
+	//今回分のポイント計算
 	for (const performance of performances) {
-		if(plays[performance.playID].type === "tragic-comedy") {	//喜悲劇の場合
-			point += (performance.audience - 20) * 1;
+		if(plays[performance.playID].type === "tragic-comedy") {	//悲喜劇の場合
+			point += Math.max((performance.audience - 20), 0);
 		} else if (performance.audience > 30) {						//悲劇・喜劇の両方
-			point += (performance.audience - 30) * 1;
+			point += performance.audience - 30;
 			if (plays[performance.playID].type === "comedy") {		//喜劇の場合加点あり
-			point += Math.floor(performance.audience / 5) * 1;
+			point += Math.floor(performance.audience / 5);
 			}
 		}
 	}
 
-	diffAmount = totalAmount - exTotalAmount;
-	diffPoint = point - exPoint;
+	diffAmount = totalAmount - exTotalAmount;	//差額
+	diffPoint = point - exPoint;				//ポイント差
 
 	resultData += `\n合計金額：$${totalAmount}（前回比：$${diffAmount}）\n\n`;
     resultData += `獲得ポイント：${point}p（前回比：${diffPoint}pt）\n`;
