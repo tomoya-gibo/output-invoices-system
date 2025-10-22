@@ -159,8 +159,8 @@
 
     output += "\n-----------------------------------------\n";
     output += "前回の請求分:\n"
-    output += `合計金額：${preAmount}（前回比：${netAmount}）\n`;
-    output += `獲得ポイント：${prePoint}pt（前回比：${netPoint}）`;
+    output += `合計金額：$${preAmount}（前回比：$${netAmount}）\n`;
+    output += `獲得ポイント：${prePoint}pt（前回比：${netPoint}pt）`;
 
     console.log(output);
 
@@ -182,8 +182,8 @@
                   <p>獲得ポイント: ${totalPoint}pt</p>
                   <p>-------------------------------------------------------</p>
                   <p>前回の請求額:</p>
-                  <p>合計金額：${preAmount}（前回比：${netAmount}）</p>
-                  <p>獲得ポイント：${prePoint}pt（前回比：${netPoint}）<p>`
+                  <p>合計金額：$${preAmount}（前回比：$${netAmount}）</p>
+                  <p>獲得ポイント：${prePoint}pt（前回比：${netPoint}pt）<p>`
 
         fs.writeFileSync("output.html", output, 'utf-8');
       }
