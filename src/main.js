@@ -89,7 +89,7 @@
     }
     output += `\n 合計金額: $${totalAmount}`
     output += `\n 獲得ポイント: ${totalPoint}pt`
-    console.log(output);
+    //console.log(output);
 
     const rl = readline.createInterface({
       input: process.stdin,
@@ -103,8 +103,17 @@
     let prePoint = 0;
 
     //前回の請求分の算出処理についてforeachかmapを使って実装予定
-    let test = previous.map(p => p.performances)
-    console.log(test);
+    //前回の請求分のデータ部分を抽出
+    let prePerformance = previous.map(p => p.performances)
+
+    prePerformance.forEach(e => {
+      let test = plays[e.playID];
+      console.log(test);
+    });
+    console.log(prePerformance);
+
+
+
 
 
     output += "\n-----------------------------------------\n";
