@@ -36,7 +36,7 @@
         // playsのキーとperformance.playIDを照合してplayに代入
         const play = plays[performance.playID];
 
-        //料金を入れる変数
+        //現在の金額を入れる変数
         let thisAmount = 0;
         let thisPoint = 0;
 
@@ -108,6 +108,13 @@
       for(let test of pre.performances){
         const play = plays[test.playID];
         console.log(play);
+
+        //現在の金額を入れる変数
+        let thisAmount = 0;
+        let thisPoint = 0;
+
+
+
       }
     }
 
