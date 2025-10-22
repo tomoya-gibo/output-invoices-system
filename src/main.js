@@ -1,9 +1,10 @@
-const invoices = require('../input/invoices.json');
+const invoices = require('../input/invoices.json');		//演目(受注:1回目)
+const invoices2 = require('../input/invoices2.json');	//演目(受注:2回目)
 const plays = require('../input/plays.json');
 const fs = require("fs");
 
 function main() {
-	const performances = invoices[0].performances;	//演目(dic)
+	const performances = invoices[0].performances;	//演目(受注:1回目)
 	let point = 0;				//ポイント
 	let amount = 0;				//金額
 	let totalAmount = 0;		//合計金額
