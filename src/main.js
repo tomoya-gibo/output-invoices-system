@@ -56,12 +56,12 @@
             //超過料金の算定
             if (performance.audience > 20) {
               thisAmount += (performance.audience - 20) * 10000;
+              //超過一人当たりの追加料金には、5人超過ごとに10％の割引を適用
+
             }
             if (performance.audience > 30) {
               thisPoint += (performance.audience - 30);
-            }
-            //超過一人当たりの追加料金には、5人超過ごとに10％の割引を適用
-            
+            }            
             break;
           case "comedy":
             thisAmount = comedyBasePrice;
