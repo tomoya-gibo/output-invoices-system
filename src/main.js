@@ -5,6 +5,7 @@ const fs = require("fs");
 
 function main() {
 	const performances = invoices[0].performances;	//演目(受注:1回目)
+	const performances2	= invoices2[0].performances;	//演目(受注:2回目)
 	let point = 0;				//ポイント
 	let amount = 0;				//金額
 	let totalAmount = 0;		//合計金額
@@ -53,15 +54,17 @@ function main() {
     resultData += `獲得ポイント：${point}pt\n`;
 	resultHtml += `</ul><p>合計金額：$${totalAmount}</p><p>獲得ポイント：${point}pt</p>`;
 
-	// ファイルへ書き込む
-	console.log("arg:" + arg);
-	if (arg === "txt") {
-		fs.writeFileSync("../output/invoice.txt", resultData);
-	} else if (arg === "html") {
-		fs.writeFileSync("../output/invoice.html", resultHtml);
-	} else {
-		console.log("想定外の引数");
-	}
+	console.log(JSON.stringify(invoices2));
+
+	// // ファイルへ書き込む
+	// console.log("arg:" + arg);
+	// if (arg === "txt") {
+	// 	fs.writeFileSync("../output/invoice.txt", resultData);
+	// } else if (arg === "html") {
+	// 	fs.writeFileSync("../output/invoice.html", resultHtml);
+	// } else {
+	// 	console.log("想定外の引数");
+	// }
 }
 
 main();
