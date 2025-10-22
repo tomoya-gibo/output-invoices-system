@@ -122,7 +122,7 @@
             if (performance.audience > 30){
               thisPoint += (performance.audience - 30)
             };
-            break;
+          break;
           case "comedy" :
             thisAmount = comedyBasePrice;
             if (performance.audience > 20){
@@ -134,7 +134,15 @@
             };
             thisAmount += performance.audience * 300;
             thisPoint += Math.floor(performance.audience / 5);
-            break;
+          break;
+          case "tragic-comedy" :
+            thisAmount = tragicomedyBasePrice;
+            if (performance.audience > 20) {
+              thisPoint += performance.audience - 20;
+            }
+            thisAmount += performance.audience * 500;
+          break;
+            
         }
 
 
