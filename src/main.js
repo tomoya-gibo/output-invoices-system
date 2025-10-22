@@ -19,7 +19,7 @@ function main() {
 	let exPoint = 0;			//前回の獲得ポイント
 
 	//前回(受注1回目)分の金額計算
-	for (const performance of performances) {
+	for (const performance of performances2) {
 		amount = 0;
 		if (plays[performance.playID].type === "tragedy") {			//悲劇の場合
 			amount += 40000;
@@ -41,7 +41,7 @@ function main() {
 	}	
 
 	//前回(受注1回目)分のポイント計算
-	for (const performance of performances) {
+	for (const performance of performances2) {
 		if(plays[performance.playID].type === "tragic-comedy") {	//喜悲劇の場合
 			exPoint += (performance.audience - 20) * 1;
 		} else if (performance.audience > 30) {						//悲劇・喜劇の両方
@@ -53,7 +53,7 @@ function main() {
 	}
 
 	//今回(受注2回目)分の金額計算
-	for (const performance of performances2) {
+	for (const performance of performances) {
 		amount = 0;
 		if (plays[performance.playID].type === "tragedy") {			//悲劇の場合
 			amount += 40000;
@@ -77,7 +77,7 @@ function main() {
 	}	
 
 	//今回(受注2回目)分の計算
-	for (const performance of performances2) {
+	for (const performance of performances) {
 		if(plays[performance.playID].type === "tragic-comedy") {	//喜悲劇の場合
 			point += (performance.audience - 20) * 1;
 		} else if (performance.audience > 30) {						//悲劇・喜劇の両方
