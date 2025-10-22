@@ -11,12 +11,10 @@
     // 1 入力データの読み込み
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
+    const previous = JSON.parse(fs.readFileSync("input/previous.json", "utf8"));
   
     // 出力用変数
     let output = "請求書\n株式会社ビッグカンパニー\n\n";
-
-    // 差分用変数
-    let previous = "";
 
     // html出力用の変数
     let outputList = "";
@@ -100,8 +98,7 @@
 
     //10/22 追加仕様
     //合計金額と獲得ポイントについて、前回との差分(previous.json)をHTMLかtxtで出す。
-    output += "\n-----------------------------------------"
-
+    output += "\n-----------------------------------------\n";
 
     rl.question('txtかhtmlどちらの形式で出力しますか？ : ', (answer) => {
       console.log(`${answer}の形式で出力します`);
