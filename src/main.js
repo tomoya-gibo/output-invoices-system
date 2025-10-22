@@ -102,15 +102,8 @@
     let preAmount = 0;
     let prePoint = 0;
 
-    //前回の請求分の算出処理についてforeachかmapを使って実装予定
     //前回の請求分のデータ部分を抽出
-    let prePerformance = previous.map(p => p.performances)
 
-    prePerformance.forEach(e => {
-      let test = plays[e.playID];
-      console.log(test);
-    });
-    console.log(prePerformance);
 
 
 
