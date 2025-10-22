@@ -102,6 +102,7 @@
     //前回分の合計金額とポイントを保持する変数
     let preAmount = 0;
     let prePoint = 0;
+
     
     //前回の請求分を算出する処理を追加予定
     for(let pre of preInvoices){
@@ -151,15 +152,15 @@
       }
     }
 
-
-
-
+    //現在の請求から前回の請求分を差し引いた値を入れる変数
+    let netAmount = totalAmount - preAmount;
+    let netPoint = totalPoint - prePoint;
 
 
     output += "\n-----------------------------------------\n";
     output += "前回の請求分:\n"
-    output += `合計金額：${preAmount}（前回比：+$××）\n`;
-    output += `獲得ポイント：${prePoint}pt（前回比：+〜pt）`;
+    output += `合計金額：${preAmount}（前回比：${netAmount}）\n`;
+    output += `獲得ポイント：${prePoint}pt（前回比：${netPoint}）`;
 
     console.log(output);
 
