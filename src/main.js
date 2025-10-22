@@ -178,7 +178,9 @@
                   </ul>
 
                   <p>合計金額: $${totalAmount}</p>
-                  <p>獲得ポイント: ${totalPoint}pt</p>`
+                  <p>獲得ポイント: ${totalPoint}pt</p>
+                  <p>-------------------------------------------------------</p>
+                  <p>前回の請求額</p>`
 
         fs.writeFileSync("output.html", output, 'utf-8');
       }
