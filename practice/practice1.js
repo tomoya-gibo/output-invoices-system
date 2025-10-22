@@ -47,18 +47,16 @@ function registrationDate() {
     };
 }
 
-function displayUserData(user) {
-}
-
+//　表示されるユーザーデータを整える関数
 function showUserData(user){
     return {
         personalInfo: userProfileData(user),
         systemInfo: registrationDate(),
-        // display: {
-        //     welcomeMessage: `ようこそ、${firstName}さん！`,
-        //     emailDisplay: `メール: ${formattedEmail}`,
-        //     ageDisplay: user.age ? `${user.age}歳 (${user.ageGroup})` : '年齢未設定'
-        // }
+        display: {
+            welcomeMessage: `ようこそ、${firstName}さん！`,
+            emailDisplay: `メール: ${formattedEmail}`,
+            ageDisplay: user.age ? `${user.age}歳 (${user.ageGroup})` : '年齢未設定'
+        }
     };
 }
 
@@ -90,11 +88,11 @@ function formatUserProfile(user) {
     let firstName = '';
     let lastName = '';
     const nameParts = user.name.trim().split(' ');
-    console.log(nameParts)
+    console.log(nameParts);
     if (nameParts.length === 1) {
         firstName = nameParts[0];
         lastName = '';
-        return firstName;
+        return {firstName, lastName};
     } else {
         firstName = nameParts[0];
         lastName = nameParts.slice(1).join(' ');
@@ -158,8 +156,8 @@ try {
     console.log('ユーザー1:');
     console.log(JSON.stringify(showUserData(testUser1), null, 2));
     
-    // console.log('\nユーザー2:');
-    // console.log(JSON.stringify(formatUserProfile(testUser2), null, 2));
+    console.log('\nユーザー2:');
+    console.log(JSON.stringify(formatUserProfile(testUser2), null, 2));
 } catch (error) {
     console.error('エラー:', error.message);
 }
