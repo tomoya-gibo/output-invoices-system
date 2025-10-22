@@ -145,8 +145,9 @@
         }
 
         preAmount += thisAmount;
+        console.log(preAmount);
         prePoint += thisPoint; 
-
+        console.log(prePoint);
       }
     }
 
