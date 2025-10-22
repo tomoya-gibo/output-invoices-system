@@ -88,14 +88,15 @@ function main() {
 		}
 	}
 
+	diffAmount = totalAmount - exTotalAmount;
+	diffPoint = point - exPoint;
+
 	resultData += `\n合計金額：$${totalAmount}（前回比：$${diffAmount}）\n\n`;
     resultData += `獲得ポイント：${point}p（前回比：${diffAmount}pt）\n`;
 	resultHtml += `</ul><p>合計金額：$${totalAmount}</p><p>獲得ポイント：${point}pt</p>`;
 
-	console.log(exTotalAmount);
-	console.log(exPoint);
-	console.log(totalAmount);
-	console.log(point);
+	console.log(diffAmount);
+	console.log(diffPoint);
 
 	// // ファイルへ書き込む
 	// console.log("arg:" + arg);
