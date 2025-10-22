@@ -11,7 +11,7 @@
     // 1 入力データの読み込み
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
-    const previous = JSON.parse(fs.readFileSync("input/previous.json", "utf8"));
+    const preInvoices = JSON.parse(fs.readFileSync("input/previous.json", "utf8"));
   
     // 出力用変数
     let output = "請求書\n株式会社ビッグカンパニー\n\n";
@@ -104,7 +104,12 @@
     let prePoint = 0;
     
     //前回の請求分を算出する処理を追加予定
-
+    for(let pre of preInvoices){
+      for(let test of pre.performances){
+        const play = plays[test.playID];
+        console.log(play);
+      }
+    }
 
 
 
