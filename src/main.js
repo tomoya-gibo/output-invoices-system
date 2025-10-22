@@ -1,11 +1,11 @@
-const invoices = require('../input/invoices.json');		//演目(受注:1回目)
-const invoices2 = require('../input/invoices2.json');	//演目(受注:2回目)
+const invoices = require('../input/invoices.json');		//演目1
+const invoices2 = require('../input/invoices2.json');	//演目2
 const plays = require('../input/plays.json');
 const fs = require("fs");
 
 function main() {
-	const performances = invoices[0].performances;	//演目(受注:1回目)
-	const performances2	= invoices2[0].performances;	//演目(受注:2回目)
+	const performances = invoices[0].performances;		//演目1
+	const performances2	= invoices2[0].performances;	//演目2
 	let point = 0;				//ポイント
 	let amount = 0;				//金額
 	let totalAmount = 0;		//合計金額
@@ -18,7 +18,7 @@ function main() {
 	let exTotalAmount = 0;	//前回の合計金額
 	let exPoint = 0;			//前回の獲得ポイント
 
-	//前回(受注1回目)分の金額計算
+	//前回分の金額計算
 	for (const performance of performances2) {
 		amount = 0;
 		if (plays[performance.playID].type === "tragedy") {			//悲劇の場合
@@ -40,7 +40,7 @@ function main() {
 		exTotalAmount += amount;
 	}	
 
-	//前回(受注1回目)分のポイント計算
+	//前回分のポイント計算
 	for (const performance of performances2) {
 		if(plays[performance.playID].type === "tragic-comedy") {	//喜悲劇の場合
 			exPoint += (performance.audience - 20) * 1;
@@ -52,7 +52,7 @@ function main() {
 		}
 	}
 
-	//今回(受注2回目)分の金額計算
+	//今回分の金額計算
 	for (const performance of performances) {
 		amount = 0;
 		if (plays[performance.playID].type === "tragedy") {			//悲劇の場合
@@ -76,7 +76,7 @@ function main() {
 		resultHtml += `<li>${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})</li><br>`;
 	}	
 
-	//今回(受注2回目)分の計算
+	//今回分の計算
 	for (const performance of performances) {
 		if(plays[performance.playID].type === "tragic-comedy") {	//喜悲劇の場合
 			point += (performance.audience - 20) * 1;
