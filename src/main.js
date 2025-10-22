@@ -54,8 +54,8 @@
           case "tragedy":
             thisAmount = tragedyBasePrice;
             //超過料金の算定
-            if (performance.audience > 30) {
-              thisAmount += (performance.audience - 30) * 1000;
+            if (performance.audience > 20) {
+              thisAmount += (performance.audience - 20) * 10000;
             }
             if (performance.audience > 30) {
               thisPoint += (performance.audience - 30);
