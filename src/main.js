@@ -15,6 +15,9 @@
     // 出力用変数
     let output = "請求書\n株式会社ビッグカンパニー\n\n";
 
+    // 差分用変数
+    let previous = "";
+
     // html出力用の変数
     let outputList = "";
   
