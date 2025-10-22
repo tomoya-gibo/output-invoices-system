@@ -18,8 +18,7 @@ function main() {
 	const exTotalAmount = 0;	//前回の合計金額
 	const exPoint = 0;			//前回の獲得ポイント
 
-	//今回(受注2回目)分の計算
-	//金額計算
+	//今回(受注2回目)分の金額計算
 	for (const performance of performances2) {
 		amount = 0;
 		if (plays[performance.playID].type === "tragedy") {			//悲劇の場合
@@ -43,7 +42,7 @@ function main() {
 		resultHtml += `<li>${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})</li><br>`;
 	}	
 
-	//ポイント計算
+	//今回(受注2回目)分のポイント計算
 	for (const performance of performances2) {
 		if(plays[performance.playID].type === "tragic-comedy") {	//喜悲劇の場合
 			point += (performance.audience - 20) * 1;
