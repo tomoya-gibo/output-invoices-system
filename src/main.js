@@ -14,8 +14,9 @@ function main() {
 	const args = process.argv.slice(2);
 	const arg = args[0];
 
+	//今回(受注2回目)分の処理
 	//金額計算
-	for (const performance of performances) {
+	for (const performance of performances2) {
 		amount = 0;
 		if (plays[performance.playID].type === "tragedy") {			//悲劇の場合
 			amount += 40000;
@@ -39,7 +40,7 @@ function main() {
 	}	
 
 	//ポイント計算
-	for (const performance of performances) {
+	for (const performance of performances2) {
 		if(plays[performance.playID].type === "tragic-comedy") {	//喜悲劇の場合
 			point += (performance.audience - 20) * 1;
 		} else if (performance.audience > 30) {						//悲劇・喜劇の両方
