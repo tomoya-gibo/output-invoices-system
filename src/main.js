@@ -98,11 +98,15 @@
 
     //10/22 追加仕様
     //合計金額と獲得ポイントについて、前回との差分(previous.json)をHTMLかtxtで出す。
-    //前回の請求分を算出する処理を追加
+    //前回の請求分を算出する処理を追加予定
+    let preAmount = 0;
+    let prePoint = 0;
+
+
     output += "\n-----------------------------------------\n";
     output += "前回の請求分と差額\n"
-    output += "合計金額：$××（前回比：+$××）\n";
-    output += "獲得ポイント：～pt（前回比：+〜pt）";
+    output += `合計金額：${preAmount}（前回比：+$××）\n`;
+    output += `獲得ポイント：${prePoint}pt（前回比：+〜pt）`;
 
     rl.question('txtかhtmlどちらの形式で出力しますか？ : ', (answer) => {
       console.log(`${answer}の形式で出力します`);
