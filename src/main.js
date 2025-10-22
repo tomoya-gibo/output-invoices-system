@@ -55,7 +55,7 @@ function main() {
 	resultHtml += `</ul><p>合計金額：$${totalAmount}</p><p>獲得ポイント：${point}pt</p>`;
 
 	console.log(JSON.stringify(invoices2));
-
+	console.log(performances2);
 	// // ファイルへ書き込む
 	// console.log("arg:" + arg);
 	// if (arg === "txt") {
