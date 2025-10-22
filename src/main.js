@@ -114,6 +114,14 @@
         let thisPoint = 0;
 
         switch (play.type) {
+          case "tragedy" :
+            thisAmount = tragedyBasePrice;
+            if (performance.audience > 30){
+              thisAmount += (performance.audience - 30) * 1000;
+            };
+            if (performance.audience > 30){
+              thisPoint += (performance.audience - 30)
+            };
         }
 
 
