@@ -60,6 +60,8 @@
             if (performance.audience > 30) {
               thisPoint += (performance.audience - 30);
             }
+            //超過一人当たりの追加料金には、5人超過ごとに10％の割引を適用
+            
             break;
           case "comedy":
             thisAmount = comedyBasePrice;
