@@ -142,9 +142,10 @@
             }
             thisAmount += performance.audience * 500;
           break;
-            
         }
 
+        preAmount += thisAmount;
+        prePoint += thisPoint; 
 
       }
     }
