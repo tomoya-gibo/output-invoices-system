@@ -51,9 +51,13 @@ function main() {
 		}
 	}
 
-	resultData += `\n合計金額：$${totalAmount}（前回比：$${diffAmount}）\n\n`;
-    resultData += `獲得ポイント：${point}p（前回比：${diffAmount}pt）\n`;
+	resultData += `\n合計金額：$${totalAmount}\n\n`;
+    resultData += `獲得ポイント：${point}p\n`;
 	resultHtml += `</ul><p>合計金額：$${totalAmount}</p><p>獲得ポイント：${point}pt</p>`;
+
+	// resultData += `\n合計金額：$${totalAmount}（前回比：$${diffAmount}）\n\n`;
+    // resultData += `獲得ポイント：${point}p（前回比：${diffAmount}pt）\n`;
+	// resultHtml += `</ul><p>合計金額：$${totalAmount}</p><p>獲得ポイント：${point}pt</p>`;
 
 	console.log(resultData);
 
