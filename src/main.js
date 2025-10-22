@@ -145,9 +145,9 @@
         }
 
         preAmount += thisAmount;
-        console.log(preAmount);
+        //console.log(preAmount);
         prePoint += thisPoint; 
-        console.log(prePoint);
+        //console.log(prePoint);
       }
     }
 
@@ -160,6 +160,8 @@
     output += "前回の請求分と差額\n"
     output += `合計金額：${preAmount}（前回比：+$××）\n`;
     output += `獲得ポイント：${prePoint}pt（前回比：+〜pt）`;
+
+    console.log(output);
 
     rl.question('txtかhtmlどちらの形式で出力しますか？ : ', (answer) => {
       console.log(`${answer}の形式で出力します`);
