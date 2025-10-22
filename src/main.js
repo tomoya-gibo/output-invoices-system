@@ -105,14 +105,16 @@
     
     //前回の請求分を算出する処理を追加予定
     for(let pre of preInvoices){
-      for(let test of pre.performances){
-        const play = plays[test.playID];
+      for(let performance of pre.performances){
+        const play = plays[performance.playID];
         console.log(play);
 
         //現在の金額を入れる変数
         let thisAmount = 0;
         let thisPoint = 0;
 
+        switch (play.type) {
+        }
 
 
       }
