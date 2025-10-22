@@ -102,6 +102,10 @@
     let preAmount = 0;
     let prePoint = 0;
 
+    //前回の請求分の算出処理についてforeachかmapを使って実装予定
+    let test = previous.map(p => p.performances)
+    console.log(test);
+
 
     output += "\n-----------------------------------------\n";
     output += "前回の請求分と差額\n"
