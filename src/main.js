@@ -74,13 +74,15 @@
               //超過一人につき$10000の追加料金
               thisAmount += (performance.audience - 20) * 10000;
               console.log(`追加料金:${thisAmount}`);
-              //５人の超過が発生するたびに起きる処理
+              //この状態では追加料金から１回しか割り引かれない
               if ((performance.audience - 20) >= 5) {
                 test = thisAmount * 0.1;
                 console.log(`一回当たりの割引額${test}`);
                 thisAmount -= Math.floor(thisAmount * 0.1);
                 console.log(thisAmount);
               }
+
+
             }
             if (performance.audience > 30) {
               thisPoint += (performance.audience - 30);
