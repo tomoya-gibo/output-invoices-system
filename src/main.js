@@ -61,15 +61,17 @@
               //超過一人当たりの追加料金には、5人超過ごとに10％の割引を適用
               //金額の小数は切捨て
               //↓が超過の料金
-              thisAmount += (performance.audience - 20) * 10000;
-              console.log(`追加料金:${thisAmount}`);
-              //超過した人数はHamletで35人そこから５人超過ごとになので35/5で７回分の割引が発生
-              excess = Math.floor((performance.audience - 20) / 5);
-              console.log(`超過人数:${excess}`);
-              thisAmount -= Math.floor(thisAmount * (excess * 0.1));
-              console.log(`５人超過ごとの割り引いた金額:${thisAmount}`);
+              // thisAmount += (performance.audience - 20) * 10000;
+              // console.log(`追加料金:${thisAmount}`);
+              // //超過した人数はHamletで35人そこから５人超過ごとになので35/5で７回分の割引が発生
+              // excess = Math.floor((performance.audience - 20) / 5);
+              // console.log(`超過人数:${excess}`);
+              // thisAmount -= Math.floor(thisAmount * (excess * 0.1));
+              // console.log(`５人超過ごとの割り引いた金額:${thisAmount}`);
               //問題の意図は20人を超過した人数に対して５人超過ごとに10％の割引が発生するので５人超過段階で10%の割引を追加料金に対して行わなければならない
               //このロジックでは５人超過した回数×割引率で合計70%の割引が発生しておりそれは問題が意図する通りではない
+
+              thisAmount += (performance.audience - 20) * 10000;
             }
             if (performance.audience > 30) {
               thisPoint += (performance.audience - 30);
