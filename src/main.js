@@ -62,9 +62,10 @@
               //金額の小数は切捨て
               //↓が超過の料金
               thisAmount += (performance.audience - 20) * 10000;
+              console.log(`追加料金:${thisAmount}`);
               //超過した人数はHamletで35人そこから５人超過ごとになので35/5で７回分の割引が発生
               excess = Math.floor(performance.audience - 20 ) / 5
-              console.log(thisAmount);
+              console.log(`超過人数:${excess}`);
             }
             if (performance.audience > 30) {
               thisPoint += (performance.audience - 30);
