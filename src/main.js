@@ -49,6 +49,9 @@
         let thisAmount = 0;
         let thisPoint = 0;
 
+        //割り引いた値を入れる変数
+        let discountedValue = 0;
+
         //演目の種別ごとの料金算定
         switch (play.type) {
           case "tragedy":
