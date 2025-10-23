@@ -61,10 +61,15 @@
               //超過一人につき$10000の追加料金
               test += (performance.audience - 20) * 10000;
               console.log(`追加料金:${test}`);
+              //超過一人当たりの追加料金には、5人超過ごとに10％の割引を適用
+              for (let i = 1; i <= performance.audience - 20; i++) {
+                if (i % 5 === 0) {
+                  test -= test * 0.1;
+                  console.log(test);
+                }
+              }
               thisAmount += test;
               console.log(thisAmount);
-              //超過一人当たりの追加料金には、5人超過ごとに10％の割引を適用
-
 
             }
             if (performance.audience > 30) {
