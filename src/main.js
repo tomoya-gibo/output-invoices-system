@@ -68,6 +68,7 @@
               console.log(`超過人数:${excess}`);
               thisAmount -= Math.floor(thisAmount * (excess * 0.1));
               console.log(`５人超過ごとの割り引いた金額:${thisAmount}`);
+              //問題の意図は20人を超過した人数に対して５人超過ごとに10％の割引が発生するので５人超過段階で10%の割引を追加料金に対して行わなければならない
             }
             if (performance.audience > 30) {
               thisPoint += (performance.audience - 30);
