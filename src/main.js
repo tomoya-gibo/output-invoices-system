@@ -50,7 +50,7 @@
         let thisPoint = 0;
 
         //超過人数を入れる変数
-        let excess = 0;
+        let test = 0;
 
         //演目の種別ごとの料金算定
         switch (play.type) {
@@ -71,7 +71,17 @@
               //問題の意図は20人を超過した人数に対して５人超過ごとに10％の割引が発生するので５人超過段階で10%の割引を追加料金に対して行わなければならない
               //このロジックでは５人超過した回数×割引率で合計70%の割引が発生しておりそれは問題が意図する通りではない
 
+              //超過一人につき$10000の追加料金
               thisAmount += (performance.audience - 20) * 10000;
+              console.log(`追加料金:${thisAmount}`);
+              if ((performance.audience - 20) >= 5) {
+                test = thisAmount * 0.1;
+                console.log(test);
+                thisAmount -= Math.floor(thisAmount * 0.1);
+                console.log(thisAmount);
+              }
+
+
             }
             if (performance.audience > 30) {
               thisPoint += (performance.audience - 30);
