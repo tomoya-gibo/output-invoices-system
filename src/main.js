@@ -56,8 +56,10 @@
             //超過料金の算定
             if (performance.audience > 20) {
               thisAmount += (performance.audience - 20) * 10000;
+              console.log(thisAmount);
               //超過一人当たりの追加料金には、5人超過ごとに10％の割引を適用
-              thisAmount -= Math.floor(performance.audience / 5 / 10);
+              thisAmount -= Math.floor(performance.audience / 5 % 10);
+              console.log(thisAmount);
             }
             if (performance.audience > 30) {
               thisPoint += (performance.audience - 30);
@@ -119,7 +121,7 @@
     for(let pre of preInvoices){
       for(let performance of pre.performances){
         const play = plays[performance.playID];
-        console.log(play);
+        // console.log(play);
 
         //現在の金額を入れる変数
         let thisAmount = 0;
@@ -173,10 +175,10 @@
     output += `合計金額：$${preAmount}（前回比：$${netAmount}）\n`;
     output += `獲得ポイント：${prePoint}pt（前回比：${netPoint}pt）`;
 
-    console.log(output);
+    // console.log(output);
 
     rl.question('txtかhtmlどちらの形式で出力しますか？ : ', (answer) => {
-      console.log(`${answer}の形式で出力します`);
+      // console.log(`${answer}の形式で出力します`);
       if (answer === 'txt') {
         fs.writeFileSync("output.txt", output, 'utf-8');
       }
