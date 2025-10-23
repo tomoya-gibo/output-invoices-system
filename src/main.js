@@ -49,7 +49,7 @@
         let thisAmount = 0;
         let thisPoint = 0;
 
-        //超過人数を入れる変数
+        //超過金額を入れる変数
         let test = 0;
 
         //演目の種別ごとの料金算定
@@ -58,29 +58,9 @@
             thisAmount = tragedyBasePrice;
             //超過料金の算定
             if (performance.audience > 20) {
-              //超過一人当たりの追加料金には、5人超過ごとに10％の割引を適用
-              //金額の小数は切捨て
-              //↓が超過の料金
-              // thisAmount += (performance.audience - 20) * 10000;
-              // console.log(`追加料金:${thisAmount}`);
-              // //超過した人数はHamletで35人そこから５人超過ごとになので35/5で７回分の割引が発生
-              // excess = Math.floor((performance.audience - 20) / 5);
-              // console.log(`超過人数:${excess}`);
-              // thisAmount -= Math.floor(thisAmount * (excess * 0.1));
-              // console.log(`５人超過ごとの割り引いた金額:${thisAmount}`);
-              //問題の意図は20人を超過した人数に対して５人超過ごとに10％の割引が発生するので５人超過段階で10%の割引を追加料金に対して行わなければならない
-              //このロジックでは５人超過した回数×割引率で合計70%の割引が発生しておりそれは問題が意図する通りではない
-
               //超過一人につき$10000の追加料金
               thisAmount += (performance.audience - 20) * 10000;
               console.log(`追加料金:${thisAmount}`);
-              //この状態では追加料金から１回しか割り引かれない
-              if ((performance.audience - 20) >= 5) {
-                test = thisAmount * 0.1;
-                console.log(`一回当たりの割引額${test}`);
-                thisAmount -= Math.floor(thisAmount * 0.1);
-                console.log(thisAmount);
-              }
 
 
             }
