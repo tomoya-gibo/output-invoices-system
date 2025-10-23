@@ -59,8 +59,11 @@
             //超過料金の算定
             if (performance.audience > 20) {
               //超過一人当たりの追加料金には、5人超過ごとに10％の割引を適用
+              //金額の小数は切捨て
               //↓が超過の料金
               thisAmount += (performance.audience - 20) * 10000;
+              //超過した人数はHamletで35人そこから５人超過ごとになので35/5で７回分の割引が発生
+              discountedValue = Math.floor(thisAmount-(performance.audience / 5 * 0.1))
               console.log(thisAmount);
             }
             if (performance.audience > 30) {
