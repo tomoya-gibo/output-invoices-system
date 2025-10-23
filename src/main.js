@@ -49,7 +49,7 @@
         let thisAmount = 0;
         let thisPoint = 0;
 
-        //超過金額を入れる変数
+        //追加金額を入れる変数
         let test = 0;
 
         //演目の種別ごとの料金算定
@@ -59,8 +59,11 @@
             //超過料金の算定
             if (performance.audience > 20) {
               //超過一人につき$10000の追加料金
-              thisAmount += (performance.audience - 20) * 10000;
-              console.log(`追加料金:${thisAmount}`);
+              test += (performance.audience - 20) * 10000;
+              console.log(`追加料金:${test}`);
+              thisAmount += test;
+              console.log(thisAmount);
+              //超過一人当たりの追加料金には、5人超過ごとに10％の割引を適用
 
 
             }
