@@ -49,8 +49,8 @@
         let thisAmount = 0;
         let thisPoint = 0;
 
-        //割り引いた値を入れる変数
-        let discountedValue = 0;
+        //超過人数を入れる変数
+        let excess = 0;
 
         //演目の種別ごとの料金算定
         switch (play.type) {
@@ -63,7 +63,7 @@
               //↓が超過の料金
               thisAmount += (performance.audience - 20) * 10000;
               //超過した人数はHamletで35人そこから５人超過ごとになので35/5で７回分の割引が発生
-              discountedValue = Math.floor(thisAmount-(performance.audience / 5 * 0.1))
+              excess = Math.floor(performance.audience - 20 ) / 5
               console.log(thisAmount);
             }
             if (performance.audience > 30) {
