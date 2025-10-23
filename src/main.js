@@ -55,10 +55,9 @@
             thisAmount = tragedyBasePrice;
             //超過料金の算定
             if (performance.audience > 20) {
-              thisAmount += (performance.audience - 20) * 10000;
-              console.log(thisAmount);
               //超過一人当たりの追加料金には、5人超過ごとに10％の割引を適用
-              thisAmount -= Math.floor(performance.audience / 5 % 10);
+              //↓が超過の料金
+              thisAmount += (performance.audience - 20) * 10000;
               console.log(thisAmount);
             }
             if (performance.audience > 30) {
@@ -178,7 +177,7 @@
     // console.log(output);
 
     rl.question('txtかhtmlどちらの形式で出力しますか？ : ', (answer) => {
-      // console.log(`${answer}の形式で出力します`);
+      console.log(`${answer}の形式で出力します`);
       if (answer === 'txt') {
         fs.writeFileSync("output.txt", output, 'utf-8');
       }
