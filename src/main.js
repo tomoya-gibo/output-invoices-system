@@ -19,7 +19,7 @@ function main() {
 	let exPoint = 0;			//前回の獲得ポイント
 
 	//前回分の金額計算
-	for (const performance of performances2) {
+	for (const performance of performances) {
 		amount = 0;
 		if (plays[performance.playID].type === "tragedy") {			//悲劇の場合
 			amount += 30000;
@@ -54,7 +54,7 @@ function main() {
 	}
 
 	//今回分の金額計算
-	for (const performance of performances) {
+	for (const performance of performances2) {
 		amount = 0;
 		if (plays[performance.playID].type === "tragedy") {			//悲劇の場合
 			amount += 30000;
