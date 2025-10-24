@@ -97,15 +97,17 @@ function main() {
     resultData += `獲得ポイント：${point}p（前回比：${diffPoint}pt）\n`;
 	resultHtml += `</ul><p>合計金額：$${totalAmount}（前回比：$${diffAmount}）</p><p>獲得ポイント：${point}pt（前回比：${diffPoint}pt）</p>`;
 
-	// ファイルへ書き込む
-	console.log("arg:" + arg);
-	if (arg === "txt") {
-		fs.writeFileSync("../output/invoice.txt", resultData);
-	} else if (arg === "html") {
-		fs.writeFileSync("../output/invoice.html", resultHtml);
-	} else {
-		console.log("想定外の引数");
-	}
+	// // ファイルへ書き込む
+	// console.log("arg:" + arg);
+	// if (arg === "txt") {
+	// 	fs.writeFileSync("../output/invoice.txt", resultData);
+	// } else if (arg === "html") {
+	// 	fs.writeFileSync("../output/invoice.html", resultHtml);
+	// } else {
+	// 	console.log("想定外の引数");
+	// }
+	console.log(exTotalAmount);
+	console.log(totalAmount);
 }
 
 main();
