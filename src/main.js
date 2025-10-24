@@ -57,9 +57,10 @@ function main() {
 	for (const performance of performances) {
 		amount = 0;
 		if (plays[performance.playID].type === "tragedy") {			//悲劇の場合
-			amount += 40000;
-			if (performance.audience > 30) {						//観客数の超過料金計算
-				amount += (performance.audience - 30) * 1000;
+			amount += 30000;
+			if (performance.audience > 20) { 						//観客数の超過料金計算
+				amount += (performance.audience - 20) * 10000;					//追加料金
+				amount -= Math.floor((performance.audience - 20) / 5) * 5000;	//割引金額
 			}
 		} else if (plays[performance.playID].type === "comedy") {	//喜劇の場合
 			amount += 30000;
