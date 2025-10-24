@@ -28,4 +28,12 @@ describe('出力テスト', () => {
     const expectedOutput = fs.readFileSync('tests/main/output/testCase3.txt', 'utf8');
     expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
   })
+
+  test('testCase4', () => {
+    const testData = fs.readFileSync('tests/main/input/testCase4.json', 'utf8');
+    fs.writeFileSync("input/invoices.json", testData, 'utf-8');
+    main();
+    const expectedOutput = fs.readFileSync('tests/main/output/testCase4.txt', 'utf8');
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+  })
 })
