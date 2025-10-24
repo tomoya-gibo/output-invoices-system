@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { formatUserProfile } from '../practice/practice1.js';
+import { formatUserProfile } from '../../practice/practice1.js';
 
 // テストデータ
 const testUser1 = {
