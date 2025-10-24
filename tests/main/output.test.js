@@ -36,4 +36,28 @@ describe('出力テスト', () => {
     const expectedOutput = fs.readFileSync('tests/main/output/testCase4.txt', 'utf8');
     expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
   })
+
+  test('testCase5', () => {
+    const testData = fs.readFileSync('tests/main/input/testCase5.json', 'utf8');
+    fs.writeFileSync("input/invoices.json", testData, 'utf-8');
+    main();
+    const expectedOutput = fs.readFileSync('tests/main/output/testCase5.txt', 'utf8');
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+  })
+
+  test('testCase6', () => {
+    const testData = fs.readFileSync('tests/main/input/testCase6.json', 'utf8');
+    fs.writeFileSync("input/invoices.json", testData, 'utf-8');
+    main();
+    const expectedOutput = fs.readFileSync('tests/main/output/testCase6.txt', 'utf8');
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+  })
+
+  test('testCase7', () => {
+    const testData = fs.readFileSync('tests/main/input/testCase7.json', 'utf8');
+    fs.writeFileSync("input/invoices.json", testData, 'utf-8');
+    main();
+    const expectedOutput = fs.readFileSync('tests/main/output/testCase7.txt', 'utf8');
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+  })
 })
