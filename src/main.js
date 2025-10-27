@@ -1,50 +1,24 @@
-// 追加仕様
-// 追加仕様の制約
-// 既存のコードはなるべく手を加えない。ただし、細かい変更(例：else ifを増やしたいなど)は可とする。判断が難しいと感じたら相談すること。
-// 仕様を追加する際も、新しく関数を作らない。引き続き、元ある制約は守ること。
+ 
+  //2025/10/15
+  //リファクタリング開始
 
-
-// 10/22　追加仕様についてのコメントを追加
-// 悲劇の場合の金額を以下のように変更
-// 基本料金$30000
-// 観客数が20人を超過する場合、超過一人につき$10000の追加料金
-// 超過一人当たりの追加料金には、5人超過ごとに10％の割引を適用
-// 例：超過1〜5人まで→$10000
-// 　　超過6〜10人まで→$10000の10%割引 = $9000を追加
-// 　　超過11〜15人まで→$9000の10%割引 = $8100を追加
-// 　　以下、同様に5人ごとに続く。
-// 例：29人の場合
-// 　　$30000(基本料金) + $10000 * 5(超過21人目〜25人目まで) + $9000 * 4(超過26人目〜29人目まで) = $116000
-// 金額の小数は切捨て
-// この仕様は、前回の請求金額を算出する際にも適用される。
-
-
-
-  function main() {
-    //ファイルを読み込むモジュール
+  export function main() {
     const fs = require("fs");
-    //コマンドラインからのユーザーの入力を受け取れるようにするモジュール
-    const readline = require("readline");
     // 1 入力データの読み込み
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
-    const preInvoices = JSON.parse(fs.readFileSync("input/previous.json", "utf8"));
   
     // 出力用変数
     let output = "請求書\n株式会社ビッグカンパニー\n\n";
-
-    // html出力用の変数
-    let outputList = "";
   
     // 基本料金
-    const tragedyBasePrice = 30000;
+    const tragedyBasePrice = 40000;
     const comedyBasePrice = 30000;
-    const tragicomedyBasePrice = 30000;
   
     // 合計金額・ポイント
     let totalAmount = 0;
     let totalPoint = 0;
-
+  
     // 2 請求書の内容ごとの料金算定
     // for文でinvoicesの中身を取り出す
     for (let invoice of invoices) {
@@ -52,89 +26,21 @@
       for (let performance of invoice.performances) {
         // playsのキーとperformance.playIDを照合してplayに代入
         const play = plays[performance.playID];
-
-        //現在の金額を入れる変数
+        //料金を入れる変数
         let thisAmount = 0;
         let thisPoint = 0;
-
-        //追加金額を入れる変数
-        let test = 0;
-
+  
         //演目の種別ごとの料金算定
         switch (play.type) {
           case "tragedy":
             thisAmount = tragedyBasePrice;
             //超過料金の算定
-            // 観客数が20人を超過する場合、超過一人につき$10000の追加料金
-            // 超過一人当たりの追加料金には、5人超過ごとに10％の割引を適用
-            // 例：超過1〜5人まで→$10000
-            // 　　超過6〜10人まで→$10000の10%割引 = $9000を追加
-            // 　　超過11〜15人まで→$9000の10%割引 = $8100を追加
-            // 　　以下、同様に5人ごとに続く。
-            // 例：29人の場合
-            // 　　$30000(基本料金) + $10000 * 5(超過21人目〜25人目まで) + $9000 * 4(超過26人目〜29人目まで) = $116000
-            // 金額の小数は切捨て
-            // この仕様は、前回の請求金額を算出する際にも適用される。
-
-            // 5人超過ごとの追加料金に割引を適用する方法
-            // 割引率 追加料金 * (1-0.1)
-            //もし観客数が20人を超えていたら追加料金 超過人数*10000
-            if (performance.audience > 20) {
-              let rate = 1.0;
-              
-              //5人の区切りグループを入れる変数
-              let group = 0;
-  
-
-              let person = performance.audience - 20; 
-                  
-                //thisAmount += 10000 * rate * i;
-                //超過5人ごとに追加料金に対して10%の割引を適応するにはどうすればいいか
-                //まず超過した人数が5以内かそうではないかを判断する仕組みが必要
-                //iには超過した人数分だけ+1される
-               // 最初の５人以内
-               // 5人超過以降
-               // 現在の問題点、５人超過以降のすべてに10%の割引が適応されている
-               // if (group <= 1) {
-                //   test += 10000;
-                
-                // } 
-                // else {
-                  //  rate = rate * 0.9
-                  //  console.log(rate);
-                  //  test += 10000 * rate;
-                  //  console.log(`追加料金: ${test}`);
-                  // }
-                  
-                  
-                  //5人単位で10%の割引の倍率をする仕組みが必要
-                  //5人の単位を割り出す
-                  group = Math.floor(person / 5);
-                  console.log(`５人ごとのグループ数${group}`);
-
-                  let amari = person % 5
-
-                  //次に割り出したグループ数分だけrateに割引倍率を掛ければ仕様通りになる
-                    for(let n = 0; n < group; n++){
-                      console.log(`５人ごとのループ数${n}`);
-                      test += 10000 * rate * 5;
-                      rate = rate * 0.9
-                      console.log(`追加金額テスト${test}`);
-                      console.log(rate)
-                    }
-
-                    if (amari > 0) {
-                      test += 10000 * rate * amari
-                    }
-
-                    
-                    thisAmount += test;
-                    console.log(`最終金額: ${thisAmount}`);
-            }
-
             if (performance.audience > 30) {
-              thisPoint += (performance.audience - 30);
-            }            
+              thisAmount += (performance.audience - 30) * 1000;
+            }
+            if (performance.audience > 30){
+              thisPoint += (performance.audience - 30)
+            }
             break;
           case "comedy":
             thisAmount = comedyBasePrice;
@@ -144,137 +50,25 @@
               thisAmount += (performance.audience - 20) * 500;
             }
             if (performance.audience > 30){
-              thisPoint += (performance.audience - 30);
+              thisPoint += (performance.audience - 30)
             }
             //喜劇の場合のみ超過にかかわらず一人につき$300の追加
             thisAmount += performance.audience * 300;
             //観客数5人につき1ポイント追加
-            thisPoint += Math.floor(performance.audience / 5);
-            break;
-          case "tragic-comedy":
-            thisAmount = tragicomedyBasePrice;
-            //超過にかかわらず観客数一人につき$500追加
-            thisAmount += performance.audience * 500;
-            if (performance.audience > 20) {
-            //20人を超過したら一人につき1ポイント追加。
-              thisPoint += (performance.audience - 20);
-            }
+            thisPoint += Math.floor(performance.audience / 5)
             break;
         }
-
         //合計金額
         totalAmount += thisAmount;
         //獲得ポイントの合計
         totalPoint += thisPoint
-
-        outputList += `<li>${play.name} (観客数: ${performance.audience}人、金額: $${thisAmount})</li>`;
-        output += `・${play.name} (観客数: ${performance.audience}人、金額: $${thisAmount})\n`;
+        output += `・${play.name} (観客数: ${performance.audience}、金額: $${thisAmount})\n`;
       }
     }
     output += `\n 合計金額: $${totalAmount}`
     output += `\n 獲得ポイント: ${totalPoint}pt`
-    //console.log(output);
-
-    const rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout,
-    });
-
-    //10/22 追加仕様
-    //合計金額と獲得ポイントについて、前回との差分(previous.json)をHTMLかtxtで出す。
-
-    //前回分の合計金額とポイントを保持する変数
-    let preAmount = 0;
-    let prePoint = 0;
-
-    
-    //前回の請求分を算出する処理を追加予定
-    for(let pre of preInvoices){
-      for(let performance of pre.performances){
-        const play = plays[performance.playID];
-        // console.log(play);
-
-        //現在の金額を入れる変数
-        let thisAmount = 0;
-        let thisPoint = 0;
-
-        switch (play.type) {
-          case "tragedy" :
-            thisAmount = tragedyBasePrice;
-            if (performance.audience > 30){
-              thisAmount += (performance.audience - 30) * 1000;
-            };
-            if (performance.audience > 30){
-              thisPoint += (performance.audience - 30)
-            };
-          break;
-          case "comedy" :
-            thisAmount = comedyBasePrice;
-            if (performance.audience > 20){
-              thisAmount += 10000;
-              thisAmount += (performance.audience - 30) * 500;
-            };
-            if (performance.audience > 30){
-              thisPoint += (performance.audience - 30)
-            };
-            thisAmount += performance.audience * 300;
-            thisPoint += Math.floor(performance.audience / 5);
-          break;
-          case "tragic-comedy" :
-            thisAmount = tragicomedyBasePrice;
-            if (performance.audience > 20) {
-              thisPoint += performance.audience - 20;
-            }
-            thisAmount += performance.audience * 500;
-          break;
-        }
-
-        preAmount += thisAmount;
-        //console.log(preAmount);
-        prePoint += thisPoint; 
-        //console.log(prePoint);
-      }
-    }
-
-    //現在の請求から前回の請求分を差し引いた値を入れる変数
-    let netAmount = totalAmount - preAmount;
-    let netPoint = totalPoint - prePoint;
-
-
-    output += "\n-----------------------------------------\n";
-    output += "前回の請求分:\n"
-    output += `合計金額：$${preAmount}（前回比：$${netAmount}）\n`;
-    output += `獲得ポイント：${prePoint}pt（前回比：${netPoint}pt）`;
-
-    // console.log(output);
-
-    rl.question('txtかhtmlどちらの形式で出力しますか？ : ', (answer) => {
-      console.log(`${answer}の形式で出力します`);
-      if (answer === 'txt') {
-        fs.writeFileSync("output.txt", output, 'utf-8');
-      }
-      if (answer === 'html') {
-
-        output = `<p>請求書</p>
-                  <p>株式会社ビッグカンパニー</p>
-
-                  <ul>
-                  ${outputList}
-                  </ul>
-
-                  <p>合計金額: $${totalAmount}</p>
-                  <p>獲得ポイント: ${totalPoint}pt</p>
-                  <p>-------------------------------------------------------</p>
-                  <p>前回の請求額:</p>
-                  <p>合計金額：$${preAmount}（前回比：$${netAmount}）</p>
-                  <p>獲得ポイント：${prePoint}pt（前回比：${netPoint}pt）<p>`
-
-        fs.writeFileSync("output.html", output, 'utf-8');
-      }
-      rl.close();
-    });
-
-
+    console.log(output)
+    fs.writeFileSync("output.txt", output, 'utf-8');
   }
   
   main();
