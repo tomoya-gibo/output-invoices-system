@@ -84,8 +84,9 @@
               
               //5人の区切りグループを入れる変数
               let group = 0;
-              //段階的に10%の割引を適応させるためにfor文の中で超過人数を出す
-              for (let i = 1; i <= performance.audience - 20; i++) {
+  
+
+              let person = performance.audience - 20; 
                   
                 //thisAmount += 10000 * rate * i;
                 //超過5人ごとに追加料金に対して10%の割引を適応するにはどうすればいいか
@@ -108,17 +109,28 @@
                   
                   //5人単位で10%の割引の倍率をする仕組みが必要
                   //5人の単位を割り出す
-                  group = Math.floor((i - 1) / 5);
+                  group = Math.floor(person / 5);
                   console.log(`５人ごとのグループ数${group}`);
 
+                  let amari = person % 5
+
                   //次に割り出したグループ数分だけrateに割引倍率を掛ければ仕様通りになる
-                  for(let n = 0; n < group; n++){
+                    for(let n = 0; n < group; n++){
+                      console.log(`５人ごとのループ数${n}`);
+                      test += 10000 * rate * 5;
+                      rate = rate * 0.9
+                      console.log(`追加金額テスト${test}`);
+                      console.log(rate)
+                    }
+
+                    if (amari > 0) {
+                      test += 10000 * rate * amari
+                    }
+
                     
-                  }
-              }
+                    thisAmount += test;
+                    console.log(`最終金額: ${thisAmount}`);
             }
-            thisAmount += test;
-            console.log(`最終金額: ${thisAmount}`);
 
             if (performance.audience > 30) {
               thisPoint += (performance.audience - 30);
