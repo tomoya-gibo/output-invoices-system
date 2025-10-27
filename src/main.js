@@ -111,9 +111,13 @@
                   group = Math.floor((i - 1) / 5);
                   console.log(`５人ごとのグループ数${group}`);
 
-                  //次に割り出したグループ数にrateをかけて割引倍率を変化させていく
-                  
-
+                  //次に割り出したグループ数分だけrateに割引倍率を掛ければ仕様通りになる
+               if (group <= i) {
+                  test += 10000;
+                
+                } else {
+                  rate = 
+                }
               }
             }
             thisAmount += test;
