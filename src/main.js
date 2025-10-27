@@ -86,28 +86,34 @@
               let group = 0;
               //段階的に10%の割引を適応させるためにfor文の中で超過人数を出す
               for (let i = 1; i <= performance.audience - 20; i++) {
-                  group = Math.floor((i - 1) / 5);
-                  console.log(`５人ごとのグループ数:${group}`);
-                //割引率を入れる変数
+                  
                 //thisAmount += 10000 * rate * i;
                 //超過5人ごとに追加料金に対して10%の割引を適応するにはどうすればいいか
                 //まず超過した人数が5以内かそうではないかを判断する仕組みが必要
                 //iには超過した人数分だけ+1される
                // 最初の５人以内
-                if (i <= 5) {
-                  test += 10000;
                // 5人超過以降
                // 現在の問題点、５人超過以降のすべてに10%の割引が適応されている
-               //5人単位で10%の割引の倍率をする仕組みが必要
-               //5人の単位を割り出す
-               
-                } 
-                else {
-                 rate = rate * 0.9
-                 console.log(rate);
-                 test += 10000 * rate;
-                 console.log(`追加料金: ${test}`);
-                }
+               // if (group <= 1) {
+                //   test += 10000;
+                
+                // } 
+                // else {
+                  //  rate = rate * 0.9
+                  //  console.log(rate);
+                  //  test += 10000 * rate;
+                  //  console.log(`追加料金: ${test}`);
+                  // }
+                  
+                  
+                  //5人単位で10%の割引の倍率をする仕組みが必要
+                  //5人の単位を割り出す
+                  group = Math.floor((i - 1) / 5);
+                  console.log(`５人ごとのグループ数${group}`);
+
+                  //次に割り出したグループ数にrateをかけて割引倍率を変化させていく
+                  
+
               }
             }
             thisAmount += test;
