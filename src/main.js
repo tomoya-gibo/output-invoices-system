@@ -64,74 +64,32 @@
         switch (play.type) {
           case "tragedy":
             thisAmount = tragedyBasePrice;
-            //超過料金の算定
-            // 観客数が20人を超過する場合、超過一人につき$10000の追加料金
-            // 超過一人当たりの追加料金には、5人超過ごとに10％の割引を適用
-            // 例：超過1〜5人まで→$10000
-            // 　　超過6〜10人まで→$10000の10%割引 = $9000を追加
-            // 　　超過11〜15人まで→$9000の10%割引 = $8100を追加
-            // 　　以下、同様に5人ごとに続く。
-            // 例：29人の場合
-            // 　　$30000(基本料金) + $10000 * 5(超過21人目〜25人目まで) + $9000 * 4(超過26人目〜29人目まで) = $116000
-            // 金額の小数は切捨て
-            // この仕様は、前回の請求金額を算出する際にも適用される。
 
-            // 5人超過ごとの追加料金に割引を適用する方法
-            // 割引率 追加料金 * (1-0.1)
-            //もし観客数が20人を超えていたら追加料金 超過人数*10000
             if (performance.audience > 20) {
               let rate = 1.0;
               
-              //5人の区切りグループを入れる変数
               let group = 0;
   
-
               let person = performance.audience - 20; 
                   
-                //thisAmount += 10000 * rate * i;
-                //超過5人ごとに追加料金に対して10%の割引を適応するにはどうすればいいか
-                //まず超過した人数が5以内かそうではないかを判断する仕組みが必要
-                //iには超過した人数分だけ+1される
-               // 最初の５人以内
-               // 5人超過以降
-               // 現在の問題点、５人超過以降のすべてに10%の割引が適応されている
-               // if (group <= 1) {
-                //   test += 10000;
-                
-                // } 
-                // else {
-                  //  rate = rate * 0.9
-                  //  console.log(rate);
-                  //  test += 10000 * rate;
-                  //  console.log(`追加料金: ${test}`);
-                  // }
-                  
-                  
-                  //5人単位で10%の割引の倍率をする仕組みが必要
-                  //5人の単位を割り出す
                   group = Math.floor(person / 5);
                   console.log(`５人ごとのグループ数${group}`);
 
                   let amari = person % 5
 
-                  //次に割り出したグループ数分だけrateに割引倍率を掛ければ仕様通りになる
                     for(let n = 0; n < group; n++){
-                      console.log(`５人ごとのループ数${n}`);
+                      //console.log(`５人ごとのループ数${n}`);
                       test += 10000 * rate * 5;
                       rate = rate * 0.9
-                      console.log(`追加金額テスト${test}`);
+                      //console.log(`追加金額テスト${test}`);
                       console.log(rate)
                     }
-
                     if (amari > 0) {
                       test += 10000 * rate * amari
                     }
-
-                    
                     thisAmount += test;
-                    console.log(`最終金額: ${thisAmount}`);
+                    //console.log(`最終金額: ${thisAmount}`);
             }
-
             if (performance.audience > 30) {
               thisPoint += (performance.audience - 30);
             }            
@@ -198,12 +156,38 @@
         let thisAmount = 0;
         let thisPoint = 0;
 
+        let test = 0;
+
         switch (play.type) {
           case "tragedy" :
             thisAmount = tragedyBasePrice;
-            if (performance.audience > 30){
-              thisAmount += (performance.audience - 30) * 1000;
-            };
+
+            if (performance.audience > 20) {
+              let rate = 1.0;
+              
+              let group = 0;
+  
+              let person = performance.audience - 20;
+
+              let amari = person % 5
+                  
+                group = Math.floor(person / 5);
+                console.log(`５人ごとのグループ数${group}`);
+
+              for(let n = 0; n < group; n++){
+                  console.log(`５人ごとのループ数${n}`);
+                  test += 10000 * rate * 5;
+                  rate = rate * 0.9
+                  console.log(`追加金額テスト${test}`);
+                  console.log(rate)
+                  }
+              if (amari > 0) {
+                  test += 10000 * rate * amari;
+                  }
+                  thisAmount += test;
+                  console.log(`最終金額: ${thisAmount}`);
+            }
+            
             if (performance.audience > 30){
               thisPoint += (performance.audience - 30)
             };
