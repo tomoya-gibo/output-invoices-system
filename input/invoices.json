@@ -4,7 +4,7 @@
         "performances" : [
             {
                 "playID" : "hamlet",
-                "audience" : 55
+                "audience" : 23
             },
             {
                 "playID" : "as-like",
@@ -12,7 +12,7 @@
             },
             {
                 "playID" : "othello",
-                "audience" : 40
+                "audience" : 29
             },
             {
                 "playID" : "romeo-and-juliet",
