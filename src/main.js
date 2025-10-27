@@ -60,9 +60,6 @@
         //追加金額を入れる変数
         let test = 0;
 
-        //超過した人数を保持する変数
-        let excessPeople
-
         //演目の種別ごとの料金算定
         switch (play.type) {
           case "tragedy":
@@ -84,7 +81,20 @@
             //もし観客数が20人を超えていたら追加料金 超過人数*10000
             if (performance.audience > 20) {
               //段階的に10%の割引を適応させるためにfor文の中で超過人数を出す
-              for (let i = 1; i <= performance.audience - 20; i++) {                
+              for (let i = 1; i <= performance.audience - 20; i++) {
+                //割引率を入れる変数
+                let rate = 1.0;
+                //thisAmount += 10000 * rate * i;
+                //超過5人ごとに追加料金に対して10%の割引を適応するにはどうすればいいか
+                //まず超過した人数が5以内かそうではないかを判断する仕組みが必要
+                //iには超過した人数分だけ+1される
+               // 最初の５人以内
+                if (i <= 5) {
+                  test += 10000;
+                } else {
+                 rate = rate * 0.9
+                 test += 10000 * rate;
+                }
               }
             }
             thisAmount += test;
