@@ -1,7 +1,7 @@
 // リファクタリングタスク: 関数の抽出を行ってください
 
-// ユーザー情報のバリデーションチェック関数
-function userValidation(user) {
+export function formatUserProfile(user) {
+    // ユーザー情報のバリデーション
     if (!user.name || user.name.trim() === '') {
         throw new Error('ユーザー名が必須です');
     }
