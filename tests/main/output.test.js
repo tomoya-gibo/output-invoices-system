@@ -10,8 +10,7 @@ describe('出力テスト', () => {
     fs.writeFileSync("input/invoices.json", testData, 'utf-8');
     main();
     const expectedOutput = fs.readFileSync('tests/main/output/testCase1.txt', 'utf8');
-    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
-  })
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8').replace(/\r\n/g, '\n')).toBe(expectedOutput.replace(/\r\n/g, '\n'));  })
 
   test('testCase2', () => {
     const testData = fs.readFileSync('tests/main/input/testCase2.json', 'utf8');
