@@ -58,7 +58,7 @@
         let thisPoint = 0;
 
         //追加金額を入れる変数
-        let test = 0;
+        let addAmount = 0;
 
         //演目の種別ごとの料金算定
         switch (play.type) {
@@ -79,15 +79,15 @@
 
                     for(let n = 0; n < group; n++){
                       //console.log(`５人ごとのループ数${n}`);
-                      test += 10000 * rate * 5;
+                      addAmount += 10000 * rate * 5;
                       rate = rate * 0.9
                       //console.log(`追加金額テスト${test}`);
                       console.log(rate)
                     }
                     if (amari > 0) {
-                      test += 10000 * rate * amari
+                      addAmount += 10000 * rate * amari
                     }
-                    thisAmount += test;
+                    thisAmount += addAmount;
                     //console.log(`最終金額: ${thisAmount}`);
             }
             if (performance.audience > 30) {
@@ -156,7 +156,7 @@
         let thisAmount = 0;
         let thisPoint = 0;
 
-        let test = 0;
+        let addAmount = 0;
 
         switch (play.type) {
           case "tragedy" :
@@ -176,15 +176,15 @@
 
               for(let n = 0; n < group; n++){
                   console.log(`５人ごとのループ数${n}`);
-                  test += 10000 * rate * 5;
+                  addAmount += 10000 * rate * 5;
                   rate = rate * 0.9
-                  console.log(`追加金額テスト${test}`);
+                  console.log(`追加金額テスト${addAmount}`);
                   console.log(rate)
                   }
               if (amari > 0) {
-                  test += 10000 * rate * amari;
+                  addAmount += 10000 * rate * amari;
                   }
-                  thisAmount += test;
+                  thisAmount += addAmount;
                   console.log(`最終金額: ${thisAmount}`);
             }
             
