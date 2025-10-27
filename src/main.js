@@ -60,6 +60,9 @@
         //追加金額を入れる変数
         let test = 0;
 
+        //超過した人数を保持する変数
+        let excessPeople
+
         //演目の種別ごとの料金算定
         switch (play.type) {
           case "tragedy":
@@ -75,10 +78,19 @@
             // 　　$30000(基本料金) + $10000 * 5(超過21人目〜25人目まで) + $9000 * 4(超過26人目〜29人目まで) = $116000
             // 金額の小数は切捨て
             // この仕様は、前回の請求金額を算出する際にも適用される。
+
+            // 5人超過ごとの追加料金に割引を適用する方法
+            // 割引率 追加料金 * (1-0.1)
+            //もし観客数が20人を超えていたら追加料金 超過人数*10000
             if (performance.audience > 20) {
-              thisAmount += (performance.audience - 20) * 10000;
-              console.log(`${thisAmount}`);
+              //段階的に10%の割引を適応させるためにfor文の中で超過人数を出す
+              for (let i = 1; i <= performance.audience - 20; i++) {                
+              }
             }
+            thisAmount += test;
+            console.log(`追加料金: ${test}`);
+            console.log(`最終金額: ${thisAmount}`);
+
             if (performance.audience > 30) {
               thisPoint += (performance.audience - 30);
             }            
