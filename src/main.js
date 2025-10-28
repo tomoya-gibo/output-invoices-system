@@ -55,12 +55,13 @@
             }
             break;
           case "comedy":
-            thisAmount = comedyBasePrice;
-            //超過料金の算定
-            if (performance.audience > 20) {
-              thisAmount += 10000;
-              thisAmount += (performance.audience - 20) * 500;
-            }
+            // thisAmount = comedyBasePrice;
+            // //超過料金の算定
+            // if (performance.audience > 20) {
+            //   thisAmount += 10000;
+            //   thisAmount += (performance.audience - 20) * 500;
+            // }
+            thisAmount += comedyCalc(comedyBasePrice,performance);
             if (performance.audience > 30){
               thisPoint += (performance.audience - 30)
             }
