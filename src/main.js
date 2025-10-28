@@ -1,3 +1,4 @@
+const { totalmem } = require('os');
 const invoices = require('../input/invoices.json');		//受注1
 const invoices2 = require('../input/invoices2.json');	//受注2
 const plays = require('../input/plays.json');
@@ -23,9 +24,19 @@ function main() {
 		amount = 0;
 		if (plays[performance.playID].type === "tragedy") {			//悲劇の場合
 			amount += 30000;
-			if (performance.audience > 20) { 						//観客数の超過料金計算
-				amount += (performance.audience - 20) * 10000;					//追加料金
-				amount -= Math.floor((performance.audience - 20) / 5) * 5000;	//割引金額
+			if (performance.audience > 20) {
+				let chouka = performance.audience - 20;	// 超過人数
+				let shou = Math.floor(chouka / 5);
+				let amari = chouka % 5;
+				
+				if (chouka <= 5) {
+					amount += 10000 * chouka;
+				} else {
+					for (let i = 0; i < shou; i++) {
+						amount += Math.floor(10000 * (0.9 ** i)) * 5;
+					}
+					amount += Math.floor(10000 * (0.9 ** shou)) * amari;
+				}
 			}
 		} else if (plays[performance.playID].type === "comedy") {	//喜劇の場合
 			amount += 30000;
