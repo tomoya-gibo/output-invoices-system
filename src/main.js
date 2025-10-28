@@ -7,8 +7,7 @@ export function main() {
 	let point = 0;				//ポイント
 	let amount = 0;				//金額
 	let totalAmount = 0;		//合計金額
-	let resultData = `請求書\n\n${invoices[0].customer}\n\n`;		//請求内容出力用
-	
+		
 	//金額計算
 	for (const performance of performances) {
 		amount = 0;
@@ -28,6 +27,7 @@ export function main() {
 		totalAmount += amount;
 	}
 	
+	let resultData = `請求書\n\n${invoices[0].customer}\n\n`;		//請求内容出力用
 	for (const performance of performances) {
 		amount = 0;
 		if (plays[performance.playID].type === "tragedy") {		//悲劇の場合
