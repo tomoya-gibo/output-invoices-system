@@ -6,9 +6,9 @@ export function main() {
 	const performances = invoices[0].performances;	//演目(dic)
 	let point = 0;				//ポイント
 	let amount = 0;				//金額
-	let totalAmount = 0;		//合計金額
 		
 	//金額計算
+	let totalAmount = 0;		//合計金額
 	for (const performance of performances) {
 		amount = 0;
 		if (plays[performance.playID].type === "tragedy") {		//悲劇の場合
