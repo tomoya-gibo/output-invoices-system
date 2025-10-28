@@ -15,6 +15,15 @@
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
 
+    for(let invoice of invoices){
+      //console.log(invoice)
+      for(let performance of invoice.performances){
+        //console.log(performance)
+        let play = plays[performance.playID]
+        console.log(play)
+      }
+    }
+
     return;
   }
 
@@ -40,7 +49,7 @@
     for (let invoice of invoices) {
       // for文でinvoice.performancesの中身を取り出す
       for (let performance of invoice.performances) {
-        console.log(performance);
+        //console.log(performance);
         // playsのキーとperformance.playIDを照合してplayに代入
         const play = plays[performance.playID];
         //演目ごとの料金を入れる変数
@@ -87,5 +96,6 @@
     console.log(outputTxt)
     fs.writeFileSync("output.txt", outputTxt, 'utf-8');
   }
-  
+
+  playType()
   main();
