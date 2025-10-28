@@ -29,21 +29,26 @@ export function main() {
 		resultData += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
 	}	
 
-	//ポイント計算
-	for (const performance of performances) {
-		if (performance.audience > 30) {
-			point += (performance.audience - 30) * 1;
-		}
-		if (plays[performance.playID].type === "comedy") {
-			point += Math.floor(performance.audience / 5) * 1;
-		}
-	}
+	point = calculatePoint();
 
 	resultData += `\n合計金額：$${totalAmount}\n\n`;
 	resultData += `獲得ポイント：${point}pt\n`;
 
 	// ファイルへ書き込む
 	fs.writeFileSync("output/invoice.txt", resultData);
+
+
+	function calculatePoint() {
+		for (const performance of performances) {
+			if (performance.audience > 30) {
+				point += (performance.audience - 30) * 1;
+			}
+			if (plays[performance.playID].type === "comedy") {
+				point += Math.floor(performance.audience / 5) * 1;
+			}
+		}
+		return point;
+	}
 }
 
 main();
