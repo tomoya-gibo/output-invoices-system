@@ -27,7 +27,7 @@ export function main() {
 		totalAmount += amount;
 	}
 
-	function calculateAmount () {
+	function calculateAmount(plays, performance) {
 		amount = 0;
 		if (plays[performance.playID].type === "tragedy") {		//悲劇の場合
 			amount += 40000;
@@ -42,6 +42,7 @@ export function main() {
 				amount += (performance.audience - 20) * 500;
 			}
 		}
+		return amount;
 	}
 	
 	let resultData = `請求書\n\n${invoices[0].customer}\n\n`;		//請求内容出力用
