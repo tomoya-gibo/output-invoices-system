@@ -7,7 +7,7 @@ export function main() {
 	let point = 0;				//ポイント
 	let amount = 0;				//金額
 	let totalAmount = 0;		//合計金額
-	let resultData = "請求書\n\n株式会社ビッグカンパニー\n\n";		//請求内容出力用
+	let resultData = `請求書\n\n${invoices[0].customer}\n\n`;		//請求内容出力用
 	
 	//金額計算
 	for (const performance of performances) {
@@ -35,7 +35,7 @@ export function main() {
 			point += (performance.audience - 30) * 1;
 		}
 		if (plays[performance.playID].type === "comedy") {
-			point += (performance.audience / 5) * 1;
+			point += Math.floor(performance.audience / 5) * 1;
 		}
 	}
 
