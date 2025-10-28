@@ -3,10 +3,10 @@ export function main() {
   const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
   const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
 
-	const performances = invoices[0].performances;	//演目(dic)
 	let point = 0;				//ポイント
 		
 	//金額計算
+	const performances = invoices[0].performances;	//演目(dic)
 	let amount = 0;				//金額
 	let totalAmount = 0;		//合計金額
 	for (const performance of performances) {
