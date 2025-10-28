@@ -10,7 +10,6 @@
   //main関数がESモジュール形式のためimport形式に変更
   import fs from "fs";
 
-  //演目の種別を取り出す関数
 
 
   export function main() {
@@ -81,5 +80,11 @@
     console.log(outputTxt)
     fs.writeFileSync("output.txt", outputTxt, 'utf-8');
   }
+
+  //悲劇の計算処理
+  function tragedyCalc() {
+    return;
+  }
+  
 
   main();
