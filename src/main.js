@@ -50,9 +50,9 @@
             //   thisAmount += (performance.audience - 30) * 1000;
             // }
             thisAmount = tragedyCalc(tragedyBasePrice,performance);
-            if (performance.audience > 30){
-              thisPoint += (performance.audience - 30)
-            }
+            // if (performance.audience > 30){
+            //   thisPoint += (performance.audience - 30)
+            // }
             break;
           case "comedy":
             // thisAmount = comedyBasePrice;
