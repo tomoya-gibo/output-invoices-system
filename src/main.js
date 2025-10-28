@@ -11,21 +11,7 @@
   import fs from "fs";
 
   //演目の種別を取り出す関数
-  function playType(){
-    const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
-    const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
-
-    for(let invoice of invoices){
-      //console.log(invoice)
-      for(let performance of invoice.performances){
-        //console.log(performance)
-        let play = plays[performance.playID]
-        console.log(play)
-      }
-    }
-
-    return;
-  }
+  
 
   export function main() {
     //const fs = require("fs");
