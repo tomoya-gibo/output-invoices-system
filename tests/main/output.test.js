@@ -2,7 +2,7 @@ import { describe, expect, test } from 'vitest';
 import fs from 'fs';
 import { main } from '../../src/main.js';
 
-const OUTPUT_FILE_PATH = 'output/invoice.txt'; // main()実行時の出力ファイルパス。自分の環境に合わせて修正すること。
+const OUTPUT_FILE_PATH = 'output.txt'; // main()実行時の出力ファイルパス。自分の環境に合わせて修正すること。
 
 describe('出力テスト', () => {
   test('testCase1', () => {
@@ -10,7 +10,7 @@ describe('出力テスト', () => {
     fs.writeFileSync("input/invoices.json", testData, 'utf-8');
     main();
     const expectedOutput = fs.readFileSync('tests/main/output/testCase1.txt', 'utf8');
-    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8').replace(/\r\n/g, '\n')).toBe(expectedOutput.replace(/\r\n/g, '\n'));
   })
 
   test('testCase2', () => {
@@ -18,7 +18,7 @@ describe('出力テスト', () => {
     fs.writeFileSync("input/invoices.json", testData, 'utf-8');
     main();
     const expectedOutput = fs.readFileSync('tests/main/output/testCase2.txt', 'utf8');
-    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8').replace(/\r\n/g, '\n')).toBe(expectedOutput.replace(/\r\n/g, '\n'));
   })
 
   test('testCase3', () => {
@@ -26,7 +26,7 @@ describe('出力テスト', () => {
     fs.writeFileSync("input/invoices.json", testData, 'utf-8');
     main();
     const expectedOutput = fs.readFileSync('tests/main/output/testCase3.txt', 'utf8');
-    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8').replace(/\r\n/g, '\n')).toBe(expectedOutput.replace(/\r\n/g, '\n'));
   })
 
   test('testCase4', () => {
@@ -34,7 +34,7 @@ describe('出力テスト', () => {
     fs.writeFileSync("input/invoices.json", testData, 'utf-8');
     main();
     const expectedOutput = fs.readFileSync('tests/main/output/testCase4.txt', 'utf8');
-    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8').replace(/\r\n/g, '\n')).toBe(expectedOutput.replace(/\r\n/g, '\n'));
   })
 
   test('testCase5', () => {
@@ -42,7 +42,7 @@ describe('出力テスト', () => {
     fs.writeFileSync("input/invoices.json", testData, 'utf-8');
     main();
     const expectedOutput = fs.readFileSync('tests/main/output/testCase5.txt', 'utf8');
-    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8').replace(/\r\n/g, '\n')).toBe(expectedOutput.replace(/\r\n/g, '\n'));
   })
 
   test('testCase6', () => {
@@ -50,7 +50,7 @@ describe('出力テスト', () => {
     fs.writeFileSync("input/invoices.json", testData, 'utf-8');
     main();
     const expectedOutput = fs.readFileSync('tests/main/output/testCase6.txt', 'utf8');
-    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8').replace(/\r\n/g, '\n')).toBe(expectedOutput.replace(/\r\n/g, '\n'));
   })
 
   test('testCase7', () => {
@@ -58,7 +58,7 @@ describe('出力テスト', () => {
     fs.writeFileSync("input/invoices.json", testData, 'utf-8');
     main();
     const expectedOutput = fs.readFileSync('tests/main/output/testCase7.txt', 'utf8');
-    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8').replace(/\r\n/g, '\n')).toBe(expectedOutput.replace(/\r\n/g, '\n'));
   })
 
   test('testCase8', () => {
@@ -66,7 +66,7 @@ describe('出力テスト', () => {
     fs.writeFileSync("input/invoices.json", testData, 'utf-8');
     main();
     const expectedOutput = fs.readFileSync('tests/main/output/testCase8.txt', 'utf8');
-    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8').replace(/\r\n/g, '\n')).toBe(expectedOutput.replace(/\r\n/g, '\n'));
   })
 
   test('testCase9', () => {
@@ -74,7 +74,7 @@ describe('出力テスト', () => {
     fs.writeFileSync("input/invoices.json", testData, 'utf-8');
     main();
     const expectedOutput = fs.readFileSync('tests/main/output/testCase9.txt', 'utf8');
-    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8').replace(/\r\n/g, '\n')).toBe(expectedOutput.replace(/\r\n/g, '\n'));
   })
 
   test('testCase10', () => {
@@ -82,7 +82,7 @@ describe('出力テスト', () => {
     fs.writeFileSync("input/invoices.json", testData, 'utf-8');
     main();
     const expectedOutput = fs.readFileSync('tests/main/output/testCase10.txt', 'utf8');
-    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8').replace(/\r\n/g, '\n')).toBe(expectedOutput.replace(/\r\n/g, '\n'));
   })
 
   test('testCase11', () => {
@@ -90,7 +90,7 @@ describe('出力テスト', () => {
     fs.writeFileSync("input/invoices.json", testData, 'utf-8');
     main();
     const expectedOutput = fs.readFileSync('tests/main/output/testCase11.txt', 'utf8');
-    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8').replace(/\r\n/g, '\n')).toBe(expectedOutput.replace(/\r\n/g, '\n'));
   })
 
   test('testCase12', () => {
@@ -98,7 +98,7 @@ describe('出力テスト', () => {
     fs.writeFileSync("input/invoices.json", testData, 'utf-8');
     main();
     const expectedOutput = fs.readFileSync('tests/main/output/testCase12.txt', 'utf8');
-    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8').replace(/\r\n/g, '\n')).toBe(expectedOutput.replace(/\r\n/g, '\n'));
   })
 
   test('testCase13', () => {
@@ -106,7 +106,7 @@ describe('出力テスト', () => {
     fs.writeFileSync("input/invoices.json", testData, 'utf-8');
     main();
     const expectedOutput = fs.readFileSync('tests/main/output/testCase13.txt', 'utf8');
-    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8').replace(/\r\n/g, '\n')).toBe(expectedOutput.replace(/\r\n/g, '\n'));
   })
 
   test('testCase14', () => {
@@ -114,7 +114,7 @@ describe('出力テスト', () => {
     fs.writeFileSync("input/invoices.json", testData, 'utf-8');
     main();
     const expectedOutput = fs.readFileSync('tests/main/output/testCase14.txt', 'utf8');
-    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8').replace(/\r\n/g, '\n')).toBe(expectedOutput.replace(/\r\n/g, '\n'));
   })
 
   test('testCase15', () => {
@@ -122,7 +122,7 @@ describe('出力テスト', () => {
     fs.writeFileSync("input/invoices.json", testData, 'utf-8');
     main();
     const expectedOutput = fs.readFileSync('tests/main/output/testCase15.txt', 'utf8');
-    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8').replace(/\r\n/g, '\n')).toBe(expectedOutput.replace(/\r\n/g, '\n'));
   })
 
   test('testCase16', () => {
@@ -130,7 +130,7 @@ describe('出力テスト', () => {
     fs.writeFileSync("input/invoices.json", testData, 'utf-8');
     main();
     const expectedOutput = fs.readFileSync('tests/main/output/testCase16.txt', 'utf8');
-    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8').replace(/\r\n/g, '\n')).toBe(expectedOutput.replace(/\r\n/g, '\n'));
   })
 
   test('testCase17', () => {
@@ -138,7 +138,7 @@ describe('出力テスト', () => {
     fs.writeFileSync("input/invoices.json", testData, 'utf-8');
     main();
     const expectedOutput = fs.readFileSync('tests/main/output/testCase17.txt', 'utf8');
-    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8')).toBe(expectedOutput);
+    expect(fs.readFileSync(OUTPUT_FILE_PATH, 'utf8').replace(/\r\n/g, '\n')).toBe(expectedOutput.replace(/\r\n/g, '\n'));
   })
 
 })
