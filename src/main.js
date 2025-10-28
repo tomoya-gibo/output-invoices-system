@@ -12,6 +12,9 @@
 
   //演目の種別を取り出す関数
   function playType(){
+    const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
+    const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
+
     return;
   }
 
