@@ -26,6 +26,10 @@ export function main() {
 		}
 		totalAmount += amount;
 	}
+
+	function calculateAmount () {
+		
+	}
 	
 	let resultData = `請求書\n\n${invoices[0].customer}\n\n`;		//請求内容出力用
 	for (const performance of performances) {
