@@ -1,6 +1,6 @@
 // リファクタリングタスク: 関数の抽出を行ってください
 
-function formatUserProfile(user) {
+export function formatUserProfile(user) {
     checkUser(user);
 
     const formattedName = formatName(user.name);
