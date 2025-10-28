@@ -1,6 +1,10 @@
  
-  //2025/10/15
+  //2025/10/28
   //リファクタリング開始
+
+  //今回のリファクタリングの方向性について
+  //最初はテストに確実に通るような小さな変更から始めていく
+  //振る舞いや出力が変わりそうな変更は後回しにする
 
   export function main() {
     const fs = require("fs");
@@ -9,7 +13,7 @@
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
   
     // 出力用変数
-    let output = "請求書\n株式会社ビッグカンパニー\n\n";
+    let output = `請求書\n${invoices[0].customer}\n\n`;
   
     // 基本料金
     const tragedyBasePrice = 40000;
