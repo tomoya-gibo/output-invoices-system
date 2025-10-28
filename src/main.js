@@ -1,4 +1,3 @@
-const { totalmem } = require('os');
 const invoices = require('../input/invoices.json');		//受注1
 const invoices2 = require('../input/invoices2.json');	//受注2
 const plays = require('../input/plays.json');
@@ -25,17 +24,17 @@ function main() {
 		if (plays[performance.playID].type === "tragedy") {			//悲劇の場合
 			amount += 30000;
 			if (performance.audience > 20) {
-				let chouka = performance.audience - 20;	// 超過人数
-				let shou = Math.floor(chouka / 5);
-				let amari = chouka % 5;
+				let gt = performance.audience - 20;		// 超過人数
+				let q = Math.floor(gt / 5);
+				let r = gt % 5;
 				
-				if (chouka <= 5) {
-					amount += 10000 * chouka;
+				if (gt <= 5) {
+					amount += 10000 * gt;
 				} else {
-					for (let i = 0; i < shou; i++) {
+					for (let i = 0; i < q; i++) {
 						amount += Math.floor(10000 * (0.9 ** i)) * 5;
 					}
-					amount += Math.floor(10000 * (0.9 ** shou)) * amari;
+					amount += Math.floor(10000 * (0.9 ** q)) * r;
 				}
 			}
 		} else if (plays[performance.playID].type === "comedy") {	//喜劇の場合
@@ -70,17 +69,17 @@ function main() {
 		if (plays[performance.playID].type === "tragedy") {			//悲劇の場合
 			amount += 30000;
 			if (performance.audience > 20) {
-				let chouka = performance.audience - 20;	// 超過人数
-				let shou = Math.floor(chouka / 5);
-				let amari = chouka % 5;
+				let gt = performance.audience - 20;	// 超過人数
+				let q = Math.floor(gt / 5);
+				let r = gt % 5;
 				
-				if (chouka <= 5) {
-					amount += 10000 * chouka;
+				if (gt <= 5) {
+					amount += 10000 * gt;
 				} else {
-					for (let i = 0; i < shou; i++) {
+					for (let i = 0; i < q; i++) {
 						amount += Math.floor(10000 * (0.9 ** i)) * 5;
 					}
-					amount += Math.floor(10000 * (0.9 ** shou)) * amari;
+					amount += Math.floor(10000 * (0.9 ** q)) * r;
 				}
 			}
 		} else if (plays[performance.playID].type === "comedy") {	//喜劇の場合
