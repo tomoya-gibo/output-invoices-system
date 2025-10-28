@@ -11,7 +11,7 @@
   import fs from "fs";
 
   //演目の種別を取り出す関数
-  
+
 
   export function main() {
     //const fs = require("fs");
@@ -77,11 +77,9 @@
         outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${thisAmount})\n`;
       }
     }
-    outputTxt += `\n 合計金額: $${totalAmount}`
-    outputTxt += `\n 獲得ポイント: ${totalPoint}pt`
+    outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
     console.log(outputTxt)
     fs.writeFileSync("output.txt", outputTxt, 'utf-8');
   }
 
-  playType()
   main();
