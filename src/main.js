@@ -13,7 +13,7 @@
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
   
     // 出力用変数
-    let output = `請求書\n${invoices[0].customer}\n\n`;
+    let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
   
     // 基本料金
     const tragedyBasePrice = 40000;
@@ -66,13 +66,13 @@
         totalAmount += thisAmount;
         //獲得ポイントの合計
         totalPoint += thisPoint
-        output += `・${play.name} (観客数: ${performance.audience}、金額: $${thisAmount})\n`;
+        outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${thisAmount})\n`;
       }
     }
-    output += `\n 合計金額: $${totalAmount}`
-    output += `\n 獲得ポイント: ${totalPoint}pt`
-    console.log(output)
-    fs.writeFileSync("output.txt", output, 'utf-8');
+    outputTxt += `\n 合計金額: $${totalAmount}`
+    outputTxt += `\n 獲得ポイント: ${totalPoint}pt`
+    console.log(outputTxt)
+    fs.writeFileSync("output.txt", outputTxt, 'utf-8');
   }
   
   main();
