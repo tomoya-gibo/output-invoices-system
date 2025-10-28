@@ -93,9 +93,14 @@
   }
   
   //喜劇の計算処理
-  function comedyCalc(comedyBasePrice) {
-    
-    return;
+  function comedyCalc(comedyBasePrice,performance) {
+    let thisAmount = comedyBasePrice
+    //超過料金の算定
+    if (performance.audience > 20) {
+      thisAmount += 10000;
+      thisAmount += (performance.audience - 20) * 500;
+    }
+    return thisAmount;
   }
 
   main();
