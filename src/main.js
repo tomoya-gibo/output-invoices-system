@@ -10,7 +10,7 @@
   //main関数がESモジュール形式のためimport形式に変更
   import fs from "fs";
 
-
+  //演目の種別を取り出す関数
   function playType(){
     return;
   }
