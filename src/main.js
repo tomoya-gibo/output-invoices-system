@@ -28,7 +28,20 @@ export function main() {
 	}
 
 	function calculateAmount () {
-		
+		amount = 0;
+		if (plays[performance.playID].type === "tragedy") {		//悲劇の場合
+			amount += 40000;
+			if (performance.audience > 30) {	//観客数の超過料金計算
+				amount += (performance.audience - 30) * 1000;
+			}
+		} else {	//喜劇の場合
+			amount += 30000;
+			amount += performance.audience * 300;
+			if (performance.audience > 20) {
+				amount += 10000;
+				amount += (performance.audience - 20) * 500;
+			}
+		}
 	}
 	
 	let resultData = `請求書\n\n${invoices[0].customer}\n\n`;		//請求内容出力用
