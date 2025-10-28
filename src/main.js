@@ -27,7 +27,26 @@ export function main() {
 		}
 		totalAmount += amount;
 		resultData += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
-	}	
+	}
+	
+	for (const performance of performances) {
+		amount = 0;
+		if (plays[performance.playID].type === "tragedy") {		//悲劇の場合
+			amount += 40000;
+			if (performance.audience > 30) {	//観客数の超過料金計算
+				amount += (performance.audience - 30) * 1000;
+			}
+		} else {	//喜劇の場合
+			amount += 30000;
+			amount += performance.audience * 300;
+			if (performance.audience > 20) {
+				amount += 10000;
+				amount += (performance.audience - 20) * 500;
+			}
+		}
+		totalAmount += amount;
+		resultData += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
+	}
 
 	point = calculatePoint();
 
