@@ -26,7 +26,6 @@ export function main() {
 			}
 		}
 		totalAmount += amount;
-		resultData += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
 	}
 	
 	for (const performance of performances) {
@@ -44,7 +43,6 @@ export function main() {
 				amount += (performance.audience - 20) * 500;
 			}
 		}
-		totalAmount += amount;
 		resultData += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
 	}
 
