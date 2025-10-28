@@ -34,8 +34,7 @@ export function main() {
 	resultData += `\n合計金額：$${totalAmount}\n\n`;
 	resultData += `獲得ポイント：${point}pt\n`;
 
-	// ファイルへ書き込む
-	fs.writeFileSync("output/invoice.txt", resultData);
+	printTxt(resultData);
 
 
 	function calculatePoint() {
@@ -48,6 +47,10 @@ export function main() {
 			}
 		}
 		return point;
+	}
+
+	function printTxt(data) {
+		fs.writeFileSync("output/invoice.txt", data);
 	}
 }
 
