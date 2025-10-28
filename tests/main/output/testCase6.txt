@@ -2,7 +2,8 @@
 
 TestCase No.6
 
-・As You Like It（観客数：6人、金額：$31800）
+・As You Like It (観客数:6人、金額:$31800)
 
 合計金額：$31800
+
 獲得ポイント：1pt

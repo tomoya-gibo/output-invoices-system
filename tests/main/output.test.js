@@ -2,7 +2,7 @@ import { describe, expect, test } from 'vitest';
 import fs from 'fs';
 import { main } from '../../src/main.js';
 
-const OUTPUT_FILE_PATH = 'output.txt'; // main()実行時の出力ファイルパス。自分の環境に合わせて修正すること。
+const OUTPUT_FILE_PATH = 'output/invoice.txt'; // main()実行時の出力ファイルパス。自分の環境に合わせて修正すること。
 
 describe('出力テスト', () => {
   test('testCase1', () => {
