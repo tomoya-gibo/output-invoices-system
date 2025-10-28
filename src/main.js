@@ -86,5 +86,9 @@
     return;
   }
   
+  //喜劇の計算処理
+  function comedyCalc() {
+    return;
+  }
 
   main();
