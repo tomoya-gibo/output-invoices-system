@@ -44,11 +44,12 @@
         //演目の種別ごとの料金算定
         switch (play.type) {
           case "tragedy":
-            thisAmount = tragedyBasePrice;
-            //超過料金の算定
-            if (performance.audience > 30) {
-              thisAmount += (performance.audience - 30) * 1000;
-            }
+            // thisAmount = tragedyBasePrice;
+            // //超過料金の算定
+            // if (performance.audience > 30) {
+            //   thisAmount += (performance.audience - 30) * 1000;
+            // }
+            thisAmount = tragedyCalc(tragedyBasePrice,performance);
             if (performance.audience > 30){
               thisPoint += (performance.audience - 30)
             }
@@ -82,7 +83,7 @@
   }
 
   //悲劇の計算処理
-  function tragedyCalc(tragedyBasePrice) {
+  function tragedyCalc(tragedyBasePrice,performance) {
     let thisAmount = tragedyBasePrice
     //超過料金の算定
     if (performance.audience > 30) {
@@ -93,6 +94,7 @@
   
   //喜劇の計算処理
   function comedyCalc(comedyBasePrice) {
+    
     return;
   }
 
