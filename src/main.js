@@ -6,12 +6,17 @@
   //最初はテストに確実に通るような小さな変更から始めていく
   //振る舞いや出力が変わりそうな変更は後回しにする
 
+
+  //main関数がESモジュール形式のためimport形式に変更
+  import fs from "fs";
+
+
   function playType(){
     return;
   }
 
   export function main() {
-    const fs = require("fs");
+    //const fs = require("fs");
     // 1 入力データの読み込み
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
