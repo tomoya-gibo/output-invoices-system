@@ -30,7 +30,7 @@
       for (let performance of invoice.performances) {
         // playsのキーとperformance.playIDを照合してplayに代入
         const play = plays[performance.playID];
-        //料金を入れる変数
+        //演目ごとの料金を入れる変数
         let thisAmount = 0;
         let thisPoint = 0;
   
