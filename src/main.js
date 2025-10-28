@@ -6,6 +6,10 @@
   //最初はテストに確実に通るような小さな変更から始めていく
   //振る舞いや出力が変わりそうな変更は後回しにする
 
+  function playType(){
+    return;
+  }
+
   export function main() {
     const fs = require("fs");
     // 1 入力データの読み込み
@@ -28,6 +32,7 @@
     for (let invoice of invoices) {
       // for文でinvoice.performancesの中身を取り出す
       for (let performance of invoice.performances) {
+        console.log(performance);
         // playsのキーとperformance.playIDを照合してplayに代入
         const play = plays[performance.playID];
         //演目ごとの料金を入れる変数
