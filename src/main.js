@@ -81,12 +81,11 @@
 
       //悲劇の計算処理
   function tragedyCalc(tragedyBasePrice,performance) {
-    let thisAmount = tragedyBasePrice
     //超過料金の算定
     if (performance.audience > 30) {
-      thisAmount += (performance.audience - 30) * 1000;
+      tragedyBasePrice += (performance.audience - 30) * 1000;
     }
-    return thisAmount;
+    return tragedyBasePrice;
   }
 
     //喜劇の計算処理
