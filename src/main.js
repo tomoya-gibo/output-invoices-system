@@ -7,13 +7,7 @@ export function main() {
 	const performances = invoices[0].performances;	//演目
 	
 	//請求内容作成
-	let invoiceTxt = `請求書\n\n${invoices[0].customer}\n\n`;
-	for (const performance of performances) {
-		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount(plays, performance)})\n`;
-	}
-
-	invoiceTxt += `\n合計金額：$${calcTotalAmount(performances)}\n\n`;
-	invoiceTxt += `獲得ポイント：${point()}pt\n`;
+	const invoiceTxt = renderTxt(plays, performances);
 
 	printTxt(invoiceTxt);
 
