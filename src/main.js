@@ -20,7 +20,7 @@ export function main() {
 	}
 
 	resultData += `\n合計金額：$${totalAmount}\n\n`;
-	resultData += `獲得ポイント：${calculatePoint()}pt\n`;
+	resultData += `獲得ポイント：${point()}pt\n`;
 
 	printTxt(resultData);
 
