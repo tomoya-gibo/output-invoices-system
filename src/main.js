@@ -13,16 +13,16 @@ export function main() {
 	}
 	
 	//請求内容作成
-	let resultData = `請求書\n\n${invoices[0].customer}\n\n`;
+	let invoiceTxt = `請求書\n\n${invoices[0].customer}\n\n`;
 	for (const performance of performances) {
 		amount = calculateAmount(plays, performance);
-		resultData += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
+		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
 	}
 
-	resultData += `\n合計金額：$${totalAmount}\n\n`;
-	resultData += `獲得ポイント：${point()}pt\n`;
+	invoiceTxt += `\n合計金額：$${totalAmount}\n\n`;
+	invoiceTxt += `獲得ポイント：${point()}pt\n`;
 
-	printTxt(resultData);
+	printTxt(invoiceTxt);
 
 
 
