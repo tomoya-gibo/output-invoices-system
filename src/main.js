@@ -7,13 +7,13 @@ export function main() {
 	const performances = invoices[0].performances;	//演目
 	let totalAmount = 0;							//合計金額
 	for (const performance of performances) {
-		totalAmount += calculateAmount(plays, performance);
+		totalAmount += amount(plays, performance);
 	}
 	
 	//請求内容作成
 	let invoiceTxt = `請求書\n\n${invoices[0].customer}\n\n`;
 	for (const performance of performances) {
-		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${calculateAmount(plays, performance)})\n`;
+		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount(plays, performance)})\n`;
 	}
 
 	invoiceTxt += `\n合計金額：$${totalAmount}\n\n`;
