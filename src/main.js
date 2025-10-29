@@ -10,20 +10,7 @@ export function main() {
 	let amount = 0;				//金額
 	let totalAmount = 0;		//合計金額
 	for (const performance of performances) {
-		amount = 0;
-		if (plays[performance.playID].type === "tragedy") {		//悲劇の場合
-			amount += 40000;
-			if (performance.audience > 30) {	//観客数の超過料金計算
-				amount += (performance.audience - 30) * 1000;
-			}
-		} else {	//喜劇の場合
-			amount += 30000;
-			amount += performance.audience * 300;
-			if (performance.audience > 20) {
-				amount += 10000;
-				amount += (performance.audience - 20) * 500;
-			}
-		}
+		amount = calculateAmount(plays, performance);
 		totalAmount += amount;
 	}
 
@@ -47,20 +34,7 @@ export function main() {
 	
 	let resultData = `請求書\n\n${invoices[0].customer}\n\n`;		//請求内容出力用
 	for (const performance of performances) {
-		amount = 0;
-		if (plays[performance.playID].type === "tragedy") {		//悲劇の場合
-			amount += 40000;
-			if (performance.audience > 30) {	//観客数の超過料金計算
-				amount += (performance.audience - 30) * 1000;
-			}
-		} else {	//喜劇の場合
-			amount += 30000;
-			amount += performance.audience * 300;
-			if (performance.audience > 20) {
-				amount += 10000;
-				amount += (performance.audience - 20) * 500;
-			}
-		}
+		amount = calculateAmount(plays, performance);
 		resultData += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
 	}
 
