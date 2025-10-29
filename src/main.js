@@ -41,6 +41,10 @@ export function main() {
 		return result;
 	}
 
+	function calcTotalAmount() {
+		
+	}
+
 	function point() {
 		let result = 0;
 		for (const performance of performances) {
