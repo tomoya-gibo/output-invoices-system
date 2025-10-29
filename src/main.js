@@ -27,21 +27,21 @@ export function main() {
 
 
 	function calculateAmount(plays, performance) {
-		amount = 0;
+		let result = 0;
 		if (plays[performance.playID].type === "tragedy") {		//悲劇の場合
-			amount += 40000;
+			result += 40000;
 			if (performance.audience > 30) {					//観客数の超過料金計算
-				amount += (performance.audience - 30) * 1000;
+				result += (performance.audience - 30) * 1000;
 			}
 		} else {												//喜劇の場合
-			amount += 30000;
-			amount += performance.audience * 300;
+			result += 30000;
+			result += performance.audience * 300;
 			if (performance.audience > 20) {
-				amount += 10000;
-				amount += (performance.audience - 20) * 500;
+				result += 10000;
+				result += (performance.audience - 20) * 500;
 			}
 		}
-		return amount;
+		return result;
 	}
 
 	function point() {
