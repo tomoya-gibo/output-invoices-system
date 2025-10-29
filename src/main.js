@@ -44,7 +44,7 @@ export function main() {
 		return amount;
 	}
 
-	function calculatePoint() {
+	function point() {
 		let result = 0;
 		for (const performance of performances) {
 			if (performance.audience > 30) {
