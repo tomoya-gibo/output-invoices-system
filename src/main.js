@@ -3,10 +3,8 @@ export function main() {
   const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
   const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
 	
-	//金額計算
 	const performances = invoices[0].performances;	//演目
 	
-	//請求内容作成
 	const invoiceTxt = renderTxt(plays, performances);
 
 	printTxt(invoiceTxt);
