@@ -78,9 +78,8 @@
     outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
     console.log(outputTxt)
     fs.writeFileSync("output.txt", outputTxt, 'utf-8');
-  }
 
-  //悲劇の計算処理
+      //悲劇の計算処理
   function tragedyCalc(tragedyBasePrice,performance) {
     let thisAmount = tragedyBasePrice
     //超過料金の算定
@@ -89,6 +88,9 @@
     }
     return thisAmount;
   }
+  }
+
+
   
   //喜劇の計算処理
   function comedyCalc(comedyBasePrice,performance) {
