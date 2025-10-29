@@ -46,6 +46,7 @@ export function main() {
 		for (const performance of performances) {
 			totalAmount += amount(plays, performance);
 		}
+		return totalAmount;
 	}
 
 	function point() {
