@@ -19,8 +19,6 @@ export function main() {
 		resultData += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
 	}
 
-	const point = calculatePoint();
-
 	resultData += `\n合計金額：$${totalAmount}\n\n`;
 	resultData += `獲得ポイント：${calculatePoint()}pt\n`;
 
