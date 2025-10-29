@@ -13,7 +13,7 @@ export function main() {
 		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount(plays, performance)})\n`;
 	}
 
-	invoiceTxt += `\n合計金額：$${totalAmount}\n\n`;
+	invoiceTxt += `\n合計金額：$${calcTotalAmount(performances)}\n\n`;
 	invoiceTxt += `獲得ポイント：${point()}pt\n`;
 
 	printTxt(invoiceTxt);
