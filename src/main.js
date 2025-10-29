@@ -22,7 +22,7 @@ export function main() {
 	const point = calculatePoint();
 
 	resultData += `\n合計金額：$${totalAmount}\n\n`;
-	resultData += `獲得ポイント：${point}pt\n`;
+	resultData += `獲得ポイント：${calculatePoint()}pt\n`;
 
 	printTxt(resultData);
 
