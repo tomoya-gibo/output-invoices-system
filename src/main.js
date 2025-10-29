@@ -9,7 +9,7 @@ export function main() {
 	let totalAmount = 0;							//合計金額
 	for (const performance of performances) {
 		const result = calculateAmount(plays, performance);
-		totalAmount += amount;
+		totalAmount += result;
 	}
 	
 	//請求内容作成
