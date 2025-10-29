@@ -5,7 +5,6 @@ export function main() {
 	
 	//金額計算
 	const performances = invoices[0].performances;	//演目
-	let totalAmount = 0;							//合計金額
 	
 	//請求内容作成
 	let invoiceTxt = `請求書\n\n${invoices[0].customer}\n\n`;
