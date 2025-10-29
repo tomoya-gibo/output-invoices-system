@@ -8,7 +8,7 @@ export function main() {
 	let amount = 0;									//金額
 	let totalAmount = 0;							//合計金額
 	for (const performance of performances) {
-		amount = calculateAmount(plays, performance);
+		const result = calculateAmount(plays, performance);
 		totalAmount += amount;
 	}
 	
