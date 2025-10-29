@@ -60,7 +60,7 @@ export function main() {
 		return invoiceTxt;
 	}
 
-	function printTxt(data) {
+	function print(data) {
 		fs.writeFileSync("output/invoice.txt", data);
 	}
 }
