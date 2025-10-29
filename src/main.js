@@ -2,9 +2,7 @@ export function main() {
   const fs = require("fs");
   const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
   const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
-
-	let point = 0;
-		
+	
 	//金額計算
 	const performances = invoices[0].performances;	//演目
 	let amount = 0;									//金額
@@ -21,7 +19,7 @@ export function main() {
 		resultData += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
 	}
 
-	point = calculatePoint();
+	const point = calculatePoint();
 
 	resultData += `\n合計金額：$${totalAmount}\n\n`;
 	resultData += `獲得ポイント：${point}pt\n`;
