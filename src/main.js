@@ -5,7 +5,6 @@ export function main() {
 	
 	//金額計算
 	const performances = invoices[0].performances;	//演目
-	let amount = 0;									//金額
 	let totalAmount = 0;							//合計金額
 	for (const performance of performances) {
 		totalAmount += calculateAmount(plays, performance);
