@@ -49,15 +49,16 @@ export function main() {
 	}
 
 	function calculatePoint() {
+		let result = 0;
 		for (const performance of performances) {
 			if (performance.audience > 30) {
-				point += (performance.audience - 30) * 1;
+				result += (performance.audience - 30) * 1;
 			}
 			if (plays[performance.playID].type === "comedy") {
-				point += Math.floor(performance.audience / 5) * 1;
+				result += Math.floor(performance.audience / 5) * 1;
 			}
 		}
-		return point;
+		return result;
 	}
 
 	function printTxt(data) {
