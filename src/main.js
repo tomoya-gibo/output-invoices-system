@@ -14,7 +14,7 @@ export function main() {
 	//請求内容作成
 	let invoiceTxt = `請求書\n\n${invoices[0].customer}\n\n`;
 	for (const performance of performances) {
-		amount = calculateAmount(plays, performance);
+		const result = calculateAmount(plays, performance);
 		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount})\n`;
 	}
 
