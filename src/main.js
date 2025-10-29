@@ -88,11 +88,8 @@
     }
     return thisAmount;
   }
-  }
 
-
-  
-  //喜劇の計算処理
+    //喜劇の計算処理
   function comedyCalc(comedyBasePrice,performance) {
     let thisAmount = comedyBasePrice
     //超過料金の算定
@@ -100,17 +97,24 @@
       thisAmount += 10000;
       thisAmount += (performance.audience - 20) * 500;
     }
-    //喜劇の場合のみ超過にかかわらず一人につき$300の追加
-    thisAmount += performance.audience * 300;
-    return thisAmount;
+      //喜劇の場合のみ超過にかかわらず一人につき$300の追加
+      thisAmount += performance.audience * 300;
+      return thisAmount;
+    }
+
+    function pointCalc(performance) {
+      let thisPoint = 0;
+      if (performance.audience > 30){
+        thisPoint += (performance.audience - 30)
+      }
+      return thisPoint;
+    }
   }
 
-  function pointCalc(performance) {
-    let thisPoint = 0;
-    if (performance.audience > 30){
-      thisPoint += (performance.audience - 30)
-    }
-    return thisPoint;
-  }
+
+  
+
+
+
 
   main();
