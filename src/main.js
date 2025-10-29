@@ -58,6 +58,10 @@ export function main() {
 		return result;
 	}
 
+	function renderTxt() {
+		
+	}
+
 	function printTxt(data) {
 		fs.writeFileSync("output/invoice.txt", data);
 	}
