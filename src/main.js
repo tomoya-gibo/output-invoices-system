@@ -15,7 +15,7 @@ export function main() {
 	let invoiceTxt = `請求書\n\n${invoices[0].customer}\n\n`;
 	for (const performance of performances) {
 		const result = calculateAmount(plays, performance);
-		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${result})\n`;
+		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${calculateAmount(plays, performance)})\n`;
 	}
 
 	invoiceTxt += `\n合計金額：$${totalAmount}\n\n`;
