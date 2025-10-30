@@ -67,7 +67,7 @@ export function main() {
 	
 	const invoiceTxt = renderTxt(invoices, plays, performances);
 
-	print(invoiceTxt);
+	top_print(invoiceTxt);
 
 
 
