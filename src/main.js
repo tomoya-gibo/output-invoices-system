@@ -18,6 +18,14 @@ function calcAmount(plays, performance) {
 	return result;
 }
 
+function top_calcTotalAmount(plays, performances) {
+	let totalAmount = 0;
+	for (const performance of performances) {
+		totalAmount += calcAmount(plays, performance);
+	}
+	return totalAmount;
+}
+
 
 export function main() {
 	const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
