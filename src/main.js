@@ -45,6 +45,10 @@ export function main() {
 		return result;
 	}
 
+	function calcTotalPoint() {
+		
+	}
+
 	function calcPoint(plays, performance) {
 		let result = 0;
 		if (performance.audience > 30) {
