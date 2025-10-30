@@ -26,7 +26,7 @@ function calcTotalAmount(plays, performances) {
 	return totalAmount;
 }
 
-function top_calcPoint(plays, performance) {
+function calcPoint(plays, performance) {
 	let result = 0;
 	if (performance.audience > 30) {
 		result += (performance.audience - 30) * 1;
@@ -54,7 +54,7 @@ export function main() {
 	function calcTotalPoint(plays, performances) {
 		let result = 0;
 		for (const performance of performances) {
-			result += top_calcPoint(plays, performance);
+			result += calcPoint(plays, performance);
 		}
 		return result;
 	}
