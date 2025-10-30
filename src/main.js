@@ -1,5 +1,24 @@
 const fs = require("fs");
 
+function calcAmount(plays, performance) {
+	let result = 0;
+	if (plays[performance.playID].type === "tragedy") {		//悲劇の場合
+		result += 40000;
+		if (performance.audience > 30) {					//観客数の超過料金計算
+			result += (performance.audience - 30) * 1000;
+		}
+	} else {												//喜劇の場合
+		result += 30000;
+		result += performance.audience * 300;
+		if (performance.audience > 20) {
+			result += 10000;
+			result += (performance.audience - 20) * 500;
+		}
+	}
+	return result;
+}
+
+
 export function main() {
 	const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
 	const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
@@ -12,23 +31,6 @@ export function main() {
 
 
 
-	function calcAmount(plays, performance) {
-		let result = 0;
-		if (plays[performance.playID].type === "tragedy") {		//悲劇の場合
-			result += 40000;
-			if (performance.audience > 30) {					//観客数の超過料金計算
-				result += (performance.audience - 30) * 1000;
-			}
-		} else {												//喜劇の場合
-			result += 30000;
-			result += performance.audience * 300;
-			if (performance.audience > 20) {
-				result += 10000;
-				result += (performance.audience - 20) * 500;
-			}
-		}
-		return result;
-	}
 
 	function calcTotalAmount(plays, performances) {
 		let totalAmount = 0;
