@@ -45,7 +45,7 @@ function calcTotalPoint(plays, performances) {
 	return result;
 }
 
-function top_renderTxt(plays, performances) {
+function top_renderTxt(invoices, plays, performances) {
 	let invoiceTxt = `請求書\n\n${invoices[0].customer}\n\n`;
 	for (const performance of performances) {
 		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${calcAmount(plays, performance)})\n`;
@@ -62,7 +62,7 @@ export function main() {
 	
 	const performances = invoices[0].performances;	//演目
 	
-	const invoiceTxt = top_renderTxt(plays, performances);
+	const invoiceTxt = top_renderTxt(invoices, plays, performances);
 
 	print(invoiceTxt);
 
