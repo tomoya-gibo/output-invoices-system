@@ -65,7 +65,7 @@
             //喜劇の場合のみ超過にかかわらず一人につき$300の追加
             //thisAmount += performance.audience * 300;
             //観客数5人につき1ポイント追加
-            // thisPoint += Math.floor(performance.audience / 5)
+            thisPoint += Math.floor(performance.audience / 5)
             break;
         }
         //合計金額
@@ -78,6 +78,11 @@
     outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
     console.log(outputTxt)
     fs.writeFileSync("output.txt", outputTxt, 'utf-8');
+
+
+    function outputFile(outputTxt) {
+      
+    }
     
 
     //悲劇の計算処理
