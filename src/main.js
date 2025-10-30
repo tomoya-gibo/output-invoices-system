@@ -51,7 +51,14 @@ export function main() {
 	}
 
 	function calcPoint() {
-		
+		let result = 0;
+		if (performance.audience > 30) {
+			result += (performance.audience - 30) * 1;
+		}
+		if (plays[performance.playID].type === "comedy") {
+			result += Math.floor(performance.audience / 5) * 1;
+		}
+		return result;
 	}
 
 	function renderTxt(plays, performances) {
