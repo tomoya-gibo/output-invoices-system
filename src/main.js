@@ -50,7 +50,7 @@ export function main() {
 		return result;
 	}
 
-	function calcPoint() {
+	function calcPoint(plays, performance) {
 		let result = 0;
 		if (performance.audience > 30) {
 			result += (performance.audience - 30) * 1;
