@@ -60,14 +60,6 @@ export function main() {
 
 
 
-	function calcTotalPoint(plays, performances) {
-		let result = 0;
-		for (const performance of performances) {
-			result += calcPoint(plays, performance);
-		}
-		return result;
-	}
-
 
 	function renderTxt(plays, performances) {
 		let invoiceTxt = `請求書\n\n${invoices[0].customer}\n\n`;
