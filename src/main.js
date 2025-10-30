@@ -55,9 +55,10 @@ function renderTxt(invoices, plays, performances) {
 	return invoiceTxt;
 }
 
-function top_print(data) {
+function print(data) {
 	fs.writeFileSync("output/invoice.txt", data);
 }
+
 
 export function main() {
 	const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
@@ -67,8 +68,7 @@ export function main() {
 	
 	const invoiceTxt = renderTxt(invoices, plays, performances);
 
-	top_print(invoiceTxt);
-
+	print(invoiceTxt);
 }
 
 main();
