@@ -1,7 +1,8 @@
+const fs = require("fs");
+
 export function main() {
-  const fs = require("fs");
-  const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
-  const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
+	const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
+	const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
 	
 	const performances = invoices[0].performances;	//演目
 	
