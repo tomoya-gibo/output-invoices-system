@@ -45,7 +45,7 @@ export function main() {
 		return result;
 	}
 
-	function calcTotalPoint() {
+	function calcTotalPoint(plays, performances) {
 		
 	}
 
