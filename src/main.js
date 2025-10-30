@@ -72,7 +72,7 @@ export function main() {
 		for (const performance of performances) {
 			invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${calcAmount(plays, performance)})\n`;
 		}
-		invoiceTxt += `\n合計金額：$${calcTotalAmount(plays, performances)}\n\n`;
+		invoiceTxt += `\n合計金額：$${top_calcTotalAmount(plays, performances)}\n\n`;
 		invoiceTxt += `獲得ポイント：${calcTotalPoint(plays, performances)}pt\n`;
 		return invoiceTxt;
 	}
