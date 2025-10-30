@@ -62,7 +62,7 @@ export function main() {
 	
 	const performances = invoices[0].performances;	//演目
 	
-	const invoiceTxt = renderTxt(plays, performances);
+	const invoiceTxt = top_renderTxt(plays, performances);
 
 	print(invoiceTxt);
 
