@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-function calcAmount(plays, performance) {
+export function calcAmount(plays, performance) {
 	let result = 0;
 	if (plays[performance.playID].type === "tragedy") {		//悲劇の場合
 		result += 40000;
@@ -18,7 +18,7 @@ function calcAmount(plays, performance) {
 	return result;
 }
 
-function calcTotalAmount(plays, performances) {
+export function calcTotalAmount(plays, performances) {
 	let totalAmount = 0;
 	for (const performance of performances) {
 		totalAmount += calcAmount(plays, performance);
@@ -26,7 +26,7 @@ function calcTotalAmount(plays, performances) {
 	return totalAmount;
 }
 
-function calcPoint(plays, performance) {
+export function calcPoint(plays, performance) {
 	let result = 0;
 	if (performance.audience > 30) {
 		result += (performance.audience - 30) * 1;
@@ -37,7 +37,7 @@ function calcPoint(plays, performance) {
 	return result;
 }
 
-function calcTotalPoint(plays, performances) {
+export function calcTotalPoint(plays, performances) {
 	let result = 0;
 	for (const performance of performances) {
 		result += calcPoint(plays, performance);
@@ -45,7 +45,7 @@ function calcTotalPoint(plays, performances) {
 	return result;
 }
 
-function renderTxt(invoices, plays, performances) {
+export function renderTxt(invoices, plays, performances) {
 	let invoiceTxt = `請求書\n\n${invoices[0].customer}\n\n`;
 	for (const performance of performances) {
 		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${calcAmount(plays, performance)})\n`;
@@ -55,7 +55,7 @@ function renderTxt(invoices, plays, performances) {
 	return invoiceTxt;
 }
 
-function print(data) {
+export function print(data) {
 	fs.writeFileSync("output/invoice.txt", data);
 }
 
