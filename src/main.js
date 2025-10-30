@@ -10,8 +10,6 @@
   //main関数がESモジュール形式のためimport形式に変更
   import fs from "fs";
 
-
-
   export function main() {
     //const fs = require("fs");
     // 1 入力データの読み込み
@@ -80,19 +78,17 @@
     outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
     console.log(outputTxt)
     fs.writeFileSync("output.txt", outputTxt, 'utf-8');
-  }
 
-  //悲劇の計算処理
+      //悲劇の計算処理
   function tragedyCalc(tragedyBasePrice,performance) {
-    let thisAmount = tragedyBasePrice
     //超過料金の算定
     if (performance.audience > 30) {
-      thisAmount += (performance.audience - 30) * 1000;
+      tragedyBasePrice += (performance.audience - 30) * 1000;
     }
-    return thisAmount;
+    return tragedyBasePrice;
   }
-  
-  //喜劇の計算処理
+
+    //喜劇の計算処理
   function comedyCalc(comedyBasePrice,performance) {
     let thisAmount = comedyBasePrice
     //超過料金の算定
@@ -100,17 +96,24 @@
       thisAmount += 10000;
       thisAmount += (performance.audience - 20) * 500;
     }
-    //喜劇の場合のみ超過にかかわらず一人につき$300の追加
-    thisAmount += performance.audience * 300;
-    return thisAmount;
+      //喜劇の場合のみ超過にかかわらず一人につき$300の追加
+      thisAmount += performance.audience * 300;
+      return thisAmount;
+    }
+
+    function pointCalc(performance) {
+      let thisPoint = 0;
+      if (performance.audience > 30){
+        thisPoint += (performance.audience - 30)
+      }
+      return thisPoint;
+    }
   }
 
-  function pointCalc(performance) {
-    let thisPoint = 0;
-    if (performance.audience > 30){
-      thisPoint += (performance.audience - 30)
-    }
-    return thisPoint;
-  }
+
+  
+
+
+
 
   main();
