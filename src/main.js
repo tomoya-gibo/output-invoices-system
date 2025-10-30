@@ -54,7 +54,7 @@ export function main() {
 	function calcTotalPoint(plays, performances) {
 		let result = 0;
 		for (const performance of performances) {
-			result += calcPoint(plays, performance);
+			result += top_calcPoint(plays, performance);
 		}
 		return result;
 	}
