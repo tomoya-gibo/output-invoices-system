@@ -29,14 +29,6 @@ export function main() {
 		return result;
 	}
 
-	function calcTotalAmount(performances) {
-		let totalAmount = 0;
-		for (const performance of performances) {
-			totalAmount += amount(plays, performance);
-		}
-		return totalAmount;
-	}
-
 	function n_calcTotalAmount(plays, performances) {
 		let totalAmount = 0;
 		for (const performance of performances) {
