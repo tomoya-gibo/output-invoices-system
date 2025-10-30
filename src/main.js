@@ -37,14 +37,6 @@ export function main() {
 		return totalAmount;
 	}
 
-	function point() {
-		let result = 0;
-		for (const performance of performances) {
-			result += calcPoint(plays, performance);
-		}
-		return result;
-	}
-
 	function calcTotalPoint(plays, performances) {
 		let result = 0;
 		for (const performance of performances) {
