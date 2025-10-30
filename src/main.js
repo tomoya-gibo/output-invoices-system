@@ -40,12 +40,7 @@ export function main() {
 	function point() {
 		let result = 0;
 		for (const performance of performances) {
-			if (performance.audience > 30) {
-				result += (performance.audience - 30) * 1;
-			}
-			if (plays[performance.playID].type === "comedy") {
-				result += Math.floor(performance.audience / 5) * 1;
-			}
+			result += calcPoint(plays, performance);
 		}
 		return result;
 	}
