@@ -40,14 +40,6 @@ export function main() {
 
 
 
-	function calcTotalAmount(plays, performances) {
-		let totalAmount = 0;
-		for (const performance of performances) {
-			totalAmount += calcAmount(plays, performance);
-		}
-		return totalAmount;
-	}
-
 	function calcTotalPoint(plays, performances) {
 		let result = 0;
 		for (const performance of performances) {
