@@ -11,7 +11,7 @@ export function main() {
 
 
 
-	function amount(plays, performance) {
+	function calcAmount(plays, performance) {
 		let result = 0;
 		if (plays[performance.playID].type === "tragedy") {		//悲劇の場合
 			result += 40000;
