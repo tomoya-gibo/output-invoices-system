@@ -77,11 +77,12 @@
     }
     outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
     console.log(outputTxt)
-    fs.writeFileSync("output.txt", outputTxt, 'utf-8');
+    outputFile(outputTxt);
+    
 
 
     function outputFile(outputTxt) {
-      
+      fs.writeFileSync("output.txt", outputTxt, 'utf-8');
     }
     
 
