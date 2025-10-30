@@ -20,7 +20,6 @@
     let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
   
     // 基本料金
-    const tragedyBasePrice = 40000;
     const comedyBasePrice = 30000;
   
     // 合計金額・ポイント
@@ -47,6 +46,7 @@
             // if (performance.audience > 30) {
             //   thisAmount += (performance.audience - 30) * 1000;
             // }
+            const tragedyBasePrice = 40000;
             thisAmount = tragedyCalc(tragedyBasePrice,performance);
             // if (performance.audience > 30){
             //   thisPoint += (performance.audience - 30)
@@ -78,8 +78,9 @@
     outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
     console.log(outputTxt)
     fs.writeFileSync("output.txt", outputTxt, 'utf-8');
+    
 
-      //悲劇の計算処理
+    //悲劇の計算処理
   function tragedyCalc(tragedyBasePrice,performance) {
     //超過料金の算定
     if (performance.audience > 30) {
