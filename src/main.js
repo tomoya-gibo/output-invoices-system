@@ -59,16 +59,6 @@ export function main() {
 		return result;
 	}
 
-	function calcPoint(plays, performance) {
-		let result = 0;
-		if (performance.audience > 30) {
-			result += (performance.audience - 30) * 1;
-		}
-		if (plays[performance.playID].type === "comedy") {
-			result += Math.floor(performance.audience / 5) * 1;
-		}
-		return result;
-	}
 
 	function renderTxt(plays, performances) {
 		let invoiceTxt = `請求書\n\n${invoices[0].customer}\n\n`;
