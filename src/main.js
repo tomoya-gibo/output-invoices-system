@@ -26,6 +26,17 @@ function calcTotalAmount(plays, performances) {
 	return totalAmount;
 }
 
+function top_calcPoint(plays, performance) {
+	let result = 0;
+	if (performance.audience > 30) {
+		result += (performance.audience - 30) * 1;
+	}
+	if (plays[performance.playID].type === "comedy") {
+		result += Math.floor(performance.audience / 5) * 1;
+	}
+	return result;
+}
+
 
 export function main() {
 	const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
