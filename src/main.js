@@ -37,6 +37,15 @@ function calcPoint(plays, performance) {
 	return result;
 }
 
+function top_calcTotalPoint(plays, performances) {
+	let result = 0;
+	for (const performance of performances) {
+		result += calcPoint(plays, performance);
+	}
+	return result;
+}
+
+
 
 export function main() {
 	const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
