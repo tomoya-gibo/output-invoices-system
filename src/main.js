@@ -69,13 +69,6 @@ export function main() {
 
 	top_print(invoiceTxt);
 
-
-
-
-
-	function print(data) {
-		fs.writeFileSync("output/invoice.txt", data);
-	}
 }
 
 main();
