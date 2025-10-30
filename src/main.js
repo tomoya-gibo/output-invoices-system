@@ -50,6 +50,10 @@ export function main() {
 		return result;
 	}
 
+	function calcPoint() {
+		
+	}
+
 	function renderTxt(plays, performances) {
 		let invoiceTxt = `請求書\n\n${invoices[0].customer}\n\n`;
 		for (const performance of performances) {
