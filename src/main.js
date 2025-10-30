@@ -37,8 +37,8 @@ export function main() {
 		return totalAmount;
 	}
 
-	function n_calcTotalAmount() {
-		
+	function n_calcTotalAmount(plays, performances) {
+
 	}
 
 	function calcTotalPoint(plays, performances) {
