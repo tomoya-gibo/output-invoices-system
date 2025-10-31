@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { calcAmount } from '../../src/main.js';
+import { calcAmount, calcTotalAmount } from '../../src/main.js';
 
 const plays = { "hamlet": { "type": "tragedy" },
                 "as-like" : { "type": "comedy" },
@@ -57,5 +57,15 @@ describe('calcAmountのテスト', () => {
         const performance = { "playID" : "as-like", "audience" : 0 };
         const result = calcAmount(plays, performance);
         expect(30000).toEqual(result);
+    })
+})
+
+describe('calcTotalAmountのテスト', () => {
+    test('testCase1', () => {
+        const performance = [{ "playID" : "hamlet", "audience" : 55 },
+                             { "playID": "as-like", "audience": 35 },
+                             { "playID": "othello", "audience": 40 }];
+        const result = calcTotalAmount(plays, performance);
+        expect(173000).toEqual(result);
     })
 })
