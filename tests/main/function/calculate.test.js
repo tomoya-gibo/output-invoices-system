@@ -65,10 +65,10 @@ describe('calcAmountのテスト', () => {
 
 describe('calcTotalAmountのテスト', () => {
     test('testCase1', () => {
-        const performance = [{ "playID" : "hamlet", "audience" : 55 },
+        const performances = [{ "playID" : "hamlet", "audience" : 55 },
                              { "playID": "as-like", "audience": 35 },
                              { "playID": "othello", "audience": 40 }];
-        const result = calcTotalAmount(plays, performance);
+        const result = calcTotalAmount(plays, performances);
         expect(173000).toBe(result);
     })
 })
@@ -143,10 +143,10 @@ describe('calcPointのテスト', () => {
 
 describe('calcTotalPointのテスト', () => {
     test('testCase1', () => {
-        const performance = [{ "playID" : "hamlet", "audience" : 55 },
+        const performances = [{ "playID" : "hamlet", "audience" : 55 },
                              { "playID": "as-like", "audience": 35 },
                              { "playID": "othello", "audience": 40 }];
-        const result = calcTotalPoint(plays, performance);
+        const result = calcTotalPoint(plays, performances);
         expect(47).toBe(result);
     })
 })
