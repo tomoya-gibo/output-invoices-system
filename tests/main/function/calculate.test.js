@@ -1,5 +1,8 @@
 import { describe, test, expect } from "vitest";
-import { calcAmount, calcPoint, calcTotalAmount } from '../../../src/main.js';
+import { calcAmount,
+         calcPoint,
+         calcTotalAmount,
+         calcTotalPoint } from '../../../src/main.js';
 
 const plays = { "hamlet": { "type": "tragedy" },
                 "as-like" : { "type": "comedy" },
@@ -135,5 +138,15 @@ describe('calcPointのテスト', () => {
         const performance = { "playID" : "as-like", "audience" : 0 };
         const result = calcPoint(plays, performance);
         expect(0).toBe(result);
+    })
+})
+
+describe('calcTotalPointのテスト', () => {
+    test('testCase1', () => {
+        const performance = [{ "playID" : "hamlet", "audience" : 55 },
+                             { "playID": "as-like", "audience": 35 },
+                             { "playID": "othello", "audience": 40 }];
+        const result = calcTotalPoint(plays, performance);
+        expect(47).toBe(result);
     })
 })
