@@ -112,4 +112,28 @@ describe('calcPointのテスト', () => {
         const result = calcPoint(plays, performance);
         expect(6).toBe(result);
     })
+
+    test('testCase8, 喜劇／人数超過あり', () => {
+        const performance = { "playID" : "as-like", "audience" : 31 };
+        const result = calcPoint(plays, performance);
+        expect(7).toBe(result);
+    })
+
+    test('testCase9, 喜劇／人数超過あり', () => {
+        const performance = { "playID" : "as-like", "audience" : 35 };
+        const result = calcPoint(plays, performance);
+        expect(12).toBe(result);
+    })
+
+    test('testCase10, 喜劇／人数超過あり', () => {
+        const performance = { "playID" : "as-like", "audience" : 36 };
+        const result = calcPoint(plays, performance);
+        expect(13).toBe(result);
+    })
+
+    test('testCase11, 喜劇／人数超過あり', () => {
+        const performance = { "playID" : "as-like", "audience" : 0 };
+        const result = calcPoint(plays, performance);
+        expect(0).toBe(result);
+    })
 })
