@@ -92,49 +92,55 @@ describe('calcPointのテスト', () => {
         expect(1).toBe(result);
     })
 
-    test('testCase4, 喜劇／人数超過なし', () => {
-        const performance = { "playID" : "as-like", "audience" : 4 };
+    test('testCase4, 悲劇／人数０', () => {
+        const performance = { "playID" : "hamlet", "audience" : 0 };
         const result = calcPoint(plays, performance);
         expect(0).toBe(result);
     })
 
     test('testCase5, 喜劇／人数超過なし', () => {
+        const performance = { "playID" : "as-like", "audience" : 4 };
+        const result = calcPoint(plays, performance);
+        expect(0).toBe(result);
+    })
+
+    test('testCase6, 喜劇／人数超過なし', () => {
         const performance = { "playID" : "as-like", "audience" : 5 };
         const result = calcPoint(plays, performance);
         expect(1).toBe(result);
     })
 
-    test('testCase6, 喜劇／人数超過なし', () => {
+    test('testCase7, 喜劇／人数超過なし', () => {
         const performance = { "playID" : "as-like", "audience" : 6 };
         const result = calcPoint(plays, performance);
         expect(1).toBe(result);
     })
 
-    test('testCase7, 喜劇／人数超過なし', () => {
+    test('testCase8, 喜劇／人数超過なし', () => {
         const performance = { "playID" : "as-like", "audience" : 30 };
         const result = calcPoint(plays, performance);
         expect(6).toBe(result);
     })
 
-    test('testCase8, 喜劇／人数超過あり', () => {
+    test('testCase9, 喜劇／人数超過あり', () => {
         const performance = { "playID" : "as-like", "audience" : 31 };
         const result = calcPoint(plays, performance);
         expect(7).toBe(result);
     })
 
-    test('testCase9, 喜劇／人数超過あり', () => {
+    test('testCase10, 喜劇／人数超過あり', () => {
         const performance = { "playID" : "as-like", "audience" : 35 };
         const result = calcPoint(plays, performance);
         expect(12).toBe(result);
     })
 
-    test('testCase10, 喜劇／人数超過あり', () => {
+    test('testCase11, 喜劇／人数超過あり', () => {
         const performance = { "playID" : "as-like", "audience" : 36 };
         const result = calcPoint(plays, performance);
         expect(13).toBe(result);
     })
 
-    test('testCase11, 喜劇／人数超過あり', () => {
+    test('testCase12, 喜劇／人数超過あり', () => {
         const performance = { "playID" : "as-like", "audience" : 0 };
         const result = calcPoint(plays, performance);
         expect(0).toBe(result);
