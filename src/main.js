@@ -48,7 +48,7 @@ export function calcTotalPoint(plays, performances) {
 export function renderTxt(invoices, plays, performances, arg) {
 	let invoiceTxt;
 	switch(arg) {
-		case txt:
+		case "txt":
 			invoiceTxt += `請求書\n\n${invoices[0].customer}\n\n`;
 			for (const performance of performances) {
 				invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${calcAmount(plays, performance)})\n`;
@@ -56,7 +56,7 @@ export function renderTxt(invoices, plays, performances, arg) {
 			invoiceTxt += `\n合計金額：$${calcTotalAmount(plays, performances)}\n\n`;
 			invoiceTxt += `獲得ポイント：${calcTotalPoint(plays, performances)}pt\n`;
 			break;
-		case html:
+		case "html":
 			invoiceTxt += `<h3>請求書</h3><h4>${invoices[0].customer}</h4><ul>`;
 			for (const performance of performances) {
 				invoiceTxt += `<li>${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${calcAmount(plays, performance)})</li><br>`;
@@ -72,10 +72,10 @@ export function renderTxt(invoices, plays, performances, arg) {
 
 export function print(data, arg) {
 	switch(arg) {
-		case txt:
+		case "txt":
 			fs.writeFileSync("output/invoice.txt", data);
 			break;
-		case html:
+		case "html":
 			fs.writeFileSync("output/invoice.html", data);
 			break;
 		default:
