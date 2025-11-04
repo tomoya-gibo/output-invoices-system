@@ -73,16 +73,11 @@ export function print(data, arg) {
 	switch(arg) {
 		case "txt":
 			fs.writeFileSync("../output/invoice.txt", data);
-			// console.log("arg:" + arg);
-			// console.log(data);
 			break;
 		case "html":
 			fs.writeFileSync("../output/invoice.html", data);
-			// console.log("arg:" + arg);
-			// console.log(data);
 			break;
 		default:
-			// console.log("arg:" + arg);
 			console.log("txtかhtmlを指定してください。");
 	}
 }
