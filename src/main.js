@@ -64,6 +64,8 @@ export function renderTxt(invoices, plays, performances, arg) {
 			invoiceTxt += `</ul><p>合計金額：$${calcTotalAmount(plays, performances)}</p>`;
 			invoiceTxt += `<p>獲得ポイント：${calcTotalPoint(plays, performances)}pt</p>`;
 			break;
+		default:
+			console.log("arg:" + arg);
 	}
 	return invoiceTxt;
 }
