@@ -68,9 +68,9 @@ export function main() {
 	const argv = process.argv.slice(2);
 	const arg = argv[0];		// ↑と１行にできる？？
 
-	const invoiceTxt = renderTxt(invoices, plays, performances);
+	const invoiceTxt = renderTxt(invoices, plays, performances, arg);
 
-	print(invoiceTxt);
+	print(invoiceTxt, arg);
 }
 
 main();
