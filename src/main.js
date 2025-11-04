@@ -55,7 +55,7 @@ export function renderTxt(invoices, plays, performances) {
 	return invoiceTxt;
 }
 
-export function print(data) {
+export function print(data, arg) {
 	fs.writeFileSync("output/invoice.txt", data);
 }
 
