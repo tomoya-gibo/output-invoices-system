@@ -65,7 +65,9 @@ export function main() {
 	const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
 	
 	const performances = invoices[0].performances;	//演目
-	
+	const argv = process.argv.slice(2);
+	const arg = argv[0];		// ↑と１行にできる？？
+
 	const invoiceTxt = renderTxt(invoices, plays, performances);
 
 	print(invoiceTxt);
