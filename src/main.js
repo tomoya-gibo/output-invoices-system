@@ -56,7 +56,16 @@ export function renderTxt(invoices, plays, performances) {
 }
 
 export function print(data, arg) {
-	fs.writeFileSync("output/invoice.txt", data);
+	switch(arg) {
+		case txt:
+			fs.writeFileSync("output/invoice.txt", data);
+			break;
+		case html:
+			fs.writeFileSync("output/invoice.html", data);
+			break;
+		default:
+			console.log("txtかhtmlを指定してください。");
+	}
 }
 
 
