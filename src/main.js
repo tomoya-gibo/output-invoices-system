@@ -78,6 +78,8 @@
     console.log(outputTxt)
     outputFile(outputTxt);
 
+
+
     //ファイルの出力をする関数
     function outputFile(outputTxt) {
       fs.writeFileSync("output.txt", outputTxt, 'utf-8');
@@ -105,6 +107,11 @@
       return thisAmount;
     }
 
+    function calcPoint() {
+      
+    }
+
+    //ポイントの算出
     function pointCalc(performance) {
       let thisPoint = 0;
       if (performance.audience > 30) {
