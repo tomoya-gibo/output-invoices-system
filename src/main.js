@@ -1,4 +1,5 @@
-const fs = require("fs");
+// const fs = require("fs");
+import fs from 'fs';
 
 export function calcAmount(plays, performance) {
 	let result = 0;
@@ -90,8 +91,8 @@ export function print(data, arg) {
 
 
 export function main() {
-	const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
-	const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
+	const invoices = JSON.parse(fs.readFileSync("../input/invoices.json", "utf8"));
+	const plays = JSON.parse(fs.readFileSync("../input/plays.json", "utf8"));
 	
 	const performances = invoices[0].performances;	//演目
 	const argv = process.argv.slice(2);
