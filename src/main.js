@@ -73,10 +73,10 @@ export function renderTxt(invoices, plays, performances, arg) {
 export function print(data, arg) {
 	switch(arg) {
 		case "txt":
-			fs.writeFileSync("output/invoice.txt", data);
+			fs.writeFileSync("../output/invoice.txt", data);
 			break;
 		case "html":
-			fs.writeFileSync("output/invoice.html", data);
+			fs.writeFileSync("../output/invoice.html", data);
 			break;
 		default:
 			console.log("txtかhtmlを指定してください。");
@@ -85,8 +85,8 @@ export function print(data, arg) {
 
 
 export function main() {
-	const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
-	const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
+	const invoices = JSON.parse(fs.readFileSync("../input/invoices.json", "utf8"));
+	const plays = JSON.parse(fs.readFileSync("../input/plays.json", "utf8"));
 	
 	const performances = invoices[0].performances;	//演目
 	const argv = process.argv.slice(2);
