@@ -100,5 +100,3 @@ export function main() {
 
 	print(invoiceTxt, arg);
 }
-
-main();
