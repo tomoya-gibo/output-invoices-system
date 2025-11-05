@@ -1,8 +1,8 @@
 // const fs = require("fs");
 import fs from 'fs';
 
-export function playType() {
-	return plays[performance.playID].type;
+export function playType(plays, playID) {
+	return plays[playID].type;
 }
 
 export function calcAmount(plays, performance) {
