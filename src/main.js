@@ -42,10 +42,7 @@
         case "comedy":
           const comedyBasePrice = 30000;
           thisAmount = comedyCalc(comedyBasePrice,performance);
-          if (performance.audience > 30) {
-            thisPoint += (performance.audience - 30);
-          }
-          thisPoint += Math.floor(performance.audience / 5)
+          thisPoint += poinCalc(performance,play);
           break;
       }
       //合計金額
