@@ -103,7 +103,7 @@ export function main() {
 
 	const invoiceTxt = renderTxt(invoices, plays, performances, arg);
 
-	print(invoiceTxt, arg);
+	print(renderTxt(invoices, plays, performances, arg), arg);
 }
 
-main();
+// main();
