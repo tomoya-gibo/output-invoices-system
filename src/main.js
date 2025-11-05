@@ -43,7 +43,7 @@
           break;
         case "comedy":
           const comedyBasePrice = 30000;
-          thisAmount += comedyCalc(comedyBasePrice,performance);
+          thisAmount = comedyCalc(comedyBasePrice,performance);
           if (performance.audience > 30) {
             thisPoint += (performance.audience - 30);
           }
