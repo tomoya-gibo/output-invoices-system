@@ -2,7 +2,7 @@
 import fs from 'fs';
 
 export function playType() {
-	
+	return plays[performance.playID].type;
 }
 
 export function calcAmount(plays, performance) {
