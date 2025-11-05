@@ -46,19 +46,6 @@ export function calcTotalPoint(plays, performances) {
 	return result;
 }
 
-export function renderTxt(invoices, plays, performances, arg) {
-	switch(arg) {
-		case "txt":
-			return renderInvoiceTxt(invoices, plays, performances);
-
-		case "html":
-			return renderInvoiceHtml(invoices, plays, performances);
-			
-		default:
-			console.log("arg:" + arg);
-	}
-}
-
 export function renderInvoiceTxt(invoices, plays, performances) {
 	let invoiceTxt = `請求書\n\n${invoices[0].customer}\n\n`;
 	for (const performance of performances) {
