@@ -89,6 +89,10 @@
       thisAmount += performance.audience * 300;
       return thisAmount;
     }
+
+    function poinCalc() {
+      
+    }
   }
 
   main();
