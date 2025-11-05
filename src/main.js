@@ -108,14 +108,6 @@
       thisAmount += performance.audience * 300;
       return thisAmount;
     }
-
-    function pointCalc(performance) {
-      let thisPoint = 0;
-      if (performance.audience > 30) {
-        thisPoint += (performance.audience - 30);
-      }
-      return thisPoint;
-    }
   }
 
   main();
