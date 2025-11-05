@@ -19,8 +19,7 @@
     // 出力用変数
     let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
   
-    // 基本料金
-    const comedyBasePrice = 30000;
+
   
     // 合計金額・ポイント
     let totalAmount = 0;
@@ -61,6 +60,8 @@
           //   thisAmount += 10000;
           //   thisAmount += (performance.audience - 20) * 500;
           // }
+          // 基本料金
+          const comedyBasePrice = 30000;
           thisAmount += comedyCalc(comedyBasePrice,performance);
           if (performance.audience > 30) {
             thisPoint += (performance.audience - 30);
