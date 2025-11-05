@@ -37,9 +37,7 @@
         case "tragedy":
           const tragedyBasePrice = 40000;
           thisAmount = tragedyCalc(tragedyBasePrice,performance);
-          if (performance.audience > 30) {
-            thisPoint += (performance.audience - 30);
-          }
+          thisPoint = poinCalc(performance,play);
           break;
         case "comedy":
           const comedyBasePrice = 30000;
