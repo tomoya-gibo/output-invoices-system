@@ -50,7 +50,9 @@
           // if (performance.audience > 30){
           //   thisPoint += (performance.audience - 30)
           // }
-          thisPoint += pointCalc(performance);
+          if (performance.audience > 30) {
+            thisPoint += (performance.audience - 30);
+          }
           break;
         case "comedy":
           // thisAmount = comedyBasePrice;
