@@ -85,8 +85,7 @@ export function main() {
 	const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
 	
 	const performances = invoices[0].performances;	//演目
-	const argv = process.argv.slice(2);
-	const arg = process.argv.slice(2)[0];
+	const arg = process.argv.slice(2)[0];			// txt/html
 
 	printInvoice(invoices, plays, performances, arg);
 }
