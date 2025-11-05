@@ -93,7 +93,16 @@ export function print(data, arg) {
 }
 
 export function printInvoice() {
-	
+	switch(arg) {
+		case "txt":
+			fs.writeFileSync("output/invoice.txt", renderInvoiceTxt(invoices, plays, performances));
+			break;
+		case "html":
+			fs.writeFileSync("output/invoice.html", renderInvoiceHtml(invoices, plays, performances));
+			break;
+		default:
+			console.log("txtかhtmlを指定してください。");
+	}
 }
 
 
