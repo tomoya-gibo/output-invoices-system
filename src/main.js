@@ -24,8 +24,6 @@
     let totalPoint = 0;
   
     // 2 請求書の内容ごとの料金算定
-    //for (let invoice of invoices) {
-      // for文でinvoice.performancesの中身を取り出す
     for (let performance of invoices[0].performances) {
       //console.log(performance);
       // playsのキーとperformance.playIDを照合してplayに代入
@@ -58,7 +56,6 @@
       totalPoint += thisPoint
       outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${thisAmount})\n`;
       }
-    //}
     outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
     console.log(outputTxt)
     outputFile(outputTxt);
