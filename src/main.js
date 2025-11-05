@@ -92,7 +92,7 @@ export function print(data, arg) {
 	}
 }
 
-export function printInvoice() {
+export function printInvoice(invoices, plays, performances, arg) {
 	switch(arg) {
 		case "txt":
 			fs.writeFileSync("output/invoice.txt", renderInvoiceTxt(invoices, plays, performances));
