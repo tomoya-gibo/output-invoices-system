@@ -19,8 +19,6 @@
     // 出力用変数
     let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
   
-
-  
     // 合計金額・ポイント
     let totalAmount = 0;
     let totalPoint = 0;
@@ -39,36 +37,18 @@
       //演目の種別ごとの料金算定
       switch (play.type) {
         case "tragedy":
-          // thisAmount = tragedyBasePrice;
-          // //超過料金の算定
-          // if (performance.audience > 30) {
-          //   thisAmount += (performance.audience - 30) * 1000;
-          // }
           const tragedyBasePrice = 40000;
           thisAmount = tragedyCalc(tragedyBasePrice,performance);
-          // if (performance.audience > 30){
-          //   thisPoint += (performance.audience - 30)
-          // }
           if (performance.audience > 30) {
             thisPoint += (performance.audience - 30);
           }
           break;
         case "comedy":
-          // thisAmount = comedyBasePrice;
-          // //超過料金の算定
-          // if (performance.audience > 20) {
-          //   thisAmount += 10000;
-          //   thisAmount += (performance.audience - 20) * 500;
-          // }
-          // 基本料金
           const comedyBasePrice = 30000;
           thisAmount += comedyCalc(comedyBasePrice,performance);
           if (performance.audience > 30) {
             thisPoint += (performance.audience - 30);
           }
-          //喜劇の場合のみ超過にかかわらず一人につき$300の追加
-          //thisAmount += performance.audience * 300;
-          //観客数5人につき1ポイント追加
           thisPoint += Math.floor(performance.audience / 5)
           break;
       }
