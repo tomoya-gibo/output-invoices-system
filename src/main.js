@@ -74,6 +74,10 @@ export function renderInvoiceTxt(invoices, plays, performances) {
 	return invoiceTxt;
 }
 
+export function renderInvoiceHtml() {
+	
+}
+
 
 export function print(data, arg) {
 	switch(arg) {
