@@ -37,12 +37,12 @@
         case "tragedy":
           const tragedyBasePrice = 40000;
           thisAmount = tragedyCalc(tragedyBasePrice,performance);
-          thisPoint = poinCalc(performance,play);
+          thisPoint = pointCalc(performance,play);
           break;
         case "comedy":
           const comedyBasePrice = 30000;
           thisAmount = comedyCalc(comedyBasePrice,performance);
-          thisPoint += poinCalc(performance,play);
+          thisPoint += pointCalc(performance,play);
           break;
       }
       //合計金額
@@ -82,7 +82,7 @@
       return thisAmount;
     }
 
-    function poinCalc(performance,play) {
+    function pointCalc(performance,play) {
       let thisPoint = 0;
       if (performance.audience > 30) {
         thisPoint += (performance.audience - 30);
