@@ -86,7 +86,7 @@ export function main() {
 	
 	const performances = invoices[0].performances;	//演目
 	const argv = process.argv.slice(2);
-	const arg = argv[0];		// ↑と１行にできる？？
+	const arg = process.argv.slice(2)[0];
 
 	printInvoice(invoices, plays, performances, arg);
 }
