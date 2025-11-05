@@ -54,6 +54,11 @@
     console.log(outputTxt)
     outputFile(outputTxt);
 
+
+    function textFormat() {
+      
+    }
+
     //ファイルの出力をする関数
     function outputFile(outputTxt) {
       fs.writeFileSync("output.txt", outputTxt, 'utf-8');
