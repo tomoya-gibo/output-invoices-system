@@ -11,7 +11,6 @@
   import fs from "fs";
 
   export function main() {
-    //const fs = require("fs");
     // 1 入力データの読み込み
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
@@ -48,7 +47,7 @@
       //合計金額
       totalAmount += thisAmount;
       //獲得ポイントの合計
-      totalPoint += thisPoint
+      totalPoint += thisPoint;
       outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${thisAmount})\n`;
       }
     outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
