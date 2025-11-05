@@ -69,7 +69,7 @@ export function renderTxt(invoices, plays, performances, arg) {
 	}
 }
 
-export function renderInvoiceTxt() {
+export function renderInvoiceTxt(invoices, plays, performances) {
 	let invoiceTxt = `請求書\n\n${invoices[0].customer}\n\n`;
 	for (const performance of performances) {
 		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${calcAmount(plays, performance)})\n`;
