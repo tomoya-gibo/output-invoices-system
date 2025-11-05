@@ -1,6 +1,10 @@
 // const fs = require("fs");
 import fs from 'fs';
 
+export function playType() {
+	
+}
+
 export function calcAmount(plays, performance) {
 	let result = 0;
 	if (plays[performance.playID].type === "tragedy") {		//悲劇の場合
