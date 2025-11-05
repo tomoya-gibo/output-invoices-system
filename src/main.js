@@ -7,7 +7,7 @@ export function playType(plays, playID) {
 
 export function calcAmount(plays, performance) {
 	let result = 0;
-	if (plays[performance.playID].type === "tragedy") {		//悲劇の場合
+	if (playType(plays, performance.playID) === "tragedy") {		//悲劇の場合
 		result += 40000;
 		if (performance.audience > 30) {					//観客数の超過料金計算
 			result += (performance.audience - 30) * 1000;
@@ -36,7 +36,7 @@ export function calcPoint(plays, performance) {
 	if (performance.audience > 30) {
 		result += (performance.audience - 30) * 1;
 	}
-	if (plays[performance.playID].type === "comedy") {
+	if (playType(plays, performance.playID) === "comedy") {
 		result += Math.floor(performance.audience / 5) * 1;
 	}
 	return result;
