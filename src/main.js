@@ -114,7 +114,7 @@ export function main() {
 	const argv = process.argv.slice(2);
 	const arg = argv[0];		// ↑と１行にできる？？
 
-	print(renderTxt(invoices, plays, performances, arg), arg);
+	printInvoice(invoices, plays, performances, arg);
 }
 
 // main();
