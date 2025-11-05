@@ -92,6 +92,10 @@ export function print(data, arg) {
 	}
 }
 
+export function printInvoice() {
+	
+}
+
 
 export function main() {
 	const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
