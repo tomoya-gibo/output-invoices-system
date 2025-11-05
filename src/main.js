@@ -87,7 +87,7 @@
       return thisAmount;
     }
 
-    function poinCalc() {
+    function poinCalc(performance,play) {
       if (performance.audience > 30) {
         thisPoint += (performance.audience - 30);
       }
