@@ -95,6 +95,7 @@
       if (play.type === "comedy") {
         thisPoint += Math.floor(performance.audience / 5);
       }
+      return thisPoint;
     }
   }
 
