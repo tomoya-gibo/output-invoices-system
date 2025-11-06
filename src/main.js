@@ -41,14 +41,14 @@
         case "comedy":
           const comedyBasePrice = 30000;
           thisAmount = comedyCalc(comedyBasePrice,performance);
-          thisPoint += pointCalc(performance,play);
+          thisPoint = pointCalc(performance,play);
           break;
       }
       //合計金額
       totalAmount += thisAmount;
       //獲得ポイントの合計
       totalPoint += thisPoint;
-      outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${thisAmount})\n`;
+      outputTxt += TextData(play,performance,thisAmount);
       }
     outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
     console.log(outputTxt)
