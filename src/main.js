@@ -42,7 +42,6 @@
     outputFile(outputTxt);
 
     function calcPoint(play,performance) {
-      let thisAmount = 0;
       let thisPoint = 0;
 
       //演目の種別ごとの料金算定
