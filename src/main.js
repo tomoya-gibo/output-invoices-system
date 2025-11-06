@@ -13,6 +13,8 @@ export function calcAmount(plays, performance) {
 		if (performance.audience > 30) {					//観客数の超過料金計算
 			result += (performance.audience - 30) * 1000;
 		}
+	} else if (isPlayType(plays, performance, "tragic-comedy")) {
+		
 	} else {												//喜劇の場合
 		result += 30000;
 		result += performance.audience * 300;
