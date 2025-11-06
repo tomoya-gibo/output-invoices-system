@@ -58,7 +58,6 @@
 
     function calcAmount(play,performance) {
       let thisAmount = 0;
-      let thisPoint = 0;
 
       //演目の種別ごとの料金算定
       switch (play.type) {
