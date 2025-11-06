@@ -43,7 +43,8 @@
     outputFile(outputTxt);
 
     function calcPoint() {
-      
+      let resultPoint = calculate(play,performance);
+      let point = resultPoint.thisPoint;
     }
 
     function calcAmount(play,performance) {
