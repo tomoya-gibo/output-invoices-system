@@ -64,9 +64,7 @@
           thisPoint = pointCalc(performance,play);
           break;
       }
-      let resultAmount = {thisAmount,thisPoint};
-      let amount = resultAmount.thisAmount;
-      return amount;
+      return thisAmount;
     }
 
     function calculate(play,performance) {
