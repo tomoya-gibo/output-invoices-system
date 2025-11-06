@@ -40,6 +40,9 @@ export function calcTotalAmount(plays, performances) {
 
 export function calcPoint(plays, performance) {
 	let result = 0;
+	if (isPlayType(plays, performance, "tragic-comedy")) {
+
+	}
 	if (performance.audience > 30) {
 		result += (performance.audience - 30) * 1;
 	}
