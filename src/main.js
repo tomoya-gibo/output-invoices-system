@@ -29,7 +29,6 @@
       const play = plays[performance.playID];
       //演目ごとの料金を入れる変数
 
-      let resultAmount = calculate(play,performance);
       let amount = calcAmount(play,performance);
       let resultPoint = calculate(play,performance);
       //合計金額
