@@ -30,6 +30,7 @@
       //演目ごとの料金を入れる変数
 
       let resultAmount = calculate(play,performance);
+      let amount = resultAmount.thisAmount;
       let resultPoint = calculate(play,performance);
       //合計金額
       totalAmount += resultAmount.thisAmount;
@@ -40,6 +41,10 @@
     outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
     console.log(outputTxt)
     outputFile(outputTxt);
+
+    function calcAmount() {
+      
+    }
 
     function calculate(play,performance) {
       let thisAmount = 0;
