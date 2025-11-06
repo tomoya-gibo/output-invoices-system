@@ -6,7 +6,8 @@ import { calcAmount,
 
 const plays = { "hamlet": { "type": "tragedy" },
                 "as-like" : { "type": "comedy" },
-                "othello" : { "type": "tragedy" } };
+                "othello" : { "type": "tragedy" },
+                "romeo-and-juliet" : { "type": "tragic-comedy" }};
 
 describe('calcAmountのテスト', () => {
     // 悲劇
@@ -58,6 +59,18 @@ describe('calcAmountのテスト', () => {
 
     test('testCase8, 喜劇／人数０', () => {
         const performance = { "playID" : "as-like", "audience" : 0 };
+        const result = calcAmount(plays, performance);
+        expect(result).toBe(30000);
+    })
+
+    test('testCase9, 悲喜劇', () => {
+        const performance = { "playID" : "romeo-and-juliet", "audience" : 50 };
+        const result = calcAmount(plays, performance);
+        expect(result).toBe(55000);
+    })
+    
+    test('testCase10, 悲喜劇／人数０', () => {
+        const performance = { "playID" : "romeo-and-juliet", "audience" : 0 };
         const result = calcAmount(plays, performance);
         expect(result).toBe(30000);
     })
