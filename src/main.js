@@ -42,8 +42,10 @@
     console.log(outputTxt)
     outputFile(outputTxt);
 
-    function calcAmount() {
-      
+    function calcAmount(play,performance) {
+      let resultAmount = calculate(play,performance);
+      let amount = resultAmount.thisAmount;
+      return amount;
     }
 
     function calculate(play,performance) {
