@@ -56,7 +56,22 @@
     outputFile(outputTxt);
 
     function calculate() {
-      
+      let thisAmount = 0;
+      let thisPoint = 0;
+
+      //演目の種別ごとの料金算定
+      switch (play.type) {
+        case "tragedy":
+          const tragedyBasePrice = 40000;
+          thisAmount = tragedyCalc(tragedyBasePrice,performance);
+          thisPoint = pointCalc(performance,play);
+          break;
+        case "comedy":
+          const comedyBasePrice = 30000;
+          thisAmount = comedyCalc(comedyBasePrice,performance);
+          thisPoint += pointCalc(performance,play);
+          break;
+      }
     }
 
     //ファイルの出力をする関数
