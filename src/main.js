@@ -6,7 +6,7 @@ export function playType(plays, playID) {
 }
 
 export function isPlayType() {		// 関数名△
-	playType(plays, performance.playID) === "tragedy";
+	plays[performance.playID].type === "tragedy";
 }
 
 export function calcAmount(plays, performance) {
