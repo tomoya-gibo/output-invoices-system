@@ -54,8 +54,8 @@
     console.log(outputTxt)
     outputFile(outputTxt);
 
-    function TextData() {
-      outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${thisAmount})\n`;
+    function TextData(play,performance,thisAmount) {
+    return `・${play.name} (観客数: ${performance.audience}、金額: $${thisAmount})\n`;
     }
 
     //ファイルの出力をする関数
