@@ -1,9 +1,9 @@
 // const fs = require("fs");
 import fs from 'fs';
 
-export function playType(plays, playID) {
-	return plays[playID].type;
-}
+// export function playType(plays, playID) {
+// 	return plays[playID].type;
+// }
 
 export function isPlayType(plays, performance, type) {		// 関数名△
 	return plays[performance.playID].type === type;
@@ -11,7 +11,7 @@ export function isPlayType(plays, performance, type) {		// 関数名△
 
 export function calcAmount(plays, performance) {
 	let result = 0;
-	if (playType(plays, performance.playID) === "tragedy") {		//悲劇の場合
+	if (isPlayType(plays, performance, "tragedy")) {		//悲劇の場合
 		result += 40000;
 		if (performance.audience > 30) {					//観客数の超過料金計算
 			result += (performance.audience - 30) * 1000;
@@ -40,7 +40,7 @@ export function calcPoint(plays, performance) {
 	if (performance.audience > 30) {
 		result += (performance.audience - 30) * 1;
 	}
-	if (playType(plays, performance.playID) === "comedy") {
+	if (isPlayType(plays, performance, "comedy")) {
 		result += Math.floor(performance.audience / 5) * 1;
 	}
 	return result;
