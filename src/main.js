@@ -1,9 +1,6 @@
 // const fs = require("fs");
 import fs from 'fs';
 
-// export function playType(plays, playID) {
-// 	return plays[playID].type;
-// }
 
 export function isPlayType(plays, performance, type) {		// 関数名△
 	return plays[performance.playID].type === type;
