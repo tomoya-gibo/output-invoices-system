@@ -5,7 +5,7 @@ export function playType(plays, playID) {
 	return plays[playID].type;
 }
 
-export function isPlayType() {		// 関数名△
+export function isPlayType(plays, performance, type) {		// 関数名△
 	plays[performance.playID].type === "tragedy";
 }
 
