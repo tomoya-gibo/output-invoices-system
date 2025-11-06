@@ -31,10 +31,11 @@
 
       let amount = calcAmount(play,performance);
       let resultPoint = calculate(play,performance);
+      let point = resultPoint.thisPoint;
       //合計金額
       totalAmount += amount;
       //獲得ポイントの合計
-      totalPoint += resultPoint.thisPoint;
+      totalPoint += point;
       outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${amount})\n`;
       }
     outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
