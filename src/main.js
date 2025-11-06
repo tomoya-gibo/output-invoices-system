@@ -29,12 +29,13 @@
       const play = plays[performance.playID];
       //演目ごとの料金を入れる変数
 
-      let result = calculate(play,performance);
+      let resultAmount = calculate(play,performance);
+      let resultPoint = calculate(play,performance);
       //合計金額
-      totalAmount += result.thisAmount;
+      totalAmount += resultAmount.thisAmount;
       //獲得ポイントの合計
-      totalPoint += result.thisPoint;
-      outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${result.thisAmount})\n`;
+      totalPoint += resultPoint.thisPoint;
+      outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${resultAmount.thisAmount})\n`;
       }
     outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
     console.log(outputTxt)
