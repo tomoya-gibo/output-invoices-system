@@ -48,20 +48,9 @@
     }
 
     function calcAmount(play,performance) {
-      let thisAmount = 0;
-
-      //演目の種別ごとの料金算定
-      switch (play.type) {
-        case "tragedy":
-          const tragedyBasePrice = 40000;
-          thisAmount = tragedyCalc(tragedyBasePrice,performance);
-          break;
-        case "comedy":
-          const comedyBasePrice = 30000;
-          thisAmount = comedyCalc(comedyBasePrice,performance);
-          break;
-      }
-      return thisAmount;
+      let resultAmount = calculate(play,performance);
+      let amount = resultAmount.thisAmount;
+      return amount;
     }
 
     function calculate(play,performance) {
