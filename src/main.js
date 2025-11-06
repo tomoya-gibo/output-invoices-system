@@ -51,8 +51,6 @@
           thisPoint = pointCalc(performance,play);
           break;
         case "comedy":
-          const comedyBasePrice = 30000;
-          thisAmount = comedyCalc(comedyBasePrice,performance);
           thisPoint = pointCalc(performance,play);
           break;
       }
