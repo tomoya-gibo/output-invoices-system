@@ -8,6 +8,9 @@ export function isPlayType(plays, performance, type) {		// 関数名△
 
 export function calcAmount(plays, performance) {
 	let result = 0;
+
+	// const thisPlayType = plays[performance.playID].type;
+	// にして switch(thisPlayType)-case "tragedy": の方がいい？
 	if (isPlayType(plays, performance, "tragedy")) {		//悲劇の場合
 		result += 40000;
 		if (performance.audience > 30) {					//観客数の超過料金計算
