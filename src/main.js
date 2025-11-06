@@ -92,7 +92,7 @@ export function main() {
 	const performances = invoices[0].performances;	//演目
 	const arg = process.argv.slice(2)[0];			// txt/html
 
-	printInvoice(invoices, plays, performances, arg);
+	printInvoice(invoices, plays, performances, "txt");	// テスト用にargを指定
 }
 
 // main();
