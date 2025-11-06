@@ -33,10 +33,10 @@
       let amount = resultAmount.thisAmount;
       let resultPoint = calculate(play,performance);
       //合計金額
-      totalAmount += resultAmount.thisAmount;
+      totalAmount += amount;
       //獲得ポイントの合計
       totalPoint += resultPoint.thisPoint;
-      outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${resultAmount.thisAmount})\n`;
+      outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${amount})\n`;
       }
     outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
     console.log(outputTxt)
