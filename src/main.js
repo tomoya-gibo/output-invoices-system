@@ -61,13 +61,13 @@ export function renderInvoiceTxt(invoice, plays, performances) {
 	return invoiceTxt;
 }
 
-export function renderInvoiceHtml(invoice, plays, performances) {
+export function renderInvoiceHtml(invoice, plays) {
 	let invoiceHtml = `<h3>請求書</h3><h4>${invoice.customer}</h4><ul>`;
-	for (const performance of performances) {
+	for (const performance of invoice.performances) {
 		invoiceHtml += `<li>${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${calcAmount(plays, performance)})</li><br>`;
 	}
-	invoiceHtml += `</ul><p>合計金額：$${calcTotalAmount(plays, performances)}</p>`;
-	invoiceHtml += `<p>獲得ポイント：${calcTotalPoint(plays, performances)}pt</p>`;
+	invoiceHtml += `</ul><p>合計金額：$${calcTotalAmount(plays, invoice.performances)}</p>`;
+	invoiceHtml += `<p>獲得ポイント：${calcTotalPoint(plays, invoice.performances)}pt</p>`;
 	return invoiceHtml;
 }
 
@@ -77,7 +77,7 @@ export function printInvoice(invoice, plays, arg) {
 			fs.writeFileSync("output/invoice.txt", renderInvoiceTxt(invoice, plays, invoice.performances));
 			break;
 		case "html":
-			fs.writeFileSync("output/invoice.html", renderInvoiceHtml(invoice, plays, invoice.performances));
+			fs.writeFileSync("output/invoice.html", renderInvoiceHtml(invoice, plays));
 			break;
 		default:
 			console.log("txtかhtmlを指定してください。");
