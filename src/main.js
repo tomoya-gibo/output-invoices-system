@@ -88,8 +88,6 @@ export function printInvoice(invoice, plays, arg) {
 export function main() {
 	const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
 	const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
-	
-	const performances = invoices[0].performances;	//演目
 	const arg = process.argv.slice(2)[0];			// txt/html
 
 	printInvoice(invoices[0], plays, "txt");	// テスト用にargを指定
