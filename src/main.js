@@ -48,8 +48,6 @@
       //演目の種別ごとの料金算定
       switch (play.type) {
         case "tragedy":
-          const tragedyBasePrice = 40000;
-          thisAmount = tragedyCalc(tragedyBasePrice,performance);
           thisPoint = pointCalc(performance,play);
           break;
         case "comedy":
