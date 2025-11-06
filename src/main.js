@@ -55,6 +55,10 @@
     console.log(outputTxt)
     outputFile(outputTxt);
 
+    function calculate() {
+      
+    }
+
     //ファイルの出力をする関数
     function outputFile(outputTxt) {
       fs.writeFileSync("output.txt", outputTxt, 'utf-8');
