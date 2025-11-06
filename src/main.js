@@ -71,13 +71,13 @@ export function renderInvoiceHtml(invoice, plays, performances) {
 	return invoiceHtml;
 }
 
-export function printInvoice(invoices, plays, performances, arg) {
+export function printInvoice(invoice, plays, performances, arg) {
 	switch(arg) {
 		case "txt":
-			fs.writeFileSync("output/invoice.txt", renderInvoiceTxt(invoices[0], plays, performances));
+			fs.writeFileSync("output/invoice.txt", renderInvoiceTxt(invoice, plays, performances));
 			break;
 		case "html":
-			fs.writeFileSync("output/invoice.html", renderInvoiceHtml(invoices[0], plays, performances));
+			fs.writeFileSync("output/invoice.html", renderInvoiceHtml(invoice, plays, performances));
 			break;
 		default:
 			console.log("txtかhtmlを指定してください。");
@@ -92,7 +92,7 @@ export function main() {
 	const performances = invoices[0].performances;	//演目
 	const arg = process.argv.slice(2)[0];			// txt/html
 
-	printInvoice(invoices, plays, performances, "txt");	// テスト用にargを指定
+	printInvoice(invoices[0], plays, performances, "txt");	// テスト用にargを指定
 }
 
 // main();
