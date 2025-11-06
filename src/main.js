@@ -41,23 +41,18 @@
         case "comedy":
           const comedyBasePrice = 30000;
           thisAmount = comedyCalc(comedyBasePrice,performance);
-          thisPoint = pointCalc(performance,play);
+          thisPoint += pointCalc(performance,play);
           break;
       }
       //合計金額
       totalAmount += thisAmount;
       //獲得ポイントの合計
       totalPoint += thisPoint;
-      const printData = {};
-      outputTxt += TextData(printData,play,performance,thisAmount);
+      outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${thisAmount})\n`;
       }
     outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
     console.log(outputTxt)
     outputFile(outputTxt);
-
-    function TextData(printData,play,performance,thisAmount) {
-    return `・${play.name} (観客数: ${performance.audience}、金額: $${thisAmount})\n`;
-    }
 
     //ファイルの出力をする関数
     function outputFile(outputTxt) {
