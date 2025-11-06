@@ -17,7 +17,8 @@ export function calcAmount(plays, performance) {
 			result += (performance.audience - 30) * 1000;
 		}
 	} else if (isPlayType(plays, performance, "tragic-comedy")) {
-		
+		result += 30000;
+		result += performance.audience * 500;
 	} else {												//喜劇の場合
 		result += 30000;
 		result += performance.audience * 300;
