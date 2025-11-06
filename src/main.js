@@ -31,7 +31,7 @@
 
       let amount = calcAmount(play,performance);
       let resultPoint = calculate(play,performance);
-      let point = resultPoint.thisPoint;
+      let point = calcPoint(play,performance);
       //合計金額
       totalAmount += amount;
       //獲得ポイントの合計
@@ -42,9 +42,10 @@
     console.log(outputTxt)
     outputFile(outputTxt);
 
-    function calcPoint() {
+    function calcPoint(play,performance) {
       let resultPoint = calculate(play,performance);
       let point = resultPoint.thisPoint;
+      return point;
     }
 
     function calcAmount(play,performance) {
