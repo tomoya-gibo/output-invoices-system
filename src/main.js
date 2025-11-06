@@ -10,16 +10,16 @@ export function calcAmount(plays, performance) {
 	let result = 0;
 
 	// const thisPlayType = plays[performance.playID].type;
-	// にして switch(thisPlayType)-case "tragedy": の方がいい？
-	if (isPlayType(plays, performance, "tragedy")) {		//悲劇の場合
+	// にして switch(thisPlayType)-case "tragedy": の方がいい？　→もっとよき方法ありそう
+	if (isPlayType(plays, performance, "tragedy")) {				//悲劇の場合
 		result += 40000;
-		if (performance.audience > 30) {					//観客数の超過料金計算
+		if (performance.audience > 30) {
 			result += (performance.audience - 30) * 1000;
 		}
-	} else if (isPlayType(plays, performance, "tragic-comedy")) {
+	} else if (isPlayType(plays, performance, "tragic-comedy")) {	//悲喜劇の場合
 		result += 30000;
 		result += performance.audience * 500;
-	} else {												//喜劇の場合
+	} else {														//喜劇の場合
 		result += 30000;
 		result += performance.audience * 300;
 		if (performance.audience > 20) {
