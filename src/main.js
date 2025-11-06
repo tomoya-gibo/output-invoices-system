@@ -31,6 +31,8 @@
       let thisAmount = 0;
       let thisPoint = 0;
 
+      let result = {};
+
       //演目の種別ごとの料金算定
       switch (play.type) {
         case "tragedy":
@@ -53,6 +55,10 @@
     outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
     console.log(outputTxt)
     outputFile(outputTxt);
+
+    function calculate() {
+      
+    }
 
     //ファイルの出力をする関数
     function outputFile(outputTxt) {
