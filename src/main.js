@@ -44,7 +44,6 @@
     function calcPoint(play,performance) {
       let thisPoint = 0;
 
-      //演目の種別ごとの料金算定
       switch (play.type) {
         case "tragedy":
           thisPoint = pointCalc(performance,play);
@@ -59,7 +58,6 @@
     function calcAmount(play,performance) {
       let thisAmount = 0;
 
-      //演目の種別ごとの料金算定
       switch (play.type) {
         case "tragedy":
           const tragedyBasePrice = 40000;
