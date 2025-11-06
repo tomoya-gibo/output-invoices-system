@@ -30,7 +30,6 @@
       //演目ごとの料金を入れる変数
 
       let amount = calcAmount(play,performance);
-      let resultPoint = calculate(play,performance);
       let point = calcPoint(play,performance);
       //合計金額
       totalAmount += amount;
