@@ -51,8 +51,8 @@ export function calcTotalPoint(plays, performances) {
 	return result;
 }
 
-export function renderInvoiceTxt(invoices, plays, performances) {
-	let invoiceTxt = `請求書\n\n${invoices[0].customer}\n\n`;
+export function renderInvoiceTxt(invoice, plays, performances) {
+	let invoiceTxt = `請求書\n\n${invoice.customer}\n\n`;
 	for (const performance of performances) {
 		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${calcAmount(plays, performance)})\n`;
 	}
@@ -74,7 +74,7 @@ export function renderInvoiceHtml(invoice, plays, performances) {
 export function printInvoice(invoices, plays, performances, arg) {
 	switch(arg) {
 		case "txt":
-			fs.writeFileSync("output/invoice.txt", renderInvoiceTxt(invoices, plays, performances));
+			fs.writeFileSync("output/invoice.txt", renderInvoiceTxt(invoices[0], plays, performances));
 			break;
 		case "html":
 			fs.writeFileSync("output/invoice.html", renderInvoiceHtml(invoices[0], plays, performances));
