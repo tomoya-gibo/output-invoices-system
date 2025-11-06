@@ -5,6 +5,10 @@ export function playType(plays, playID) {
 	return plays[playID].type;
 }
 
+export function isPlayType() {
+
+}
+
 export function calcAmount(plays, performance) {
 	let result = 0;
 	if (playType(plays, performance.playID) === "tragedy") {		//悲劇の場合
