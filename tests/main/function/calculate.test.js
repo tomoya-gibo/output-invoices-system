@@ -158,6 +158,30 @@ describe('calcPointのテスト', () => {
         const result = calcPoint(plays, performance);
         expect(result).toBe(0);
     })
+
+    test('testCase13, 悲喜劇／人数超過なし', () => {
+        const performance = { "playID" : "romeo-and-juliet", "audience" : 19 };
+        const result = calcPoint(plays, performance);
+        expect(result).toBe(0);
+    })
+
+    test('testCase14, 悲喜劇／人数超過なし', () => {
+        const performance = { "playID" : "romeo-and-juliet", "audience" : 20 };
+        const result = calcPoint(plays, performance);
+        expect(result).toBe(0);
+    })
+
+    test('testCase15, 悲喜劇／人数超過なし', () => {
+        const performance = { "playID" : "romeo-and-juliet", "audience" : 19 };
+        const result = calcPoint(plays, performance);
+        expect(result).toBe(0);
+    })
+
+    test('testCase16, 悲喜劇／人数超過あり', () => {
+        const performance = { "playID" : "romeo-and-juliet", "audience" : 21 };
+        const result = calcPoint(plays, performance);
+        expect(result).toBe(1);
+    })
 })
 
 describe('calcTotalPointのテスト', () => {
