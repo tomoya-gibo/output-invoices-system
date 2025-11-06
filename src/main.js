@@ -44,11 +44,12 @@
           thisPoint += pointCalc(performance,play);
           break;
       }
+      let result = {thisAmount,thisPoint};
       //合計金額
-      totalAmount += thisAmount;
+      totalAmount += result.thisAmount;
       //獲得ポイントの合計
-      totalPoint += thisPoint;
-      outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${thisAmount})\n`;
+      totalPoint += result.thisPoint;
+      outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${result.thisAmount})\n`;
       }
     outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
     console.log(outputTxt)
