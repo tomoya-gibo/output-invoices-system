@@ -28,23 +28,8 @@
       // playsのキーとperformance.playIDを照合してplayに代入
       const play = plays[performance.playID];
       //演目ごとの料金を入れる変数
-      let thisAmount = 0;
-      let thisPoint = 0;
 
-      //演目の種別ごとの料金算定
-      switch (play.type) {
-        case "tragedy":
-          const tragedyBasePrice = 40000;
-          thisAmount = tragedyCalc(tragedyBasePrice,performance);
-          thisPoint = pointCalc(performance,play);
-          break;
-        case "comedy":
-          const comedyBasePrice = 30000;
-          thisAmount = comedyCalc(comedyBasePrice,performance);
-          thisPoint += pointCalc(performance,play);
-          break;
-      }
-      let result = {thisAmount,thisPoint};
+      let result = calculate(play,performance);
       //合計金額
       totalAmount += result.thisAmount;
       //獲得ポイントの合計
@@ -55,7 +40,7 @@
     console.log(outputTxt)
     outputFile(outputTxt);
 
-    function calculate() {
+    function calculate(play,performance) {
       let thisAmount = 0;
       let thisPoint = 0;
 
@@ -69,9 +54,10 @@
         case "comedy":
           const comedyBasePrice = 30000;
           thisAmount = comedyCalc(comedyBasePrice,performance);
-          thisPoint += pointCalc(performance,play);
+          thisPoint = pointCalc(performance,play);
           break;
       }
+      return {thisAmount,thisPoint};
     }
 
     //ファイルの出力をする関数
