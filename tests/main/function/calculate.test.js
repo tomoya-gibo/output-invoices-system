@@ -6,8 +6,7 @@ import { calcAmount,
 
 const plays = { "hamlet": { "type": "tragedy" },
                 "as-like" : { "type": "comedy" },
-                "othello" : { "type": "tragedy" },
-                "romeo-and-juliet" : { "type": "tragic-comedy" }};
+                "othello" : { "type": "tragedy" }};
 
 describe('calcAmountのテスト', () => {
     // 悲劇
@@ -59,18 +58,6 @@ describe('calcAmountのテスト', () => {
 
     test('testCase8, 喜劇／人数０', () => {
         const performance = { "playID" : "as-like", "audience" : 0 };
-        const result = calcAmount(plays, performance);
-        expect(result).toBe(30000);
-    })
-
-    test('testCase9, 悲喜劇', () => {
-        const performance = { "playID" : "romeo-and-juliet", "audience" : 50 };
-        const result = calcAmount(plays, performance);
-        expect(result).toBe(55000);
-    })
-    
-    test('testCase10, 悲喜劇／人数０', () => {
-        const performance = { "playID" : "romeo-and-juliet", "audience" : 0 };
         const result = calcAmount(plays, performance);
         expect(result).toBe(30000);
     })
@@ -157,30 +144,6 @@ describe('calcPointのテスト', () => {
         const performance = { "playID" : "as-like", "audience" : 0 };
         const result = calcPoint(plays, performance);
         expect(result).toBe(0);
-    })
-
-    test('testCase13, 悲喜劇／人数超過なし', () => {
-        const performance = { "playID" : "romeo-and-juliet", "audience" : 19 };
-        const result = calcPoint(plays, performance);
-        expect(result).toBe(0);
-    })
-
-    test('testCase14, 悲喜劇／人数超過なし', () => {
-        const performance = { "playID" : "romeo-and-juliet", "audience" : 20 };
-        const result = calcPoint(plays, performance);
-        expect(result).toBe(0);
-    })
-
-    test('testCase15, 悲喜劇／人数超過なし', () => {
-        const performance = { "playID" : "romeo-and-juliet", "audience" : 19 };
-        const result = calcPoint(plays, performance);
-        expect(result).toBe(0);
-    })
-
-    test('testCase16, 悲喜劇／人数超過あり', () => {
-        const performance = { "playID" : "romeo-and-juliet", "audience" : 21 };
-        const result = calcPoint(plays, performance);
-        expect(result).toBe(1);
     })
 })
 

@@ -2,23 +2,17 @@
 import fs from 'fs';
 
 
-export function isPlayType(plays, performance, type) {		// 関数名△
+export function isPlayType(plays, performance, type) {
 	return plays[performance.playID].type === type;
 }
 
 export function calcAmount(plays, performance) {
 	let result = 0;
-
-	// const thisPlayType = plays[performance.playID].type;
-	// にして switch(thisPlayType)-case "tragedy": の方がいい？　→もっとよき方法ありそう
 	if (isPlayType(plays, performance, "tragedy")) {				//悲劇の場合
 		result += 40000;
 		if (performance.audience > 30) {
 			result += (performance.audience - 30) * 1000;
 		}
-	} else if (isPlayType(plays, performance, "tragic-comedy")) {	//悲喜劇の場合
-		result += 30000;
-		result += performance.audience * 500;
 	} else {														//喜劇の場合
 		result += 30000;
 		result += performance.audience * 300;
@@ -40,9 +34,6 @@ export function calcTotalAmount(plays, performances) {
 
 export function calcPoint(plays, performance) {
 	let result = 0;
-	if (isPlayType(plays, performance, "tragic-comedy")) {
-		return result += Math.max((performance.audience - 20), 0);
-	}
 	if (performance.audience > 30) {
 		result += (performance.audience - 30) * 1;
 	}
@@ -99,7 +90,7 @@ export function main() {
 	const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
 	const arg = process.argv.slice(2)[0];			// txt/html
 
-	printInvoice(invoices[0], plays, "txt");	// テスト用にargを指定
+	printInvoice(invoices[0], plays, arg);	// テスト用にargを指定
 }
 
 // main();
