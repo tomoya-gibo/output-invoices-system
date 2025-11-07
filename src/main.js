@@ -18,6 +18,15 @@ function calcAmountTragedy(audience) {
 	return result;
 }
 
+function calcAmountComedy() {
+	let result = 30000;
+	result += performance.audience * 300;
+	if (performance.audience > 20) {
+		result += 10000;
+		result += (performance.audience - 20) * 500;
+	}
+}
+
 export function calcAmount(plays, performance) {
 	let result = 0;
 	if (isTragedy(plays, performance)) {				//悲劇の場合
