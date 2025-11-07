@@ -32,6 +32,15 @@ function calcAmountComedy(audience) {
 	return result;
 }
 
+function calcPointComedy() {
+	let result = 0;
+	if (performance.audience > 30) {
+		result += (performance.audience - 30) * 1;
+	}
+	result += Math.floor(performance.audience / 5) * 1;
+	return result;
+}
+
 export function calcAmount(plays, performance) {
 	// if (isTragedy(plays, performance)) {					//悲劇の場合
 	// 	return calcAmountTragedy(performance.audience);
@@ -55,7 +64,7 @@ export function calcPoint(plays, performance) {
 	if (performance.audience > 30) {
 		result += (performance.audience - 30) * 1;
 	}
-	if (isPlayType(plays, performance, "comedy")) {
+	if (isComedy(plays, performance.playID)) {
 		result += Math.floor(performance.audience / 5) * 1;
 	}
 	return result;
