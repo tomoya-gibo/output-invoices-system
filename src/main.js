@@ -21,10 +21,7 @@ function calcAmountTragedy(audience) {
 export function calcAmount(plays, performance) {
 	let result = 0;
 	if (isTragedy(plays, performance)) {				//悲劇の場合
-		result += 40000;
-		if (performance.audience > 30) {
-			result += (performance.audience - 30) * 1000;
-		}
+		return calcAmountTragedy(performance.audience);
 	} else {														//喜劇の場合
 		result += 30000;
 		result += performance.audience * 300;
