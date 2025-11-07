@@ -18,12 +18,12 @@ function calcAmountTragedy(audience) {
 	return result;
 }
 
-function calcAmountComedy() {
+function calcAmountComedy(audience) {
 	let result = 30000;
-	result += performance.audience * 300;
-	if (performance.audience > 20) {
+	result += audience * 300;
+	if (audience > 20) {
 		result += 10000;
-		result += (performance.audience - 20) * 500;
+		result += (audience - 20) * 500;
 	}
 }
 
