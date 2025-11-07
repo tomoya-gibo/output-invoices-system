@@ -6,8 +6,8 @@ export function isPlayType(plays, performance, type) {
 	return plays[performance.playID].type === type;
 }
 
-function isTragedy(plays, performance) {
-	return plays[performance.playID].type === "tragedy";
+function isTragedy(plays, playID) {
+	return plays[playID].type === "tragedy";
 }
 
 function isComedy(plays, playID) {
@@ -42,12 +42,12 @@ function calcPointComedy(audience) {
 }
 
 export function calcAmount(plays, performance) {
-	// if (isTragedy(plays, performance)) {					//悲劇の場合
+	// if (isTragedy(plays, performance.playID)) {					//悲劇の場合
 	// 	return calcAmountTragedy(performance.audience);
 	// } else {												//喜劇の場合
 	// 	return calcAmountComedy(performance.audience);
 	// }
-	return isTragedy(plays, performance) ? 
+	return isTragedy(plays, performance.playID) ? 
 		calcAmountTragedy(performance.audience) : calcAmountComedy(performance.audience);
 }
 
