@@ -10,6 +10,14 @@ function isTragedy(plays, performance) {
 	return plays[performance.playID].type === "tragedy";
 }
 
+function calcAmountTragedy() {
+	let result = 40000;
+	if (performance.audience > 30) {
+		result += (performance.audience - 30) * 1000;
+	}
+	return result;
+}
+
 export function calcAmount(plays, performance) {
 	let result = 0;
 	if (isTragedy(plays, performance)) {				//悲劇の場合
