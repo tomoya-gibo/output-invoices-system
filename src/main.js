@@ -33,12 +33,7 @@ export function calcAmount(plays, performance) {
 	if (isTragedy(plays, performance)) {				//悲劇の場合
 		return calcAmountTragedy(performance.audience);
 	} else {														//喜劇の場合
-		result += 30000;
-		result += performance.audience * 300;
-		if (performance.audience > 20) {
-			result += 10000;
-			result += (performance.audience - 20) * 500;
-		}
+		return calcAmountComedy(performance.audience);
 	}
 	return result;
 }
