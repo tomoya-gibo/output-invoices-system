@@ -6,9 +6,13 @@ export function isPlayType(plays, performance, type) {
 	return plays[performance.playID].type === type;
 }
 
+function isTragedy(plays, performance) {
+	return plays[performance.playID].type === "tragedy";
+}
+
 export function calcAmount(plays, performance) {
 	let result = 0;
-	if (isPlayType(plays, performance, "tragedy")) {				//悲劇の場合
+	if (isTragedy(plays, performance)) {				//悲劇の場合
 		result += 40000;
 		if (performance.audience > 30) {
 			result += (performance.audience - 30) * 1000;
