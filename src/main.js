@@ -32,12 +32,12 @@ function calcAmountComedy(audience) {
 	return result;
 }
 
-function calcPointComedy() {
+function calcPointComedy(audience) {
 	let result = 0;
-	if (performance.audience > 30) {
-		result += (performance.audience - 30) * 1;
+	if (audience > 30) {
+		result += (audience - 30) * 1;
 	}
-	result += Math.floor(performance.audience / 5) * 1;
+	result += Math.floor(audience / 5) * 1;
 	return result;
 }
 
