@@ -10,6 +10,10 @@ function isTragedy(plays, performance) {
 	return plays[performance.playID].type === "tragedy";
 }
 
+function isComedy() {
+	return plays[performance.playID].type === "comedy";
+}
+
 function calcAmountTragedy(audience) {
 	let result = 40000;
 	if (audience > 30) {
