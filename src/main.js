@@ -25,6 +25,7 @@ function calcAmountComedy(audience) {
 		result += 10000;
 		result += (audience - 20) * 500;
 	}
+	return result;
 }
 
 export function calcAmount(plays, performance) {
