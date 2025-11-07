@@ -2,10 +2,6 @@
 import fs from 'fs';
 
 
-export function isPlayType(plays, performance, type) {
-	return plays[performance.playID].type === type;
-}
-
 function isTragedy(plays, playID) {
 	return plays[playID].type === "tragedy";
 }
