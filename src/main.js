@@ -83,14 +83,7 @@
       }
       return thisAmount;
     }
-    //悲劇の計算処理
-    function tragedyCalc(tragedyBasePrice, performance) {
-      //超過料金の算定
-      if (performance.audience > 30) {
-        tragedyBasePrice += (performance.audience - 30) * 1000;
-      }
-      return tragedyBasePrice;
-    }
+
     //喜劇の計算処理
     function comedyCalc(comedyBasePrice, performance) {
       let thisAmount = comedyBasePrice;
