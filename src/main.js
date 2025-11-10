@@ -15,28 +15,29 @@
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
   
-    // 出力用変数
-    let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
-  
+    
     // 合計金額・ポイント
     let totalAmount = 0;
     let totalPoint = 0;
-  
+    
     // 2 請求書の内容ごとの料金算定
     for (let performance of invoices[0].performances) {
       //console.log(performance);
       // playsのキーとperformance.playIDを照合してplayに代入
       const play = plays[performance.playID];
       //演目ごとの料金を入れる変数
-
+      
       let amount = calcAmount(play,performance);
       let point = pointCalc(performance,play);
       //合計金額
       totalAmount += amount;
       //獲得ポイントの合計
       totalPoint += point;
-      }
-
+    }
+    
+    // 出力用変数
+    let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
+    
     for (let performance of invoices[0].performances) {
       //console.log(performance);
       // playsのキーとperformance.playIDを照合してplayに代入
