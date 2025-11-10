@@ -55,6 +55,10 @@
       return outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
     }
 
+    function calculateTotalPoints() {
+
+    }
+
     function pointCalc(performance,play) {
       let thisPoint = 0;
       if (performance.audience > 30) {
