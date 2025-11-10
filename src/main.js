@@ -15,10 +15,7 @@
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
   
-    
-    // 合計金額・ポイント
-    let totalPoint = 0;
-    
+        
     let totalAmount = 0;
     for (let performance of invoices[0].performances) {
       // playsのキーとperformance.playIDを照合してplayに代入
@@ -28,7 +25,8 @@
       //合計金額
       totalAmount += amount;
     }
-
+    
+    let totalPoint = 0;
     for (let performance of invoices[0].performances) {
       //console.log(performance);
       // playsのキーとperformance.playIDを照合してplayに代入
