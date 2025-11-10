@@ -17,9 +17,9 @@
   
     
     // 合計金額・ポイント
-    let totalAmount = 0;
     let totalPoint = 0;
     
+    let totalAmount = 0;
     for (let performance of invoices[0].performances) {
       // playsのキーとperformance.playIDを照合してplayに代入
       const play = plays[performance.playID];
