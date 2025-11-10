@@ -78,13 +78,6 @@
       }
       return tragedyBasePrice;
     }
-
-    //ファイルの出力をする関数
-    function outputFile(outputTxt) {
-      fs.writeFileSync("output.txt", outputTxt, 'utf-8');
-    }
-
-
     //喜劇の計算処理
     function comedyCalc(comedyBasePrice, performance) {
       let thisAmount = comedyBasePrice;
@@ -97,6 +90,13 @@
       thisAmount += performance.audience * 300;
       return thisAmount;
     }
+
+    //ファイルの出力をする関数
+    function outputFile(outputTxt) {
+      fs.writeFileSync("output.txt", outputTxt, 'utf-8');
+    }
+
+
 
     function pointCalc(performance,play) {
       let thisPoint = 0;
