@@ -51,7 +51,7 @@
     console.log(outputTxt)
     outputFile(outputTxt);
     
-    function buildText(invoices) {
+    function buildText(invoices,plays,totalAmount,totalPoint) {
     // 出力用変数
     let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
 
