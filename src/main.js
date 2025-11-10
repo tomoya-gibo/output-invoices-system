@@ -32,7 +32,7 @@
     let outputTxt = buildText(invoices,plays,totalAmount,TotalPoint);
     outputFile(outputTxt);
 
-    function calculateTotalAmounts() {
+    function calculateTotalAmounts(invoices,plays) {
       let totalAmount = 0;
       for (let performance of invoices[0].performances) {
         // playsのキーとperformance.playIDを照合してplayに代入
