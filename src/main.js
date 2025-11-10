@@ -22,13 +22,9 @@
     let totalAmount = 0;
     let totalPoint = 0;
   
-    // 2 請求書の内容ごとの料金算定
     for (let performance of invoices[0].performances) {
-      //console.log(performance);
       // playsのキーとperformance.playIDを照合してplayに代入
       const play = plays[performance.playID];
-      //演目ごとの料金を入れる変数
-
       let point = pointCalc(performance,play);
       //獲得ポイントの合計
       totalPoint += point;
@@ -43,11 +39,23 @@
       let amount = calcAmount(play,performance);
       //合計金額
       totalAmount += amount;
-      outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${amount})\n`;
       }
+
+      for (let performance of invoices[0].performances) {
+        //console.log(performance);
+        // playsのキーとperformance.playIDを照合してplayに代入
+        const play = plays[performance.playID];
+        //演目ごとの料金を入れる変数
+    
+        let amount = calcAmount(play,performance);
+        outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${amount})\n`;
+      }
+
     outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
     console.log(outputTxt)
     outputFile(outputTxt);
+
+
 
     function pointCalc(performance,play) {
       let thisPoint = 0;
