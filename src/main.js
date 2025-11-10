@@ -30,7 +30,7 @@
       //演目ごとの料金を入れる変数
 
       let amount = calcAmount(play,performance);
-      let point = calcPoint(play,performance);
+      let point = pointCalc(performance,play);
       //合計金額
       totalAmount += amount;
       //獲得ポイントの合計
@@ -41,9 +41,6 @@
     console.log(outputTxt)
     outputFile(outputTxt);
 
-    function calcPoint(play,performance) {
-      return pointCalc(performance,play);
-    }
     function pointCalc(performance,play) {
       let thisPoint = 0;
       if (performance.audience > 30) {
