@@ -43,6 +43,7 @@
         //合計金額
         totalAmount += amount;
       }
+      return totalAmount;
     }
     
     function buildText(invoices,plays,totalAmount,TotalPoint) {
