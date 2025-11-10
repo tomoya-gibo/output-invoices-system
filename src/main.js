@@ -29,12 +29,20 @@
       const play = plays[performance.playID];
       //演目ごとの料金を入れる変数
 
-      let amount = calcAmount(play,performance);
       let point = pointCalc(performance,play);
-      //合計金額
-      totalAmount += amount;
       //獲得ポイントの合計
       totalPoint += point;
+      }
+
+    for (let performance of invoices[0].performances) {
+      //console.log(performance);
+      // playsのキーとperformance.playIDを照合してplayに代入
+      const play = plays[performance.playID];
+      //演目ごとの料金を入れる変数
+  
+      let amount = calcAmount(play,performance);
+      //合計金額
+      totalAmount += amount;
       outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${amount})\n`;
       }
     outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
@@ -82,9 +90,6 @@
     function outputFile(outputTxt) {
       fs.writeFileSync("output.txt", outputTxt, 'utf-8');
     }
-
-
-
   }
 
   main();
