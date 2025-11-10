@@ -70,8 +70,11 @@
 
       switch (play.type) {
         case "tragedy":
-          const tragedyBasePrice = 40000;
-          thisAmount = tragedyCalc(tragedyBasePrice,performance);
+          let tragedyBasePrice = 40000;
+          if (performance.audience > 30) {
+            tragedyBasePrice += (performance.audience - 30) * 1000;
+          }
+          thisAmount = tragedyBasePrice;
           break;
         case "comedy":
           const comedyBasePrice = 30000;
