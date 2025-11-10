@@ -28,42 +28,58 @@
       // playsのキーとperformance.playIDを照合してplayに代入
       const play = plays[performance.playID];
       //演目ごとの料金を入れる変数
-      let thisAmount = 0;
-      let thisPoint = 0;
 
-      //演目の種別ごとの料金算定
-      switch (play.type) {
-        case "tragedy":
-          const tragedyBasePrice = 40000;
-          thisAmount = tragedyCalc(tragedyBasePrice,performance);
-          thisPoint = pointCalc(performance,play);
-          break;
-        case "comedy":
-          const comedyBasePrice = 30000;
-          thisAmount = comedyCalc(comedyBasePrice,performance);
-          thisPoint += pointCalc(performance,play);
-          break;
-      }
+      let amount = calcAmount(play,performance);
+      let point = calcPoint(play,performance);
       //合計金額
-      totalAmount += thisAmount;
+      totalAmount += amount;
       //獲得ポイントの合計
-      totalPoint += thisPoint;
-      outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${thisAmount})\n`;
+      totalPoint += point;
+      outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${amount})\n`;
       }
     outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
     console.log(outputTxt)
     outputFile(outputTxt);
 
+    function calcPoint(play,performance) {
+      let thisPoint = 0;
 
-    function textFormat() {
-      
+      switch (play.type) {
+        case "tragedy":
+          thisPoint = pointCalc(performance,play);
+          break;
+        case "comedy":
+          thisPoint = pointCalc(performance,play);
+          break;
+      }
+      return thisPoint;
+    }
+    function pointCalc(performance,play) {
+      let thisPoint = 0;
+      if (performance.audience > 30) {
+        thisPoint += (performance.audience - 30);
+      }
+      if (play.type === "comedy") {
+        thisPoint += Math.floor(performance.audience / 5);
+      }
+      return thisPoint;
     }
 
-    //ファイルの出力をする関数
-    function outputFile(outputTxt) {
-      fs.writeFileSync("output.txt", outputTxt, 'utf-8');
-    }
+    function calcAmount(play,performance) {
+      let thisAmount = 0;
 
+      switch (play.type) {
+        case "tragedy":
+          const tragedyBasePrice = 40000;
+          thisAmount = tragedyCalc(tragedyBasePrice,performance);
+          break;
+        case "comedy":
+          const comedyBasePrice = 30000;
+          thisAmount = comedyCalc(comedyBasePrice,performance);
+          break;
+      }
+      return thisAmount;
+    }
     //悲劇の計算処理
     function tragedyCalc(tragedyBasePrice, performance) {
       //超過料金の算定
@@ -72,7 +88,6 @@
       }
       return tragedyBasePrice;
     }
-
     //喜劇の計算処理
     function comedyCalc(comedyBasePrice, performance) {
       let thisAmount = comedyBasePrice;
@@ -86,16 +101,13 @@
       return thisAmount;
     }
 
-    function pointCalc(performance,play) {
-      let thisPoint = 0;
-      if (performance.audience > 30) {
-        thisPoint += (performance.audience - 30);
-      }
-      if (play.type === "comedy") {
-        thisPoint += Math.floor(performance.audience / 5);
-      }
-      return thisPoint;
+    //ファイルの出力をする関数
+    function outputFile(outputTxt) {
+      fs.writeFileSync("output.txt", outputTxt, 'utf-8');
     }
+
+
+
   }
 
   main();
