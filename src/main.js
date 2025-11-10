@@ -56,7 +56,15 @@
     }
 
     function calculateTotalPoints() {
-
+      let totalPoint = 0;
+      for (let performance of invoices[0].performances) {
+        //console.log(performance);
+        // playsのキーとperformance.playIDを照合してplayに代入
+        const play = plays[performance.playID];      
+        let point = pointCalc(performance,play);
+        //獲得ポイントの合計
+        totalPoint += point;
+      }
     }
 
     function pointCalc(performance,play) {
