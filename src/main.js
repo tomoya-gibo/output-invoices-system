@@ -26,7 +26,6 @@
       totalAmount += amount;
     }
     
-    let newPoint;
     let totalPoint = 0;
     for (let performance of invoices[0].performances) {
       //console.log(performance);
@@ -36,6 +35,7 @@
       //獲得ポイントの合計
       totalPoint += point;
     }
+    let newPoint = calculateTotalPoints(invoices,plays);
     
     // 出力用変数
     let outputTxt = buildText(invoices,plays,totalAmount,totalPoint);
