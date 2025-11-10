@@ -55,7 +55,7 @@
       return outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${totalPoint}pt`
     }
 
-    function calculateTotalPoints() {
+    function calculateTotalPoints(invoices,plays) {
       let totalPoint = 0;
       for (let performance of invoices[0].performances) {
         //console.log(performance);
