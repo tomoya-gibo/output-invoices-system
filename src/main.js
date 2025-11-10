@@ -25,7 +25,7 @@
       //合計金額
       totalAmount += amount;
     }
-    let newAmount;
+    let newAmount = calculateTotalAmounts(invoices,plays)
     
     let TotalPoint = calculateTotalPoints(invoices,plays);
     
