@@ -31,6 +31,9 @@
     // 出力用変数
     let outputTxt = buildText(invoices,plays,totalAmount,TotalPoint);
     outputFile(outputTxt);
+
+    function calculateTotalAmounts() {
+    }
     
     function buildText(invoices,plays,totalAmount,TotalPoint) {
       // 出力用変数
@@ -101,8 +104,6 @@
     function outputFile(outputTxt) {
       fs.writeFileSync("output.txt", outputTxt, 'utf-8');
     }
-
-
 
   }
 
