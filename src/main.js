@@ -37,7 +37,7 @@
     
     // 出力用変数
     let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
-    
+
     for (let performance of invoices[0].performances) {
       //console.log(performance);
       // playsのキーとperformance.playIDを照合してplayに代入
@@ -51,6 +51,9 @@
     console.log(outputTxt)
     outputFile(outputTxt);
     
+    function buildText(invoices) {
+
+    }
 
     function pointCalc(performance,play) {
       let thisPoint = 0;
