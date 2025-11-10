@@ -65,6 +65,7 @@
         //獲得ポイントの合計
         totalPoint += point;
       }
+      return totalPoint;
     }
 
     function pointCalc(performance,play) {
