@@ -42,17 +42,7 @@
     outputFile(outputTxt);
 
     function calcPoint(play,performance) {
-      let thisPoint = 0;
-
-      switch (play.type) {
-        case "tragedy":
-          thisPoint = pointCalc(performance,play);
-          break;
-        case "comedy":
-          thisPoint = pointCalc(performance,play);
-          break;
-      }
-      return thisPoint;
+      return pointCalc(performance,play);
     }
     function pointCalc(performance,play) {
       let thisPoint = 0;
