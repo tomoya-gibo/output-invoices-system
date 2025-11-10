@@ -20,17 +20,20 @@
     let totalAmount = 0;
     let totalPoint = 0;
     
-    // 2 請求書の内容ごとの料金算定
     for (let performance of invoices[0].performances) {
-      //console.log(performance);
       // playsのキーとperformance.playIDを照合してplayに代入
       const play = plays[performance.playID];
       //演目ごとの料金を入れる変数
-      
       let amount = calcAmount(play,performance);
-      let point = pointCalc(performance,play);
       //合計金額
       totalAmount += amount;
+    }
+
+    for (let performance of invoices[0].performances) {
+      //console.log(performance);
+      // playsのキーとperformance.playIDを照合してplayに代入
+      const play = plays[performance.playID];      
+      let point = pointCalc(performance,play);
       //獲得ポイントの合計
       totalPoint += point;
     }
