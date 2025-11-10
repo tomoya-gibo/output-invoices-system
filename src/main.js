@@ -46,21 +46,21 @@
 
       switch (play.type) {
         case "tragedy":
-          if (performance.audience > 30) {
-            thisPoint += (performance.audience - 30);
-          }
-          if (play.type === "comedy") {
-            thisPoint += Math.floor(performance.audience / 5);
-          }
+          thisPoint = pointCalc(performance,play);
           break;
         case "comedy":
-          if (performance.audience > 30) {
-            thisPoint += (performance.audience - 30);
-          }
-          if (play.type === "comedy") {
-            thisPoint += Math.floor(performance.audience / 5);
-          }
+          thisPoint = pointCalc(performance,play);
           break;
+      }
+      return thisPoint;
+    }
+    function pointCalc(performance,play) {
+      let thisPoint = 0;
+      if (performance.audience > 30) {
+        thisPoint += (performance.audience - 30);
+      }
+      if (play.type === "comedy") {
+        thisPoint += Math.floor(performance.audience / 5);
       }
       return thisPoint;
     }
