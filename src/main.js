@@ -70,13 +70,6 @@
       }
       return thisAmount;
     }
-
-
-    //ファイルの出力をする関数
-    function outputFile(outputTxt) {
-      fs.writeFileSync("output.txt", outputTxt, 'utf-8');
-    }
-
     //悲劇の計算処理
     function tragedyCalc(tragedyBasePrice, performance) {
       //超過料金の算定
@@ -85,6 +78,12 @@
       }
       return tragedyBasePrice;
     }
+
+    //ファイルの出力をする関数
+    function outputFile(outputTxt) {
+      fs.writeFileSync("output.txt", outputTxt, 'utf-8');
+    }
+
 
     //喜劇の計算処理
     function comedyCalc(comedyBasePrice, performance) {
