@@ -26,13 +26,13 @@
       totalAmount += amount;
     }
     
-    let newPoint = calculateTotalPoints(invoices,plays);
+    let TotalPoint = calculateTotalPoints(invoices,plays);
     
     // 出力用変数
-    let outputTxt = buildText(invoices,plays,totalAmount,newPoint);
+    let outputTxt = buildText(invoices,plays,totalAmount,TotalPoint);
     outputFile(outputTxt);
     
-    function buildText(invoices,plays,totalAmount,newPoint) {
+    function buildText(invoices,plays,totalAmount,TotalPoint) {
       // 出力用変数
       let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
 
@@ -44,7 +44,7 @@
         let amount = calcAmount(play,performance);
         outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${amount})\n`;
       }
-      return outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${newPoint}pt`
+      return outputTxt += `\n 合計金額: $${totalAmount}\n 獲得ポイント: ${TotalPoint}pt`
     }
 
     function calculateTotalPoints(invoices,plays) {
