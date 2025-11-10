@@ -26,6 +26,7 @@
       totalAmount += amount;
     }
     
+    let newPoint;
     let totalPoint = 0;
     for (let performance of invoices[0].performances) {
       //console.log(performance);
