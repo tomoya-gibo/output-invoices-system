@@ -54,7 +54,12 @@
           }
           break;
         case "comedy":
-          thisPoint = pointCalc(performance,play);
+          if (performance.audience > 30) {
+            thisPoint += (performance.audience - 30);
+          }
+          if (play.type === "comedy") {
+            thisPoint += Math.floor(performance.audience / 5);
+          }
           break;
       }
       return thisPoint;
