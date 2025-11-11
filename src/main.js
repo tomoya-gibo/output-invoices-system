@@ -15,7 +15,6 @@
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
   
-    let resultAmount = calculateTotalAmounts(invoices,plays);
     let resultPoint = calculateTotalPoints(invoices,plays);
     
     // 出力用変数
