@@ -17,19 +17,20 @@
       
     // 出力用変数
     let outputTxt = buildText(invoices,plays);
-    outputFile(outputTxt);    
-  }
+    outputFile(outputTxt);
 
-  function buildText(invoices,plays) {
-    let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
+    function buildText(invoices,plays) {
+      let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
 
-    for (let performance of invoices[0].performances) {
-      //console.log(performance);
-      // playsのキーとperformance.playIDを照合してplayに代入
-      const play = plays[performance.playID];
-      outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${calcAmount(play,performance)})\n`;
+      for (let performance of invoices[0].performances) {
+        //console.log(performance);
+        // playsのキーとperformance.playIDを照合してplayに代入
+        const play = plays[performance.playID];
+        outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${calcAmount(play,performance)})\n`;
+      }
+      return outputTxt += `\n 合計金額: $${calculateTotalAmounts(invoices,plays)}\n 獲得ポイント: ${calculateTotalPoints(invoices,plays)}pt`
     }
-    return outputTxt += `\n 合計金額: $${calculateTotalAmounts(invoices,plays)}\n 獲得ポイント: ${calculateTotalPoints(invoices,plays)}pt`
+    
   }
 
   function calculateTotalAmounts(invoices,plays) {
