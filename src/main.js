@@ -16,7 +16,9 @@
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
   
     let resultAmount = calculateTotalAmounts(invoices,plays);
+    console.log(calculateTotalAmounts(invoices, plays));
     let resultPoint = calculateTotalPoints(invoices,plays);
+    
     
     // 出力用変数
     let outputTxt = buildText(invoices,plays,resultAmount,resultPoint);
@@ -49,7 +51,6 @@
       return totalAmount;
     }
     
-
     function calculateTotalPoints(invoices,plays) {
       let totalPoint = 0;
       for (let performance of invoices[0].performances) {
@@ -108,3 +109,4 @@
   }
 
   main();
+  
