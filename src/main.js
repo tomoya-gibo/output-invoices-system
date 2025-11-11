@@ -19,14 +19,14 @@
     console.log(calculateTotalAmounts(invoices, plays));
     let resultPoint = calculateTotalPoints(invoices,plays);
     
+    function temporaryAmount() {
+
+    }
     
     // 出力用変数
     let outputTxt = buildText(invoices,plays,resultAmount,resultPoint);
     outputFile(outputTxt);
 
-    function temporaryAmount() {
-
-    }
 
     function buildText(invoices,plays,resultAmount,resultPoint) {
       let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
