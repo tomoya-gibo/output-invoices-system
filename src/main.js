@@ -37,9 +37,9 @@
         // playsのキーとperformance.playIDを照合してplayに代入
         const play = plays[performance.playID];
         //演目ごとの料金を入れる変数
-        let amount = calcAmount(play,performance);
+        const amount = calcAmount(play,performance);
         //合計金額
-        totalAmount += amount;
+        totalAmount += calcAmount(play,performance);
       }
       return totalAmount;
     }
