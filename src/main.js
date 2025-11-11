@@ -56,6 +56,18 @@
 
   }
 
+  function calculateTotalPoints(invoices,plays) {
+    let totalPoint = 0;
+    for (let performance of invoices[0].performances) {
+      //console.log(performance);
+      // playsのキーとperformance.playIDを照合してplayに代入
+      const play = plays[performance.playID];      
+      //獲得ポイントの合計
+      totalPoint += pointCalc(performance,play);
+    }
+    return totalPoint;
+  }
+
   function pointCalc(performance,play) {
     let thisPoint = 0;
     if (performance.audience > 30) {
