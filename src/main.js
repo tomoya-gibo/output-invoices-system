@@ -8,6 +8,10 @@ class PerformanceInfo {
 	}
 	get plays() {return this._data.plays;}
 	get performance() {return this._data.performance;}
+
+	isTragedy(plays, playID) {
+		return plays[playID].type === "tragedy";
+	}
 }
 
 function isTragedy(plays, playID) {
