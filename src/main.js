@@ -21,10 +21,10 @@ class PerformanceInfo {
 	}
 	calcAmountComedy(audience) {
 		let result = 30000;
-		result += audience * 300;
-		if (audience > 20) {
+		result += this._data.performance.audience * 300;
+		if (this._data.performance.audience > 20) {
 			result += 10000;
-			result += (audience - 20) * 500;
+			result += (this._data.performance.audience - 20) * 500;
 		}
 		return result;
 	}
