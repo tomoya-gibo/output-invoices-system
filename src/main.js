@@ -16,12 +16,12 @@
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
       
     // 出力用変数
-    let outputTxt = tmpBuildText(invoices,plays);
+    let outputTxt = buildText(invoices,plays);
     outputFile(outputTxt);
     
   }
 
-  function tmpBuildText(invoices,plays) {
+  function buildText(invoices,plays) {
     let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
 
     for (let performance of invoices[0].performances) {
