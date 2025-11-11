@@ -29,8 +29,7 @@ class PerformanceInfo {
 		return result;
 	}
 	calcAmount(perfInfo) {
-		return isTragedy(perfInfo.plays, perfInfo.performance.playID) ? 
-			calcAmountTragedy(perfInfo.performance.audience) : calcAmountComedy(perfInfo.performance.audience);
+		return this.isTragedy ? this.calcAmountTragedy : this.calcAmountComedy;
 	}
 }
 
