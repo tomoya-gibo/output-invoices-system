@@ -19,7 +19,7 @@
     
     const resultAmount = calculateTotalAmounts(invoices,plays);
     function temporaryAmount() {
-
+      return calculateTotalAmounts(invoices,plays);
     }
     
     // 出力用変数
