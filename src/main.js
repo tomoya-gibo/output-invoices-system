@@ -18,7 +18,7 @@
     let resultPoint = calculateTotalPoints(invoices,plays);
     
     const resultAmount = calculateTotalAmounts(invoices,plays);
-    function temporaryAmount() {
+    function temporaryAmount(invoices,plays) {
       return calculateTotalAmounts(invoices,plays);
     }
     
