@@ -19,7 +19,7 @@ class PerformanceInfo {
 		}
 		return result;
 	}
-	calcAmountComedy(audience) {
+	get calcAmountComedy() {
 		let result = 30000;
 		result += this._data.performance.audience * 300;
 		if (this._data.performance.audience > 20) {
