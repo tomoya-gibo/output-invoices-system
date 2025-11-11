@@ -15,15 +15,26 @@
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
   
-
     let newAmount = calculateTotalAmounts(invoices,plays);
-    
     let TotalPoint = calculateTotalPoints(invoices,plays);
     
     // 出力用変数
     let outputTxt = buildText(invoices,plays,newAmount,TotalPoint);
     outputFile(outputTxt);
 
+    function buildText(invoices,plays,newAmount,TotalPoint) {
+      let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
+
+      for (let performance of invoices[0].performances) {
+        //console.log(performance);
+        // playsのキーとperformance.playIDを照合してplayに代入
+        const play = plays[performance.playID];
+        //演目ごとの料金を入れる変数
+        let amount = calcAmount(play,performance);
+        outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${amount})\n`;
+      }
+      return outputTxt += `\n 合計金額: $${newAmount}\n 獲得ポイント: ${TotalPoint}pt`
+    }
     function calculateTotalAmounts(invoices,plays) {
       let totalAmount = 0;
       for (let performance of invoices[0].performances) {
@@ -37,20 +48,6 @@
       return totalAmount;
     }
     
-    function buildText(invoices,plays,newAmount,TotalPoint) {
-      // 出力用変数
-      let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
-
-      for (let performance of invoices[0].performances) {
-        //console.log(performance);
-        // playsのキーとperformance.playIDを照合してplayに代入
-        const play = plays[performance.playID];
-        //演目ごとの料金を入れる変数
-        let amount = calcAmount(play,performance);
-        outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${amount})\n`;
-      }
-      return outputTxt += `\n 合計金額: $${newAmount}\n 獲得ポイント: ${TotalPoint}pt`
-    }
 
     function calculateTotalPoints(invoices,plays) {
       let totalPoint = 0;
