@@ -31,10 +31,6 @@
       return outputTxt += `\n 合計金額: $${calculateTotalAmounts(invoices,plays)}\n 獲得ポイント: ${calculateTotalPoints(invoices,plays)}pt`
     }
     
-    function getCalculateTotalAmounts(invoices,plays) {
-      return calculateTotalAmounts(invoices,plays);
-    }
-    
   }
 
   function calculateTotalAmounts(invoices,plays) {
