@@ -123,7 +123,7 @@ export function main() {
 	const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
 	const arg = process.argv.slice(2)[0];			// txt/html
 
-	printInvoice(invoices[0], plays, arg);	// テスト用にargを指定
+	printInvoice(invoices[0], plays, "txt");	// テスト用にargを指定
 }
 
 // main();
