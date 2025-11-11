@@ -80,7 +80,8 @@ export function calcPoint(plays, performance, perfInfo) {
 export function calcTotalPoint(plays, performances) {
 	let result = 0;
 	for (const performance of performances) {
-		result += calcPoint(plays, performance);
+		const perfInfo = new PerformanceInfo(plays, performance);
+		result += calcPoint(plays, performance, perfInfo);
 	}
 	return result;
 }
