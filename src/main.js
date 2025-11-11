@@ -19,10 +19,10 @@
     let resultPoint = calculateTotalPoints(invoices,plays);
     
     // 出力用変数
-    let outputTxt = buildText(invoices,plays,resultAmount,resultPoint);
+    let outputTxt = buildText(invoices,plays,resultPoint);
     outputFile(outputTxt);
 
-    function buildText(invoices,plays,resultAmount,resultPoint) {
+    function buildText(invoices,plays,resultPoint) {
       let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
 
       for (let performance of invoices[0].performances) {
