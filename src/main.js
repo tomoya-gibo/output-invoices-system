@@ -27,7 +27,7 @@
         // playsのキーとperformance.playIDを照合してplayに代入
         const play = plays[performance.playID];
         //演目ごとの料金を入れる変数
-        let amount = calcAmount(play,performance);
+        const amount = calcAmount(play,performance);
         outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${amount})\n`;
       }
       return outputTxt += `\n 合計金額: $${calculateTotalAmounts(invoices,plays)}\n 獲得ポイント: ${calculateTotalPoints(invoices,plays)}pt`
