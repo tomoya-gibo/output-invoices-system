@@ -42,7 +42,17 @@
       return totalAmount;
     }
     
+  }
 
+  function calculateTotalAmounts(invoices,plays) {
+    let totalAmount = 0;
+    for (let performance of invoices[0].performances) {
+      // playsのキーとperformance.playIDを照合してplayに代入
+      const play = plays[performance.playID];
+      //合計金額
+      totalAmount += calcAmount(play,performance);
+    }
+    return totalAmount;
   }
 
   function calculateTotalPoints(invoices,plays) {
