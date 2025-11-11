@@ -9,7 +9,7 @@ class PerformanceInfo {
 	get plays() {return this._data.plays;}
 	get performance() {return this._data.performance;}
 
-	isTragedy(plays, playID) {
+	get isTragedy() {
 		return this._data.plays[this._data.performance.playID].type === "tragedy";
 	}
 }
