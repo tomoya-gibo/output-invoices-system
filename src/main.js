@@ -24,6 +24,10 @@
     let outputTxt = buildText(invoices,plays,resultAmount,resultPoint);
     outputFile(outputTxt);
 
+    function temporaryAmount() {
+
+    }
+
     function buildText(invoices,plays,resultAmount,resultPoint) {
       let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
 
