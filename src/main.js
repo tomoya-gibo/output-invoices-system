@@ -15,17 +15,12 @@
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
   
+    let resultAmount = calculateTotalAmounts(invoices,plays);
     let resultPoint = calculateTotalPoints(invoices,plays);
-    
-    const resultAmount = temporaryAmount(invoices,plays);
-    function temporaryAmount(invoices,plays) {
-      return calculateTotalAmounts(invoices,plays);
-    }
     
     // 出力用変数
     let outputTxt = buildText(invoices,plays,resultAmount,resultPoint);
     outputFile(outputTxt);
-
 
     function buildText(invoices,plays,resultAmount,resultPoint) {
       let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
@@ -54,6 +49,7 @@
       return totalAmount;
     }
     
+
     function calculateTotalPoints(invoices,plays) {
       let totalPoint = 0;
       for (let performance of invoices[0].performances) {
@@ -112,4 +108,3 @@
   }
 
   main();
-  
