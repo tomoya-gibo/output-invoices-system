@@ -14,9 +14,7 @@
     // 1 入力データの読み込み
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
-  
-    let resultPoint = calculateTotalPoints(invoices,plays);
-    
+      
     // 出力用変数
     let outputTxt = buildText(invoices,plays);
     outputFile(outputTxt);
