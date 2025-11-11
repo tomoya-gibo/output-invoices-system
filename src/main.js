@@ -91,10 +91,6 @@
       return thisAmount;
     }
 
-    //ファイルの出力をする関数
-    function outputFile(outputTxt) {
-      fs.writeFileSync("output.txt", outputTxt, 'utf-8');
-    }
   }
 
   //ファイルの出力をする関数
