@@ -17,12 +17,7 @@
       
     // 出力用変数
     let outputTxt = buildText(invoices,plays);
-    outputFile(outputTxt);
-
-    function getBuildText(invoices,plays) {
-      return buildText(invoices,plays);
-    }
-    
+    outputFile(outputTxt);    
   }
 
   function buildText(invoices,plays) {
