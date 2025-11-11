@@ -45,21 +45,21 @@ function calcPointComedy(audience) {
 	return result;
 }
 
-export function calcAmount(plays, performance, perfInfo) {
-	// if (isTragedy(plays, performance.playID)) {					//悲劇の場合
-	// 	return calcAmountTragedy(performance.audience);
+export function calcAmount(plays, perfInfo) {
+	// if (isTragedy(plays, perfInfo.performance.playID)) {					//悲劇の場合
+	// 	return calcAmountTragedy(perfInfo.performance.audience);
 	// } else {												//喜劇の場合
-	// 	return calcAmountComedy(performance.audience);
+	// 	return calcAmountComedy(perfInfo.performance.audience);
 	// }
-	return isTragedy(plays, performance.playID) ? 
-		calcAmountTragedy(performance.audience) : calcAmountComedy(performance.audience);
+	return isTragedy(plays, perfInfo.performance.playID) ? 
+		calcAmountTragedy(perfInfo.performance.audience) : calcAmountComedy(perfInfo.performance.audience);
 }
 
 export function calcTotalAmount(plays, performances) {
 	let totalAmount = 0;
 	for (const performance of performances) {
 		const perfInfo = new PerformanceInfo(plays, performance);
-		totalAmount += calcAmount(plays, performance, perfInfo);
+		totalAmount += calcAmount(plays, perfInfo);
 	}
 	return totalAmount;
 }
@@ -89,7 +89,7 @@ export function renderInvoiceTxt(invoice, plays) {
 	let invoiceTxt = `請求書\n\n${invoice.customer}\n\n`;
 	for (const performance of invoice.performances) {
 		const perfInfo = new PerformanceInfo(plays, performance);
-		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${calcAmount(plays, performance, perfInfo)})\n`;
+		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${calcAmount(plays, perfInfo)})\n`;
 	}
 	invoiceTxt += `\n合計金額：$${calcTotalAmount(plays, invoice.performances)}\n\n`;
 	invoiceTxt += `獲得ポイント：${calcTotalPoint(plays, invoice.performances)}pt\n`;
@@ -100,7 +100,7 @@ export function renderInvoiceHtml(invoice, plays) {
 	let invoiceHtml = `<h3>請求書</h3><h4>${invoice.customer}</h4><ul>`;
 	for (const performance of invoice.performances) {
 		const perfInfo = new PerformanceInfo(plays, performance);
-		invoiceHtml += `<li>${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${calcAmount(plays, performance, perfInfo)})</li><br>`;
+		invoiceHtml += `<li>${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${calcAmount(plays, perfInfo)})</li><br>`;
 	}
 	invoiceHtml += `</ul><p>合計金額：$${calcTotalAmount(plays, invoice.performances)}</p>`;
 	invoiceHtml += `<p>獲得ポイント：${calcTotalPoint(plays, invoice.performances)}pt</p>`;
