@@ -58,7 +58,8 @@ export function calcAmount(plays, performance, perfInfo) {
 export function calcTotalAmount(plays, performances) {
 	let totalAmount = 0;
 	for (const performance of performances) {
-		totalAmount += calcAmount(plays, performance);
+		const perfInfo = new PerformanceInfo(plays, performance);
+		totalAmount += calcAmount(plays, performance, perfInfo);
 	}
 	return totalAmount;
 }
@@ -87,7 +88,8 @@ export function calcTotalPoint(plays, performances) {
 export function renderInvoiceTxt(invoice, plays) {
 	let invoiceTxt = `請求書\n\n${invoice.customer}\n\n`;
 	for (const performance of invoice.performances) {
-		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${calcAmount(plays, performance)})\n`;
+		const perfInfo = new PerformanceInfo(plays, performance);
+		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${calcAmount(plays, performance, perfInfo)})\n`;
 	}
 	invoiceTxt += `\n合計金額：$${calcTotalAmount(plays, invoice.performances)}\n\n`;
 	invoiceTxt += `獲得ポイント：${calcTotalPoint(plays, invoice.performances)}pt\n`;
@@ -97,7 +99,8 @@ export function renderInvoiceTxt(invoice, plays) {
 export function renderInvoiceHtml(invoice, plays) {
 	let invoiceHtml = `<h3>請求書</h3><h4>${invoice.customer}</h4><ul>`;
 	for (const performance of invoice.performances) {
-		invoiceHtml += `<li>${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${calcAmount(plays, performance)})</li><br>`;
+		const perfInfo = new PerformanceInfo(plays, performance);
+		invoiceHtml += `<li>${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${calcAmount(plays, performance, perfInfo)})</li><br>`;
 	}
 	invoiceHtml += `</ul><p>合計金額：$${calcTotalAmount(plays, invoice.performances)}</p>`;
 	invoiceHtml += `<p>獲得ポイント：${calcTotalPoint(plays, invoice.performances)}pt</p>`;
