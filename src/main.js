@@ -18,10 +18,6 @@
     // 出力用変数
     let outputTxt = tmpBuildText(invoices,plays);
     outputFile(outputTxt);
-
-    function buildText(invoices,plays) {
-      return tmpBuildText(invoices,plays);
-    }
     
   }
 
