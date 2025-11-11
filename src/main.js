@@ -12,6 +12,13 @@ class PerformanceInfo {
 	get isTragedy() {
 		return this._data.plays[this._data.performance.playID].type === "tragedy";
 	}
+	calcAmountTragedy(audience) {
+		let result = 40000;
+		if (audience > 30) {
+			result += (audience - 30) * 1000;
+		}
+		return result;
+	}
 }
 
 function isTragedy(plays, playID) {
