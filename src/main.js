@@ -32,7 +32,7 @@
         let amount = calcAmount(play,performance);
         outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${amount})\n`;
       }
-      return outputTxt += `\n 合計金額: $${calculateTotalAmounts(invoices,plays)}\n 獲得ポイント: ${resultPoint}pt`
+      return outputTxt += `\n 合計金額: $${calculateTotalAmounts(invoices,plays)}\n 獲得ポイント: ${calculateTotalPoints(invoices,plays)}pt`
     }
     
     function calculateTotalAmounts(invoices,plays) {
