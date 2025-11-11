@@ -28,7 +28,7 @@ class PerformanceInfo {
 		}
 		return result;
 	}
-	calcAmount(perfInfo) {
+	get calcAmount() {
 		return this.isTragedy ? this.calcAmountTragedy : this.calcAmountComedy;
 	}
 }
