@@ -54,10 +54,6 @@
       return totalPoint;
     }
 
-    function getPointCalc(performance,play) {
-      return pointCalc(performance,play);
-    }
-
   }
 
   function pointCalc(performance,play) {
