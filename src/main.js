@@ -16,7 +16,7 @@
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
       
     // 出力用変数
-    let outputTxt = buildText(invoices,plays);
+    let outputTxt = tmpBuildText(invoices,plays);
     outputFile(outputTxt);
 
     function buildText(invoices,plays) {
