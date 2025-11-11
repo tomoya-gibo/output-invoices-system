@@ -15,16 +15,7 @@
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
   
-    
-    let totalAmount = 0;
-    for (let performance of invoices[0].performances) {
-      // playsのキーとperformance.playIDを照合してplayに代入
-      const play = plays[performance.playID];
-      //演目ごとの料金を入れる変数
-      let amount = calcAmount(play,performance);
-      //合計金額
-      totalAmount += amount;
-    }
+
     let newAmount = calculateTotalAmounts(invoices,plays);
     
     let TotalPoint = calculateTotalPoints(invoices,plays);
