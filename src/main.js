@@ -64,15 +64,15 @@ export function calcTotalAmount(plays, performances) {
 	return totalAmount;
 }
 
-export function calcPoint(plays, performance, perfInfo) {
+export function calcPoint(plays, perfInfo) {
 	// tragedyでまとめたい？
 	let result = 0;
-	if (performance.audience > 30) {
-		result += (performance.audience - 30) * 1;
+	if (perfInfo.performance.audience > 30) {
+		result += (perfInfo.performance.audience - 30) * 1;
 	}
 	// 
-	if (isComedy(plays, performance.playID)) {
-		return calcPointComedy(performance.audience);
+	if (isComedy(plays, perfInfo.performance.playID)) {
+		return calcPointComedy(perfInfo.performance.audience);
 	}
 	return result;
 }
@@ -81,7 +81,7 @@ export function calcTotalPoint(plays, performances) {
 	let result = 0;
 	for (const performance of performances) {
 		const perfInfo = new PerformanceInfo(plays, performance);
-		result += calcPoint(plays, performance, perfInfo);
+		result += calcPoint(plays, perfInfo);
 	}
 	return result;
 }
