@@ -48,7 +48,6 @@
         //console.log(performance);
         // playsのキーとperformance.playIDを照合してplayに代入
         const play = plays[performance.playID];      
-        const point = pointCalc(performance,play);
         //獲得ポイントの合計
         totalPoint += pointCalc(performance,play);
       }
