@@ -65,10 +65,6 @@
       return thisPoint;
     }
 
-    function getCalcAmount(play,performance) {
-      return calcAmount(play,performance);
-    }
-
   }
 
   function calcAmount(play,performance) {
