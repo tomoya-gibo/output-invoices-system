@@ -54,15 +54,8 @@
       return totalPoint;
     }
 
-    function pointCalc(performance,play) {
-      let thisPoint = 0;
-      if (performance.audience > 30) {
-        thisPoint += (performance.audience - 30);
-      }
-      if (play.type === "comedy") {
-        thisPoint += Math.floor(performance.audience / 5);
-      }
-      return thisPoint;
+    function getPointCalc(performance,play) {
+      return pointCalc(performance,play);
     }
 
   }
