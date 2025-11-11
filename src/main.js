@@ -36,8 +36,6 @@
       for (let performance of invoices[0].performances) {
         // playsのキーとperformance.playIDを照合してplayに代入
         const play = plays[performance.playID];
-        //演目ごとの料金を入れる変数
-        const amount = calcAmount(play,performance);
         //合計金額
         totalAmount += calcAmount(play,performance);
       }
