@@ -14,8 +14,8 @@ class PerformanceInfo {
 	}
 	calcAmountTragedy(audience) {
 		let result = 40000;
-		if (audience > 30) {
-			result += (audience - 30) * 1000;
+		if (this._data.performance.audience > 30) {
+			result += (this._data.performance.audience - 30) * 1000;
 		}
 		return result;
 	}
