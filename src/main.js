@@ -50,7 +50,7 @@
         const play = plays[performance.playID];      
         const point = pointCalc(performance,play);
         //獲得ポイントの合計
-        totalPoint += point;
+        totalPoint += pointCalc(performance,play);
       }
       return totalPoint;
     }
