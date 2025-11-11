@@ -42,9 +42,6 @@
       return totalAmount;
     }
     
-    function getCalculateTotalPoints(invoices,plays) {
-      return calculateTotalPoints(invoices,plays);
-    }
 
   }
 
