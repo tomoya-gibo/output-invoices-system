@@ -31,6 +31,15 @@ class Calculator {
 		return isTragedy(this.plays, this.performance.playID) ? 
 			this.amountTragedy() : this.amountComedy();
 	}
+
+	pointComedy(audience) {
+		let result = 0;
+		if (audience > 30) {
+			result += (audience - 30) * 1;
+		}
+		result += Math.floor(audience / 5) * 1;
+		return result;
+	}
 }
 
 function isTragedy(plays, playID) {
