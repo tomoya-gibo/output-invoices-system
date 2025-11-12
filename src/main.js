@@ -50,15 +50,6 @@ function isComedy(plays, playID) {
 	return plays[playID].type === "comedy";
 }
 
-function calcPointComedy(audience) {
-	let result = 0;
-	if (audience > 30) {
-		result += (audience - 30) * 1;
-	}
-	result += Math.floor(audience / 5) * 1;
-	return result;
-}
-
 export function calcTotalAmount(plays, performances) {
 	let totalAmount = 0;
 	for (const performance of performances) {
