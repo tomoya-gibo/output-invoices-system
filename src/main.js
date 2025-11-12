@@ -70,7 +70,7 @@ export function calcAmount(calc) {
 	// 	return calcAmountComedy(calc.performance.audience);
 	// }
 	return isTragedy(calc.plays, calc.performance.playID) ? 
-		calc.amountTragedy() : calcAmountComedy(calc.performance.audience);
+		calc.amountTragedy() : calc.amountComedy();
 }
 
 export function calcTotalAmount(plays, performances) {
