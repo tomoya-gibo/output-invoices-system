@@ -50,12 +50,12 @@
       // playsのキーとperformance.playIDを照合してplayに代入
       const play = plays[performance.playID];      
       //獲得ポイントの合計
-      totalPoint += pointCalc(performance,play);
+      totalPoint += calcPoint(performance,play);
     }
     return totalPoint;
   }
 
-  export function pointCalc(performance,play) {
+  export function calcPoint(performance,play) {
     let thisPoint = 0;
     if (performance.audience > 30) {
       thisPoint += (performance.audience - 30);
