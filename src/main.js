@@ -55,6 +55,8 @@ class Calculator {
 	}
 }
 
+
+
 function isTragedy(plays, playID) {
 	return plays[playID].type === "tragedy";
 }
