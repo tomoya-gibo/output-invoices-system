@@ -63,6 +63,10 @@ function point(plays, performance) {
 	return createCalculator(plays, performance).point();
 }
 
+function createCalculator(plays, performance) {
+
+}
+
 function isTragedy(plays, playID) {
 	return plays[playID].type === "tragedy";
 }
