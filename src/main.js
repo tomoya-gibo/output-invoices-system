@@ -41,24 +41,6 @@ function isComedy(plays, playID) {
 	return plays[playID].type === "comedy";
 }
 
-function calcAmountTragedy(audience) {
-	let result = 40000;
-	if (audience > 30) {
-		result += (audience - 30) * 1000;
-	}
-	return result;
-}
-
-function calcAmountComedy(audience) {
-	let result = 30000;
-	result += audience * 300;
-	if (audience > 20) {
-		result += 10000;
-		result += (audience - 20) * 500;
-	}
-	return result;
-}
-
 function calcPointComedy(audience) {
 	let result = 0;
 	if (audience > 30) {
@@ -66,15 +48,6 @@ function calcPointComedy(audience) {
 	}
 	result += Math.floor(audience / 5) * 1;
 	return result;
-}
-
-export function calcAmount(calc) {
-	// if (isTragedy(calc.plays, calc.performance.playID)) {					//悲劇の場合
-	// 	return calcAmountTragedy(calc.performance.audience);
-	// } else {												//喜劇の場合
-	// 	return calcAmountComedy(calc.performance.audience);
-	// }
-	return calc.amount();
 }
 
 export function calcTotalAmount(plays, performances) {
