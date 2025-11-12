@@ -17,7 +17,7 @@ class Calculator {
 		return result;
 	}
 
-	amountComedy(audience) {
+	amountComedy() {
 		let result = 30000;
 		result += this.performance.audience * 300;
 		if (this.performance.audience > 20) {
