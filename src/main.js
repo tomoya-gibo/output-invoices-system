@@ -27,7 +27,7 @@ class Calculator {
 		return result;
 	}
 
-	amount(calc) {
+	amount() {
 		return isTragedy(this.plays, this.performance.playID) ? 
 			this.amountTragedy() : this.amountComedy();
 	}
