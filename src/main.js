@@ -55,6 +55,14 @@ class Calculator {
 	}
 }
 
+class Tragedy extends Calculator {
+
+}
+
+class Comedy extends Calculator {
+
+}
+
 function amount(plays, performance) {
 	return createCalculator(plays, performance).amount();
 }
