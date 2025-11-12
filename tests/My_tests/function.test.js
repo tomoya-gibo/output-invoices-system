@@ -87,3 +87,41 @@ const plays = {
   expect(calculateTotalPoints(testInvoices, plays)).toBe(7);
  });
 });
+
+describe.only('calculateTotalAmounts関数のテスト', () => {
+ //１件分の請求データ
+const invoices = [
+  {
+    customer: "TestCase No.17",
+    performances: [
+      { playID: "hamlet", audience: 31 } // 悲劇41000
+    ]
+  }
+];
+
+//2件分の請求データ
+const testInvoices = [
+ {
+   customer: "TestCase Mix",
+   performances: [
+     { playID: "hamlet", audience: 31 },    // 悲劇41000
+     { playID: "as-like", audience: 30 }    // 喜劇30000+10000+10*500+30*300
+   ]
+ }
+];
+
+const plays = {
+  "hamlet" : {"name": "Hamlet", "type": "tragedy"},
+  "as-like" : {"name": "As You Like It", "type": "comedy"},
+  "othello" : {"name": "Othello", "type": "tragedy"},
+  "romeo-and-juliet" : {"name": "Romeo and Juliet", "type": "tragic-comedy"}
+};
+
+ it('1件分の請求データで関数が動作するかをテストする', () => {
+  expect(calculateTotalAmounts(invoices, plays)).toBe(41000);
+ });
+
+ it('2件分の請求データで関数が動作するかをテストする41000+54000 = 95000', () => {
+  expect(calculateTotalAmounts(testInvoices, plays)).toBe(95000);
+ });
+});
