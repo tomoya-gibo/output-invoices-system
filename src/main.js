@@ -44,12 +44,12 @@ class Calculator {
 	point(calc) {
 		// tragedyでまとめたい？
 		let result = 0;
-		if (calc.performance.audience > 30) {
-			result += (calc.performance.audience - 30) * 1;
+		if (this.performance.audience > 30) {
+			result += (this.performance.audience - 30) * 1;
 		}
 		// 
-		if (isComedy(calc.plays, calc.performance.playID)) {
-			return calc.pointComedy();
+		if (isComedy(this.plays, this.performance.playID)) {
+			return this.pointComedy();
 		}
 		return result;
 	}
