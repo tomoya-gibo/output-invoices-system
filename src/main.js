@@ -28,8 +28,8 @@ class Calculator {
 	}
 
 	amount(calc) {
-		return isTragedy(calc.plays, calc.performance.playID) ? 
-			calc.amountTragedy() : calc.amountComedy();
+		return isTragedy(this.plays, this.performance.playID) ? 
+			this.amountTragedy() : this.amountComedy();
 	}
 }
 
