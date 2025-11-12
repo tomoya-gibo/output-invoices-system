@@ -2,6 +2,14 @@
 import fs from 'fs';
 
 
+class Calculator {
+	constructor(plays, performance) {
+		this._data = { plays: plays, performance: performance };
+	}
+	get plays() { return this._data.plays; }
+	get performance() { return this._data.performance; }
+}
+
 function isTragedy(plays, playID) {
 	return plays[playID].type === "tragedy";
 }
