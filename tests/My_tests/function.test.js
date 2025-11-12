@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {main, outputFile, calcAmount, calcPoint, calculateTotalPoints, calculateTotalAmounts, buildText} from '../../src/main.js'
 
-describe.only('calcPoint関数のテスト', () => {
+describe('calcPoint関数のテスト', () => {
  it('観客数が30人以下で演劇の内容が悲劇のとき、ポイントが0になる', () => {
   expect(calcPoint({ audience: 29 }, { type: 'tragedy' })).toBe(0);
  });
@@ -49,3 +49,41 @@ describe('calcAmount関数のテスト', () => {
  });
 });
 
+
+describe('calculateTotalPoints関数のテスト', () => {
+ //１件分の請求データ
+const invoices = [
+  {
+    customer: "TestCase No.17",
+    performances: [
+      { playID: "hamlet", audience: 31 } // 31人の悲劇
+    ]
+  }
+];
+
+//2件分の請求データ
+const testInvoices = [
+ {
+   customer: "TestCase Mix",
+   performances: [
+     { playID: "hamlet", audience: 31 },    // 悲劇（1ポイント）
+     { playID: "as-like", audience: 30 }    // 喜劇（30 / 5 = 6ポイント）
+   ]
+ }
+];
+
+const plays = {
+  "hamlet" : {"name": "Hamlet", "type": "tragedy"},
+  "as-like" : {"name": "As You Like It", "type": "comedy"},
+  "othello" : {"name": "Othello", "type": "tragedy"},
+  "romeo-and-juliet" : {"name": "Romeo and Juliet", "type": "tragic-comedy"}
+};
+
+ it('１件分のデータで関数が動作するかをテストする', () => {
+  expect(calculateTotalPoints(invoices, plays)).toBe(1);
+ });
+
+ it('2件分のデータで関数が動作するかをテストする,1+6=7', () => {
+  expect(calculateTotalPoints(testInvoices, plays)).toBe(7);
+ });
+});
