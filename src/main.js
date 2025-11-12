@@ -8,6 +8,14 @@ class Calculator {
 	}
 	get plays() { return this._data.plays; }
 	get performance() { return this._data.performance; }
+
+	amountTragedy(audience) {
+		let result = 40000;
+		if (audience > 30) {
+			result += (audience - 30) * 1000;
+		}
+		return result;
+	}
 }
 
 function isTragedy(plays, playID) {
