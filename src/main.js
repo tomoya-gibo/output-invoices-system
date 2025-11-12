@@ -55,7 +55,13 @@ class Calculator {
 	}
 }
 
+function amount(plays, performance) {
+	return new Calculator(plays, performance).amount();
+}
 
+function point(plays, performance) {
+	return new Calculator(plays, performance).point();
+}
 
 function isTragedy(plays, playID) {
 	return plays[playID].type === "tragedy";
