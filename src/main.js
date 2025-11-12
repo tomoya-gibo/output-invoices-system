@@ -71,7 +71,7 @@ export function calcPoint(plays, calc) {
 		result += (calc.performance.audience - 30) * 1;
 	}
 	// 
-	if (isComedy(plays, calc.performance.playID)) {
+	if (isComedy(calc.plays, calc.performance.playID)) {
 		return calcPointComedy(calc.performance.audience);
 	}
 	return result;
