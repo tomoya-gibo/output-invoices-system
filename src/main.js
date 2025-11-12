@@ -56,11 +56,11 @@ class Calculator {
 }
 
 function amount(plays, performance) {
-	return new Calculator(plays, performance).amount();
+	return createCalculator(plays, performance).amount();
 }
 
 function point(plays, performance) {
-	return new Calculator(plays, performance).point();
+	return createCalculator(plays, performance).point();
 }
 
 function isTragedy(plays, playID) {
