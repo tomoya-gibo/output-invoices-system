@@ -9,7 +9,7 @@ class Calculator {
 	get plays() { return this._data.plays; }
 	get performance() { return this._data.performance; }
 
-	amountTragedy(audience) {
+	amountTragedy() {
 		let result = 40000;
 		if (this.performance.audience > 30) {
 			result += (this.performance.audience - 30) * 1000;
