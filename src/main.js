@@ -64,7 +64,14 @@ function point(plays, performance) {
 }
 
 function createCalculator(plays, performance) {
-
+	switch (plays[performance.playID].type) {
+		case "tragedy":
+			return new Tragedy(plays, performance);		// なまえ△
+		case "comedy":
+			return new Comedy(plays, performance);	// なまえ△
+		default:
+			return new Calculator(plays, performance);
+	}
 }
 
 function isTragedy(plays, playID) {
