@@ -1,6 +1,12 @@
 import { describe, it, expect } from 'vitest';
 import {main, outputFile, calcAmount, calcPoint, calculateTotalPoints, calculateTotalAmounts, buildText} from '../../src/main.js'
 
+import fs from "fs";
+
+//演目データ
+const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
+
+
 describe('calcPoint関数のテスト', () => {
  it('観客数が30人以下で演劇の内容が悲劇のとき、ポイントが0になる', () => {
   expect(calcPoint({ audience: 29 }, { type: 'tragedy' })).toBe(0);
@@ -60,7 +66,6 @@ const invoices = [
     ]
   }
 ];
-
 //2件分の請求データ
 const testInvoices = [
  {
@@ -71,14 +76,6 @@ const testInvoices = [
    ]
  }
 ];
-
-const plays = {
-  "hamlet" : {"name": "Hamlet", "type": "tragedy"},
-  "as-like" : {"name": "As You Like It", "type": "comedy"},
-  "othello" : {"name": "Othello", "type": "tragedy"},
-  "romeo-and-juliet" : {"name": "Romeo and Juliet", "type": "tragic-comedy"}
-};
-
  it('１件分のデータで関数が動作するかをテストする', () => {
   expect(calculateTotalPoints(invoices, plays)).toBe(1);
  });
@@ -88,7 +85,7 @@ const plays = {
  });
 });
 
-describe.only('calculateTotalAmounts関数のテスト', () => {
+describe('calculateTotalAmounts関数のテスト', () => {
  //１件分の請求データ
 const invoices = [
   {
@@ -98,7 +95,6 @@ const invoices = [
     ]
   }
 ];
-
 //2件分の請求データ
 const testInvoices = [
  {
@@ -109,19 +105,56 @@ const testInvoices = [
    ]
  }
 ];
-
-const plays = {
-  "hamlet" : {"name": "Hamlet", "type": "tragedy"},
-  "as-like" : {"name": "As You Like It", "type": "comedy"},
-  "othello" : {"name": "Othello", "type": "tragedy"},
-  "romeo-and-juliet" : {"name": "Romeo and Juliet", "type": "tragic-comedy"}
-};
-
  it('1件分の請求データで関数が動作するかをテストする', () => {
   expect(calculateTotalAmounts(invoices, plays)).toBe(41000);
  });
 
  it('2件分の請求データで関数が動作するかをテストする41000+54000 = 95000', () => {
   expect(calculateTotalAmounts(testInvoices, plays)).toBe(95000);
+ });
+});
+
+describe.only('buildText関数のテスト', () => {
+  //１件分の請求データ
+const invoices = [
+ {
+   customer: "TestCase No.17",
+   performances: [
+     { playID: "hamlet", audience: 31 } // 悲劇41000
+   ]
+ }
+];
+
+//3件分の請求データ
+const testInvoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
+//期待値文字列
+const expectedOutput = 
+`請求書
+TestCase No.17
+
+・Hamlet (観客数: 31、金額: $41000)
+
+ 合計金額: $41000
+ 獲得ポイント: 1pt`
+
+//期待値文字列４件分
+const testText = 
+ `請求書
+TestCase No.17
+
+・Hamlet (観客数: 31、金額: $41000)
+・As You Like It (観客数: 35、金額: $58000)
+・Othello (観客数: 31、金額: $41000)
+
+ 合計金額: $140000
+ 獲得ポイント: 14pt`
+
+console.log(buildText(testInvoices, plays))
+
+ it('1件分の請求データで関数が生成した文字列と検証用の文字列が一致するかをテストする', () => {
+  expect(buildText(invoices, plays)).toBe(expectedOutput);
+ });
+ it('3件分の請求データで関数が生成した文字列と検証用の文字列が一致するかをテストする', () => {
+  expect(buildText(testInvoices, plays)).toBe(testText);
  });
 });
