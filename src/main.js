@@ -41,7 +41,7 @@ class Calculator {
 		return result;
 	}
 
-	point(calc) {
+	point() {
 		// tragedyでまとめたい？
 		let result = 0;
 		if (this.performance.audience > 30) {
