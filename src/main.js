@@ -26,6 +26,11 @@ class Calculator {
 		}
 		return result;
 	}
+
+	amount(calc) {
+		return isTragedy(calc.plays, calc.performance.playID) ? 
+			calc.amountTragedy() : calc.amountComedy();
+	}
 }
 
 function isTragedy(plays, playID) {
