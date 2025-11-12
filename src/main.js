@@ -18,10 +18,9 @@
     // 出力用変数
     let outputTxt = buildText(invoices,plays);
     outputFile(outputTxt);
-    
   }
 
-  function buildText(invoices,plays) {
+  export function buildText(invoices,plays) {
     let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
 
     for (let performance of invoices[0].performances) {
@@ -33,7 +32,7 @@
     return outputTxt += `\n 合計金額: $${calculateTotalAmounts(invoices,plays)}\n 獲得ポイント: ${calculateTotalPoints(invoices,plays)}pt`
   }
 
-  function calculateTotalAmounts(invoices,plays) {
+  export function calculateTotalAmounts(invoices,plays) {
     let totalAmount = 0;
     for (let performance of invoices[0].performances) {
       // playsのキーとperformance.playIDを照合してplayに代入
@@ -44,7 +43,7 @@
     return totalAmount;
   }
 
-  function calculateTotalPoints(invoices,plays) {
+  export function calculateTotalPoints(invoices,plays) {
     let totalPoint = 0;
     for (let performance of invoices[0].performances) {
       //console.log(performance);
@@ -56,7 +55,7 @@
     return totalPoint;
   }
 
-  function pointCalc(performance,play) {
+  export function pointCalc(performance,play) {
     let thisPoint = 0;
     if (performance.audience > 30) {
       thisPoint += (performance.audience - 30);
@@ -67,7 +66,7 @@
     return thisPoint;
   }
 
-  function calcAmount(play,performance) {
+  export function calcAmount(play,performance) {
     let thisAmount = 0;
 
     switch (play.type) {
@@ -94,7 +93,7 @@
   }
 
   //ファイルの出力をする関数
-  function outputFile(outputTxt) {
+  export function outputFile(outputTxt) {
     fs.writeFileSync("output.txt", outputTxt, 'utf-8');
   }
 
