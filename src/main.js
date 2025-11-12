@@ -40,6 +40,19 @@ class Calculator {
 		result += Math.floor(this.performance.audience / 5) * 1;
 		return result;
 	}
+
+	point(calc) {
+		// tragedyでまとめたい？
+		let result = 0;
+		if (calc.performance.audience > 30) {
+			result += (calc.performance.audience - 30) * 1;
+		}
+		// 
+		if (isComedy(calc.plays, calc.performance.playID)) {
+			return calc.pointComedy();
+		}
+		return result;
+	}
 }
 
 function isTragedy(plays, playID) {
