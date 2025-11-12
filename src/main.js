@@ -58,7 +58,8 @@ export function calcAmount(plays, performance, calc) {
 export function calcTotalAmount(plays, performances) {
 	let totalAmount = 0;
 	for (const performance of performances) {
-		totalAmount += calcAmount(plays, performance);
+		const calc = new Calculator(plays, performance);
+		totalAmount += calcAmount(plays, performance, calc);
 	}
 	return totalAmount;
 }
