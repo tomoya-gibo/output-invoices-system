@@ -32,7 +32,7 @@ class Calculator {
 			this.amountTragedy() : this.amountComedy();
 	}
 
-	pointComedy(audience) {
+	pointComedy() {
 		let result = 0;
 		if (this.performance.audience > 30) {
 			result += (this.performance.audience - 30) * 1;
