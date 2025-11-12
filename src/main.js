@@ -45,7 +45,7 @@ function calcPointComedy(audience) {
 	return result;
 }
 
-export function calcAmount(plays, performance) {
+export function calcAmount(plays, performance, calc) {
 	// if (isTragedy(plays, performance.playID)) {					//悲劇の場合
 	// 	return calcAmountTragedy(performance.audience);
 	// } else {												//喜劇の場合
