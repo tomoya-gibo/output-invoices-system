@@ -67,12 +67,12 @@ export function calcTotalAmount(plays, performances) {
 export function calcPoint(plays, performance, calc) {
 	// tragedyでまとめたい？
 	let result = 0;
-	if (performance.audience > 30) {
-		result += (performance.audience - 30) * 1;
+	if (calc.performance.audience > 30) {
+		result += (calc.performance.audience - 30) * 1;
 	}
 	// 
-	if (isComedy(plays, performance.playID)) {
-		return calcPointComedy(performance.audience);
+	if (isComedy(plays, calc.performance.playID)) {
+		return calcPointComedy(calc.performance.audience);
 	}
 	return result;
 }
