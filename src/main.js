@@ -46,12 +46,12 @@ function calcPointComedy(audience) {
 }
 
 export function calcAmount(plays, calc) {
-	// if (isTragedy(plays, calc.performance.playID)) {					//悲劇の場合
+	// if (isTragedy(calc.plays, calc.performance.playID)) {					//悲劇の場合
 	// 	return calcAmountTragedy(calc.performance.audience);
 	// } else {												//喜劇の場合
 	// 	return calcAmountComedy(calc.performance.audience);
 	// }
-	return isTragedy(plays, calc.performance.playID) ? 
+	return isTragedy(calc.plays, calc.performance.playID) ? 
 		calcAmountTragedy(calc.performance.audience) : calcAmountComedy(calc.performance.audience);
 }
 
