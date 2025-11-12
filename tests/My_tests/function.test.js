@@ -16,3 +16,24 @@ describe('calcPoint関数のテスト', () => {
  });
 });
 
+describe.only('calcAmount関数のテスト', () => {
+ it('観客数が29人で演劇の内容が悲劇のとき、基本料金に対する加算は発生しない', () => {
+  expect(calcAmount({ type: 'tragedy' }, { audience: 29 })).toBe(40000);
+ });
+ it('観客数が30人で演劇の内容が悲劇のとき、基本料金に対する加算は発生しない', () => {
+  expect(calcAmount({ type: 'tragedy' }, { audience: 30 })).toBe(40000);
+ });
+ it('観客数が31人で演劇の内容が悲劇のとき、基本料金に対する加算は発生する', () => {
+  expect(calcAmount({ type: 'tragedy' }, { audience: 31 })).toBe(41000);
+ });
+ it('観客数が19人で演劇の内容が喜劇のとき、超過料金が発生せず30000+19*300=35700になる', () => {
+  expect(calcAmount({ type: 'comedy' }, { audience: 19 })).toBe(35700);
+ });
+ it('観客数が20人で演劇の内容が喜劇のとき、超過料金が発生せず30000+20*300=36000になる', () => {
+  expect(calcAmount({ type: 'comedy' }, { audience: 20 })).toBe(36000);
+ });
+ it('観客数が21人で演劇の内容が喜劇のとき、超過料金が発生して30000+10000+1*500+21*300=46800になる', () => {
+  expect(calcAmount({ type: 'comedy' }, { audience: 21 })).toBe(46800);
+ });
+});
+
