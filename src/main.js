@@ -74,8 +74,7 @@ export function calcAmount(calc) {
 	// } else {												//喜劇の場合
 	// 	return calcAmountComedy(calc.performance.audience);
 	// }
-	return isTragedy(calc.plays, calc.performance.playID) ? 
-		calc.amountTragedy() : calc.amountComedy();
+	return calc.amount();
 }
 
 export function calcTotalAmount(plays, performances) {
