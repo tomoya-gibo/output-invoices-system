@@ -102,10 +102,6 @@ function createCalculator(plays, performance) {
 	}
 }
 
-function isTragedy(plays, playID) {
-	return plays[playID].type === "tragedy";
-}
-
 export function calcTotalAmount(plays, performances) {
 	let totalAmount = 0;
 	for (const performance of performances) {
