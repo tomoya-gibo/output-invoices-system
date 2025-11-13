@@ -35,7 +35,7 @@ export class Tragedy extends Calculator {
 	}
 }
 
-class Comedy extends Calculator {
+export class Comedy extends Calculator {
 	amount() {
 		let result = 30000;
 		result += this.performance.audience * 300;
