@@ -14,6 +14,11 @@
     // 1 入力データの読み込み
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
+
+    //コマンドライン引数を受取る定数
+    const args = process.argv.slice(2);
+    console.log(args);
+
       
     // 出力用変数
     let outputTxt = buildText(invoices,plays);
@@ -21,7 +26,7 @@
     outputFile(outputTxt);
   }
 
-  export function buildText(invoices,plays) {
+  export function buildText(invoices,plays,args) {
     let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
 
     for (let performance of invoices[0].performances) {
