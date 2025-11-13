@@ -30,15 +30,6 @@ class Calculator {
 		throw "想定外の劇タイプ";
 	}
 
-	pointComedy() {
-		let result = 0;
-		if (this.performance.audience > 30) {
-			result += (this.performance.audience - 30) * 1;
-		}
-		result += Math.floor(this.performance.audience / 5) * 1;
-		return result;
-	}
-
 	point() {
 		throw "想定外の劇タイプ";
 	}
