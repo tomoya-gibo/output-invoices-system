@@ -3,9 +3,6 @@ import {main, outputFile, calcAmount, calcPoint, calculateTotalPoints, calculate
 
 import fs from "fs";
 
-//演目データ
-const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
-
 
 describe('calcPoint関数のテスト', () => {
  it('観客数が30人以下で演劇の内容が悲劇のとき、ポイントが0になる', () => {
@@ -76,6 +73,14 @@ const testInvoices = [
    ]
  }
 ];
+
+const plays = {
+  "hamlet" : {"name": "Hamlet", "type": "tragedy"},
+  "as-like" : {"name": "As You Like It", "type": "comedy"},
+  "othello" : {"name": "Othello", "type": "tragedy"},
+  "romeo-and-juliet" : {"name": "Romeo and Juliet", "type": "tragic-comedy"}
+  }
+
  it('１件分のデータで関数が動作するかをテストする', () => {
   expect(calculateTotalPoints(invoices, plays)).toBe(1);
  });
@@ -105,6 +110,14 @@ const testInvoices = [
    ]
  }
 ];
+
+const plays = {
+  "hamlet" : {"name": "Hamlet", "type": "tragedy"},
+  "as-like" : {"name": "As You Like It", "type": "comedy"},
+  "othello" : {"name": "Othello", "type": "tragedy"},
+  "romeo-and-juliet" : {"name": "Romeo and Juliet", "type": "tragic-comedy"}
+  }
+
  it('1件分の請求データで関数が動作するかをテストする', () => {
   expect(calculateTotalAmounts(invoices, plays)).toBe(41000);
  });
@@ -125,8 +138,35 @@ const invoices = [
  }
 ];
 
+
 //3件分の請求データ
-const testInvoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
+const testInvoices = [
+  {
+    "customer": "TestCase No.17",
+    "performances": [
+      {
+        "playID": "hamlet",
+        "audience": 31
+      },
+      {
+        "playID": "as-like",
+        "audience": 35
+      },
+      {
+        "playID": "othello",
+        "audience": 31
+      }
+    ]
+  }
+]
+
+const plays = {
+  "hamlet" : {"name": "Hamlet", "type": "tragedy"},
+  "as-like" : {"name": "As You Like It", "type": "comedy"},
+  "othello" : {"name": "Othello", "type": "tragedy"},
+  "romeo-and-juliet" : {"name": "Romeo and Juliet", "type": "tragic-comedy"}
+  }
+
 //期待値文字列
 const expectedOutput = 
 `請求書
@@ -137,7 +177,7 @@ TestCase No.17
  合計金額: $41000
  獲得ポイント: 1pt`
 
-//期待値文字列４件分
+//期待値文字列3件分
 const testText = 
  `請求書
 TestCase No.17
@@ -148,8 +188,6 @@ TestCase No.17
 
  合計金額: $140000
  獲得ポイント: 14pt`
-
-console.log(buildText(testInvoices, plays))
 
  it('1件分の請求データで関数が生成した文字列と検証用の文字列が一致するかをテストする', () => {
   expect(buildText(invoices, plays)).toBe(expectedOutput);
@@ -168,7 +206,7 @@ describe('outputFile関数のテスト', () => {
  });
 });
 
-describe.only('main関数のテスト', () => {
+describe('main関数のテスト', () => {
   it('最終的に出力されるtxtファイルの内容が仕様書に近いかをテストする', () => {
     main();
     const result = fs.readFileSync("output.txt", "utf8");
