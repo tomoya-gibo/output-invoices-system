@@ -27,8 +27,7 @@ class Calculator {
 	}
 
 	amount() {
-		// エラーを返す
-		return 0;
+		throw "想定外の劇タイプ";
 	}
 
 	pointComedy() {
@@ -41,8 +40,7 @@ class Calculator {
 	}
 
 	point() {
-		// エラーを返す
-		return 0;
+		throw "想定外の劇タイプ";
 	}
 }
 
@@ -100,7 +98,7 @@ function createCalculator(plays, performance) {
 		case "comedy":
 			return new Comedy(plays, performance);
 		default:
-			return new Calculator(plays, performance);	// ここでエラーを返す？
+			return new Calculator(plays, performance);
 	}
 }
 
