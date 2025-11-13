@@ -42,12 +42,7 @@ class Calculator {
 	}
 
 	point() {
-		// tragedyでまとめたい？
-		let result = 0;
-		if (this.performance.audience > 30) {
-			result += (this.performance.audience - 30) * 1;
-		}
-		// 
+		console.log("Calculator-point:Tragedyでは実行されない予定");	// 確認用
 		if (isComedy(this.plays, this.performance.playID)) {
 			return this.pointComedy();
 		}
@@ -61,6 +56,15 @@ class Tragedy extends Calculator {
 		let result = 40000;
 		if (this.performance.audience > 30) {
 			result += (this.performance.audience - 30) * 1000;
+		}
+		return result;
+	}
+
+	point() {
+		console.log("Tragedy-pointを実行");	// 確認用
+		let result = 0;
+		if (this.performance.audience > 30) {
+			result += (this.performance.audience - 30) * 1;
 		}
 		return result;
 	}
