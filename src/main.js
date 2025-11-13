@@ -28,6 +28,7 @@
 
   export function buildText(invoices,plays,args) {
     let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
+    let outputHTml = `<p>請求書</p>\n <p>${invoices[0].customer}</p>\n\n`
 
     for (let performance of invoices[0].performances) {
       //console.log(performance);
