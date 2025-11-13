@@ -39,7 +39,7 @@
     return outputTxt += `\n 合計金額: $${calculateTotalAmounts(invoices,plays)}\n 獲得ポイント: ${calculateTotalPoints(invoices,plays)}pt`
   }
 
-  export function buildHtml() {
+  export function buildHtml(invoices,plays) {
     let outputHtml = `<p>請求書</p>\n <p>${invoices[0].customer}</p>\n\n<ul>`
  
     for (let performance of invoices[0].performances) {
