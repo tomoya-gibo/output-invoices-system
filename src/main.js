@@ -106,10 +106,6 @@ function isTragedy(plays, playID) {
 	return plays[playID].type === "tragedy";
 }
 
-function isComedy(plays, playID) {
-	return plays[playID].type === "comedy";
-}
-
 export function calcTotalAmount(plays, performances) {
 	let totalAmount = 0;
 	for (const performance of performances) {
