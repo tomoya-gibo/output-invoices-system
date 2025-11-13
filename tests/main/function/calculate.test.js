@@ -4,7 +4,8 @@ import { calcTotalAmount,
 
 const plays = { "hamlet": { "type": "tragedy" },
                 "as-like" : { "type": "comedy" },
-                "othello" : { "type": "tragedy" }};
+                "othello" : { "type": "tragedy" },
+                "romeo-and-juliet": {"type": "tragic-comedy"}};
 
 describe('calcTotalAmountのテスト', () => {
     test('testCase1', () => {
