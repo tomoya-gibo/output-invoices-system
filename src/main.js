@@ -29,7 +29,7 @@ class Calculator {
 
 	amount() {
 		return isTragedy(this.plays, this.performance.playID) ? 
-			this.amountTragedy() : this.amountComedy();
+			console.log("calculator-amount") : this.amountComedy();
 	}
 
 	pointComedy() {
@@ -57,7 +57,12 @@ class Calculator {
 
 class Tragedy extends Calculator {
 	amount() {
-		
+		console.log("Tragedy-amountを実行");	// 確認用
+		let result = 40000;
+		if (this.performance.audience > 30) {
+			result += (this.performance.audience - 30) * 1000;
+		}
+		return result;
 	}
 }
 
