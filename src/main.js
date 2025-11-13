@@ -40,6 +40,15 @@
       }
       return outputTxt += `\n 合計金額: $${calculateTotalAmounts(invoices,plays)}\n 獲得ポイント: ${calculateTotalPoints(invoices,plays)}pt`
     }
+    if (args[0] === "html") {      
+      for (let performance of invoices[0].performances) {
+        //console.log(performance);
+        // playsのキーとperformance.playIDを照合してplayに代入
+        const play = plays[performance.playID];
+        outputHTml += `<ul><li>${play.name}(観客数: ${performance.audience}金額: $${calcAmount(play,performance)})</li></ul>\n`;
+      }
+      return outputHTml += `\n <p>合計金額: $${calculateTotalAmounts(invoices,plays)}</p>\n <p>獲得ポイント: ${calculateTotalPoints(invoices,plays)}pt</p>`
+    }
 
   }
 
