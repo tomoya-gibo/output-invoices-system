@@ -54,7 +54,9 @@
 
   //ファイルの出力をする関数
   export function outputFile(args,outputTxt) {
-    fs.writeFileSync("output.txt", outputTxt, 'utf-8');
+    if (args[0] === "txt") {
+      fs.writeFileSync("output.txt", outputTxt, 'utf-8');
+    }
   }
 
   export function calculateTotalAmounts(invoices,plays) {
