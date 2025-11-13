@@ -17,7 +17,7 @@ class Calculator {
 	}
 }
 
-class Tragedy extends Calculator {
+export class Tragedy extends Calculator {
 	amount() {
 		let result = 40000;
 		if (this.performance.audience > 30) {
