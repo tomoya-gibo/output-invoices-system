@@ -56,7 +56,9 @@ class Calculator {
 }
 
 class Tragedy extends Calculator {
-
+	amount() {
+		
+	}
 }
 
 class Comedy extends Calculator {
