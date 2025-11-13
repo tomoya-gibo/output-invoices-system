@@ -28,8 +28,8 @@ class Calculator {
 	}
 
 	amount() {
-		return isTragedy(this.plays, this.performance.playID) ? 
-			console.log("Calculator-amount-tragedy") : console.log("CSalculator-amount-comedy");
+		// デフォルトケースの処理？
+		return 0;
 	}
 
 	pointComedy() {
