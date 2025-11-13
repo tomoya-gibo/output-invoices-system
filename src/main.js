@@ -23,13 +23,13 @@
       
     // 出力用変数
     let outputTxt = buildText(invoices,plays,args);
-    //console.log(outputTxt);
-    outputFile(outputTxt);
+    console.log(outputTxt);
+    outputFile(args,outputTxt);
   }
 
   export function buildText(invoices,plays,args) {
     let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
-    let outputHTml = `<p>請求書</p>\n <p>${invoices[0].customer}</p>\n\n`
+    let outputHtml = `<p>請求書</p>\n <p>${invoices[0].customer}</p>\n\n`
 
     if (args[0] === "txt") {      
       for (let performance of invoices[0].performances) {
@@ -45,9 +45,9 @@
         //console.log(performance);
         // playsのキーとperformance.playIDを照合してplayに代入
         const play = plays[performance.playID];
-        outputHTml += `<ul><li>${play.name}(観客数: ${performance.audience}金額: $${calcAmount(play,performance)})</li></ul>\n`;
+        outputHtml += `<ul><li>${play.name}(観客数: ${performance.audience}金額: $${calcAmount(play,performance)})</li></ul>\n`;
       }
-      return outputHTml += `\n <p>合計金額: $${calculateTotalAmounts(invoices,plays)}</p>\n <p>獲得ポイント: ${calculateTotalPoints(invoices,plays)}pt</p>`
+      return outputHtml += `\n <p>合計金額: $${calculateTotalAmounts(invoices,plays)}</p>\n <p>獲得ポイント: ${calculateTotalPoints(invoices,plays)}pt</p>`
     }
 
   }
@@ -56,6 +56,9 @@
   export function outputFile(args,outputTxt) {
     if (args[0] === "txt") {
       fs.writeFileSync("output.txt", outputTxt, 'utf-8');
+    }
+    if (args[0] === "html") {
+      fs.writeFileSync("output.html", outputTxt, 'utf-8');
     }
   }
 
