@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import {main, outputFile, calcAmount, calcPoint, calculateTotalPoints, calculateTotalAmounts, buildText} from '../../src/main.js'
+import {main, outputFile, calcAmount, calcPoint, calculateTotalPoints, calculateTotalAmounts, buildText, outputFileTest} from '../../src/main.js'
 
 import fs from "fs";
 
@@ -114,7 +114,7 @@ const testInvoices = [
  });
 });
 
-describe.only('buildText関数のテスト', () => {
+describe('buildText関数のテスト', () => {
   //１件分の請求データ
 const invoices = [
  {
@@ -156,5 +156,14 @@ console.log(buildText(testInvoices, plays))
  });
  it('3件分の請求データで関数が生成した文字列と検証用の文字列が一致するかをテストする', () => {
   expect(buildText(testInvoices, plays)).toBe(testText);
+ });
+});
+
+describe.only('outputFile関数のテスト', () => {
+  it('文字列を受け取り、output.txtを正しい内容で出力できる', () => {
+   const testText = "txtファイルが出力されました";
+   outputFileTest(testText);
+   const result = fs.readFileSync("test.txt", "utf-8");
+   expect(result).toBe(testText);
  });
 });
