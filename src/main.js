@@ -52,7 +52,7 @@
   }
 
   //ファイルの出力をする関数
-  export function outputFile(args,outputTxt) {
+  export function outputFile() {
     //コマンドライン引数を受取る定数
     const args = process.argv.slice(2);
     if (args[0] === "txt") {
