@@ -16,15 +16,15 @@ class Calculator {
 		return result;
 	}
 
-	amountComedy() {
-		let result = 30000;
-		result += this.performance.audience * 300;
-		if (this.performance.audience > 20) {
-			result += 10000;
-			result += (this.performance.audience - 20) * 500;
-		}
-		return result;
-	}
+	// amountComedy() {
+	// 	let result = 30000;
+	// 	result += this.performance.audience * 300;
+	// 	if (this.performance.audience > 20) {
+	// 		result += 10000;
+	// 		result += (this.performance.audience - 20) * 500;
+	// 	}
+	// 	return result;
+	// }
 
 	amount() {
 		throw "想定外の劇タイプ";
