@@ -15,7 +15,7 @@
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
 
-    outputFile(args,outputTxt);
+    outputFile(invoices,plays);
   }
 
   export function buildText(invoices,plays) {
