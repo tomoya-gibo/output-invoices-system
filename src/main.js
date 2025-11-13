@@ -56,11 +56,13 @@
     //コマンドライン引数を受取る定数
     const args = process.argv.slice(2);
     if (args[0] === "txt") {
-      fs.writeFileSync("output.txt", outputTxt, 'utf-8');
+      let output = buildText(invoices,plays);
+      fs.writeFileSync("output.txt", output, 'utf-8');
+    } else if (args[0] === "html") {
+      let output = buildHtml(invoices,plays);
+      fs.writeFileSync("output.html", output, 'utf-8');
     }
-    if (args[0] === "html") {
-      fs.writeFileSync("output.html", outputTxt, 'utf-8');
-    }
+
   }
 
   export function calculateTotalAmounts(invoices,plays) {
