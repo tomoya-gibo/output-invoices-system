@@ -28,7 +28,7 @@ class Calculator {
 	}
 
 	amount() {
-		// デフォルトケースの処理？
+		// エラーを返す
 		return 0;
 	}
 
@@ -42,14 +42,13 @@ class Calculator {
 	}
 
 	point() {
-		console.log("Calculator-point:実行されない予定");	// 確認用
+		// エラーを返す
 		return 0;
 	}
 }
 
 class Tragedy extends Calculator {
 	amount() {
-		console.log("Tragedy-amountを実行");	// 確認用
 		let result = 40000;
 		if (this.performance.audience > 30) {
 			result += (this.performance.audience - 30) * 1000;
@@ -58,7 +57,6 @@ class Tragedy extends Calculator {
 	}
 
 	point() {
-		console.log("Tragedy-pointを実行");	// 確認用
 		let result = 0;
 		if (this.performance.audience > 30) {
 			result += (this.performance.audience - 30) * 1;
@@ -69,7 +67,6 @@ class Tragedy extends Calculator {
 
 class Comedy extends Calculator {
 	amount() {
-		console.log("Comedy-amountを実行");	// 確認用
 		let result = 30000;
 		result += this.performance.audience * 300;
 		if (this.performance.audience > 20) {
@@ -80,7 +77,6 @@ class Comedy extends Calculator {
 	}
 
 	point() {
-		console.log("Comedy-pointを実行");	// 確認用
 		let result = 0;
 		if (this.performance.audience > 30) {
 			result += (this.performance.audience - 30) * 1;
@@ -101,11 +97,11 @@ function point(plays, performance) {
 function createCalculator(plays, performance) {
 	switch (plays[performance.playID].type) {
 		case "tragedy":
-			return new Tragedy(plays, performance);		// なまえ△
+			return new Tragedy(plays, performance);
 		case "comedy":
-			return new Comedy(plays, performance);	// なまえ△
+			return new Comedy(plays, performance);
 		default:
-			return new Calculator(plays, performance);
+			return new Calculator(plays, performance);	// ここでエラーを返す？
 	}
 }
 
