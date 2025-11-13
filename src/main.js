@@ -27,7 +27,7 @@
     outputFile(args,outputTxt);
   }
 
-  export function buildText(invoices,plays,args) {
+  export function buildText(invoices,plays) {
     let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
     
     for (let performance of invoices[0].performances) {
