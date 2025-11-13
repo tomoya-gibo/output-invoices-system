@@ -52,7 +52,7 @@
   }
 
   //ファイルの出力をする関数
-  export function outputFile() {
+  export function outputFile(invoices,plays) {
     //コマンドライン引数を受取る定数
     const args = process.argv.slice(2);
     if (args[0] === "txt") {
@@ -62,7 +62,6 @@
       let output = buildHtml(invoices,plays);
       fs.writeFileSync("output.html", output, 'utf-8');
     }
-
   }
 
   export function calculateTotalAmounts(invoices,plays) {
