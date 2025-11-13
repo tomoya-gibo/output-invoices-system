@@ -17,6 +17,7 @@
       
     // 出力用変数
     let outputTxt = buildText(invoices,plays);
+    //console.log(outputTxt);
     outputFile(outputTxt);
   }
 
@@ -29,7 +30,13 @@
       const play = plays[performance.playID];
       outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${calcAmount(play,performance)})\n`;
     }
+
     return outputTxt += `\n 合計金額: $${calculateTotalAmounts(invoices,plays)}\n 獲得ポイント: ${calculateTotalPoints(invoices,plays)}pt`
+  }
+
+  //ファイルの出力をする関数
+  export function outputFile(outputTxt) {
+    fs.writeFileSync("output.txt", outputTxt, 'utf-8');
   }
 
   export function calculateTotalAmounts(invoices,plays) {
@@ -80,7 +87,7 @@
       case "comedy":
         const comedyBasePrice = 30000;
         thisAmount = comedyBasePrice;
-              //超過料金の算定
+        //超過料金の算定
         if (performance.audience > 20) {
           thisAmount += 10000;
           thisAmount += (performance.audience - 20) * 500;
@@ -92,9 +99,11 @@
     return thisAmount;
   }
 
+
+
   //ファイルの出力をする関数
-  export function outputFile(outputTxt) {
-    fs.writeFileSync("output.txt", outputTxt, 'utf-8');
+  export function outputFileTest(outputTxt) {
+    fs.writeFileSync("test.txt", outputTxt, 'utf-8');
   }
 
   main();
