@@ -8,24 +8,6 @@ class Calculator {
 	get plays() { return this._data.plays; }
 	get performance() { return this._data.performance; }
 
-	amountTragedy() {
-		let result = 40000;
-		if (this.performance.audience > 30) {
-			result += (this.performance.audience - 30) * 1000;
-		}
-		return result;
-	}
-
-	// amountComedy() {
-	// 	let result = 30000;
-	// 	result += this.performance.audience * 300;
-	// 	if (this.performance.audience > 20) {
-	// 		result += 10000;
-	// 		result += (this.performance.audience - 20) * 500;
-	// 	}
-	// 	return result;
-	// }
-
 	amount() {
 		throw "想定外の劇タイプ";
 	}
