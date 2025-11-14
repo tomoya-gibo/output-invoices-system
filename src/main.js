@@ -84,10 +84,6 @@ export class TotalCalculator {
 	}
 }
 
-export function calcTotalAmount(totalCalc) {
-	return totalCalc.amount();
-}
-
 export function calcTotalPoint(totalCalc) {
 	let result = 0;
 	for (const performance of totalCalc.performances) {
