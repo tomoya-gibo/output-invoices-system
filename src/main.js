@@ -85,8 +85,8 @@ export class TotalCalculator {
 
 	point() {
 		let result = 0;
-		for (const performance of totalCalc.performances) {
-			result += createCalculator(totalCalc.plays, performance).point();
+		for (const performance of this.performances) {
+			result += createCalculator(this.plays, performance).point();
 		}
 		return result;
 	}
