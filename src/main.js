@@ -97,7 +97,8 @@ export function renderInvoiceTxt(invoice, plays) {
 	for (const performance of invoice.performances) {
 		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${createCalculator(plays, performance).amount()})\n`;
 	}
-	invoiceTxt += `\n合計金額：$${calcTotalAmount(plays, invoice.performances)}\n\n`;
+	const totalCalc = new TotalCalculator(plays, invoice.performances);
+	invoiceTxt += `\n合計金額：$${calcTotalAmount(plays, invoice.performances, totalCalc)}\n\n`;
 	invoiceTxt += `獲得ポイント：${calcTotalPoint(plays, invoice.performances)}pt\n`;
 	return invoiceTxt;
 }
@@ -107,7 +108,8 @@ export function renderInvoiceHtml(invoice, plays) {
 	for (const performance of invoice.performances) {
 		invoiceHtml += `<li>${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${createCalculator(plays, performance).amount()})</li><br>`;
 	}
-	invoiceHtml += `</ul><p>合計金額：$${calcTotalAmount(plays, invoice.performances)}</p>`;
+	const totalCalc = new TotalCalculator(plays, invoice.performances);
+	invoiceHtml += `</ul><p>合計金額：$${calcTotalAmount(plays, invoice.performances, totalCalc)}</p>`;
 	invoiceHtml += `<p>獲得ポイント：${calcTotalPoint(plays, invoice.performances)}pt</p>`;
 	return invoiceHtml;
 }
