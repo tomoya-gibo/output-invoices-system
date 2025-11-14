@@ -130,7 +130,7 @@ export function printInvoice(invoice, plays, arg) {
 			fs.writeFileSync("output/invoice.txt", createInvoice.renderTxt());
 			break;
 		case "html":
-			fs.writeFileSync("output/invoice.html", renderInvoiceHtml(invoice, plays));
+			fs.writeFileSync("output/invoice.html", renderInvoiceHtml(invoice, plays, createInvoice));
 			break;
 		default:
 			console.log("txtかhtmlを指定してください。");
