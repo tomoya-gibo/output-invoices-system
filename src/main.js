@@ -56,10 +56,6 @@ export class Comedy extends Calculator {
 	}
 }
 
-function amount(plays, performance) {
-	return createCalculator(plays, performance).amount();
-}
-
 function point(plays, performance) {
 	return createCalculator(plays, performance).point();
 }
