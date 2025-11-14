@@ -92,9 +92,6 @@ export class TotalCalculator {
 	}
 }
 
-export function calcTotalPoint(totalCalc) {
-	return totalCalc.point();
-}
 
 export function renderInvoiceTxt(invoice, plays) {
 	let invoiceTxt = `請求書\n\n${invoice.customer}\n\n`;
