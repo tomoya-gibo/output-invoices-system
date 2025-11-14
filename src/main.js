@@ -56,10 +56,6 @@ export class Comedy extends Calculator {
 	}
 }
 
-function point(plays, performance) {
-	return createCalculator(plays, performance).point();
-}
-
 function createCalculator(plays, performance) {
 	switch (plays[performance.playID].type) {
 		case "tragedy":
