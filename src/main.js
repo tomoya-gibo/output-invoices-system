@@ -76,7 +76,7 @@ class TotalCalculator {
 	get performances() { return this._data.performances; }
 }
 
-export function calcTotalAmount(plays, performances) {
+export function calcTotalAmount(plays, performances, totalCalc) {
 	let totalAmount = 0;
 	for (const performance of performances) {
 		totalAmount += createCalculator(plays, performance).amount();
