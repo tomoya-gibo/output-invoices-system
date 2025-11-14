@@ -9,11 +9,11 @@ class Calculator {
 	get performance() { return this._data.performance; }
 
 	amount() {
-		throw "想定外の劇タイプ";
+		throw new Error("オーバーライドされていません(amount)");
 	}
 
 	point() {
-		throw "想定外の劇タイプ";
+		throw new Error("オーバーライドされていません(point)");
 	}
 }
 
@@ -71,7 +71,7 @@ function createCalculator(plays, performance) {
 		case "comedy":
 			return new Comedy(plays, performance);
 		default:
-			return new Calculator(plays, performance);
+			throw new Error("想定外の劇タイプです");
 	}
 }
 
