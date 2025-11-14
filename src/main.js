@@ -84,7 +84,7 @@ export function calcTotalAmount(totalCalc) {
 	return totalAmount;
 }
 
-export function calcTotalPoint(plays, performances) {
+export function calcTotalPoint(plays, performances, totalCalc) {
 	let result = 0;
 	for (const performance of performances) {
 		result += createCalculator(plays, performance).point();
