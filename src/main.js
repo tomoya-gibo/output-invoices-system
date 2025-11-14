@@ -103,12 +103,12 @@ class CreateInvoice {
 
 }
 
-export function renderInvoiceTxt(invoice, plays, createInvoice) {
+export function renderInvoiceTxt(invoice, createInvoice) {
 	let invoiceTxt = `請求書\n\n${invoice.customer}\n\n`;
 	for (const performance of invoice.performances) {
-		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${createCalculator(plays, performance).amount()})\n`;
+		invoiceTxt += `・${createInvoice.plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${createCalculator(createInvoice.plays, performance).amount()})\n`;
 	}
-	const totalCalc = new TotalCalculator(plays, invoice.performances);
+	const totalCalc = new TotalCalculator(createInvoice.plays, invoice.performances);
 	invoiceTxt += `\n合計金額：$${totalCalc.amount()}\n\n`;
 	invoiceTxt += `獲得ポイント：${totalCalc.point()}pt\n`;
 	return invoiceTxt;
@@ -126,9 +126,10 @@ export function renderInvoiceHtml(invoice, plays) {
 }
 
 export function printInvoice(invoice, plays, arg) {
+	const createInvoice = new CreateInvoice(invoice, plays);
 	switch(arg) {
 		case "txt":
-			fs.writeFileSync("output/invoice.txt", renderInvoiceTxt(invoice, plays));
+			fs.writeFileSync("output/invoice.txt", renderInvoiceTxt(invoice, createInvoice));
 			break;
 		case "html":
 			fs.writeFileSync("output/invoice.html", renderInvoiceHtml(invoice, plays));
