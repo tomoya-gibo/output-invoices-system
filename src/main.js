@@ -78,7 +78,7 @@ function createCalculator(plays, performance) {
 export function calcTotalAmount(plays, performances) {
 	let totalAmount = 0;
 	for (const performance of performances) {
-		totalAmount += amount(plays, performance);
+		totalAmount += createCalculator(plays, performance).amount();
 	}
 	return totalAmount;
 }
