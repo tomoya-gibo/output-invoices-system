@@ -134,7 +134,7 @@ export function printInvoice(invoice, plays, arg) {
 			fs.writeFileSync("output/invoice.txt", createInvoice.renderTxt());
 			break;
 		case "html":
-			fs.writeFileSync("output/invoice.html", renderInvoiceHtml(createInvoice));
+			fs.writeFileSync("output/invoice.html", createInvoice.renderHtml());
 			break;
 		default:
 			console.log("txtかhtmlを指定してください。");
