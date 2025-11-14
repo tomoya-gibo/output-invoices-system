@@ -84,9 +84,9 @@ export function calcTotalAmount(totalCalc) {
 	return totalAmount;
 }
 
-export function calcTotalPoint(plays, performances, totalCalc) {
+export function calcTotalPoint(plays, totalCalc) {
 	let result = 0;
-	for (const performance of performances) {
+	for (const performance of totalCalc.performances) {
 		result += createCalculator(plays, performance).point();
 	}
 	return result;
@@ -99,7 +99,7 @@ export function renderInvoiceTxt(invoice, plays) {
 	}
 	const totalCalc = new TotalCalculator(plays, invoice.performances);
 	invoiceTxt += `\n合計金額：$${calcTotalAmount(totalCalc)}\n\n`;
-	invoiceTxt += `獲得ポイント：${calcTotalPoint(plays, invoice.performances, totalCalc)}pt\n`;
+	invoiceTxt += `獲得ポイント：${calcTotalPoint(plays, totalCalc)}pt\n`;
 	return invoiceTxt;
 }
 
@@ -110,7 +110,7 @@ export function renderInvoiceHtml(invoice, plays) {
 	}
 	const totalCalc = new TotalCalculator(plays, invoice.performances);
 	invoiceHtml += `</ul><p>合計金額：$${calcTotalAmount(totalCalc)}</p>`;
-	invoiceHtml += `<p>獲得ポイント：${calcTotalPoint(plays, invoice.performances, totalCalc)}pt</p>`;
+	invoiceHtml += `<p>獲得ポイント：${calcTotalPoint(plays, totalCalc)}pt</p>`;
 	return invoiceHtml;
 }
 
