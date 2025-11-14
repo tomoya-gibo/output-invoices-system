@@ -113,14 +113,7 @@ class CreateInvoice {
 }
 
 export function renderInvoiceTxt(createInvoice) {
-	let invoiceTxt = `請求書\n\n${createInvoice.invoice.customer}\n\n`;
-	for (const performance of createInvoice.invoice.performances) {
-		invoiceTxt += `・${createInvoice.plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${createCalculator(createInvoice.plays, performance).amount()})\n`;
-	}
-	const totalCalc = new TotalCalculator(createInvoice.plays, createInvoice.invoice.performances);
-	invoiceTxt += `\n合計金額：$${totalCalc.amount()}\n\n`;
-	invoiceTxt += `獲得ポイント：${totalCalc.point()}pt\n`;
-	return invoiceTxt;
+	return createInvoice.renderTxt();
 }
 
 export function renderInvoiceHtml(invoice, plays) {
