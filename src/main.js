@@ -74,6 +74,14 @@ export class TotalCalculator {
 	}
 	get plays() { return this._data.plays; }
 	get performances() { return this._data.performances; }
+
+	amount() {
+		let result = 0;
+		for (const performance of this.performances) {
+			result += createCalculator(this.plays, performance).amount();
+		}
+		return result;
+	}
 }
 
 export function calcTotalAmount(totalCalc) {
