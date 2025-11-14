@@ -123,10 +123,6 @@ class CreateInvoice {
 	}
 }
 
-export function renderInvoiceHtml(createInvoice) {
-	return createInvoice.renderHtml();
-}
-
 export function printInvoice(invoice, plays, arg) {
 	const createInvoice = new CreateInvoice(invoice, plays);
 	switch(arg) {
