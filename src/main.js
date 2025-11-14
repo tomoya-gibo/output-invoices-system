@@ -110,6 +110,17 @@ class CreateInvoice {
 		invoiceTxt += `獲得ポイント：${totalCalc.point()}pt\n`;
 		return invoiceTxt;
 	}
+
+	renderHtml() {
+		let invoiceHtml = `<h3>請求書</h3><h4>${createInvoice.invoice.customer}</h4><ul>`;
+		for (const performance of createInvoice.invoice.performances) {
+			invoiceHtml += `<li>${createInvoice.plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${createCalculator(createInvoice.plays, performance).amount()})</li><br>`;
+		}
+		const totalCalc = new TotalCalculator(createInvoice.plays, createInvoice.invoice.performances);
+		invoiceHtml += `</ul><p>合計金額：$${totalCalc.amount()}</p>`;
+		invoiceHtml += `<p>獲得ポイント：${totalCalc.point()}pt</p>`;
+		return invoiceHtml;
+	}
 }
 
 export function renderInvoiceHtml(createInvoice) {
