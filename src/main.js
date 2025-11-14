@@ -93,11 +93,7 @@ export class TotalCalculator {
 }
 
 export function calcTotalPoint(totalCalc) {
-	let result = 0;
-	for (const performance of totalCalc.performances) {
-		result += createCalculator(totalCalc.plays, performance).point();
-	}
-	return result;
+	return totalCalc.point();
 }
 
 export function renderInvoiceTxt(invoice, plays) {
