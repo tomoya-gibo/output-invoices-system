@@ -68,7 +68,7 @@ function createCalculator(plays, performance) {
 }
 
 
-class TotalCalculator {
+export class TotalCalculator {
 	constructor(plays, performances) {
 		this._data = { plays: plays, performances: performances };
 	}
