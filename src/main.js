@@ -112,7 +112,7 @@ class CreateInvoice {
 	}
 }
 
-export function renderInvoiceHtml(invoice, plays) {
+export function renderInvoiceHtml(invoice, plays, createInvoice) {
 	let invoiceHtml = `<h3>請求書</h3><h4>${invoice.customer}</h4><ul>`;
 	for (const performance of invoice.performances) {
 		invoiceHtml += `<li>${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${createCalculator(plays, performance).amount()})</li><br>`;
