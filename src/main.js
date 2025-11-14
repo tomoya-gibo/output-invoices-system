@@ -94,7 +94,7 @@ export function calcTotalPoint(plays, performances) {
 export function renderInvoiceTxt(invoice, plays) {
 	let invoiceTxt = `請求書\n\n${invoice.customer}\n\n`;
 	for (const performance of invoice.performances) {
-		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${amount(plays, performance)})\n`;
+		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${createCalculator(plays, performance).amount()})\n`;
 	}
 	invoiceTxt += `\n合計金額：$${calcTotalAmount(plays, invoice.performances)}\n\n`;
 	invoiceTxt += `獲得ポイント：${calcTotalPoint(plays, invoice.performances)}pt\n`;
