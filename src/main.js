@@ -131,7 +131,7 @@ export function printInvoice(invoice, plays, arg) {
 	const createInvoice = new CreateInvoice(invoice, plays);
 	switch(arg) {
 		case "txt":
-			fs.writeFileSync("output/invoice.txt", renderInvoiceTxt(createInvoice));
+			fs.writeFileSync("output/invoice.txt", createInvoice.renderTxt());
 			break;
 		case "html":
 			fs.writeFileSync("output/invoice.html", renderInvoiceHtml(invoice, plays));
