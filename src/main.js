@@ -101,11 +101,11 @@ class CreateInvoice {
 	get plays() { return this._data.plays; }
 
 	renderTxt() {
-		let invoiceTxt = `請求書\n\n${createInvoice.invoice.customer}\n\n`;
-		for (const performance of createInvoice.invoice.performances) {
-			invoiceTxt += `・${createInvoice.plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${createCalculator(createInvoice.plays, performance).amount()})\n`;
+		let invoiceTxt = `請求書\n\n${this.invoice.customer}\n\n`;
+		for (const performance of this.invoice.performances) {
+			invoiceTxt += `・${this.plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${createCalculator(this.plays, performance).amount()})\n`;
 		}
-		const totalCalc = new TotalCalculator(createInvoice.plays, createInvoice.invoice.performances);
+		const totalCalc = new TotalCalculator(this.plays, this.invoice.performances);
 		invoiceTxt += `\n合計金額：$${totalCalc.amount()}\n\n`;
 		invoiceTxt += `獲得ポイント：${totalCalc.point()}pt\n`;
 		return invoiceTxt;
