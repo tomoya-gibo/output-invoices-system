@@ -103,7 +103,7 @@ class CreateInvoice {
 
 }
 
-export function renderInvoiceTxt(invoice, plays) {
+export function renderInvoiceTxt(invoice, plays, createInvoice) {
 	let invoiceTxt = `請求書\n\n${invoice.customer}\n\n`;
 	for (const performance of invoice.performances) {
 		invoiceTxt += `・${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${createCalculator(plays, performance).amount()})\n`;
