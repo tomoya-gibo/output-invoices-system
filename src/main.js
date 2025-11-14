@@ -67,6 +67,15 @@ function createCalculator(plays, performance) {
 	}
 }
 
+
+class TotalCalculator {
+	constructor(plays, performances) {
+		this._data = { plays: plays, performances: performances };
+	}
+	get plays() { return this._data.plays; }
+	get performances() { return this._data.performances; }
+}
+
 export function calcTotalAmount(plays, performances) {
 	let totalAmount = 0;
 	for (const performance of performances) {
