@@ -112,12 +112,12 @@ class CreateInvoice {
 	}
 }
 
-export function renderInvoiceHtml(invoice, plays, createInvoice) {
+export function renderInvoiceHtml(invoice, createInvoice) {
 	let invoiceHtml = `<h3>請求書</h3><h4>${invoice.customer}</h4><ul>`;
 	for (const performance of invoice.performances) {
-		invoiceHtml += `<li>${plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${createCalculator(plays, performance).amount()})</li><br>`;
+		invoiceHtml += `<li>${createInvoice.plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${createCalculator(createInvoice.plays, performance).amount()})</li><br>`;
 	}
-	const totalCalc = new TotalCalculator(plays, invoice.performances);
+	const totalCalc = new TotalCalculator(createInvoice.plays, invoice.performances);
 	invoiceHtml += `</ul><p>合計金額：$${totalCalc.amount()}</p>`;
 	invoiceHtml += `<p>獲得ポイント：${totalCalc.point()}pt</p>`;
 	return invoiceHtml;
@@ -130,7 +130,7 @@ export function printInvoice(invoice, plays, arg) {
 			fs.writeFileSync("output/invoice.txt", createInvoice.renderTxt());
 			break;
 		case "html":
-			fs.writeFileSync("output/invoice.html", renderInvoiceHtml(invoice, plays, createInvoice));
+			fs.writeFileSync("output/invoice.html", renderInvoiceHtml(invoice, createInvoice));
 			break;
 		default:
 			console.log("txtかhtmlを指定してください。");
