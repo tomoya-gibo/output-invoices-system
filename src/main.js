@@ -112,10 +112,6 @@ class CreateInvoice {
 	}
 }
 
-export function renderInvoiceTxt(createInvoice) {
-	return createInvoice.renderTxt();
-}
-
 export function renderInvoiceHtml(invoice, plays) {
 	let invoiceHtml = `<h3>請求書</h3><h4>${invoice.customer}</h4><ul>`;
 	for (const performance of invoice.performances) {
