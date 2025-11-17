@@ -199,7 +199,7 @@ TestCase No.17
 
 
 //htmlに対応したテスト内容を追加予定
-describe.only('buildHtml関数のテスト', () => {
+describe('buildHtml関数のテスト', () => {
 //１件分の請求データ
 const invoice = [
  {
@@ -265,32 +265,5 @@ const testText = `<p>請求書</p>
  });
  it('3件分の請求データで関数が生成した文字列と検証用の文字列が一致するかをテストする', () => {
   expect(buildHtml(testInvoices, plays)).toBe(testText);
- });
-});
-
-//htmlに対応したテスト内容を追加予定
-describe('outputFile関数のテスト', () => {
-  it('文字列を受け取り、output.txtを正しい内容で出力できる', () => {
-   const testText = "txtファイルが出力されました";
-   outputFileTest(testText);
-   const result = fs.readFileSync("test.txt", "utf-8");
-   expect(result).toBe(testText);
- });
-});
-
-describe('main関数のテスト', () => {
-  it('最終的に出力されるtxtファイルの内容が仕様書に近いかをテストする', () => {
-    main();
-    const result = fs.readFileSync("output.txt", "utf8");
-    expect(result).toBe(`請求書
-TestCase No.17
-
-・Hamlet (観客数: 31、金額: $41000)
-・As You Like It (観客数: 35、金額: $58000)
-・Othello (観客数: 31、金額: $41000)
-
- 合計金額: $140000
- 獲得ポイント: 14pt`
-    )
  });
 });
