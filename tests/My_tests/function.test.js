@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import {main, outputFile, calcAmount, calcPoint, calculateTotalPoints, calculateTotalAmounts, buildText, outputFileTest} from '../../src/main.js'
+import {main, outputFile, buildHtml, calcAmount, calcPoint, calculateTotalPoints, calculateTotalAmounts, buildText, outputFileTest, buildHtml} from '../../src/main.js'
 
 import fs from "fs";
 
@@ -127,6 +127,7 @@ const plays = {
  });
 });
 
+//htmlに対応したテスト内容を追加予定
 describe('buildText関数のテスト', () => {
   //１件分の請求データ
 const invoices = [
@@ -137,7 +138,6 @@ const invoices = [
    ]
  }
 ];
-
 
 //3件分の請求データ
 const testInvoices = [
@@ -197,6 +197,78 @@ TestCase No.17
  });
 });
 
+
+//htmlに対応したテスト内容を追加予定
+describe.only('buildHtml関数のテスト', () => {
+//１件分の請求データ
+const invoice = [
+ {
+   customer: "TestCase No.17",
+   performances: [
+     { playID: "hamlet", audience: 31 } // 悲劇41000
+   ]
+ }
+];
+
+//3件分の請求データ
+const testInvoices = [
+  {
+    "customer": "TestCase No.17",
+    "performances": [
+      {
+        "playID": "hamlet",
+        "audience": 31
+      },
+      {
+        "playID": "as-like",
+        "audience": 35
+      },
+      {
+        "playID": "othello",
+        "audience": 31
+      }
+    ]
+  }
+]
+
+const plays = {
+  "hamlet" : {"name": "Hamlet", "type": "tragedy"},
+  "as-like" : {"name": "As You Like It", "type": "comedy"},
+  "othello" : {"name": "Othello", "type": "tragedy"},
+  "romeo-and-juliet" : {"name": "Romeo and Juliet", "type": "tragic-comedy"}
+  }
+
+//期待値文字列
+const expectedOutput = `<p>請求書</p>
+ <p>TestCase No.17</p>
+
+<ul><li>Hamlet(観客数: 31、金額: $41000)</li>
+</ul>
+ <p>合計金額: $41000</p>
+ <p>獲得ポイント: 1pt</p>`;
+
+
+//期待値文字列3件分
+const testText = `<p>請求書</p>
+ <p>TestCase No.17</p>
+
+<ul><li>Hamlet(観客数: 31、金額: $41000)</li>
+<li>As You Like It(観客数: 35、金額: $58000)</li>
+<li>Othello(観客数: 31、金額: $41000)</li>
+</ul>
+ <p>合計金額: $140000</p>
+ <p>獲得ポイント: 14pt</p>`;
+
+
+ it('1件分の請求データで関数が生成した文字列と検証用の文字列が一致するかをテストする', () => {
+  expect(buildHtml(invoice, plays)).toBe(expectedOutput);
+ });
+ it('3件分の請求データで関数が生成した文字列と検証用の文字列が一致するかをテストする', () => {
+  expect(buildHtml(testInvoices, plays)).toBe(testText);
+ });
+});
+
+//htmlに対応したテスト内容を追加予定
 describe('outputFile関数のテスト', () => {
   it('文字列を受け取り、output.txtを正しい内容で出力できる', () => {
    const testText = "txtファイルが出力されました";
