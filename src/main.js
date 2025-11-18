@@ -114,7 +114,17 @@ export class TotalCalculator {
 	}
 
 	createCalculator() {
-		
+		let createCalculator;
+		switch (this.plays[performance.playID].type) {
+			case "tragedy":
+				createCalculator = new Tragedy(this.plays, performance);
+				break;
+			case "comedy":
+				createCalculator = new Comedy(this.plays, performance);
+				break;
+			default:
+				throw new Error("想定外の劇タイプです");
+		}
 	}
 }
 
