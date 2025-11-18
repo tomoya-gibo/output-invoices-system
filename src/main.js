@@ -108,7 +108,7 @@ export class TotalCalculator {
 				default:
 					throw new Error("想定外の劇タイプです");
 			}
-			result += createCalculator(this.plays, performance).point();
+			result += createCalculator.point();
 		}
 		return result;
 	}
