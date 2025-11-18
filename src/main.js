@@ -97,6 +97,9 @@ export class CreateInvoice {
 	constructor(invoice, plays) {
 		this._data = { invoice: invoice, plays: plays };
 	}
+	n_constructor(invoice, plays) {
+		this._data = { invoice: invoice, plays: plays };
+	}
 	get invoice() { return this._data.invoice; }
 	get plays() { return this._data.plays; }
 
