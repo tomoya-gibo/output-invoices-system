@@ -113,7 +113,7 @@ export class TotalCalculator {
 		return result;
 	}
 
-	createCalculator() {
+	createCalculator(performance) {
 		let createCalculator;
 		switch (this.plays[performance.playID].type) {
 			case "tragedy":
