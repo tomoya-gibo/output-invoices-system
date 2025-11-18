@@ -93,7 +93,7 @@ export class TotalCalculator {
 }
 
 
-class CreateInvoice {
+export class CreateInvoice {
 	constructor(invoice, plays) {
 		this._data = { invoice: invoice, plays: plays };
 	}
