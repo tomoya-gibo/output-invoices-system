@@ -112,6 +112,10 @@ export class TotalCalculator {
 		}
 		return result;
 	}
+
+	createCalculator() {
+		
+	}
 }
 
 
