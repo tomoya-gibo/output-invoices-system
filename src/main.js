@@ -110,8 +110,8 @@ export class CreateInvoice {
 			invoiceTxt += `・${this.plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${createCalculator(this.plays, performance).amount()})\n`;
 		}
 		const totalCalc = new TotalCalculator(this.plays, this.invoice.performances);
-		invoiceTxt += `\n合計金額：$${totalCalc.amount()}\n\n`;
-		invoiceTxt += `獲得ポイント：${totalCalc.point()}pt\n`;
+		invoiceTxt += `\n合計金額：$${this.totalCalc.amount()}\n\n`;
+		invoiceTxt += `獲得ポイント：${this.totalCalc.point()}pt\n`;
 		return invoiceTxt;
 	}
 
@@ -121,8 +121,8 @@ export class CreateInvoice {
 			invoiceHtml += `<li>${this.plays[performance.playID].name} (観客数:${performance.audience}人、金額:$${createCalculator(this.plays, performance).amount()})</li><br>`;
 		}
 		const totalCalc = new TotalCalculator(this.plays, this.invoice.performances);
-		invoiceHtml += `</ul><p>合計金額：$${totalCalc.amount()}</p>`;
-		invoiceHtml += `<p>獲得ポイント：${totalCalc.point()}pt</p>`;
+		invoiceHtml += `</ul><p>合計金額：$${this.totalCalc.amount()}</p>`;
+		invoiceHtml += `<p>獲得ポイント：${this.totalCalc.point()}pt</p>`;
 		return invoiceHtml;
 	}
 }
