@@ -89,7 +89,7 @@ export class TotalCalculator {
 				default:
 					throw new Error("想定外の劇タイプです");
 			}
-			result += createCalculator(this.plays, performance).amount();
+			result += createCalculator.amount();
 		}
 		return result;
 	}
