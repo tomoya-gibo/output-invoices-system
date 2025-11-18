@@ -79,12 +79,12 @@ export class TotalCalculator {
 		let result = 0;
 		for (const performance of this.performances) {
 			let createCalculator;
-			switch (plays[performance.playID].type) {
+			switch (this.plays[performance.playID].type) {
 				case "tragedy":
-					createCalculator = new Tragedy(plays, performance);
+					createCalculator = new Tragedy(this.plays, performance);
 					break;
 				case "comedy":
-					createCalculator = new Comedy(plays, performance);
+					createCalculator = new Comedy(this.plays, performance);
 					break;
 				default:
 					throw new Error("想定外の劇タイプです");
