@@ -94,14 +94,15 @@ export class TotalCalculator {
 
 
 export class CreateInvoice {
-	constructor(invoice, plays) {
-		this.n_constructor(invoice, plays);
+	constructor(invoice, plays, totalCalc) {
+		this.n_constructor(invoice, plays, totalCalc);
 	}
-	n_constructor(invoice, plays) {
-		this._data = { invoice: invoice, plays: plays };
+	n_constructor(invoice, plays, totalCalc) {
+		this._data = { invoice: invoice, plays: plays, totalCalc: totalCalc };
 	}
 	get invoice() { return this._data.invoice; }
 	get plays() { return this._data.plays; }
+	get totalCalc() { return this._data.totalCalc; }
 
 	renderTxt() {
 		let invoiceTxt = `請求書\n\n${this.invoice.customer}\n\n`;
