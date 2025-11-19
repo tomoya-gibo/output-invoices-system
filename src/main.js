@@ -126,6 +126,8 @@
     }
   }
 
+  function calcTragedy() {
+  }
 
   export function calcAmount(play,performance) {
     let thisAmount = 0;
