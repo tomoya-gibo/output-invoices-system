@@ -112,12 +112,36 @@
     }
   }
 
+  function calcTragedy(performance) {
+    let thisAmount = 0;
+    let tragedyBasePrice = 40000;
+    if (performance.audience > 30) {
+      tragedyBasePrice += (performance.audience - 30) * 1000;
+    }
+    thisAmount = tragedyBasePrice;
+    return thisAmount
+  }
+
   class CalcComedy extends PerformanceCalculator {
     constructor(play,performance) {
       super(play,performance);
     }
     amount(){
     }
+  }
+
+  function calcComedy(performance) {
+    let thisAmount = 0;
+    const comedyBasePrice = 30000;
+    thisAmount = comedyBasePrice;
+    //超過料金の算定
+    if (performance.audience > 20) {
+      thisAmount += 10000;
+      thisAmount += (performance.audience - 20) * 500;
+    }
+    //喜劇の場合のみ超過にかかわらず一人につき$300の追加
+    thisAmount += performance.audience * 300;
+    return thisAmount;
   }
 
   export function calculateTotalAmounts(invoices,plays) {
@@ -141,30 +165,6 @@
     if (play.type === "comedy") {
       return new CalcComedy(play,performance);
     }
-  }
-
-  function calcTragedy(performance) {
-    let thisAmount = 0;
-    let tragedyBasePrice = 40000;
-    if (performance.audience > 30) {
-      tragedyBasePrice += (performance.audience - 30) * 1000;
-    }
-    thisAmount = tragedyBasePrice;
-    return thisAmount
-  }
-
-  function calcComedy(performance) {
-    let thisAmount = 0;
-    const comedyBasePrice = 30000;
-    thisAmount = comedyBasePrice;
-    //超過料金の算定
-    if (performance.audience > 20) {
-      thisAmount += 10000;
-      thisAmount += (performance.audience - 20) * 500;
-    }
-    //喜劇の場合のみ超過にかかわらず一人につき$300の追加
-    thisAmount += performance.audience * 300;
-    return thisAmount;
   }
 
   //ファイルの出力をする関数
