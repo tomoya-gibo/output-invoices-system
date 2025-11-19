@@ -136,6 +136,9 @@
     return thisAmount
   }
 
+  function calcComedy() {
+  }
+
   export function calcAmount(play,performance) {
     let thisAmount = 0;
 
