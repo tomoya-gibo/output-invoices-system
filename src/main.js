@@ -136,7 +136,7 @@
     return thisAmount
   }
 
-  function calcComedy() {
+  function calcComedy(performance) {
     let thisAmount = 0;
     const comedyBasePrice = 30000;
     thisAmount = comedyBasePrice;
@@ -147,6 +147,7 @@
     }
     //喜劇の場合のみ超過にかかわらず一人につき$300の追加
     thisAmount += performance.audience * 300;
+    return thisAmount;
   }
 
   export function calcAmount(play,performance) {
