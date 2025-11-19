@@ -71,7 +71,7 @@
     for (let performance of invoices[0].performances) {
       //console.log(performance);
       // playsのキーとperformance.playIDを照合してplayに代入
-      const play = plays[performance.playID];      
+      const play = plays[performance.playID];
       //獲得ポイントの合計
       totalPoint += calcPoint(performance,play);
     }
@@ -88,6 +88,44 @@
     }
     return thisPoint;
   }
+
+  // 1スーパークラスを作る
+  class PerformanceCalculator {
+    constructor(play,performance) {
+      this.play = play
+      this.performance = performance
+    }
+    amount() {
+    }
+  }
+
+  // 2サブクラスを作る
+  class CalcTragedy extends PerformanceCalculator {
+    constructor(play,performance) {
+      super(play,performance);
+    }
+    amount(){
+    }
+  }
+
+  class CalcComedy extends PerformanceCalculator {
+    constructor(play,performance) {
+      super(play,performance);
+    }
+    amount(){
+    }
+  }
+
+  // 3ファクトリ関数をつくる
+  function createPerformanceCalculator (play,performance) {
+    if (play.type === "tragedy") {
+      return new CalcTragedy(play,performance);
+    }
+    if (play.type === "comedy") {
+      return new CalcComedy(play,performance);
+    }
+  }
+
 
   export function calcAmount(play,performance) {
     let thisAmount = 0;
@@ -114,6 +152,10 @@
     }
     return thisAmount;
   }
+
+  // 11/19　ポリモーフィズムによる条件記述の置き換え
+
+
 
   //ファイルの出力をする関数
   export function outputFileTest(outputTxt) {
