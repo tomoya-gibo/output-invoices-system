@@ -126,7 +126,7 @@
     }
   }
 
-  function calcTragedy() {
+  function calcTragedy(performance) {
     let thisAmount = 0;
     let tragedyBasePrice = 40000;
     if (performance.audience > 30) {
