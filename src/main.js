@@ -127,6 +127,12 @@
   }
 
   function calcTragedy() {
+    let thisAmount = 0;
+    let tragedyBasePrice = 40000;
+    if (performance.audience > 30) {
+      tragedyBasePrice += (performance.audience - 30) * 1000;
+    }
+    thisAmount = tragedyBasePrice;
   }
 
   export function calcAmount(play,performance) {
