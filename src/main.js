@@ -55,17 +55,6 @@
     }
   }
 
-  export function calculateTotalAmounts(invoices,plays) {
-    let totalAmount = 0;
-    for (let performance of invoices[0].performances) {
-      // playsのキーとperformance.playIDを照合してplayに代入
-      const play = plays[performance.playID];
-      //合計金額
-      totalAmount += calcAmount(play,performance);
-    }
-    return totalAmount;
-  }
-
   export function calculateTotalPoints(invoices,plays) {
     let totalPoint = 0;
     for (let performance of invoices[0].performances) {
@@ -89,6 +78,7 @@
     return thisPoint;
   }
 
+  // 11/19　ポリモーフィズムによる条件記述の置き換え
   // 1スーパークラスを作る
   class PerformanceCalculator {
     constructor(play,performance) {
@@ -114,6 +104,17 @@
     }
     amount(){
     }
+  }
+
+  export function calculateTotalAmounts(invoices,plays) {
+    let totalAmount = 0;
+    for (let performance of invoices[0].performances) {
+      // playsのキーとperformance.playIDを照合してplayに代入
+      const play = plays[performance.playID];
+      //合計金額
+      totalAmount += calcAmount(play,performance);
+    }
+    return totalAmount;
   }
 
   // 3ファクトリ関数をつくる
@@ -163,10 +164,6 @@
     }
     return thisAmount;
   }
-
-  // 11/19　ポリモーフィズムによる条件記述の置き換え
-
-
 
   //ファイルの出力をする関数
   export function outputFileTest(outputTxt) {
