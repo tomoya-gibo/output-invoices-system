@@ -133,6 +133,7 @@
       tragedyBasePrice += (performance.audience - 30) * 1000;
     }
     thisAmount = tragedyBasePrice;
+    return thisAmount
   }
 
   export function calcAmount(play,performance) {
@@ -140,11 +141,7 @@
 
     switch (play.type) {
       case "tragedy":
-        let tragedyBasePrice = 40000;
-        if (performance.audience > 30) {
-          tragedyBasePrice += (performance.audience - 30) * 1000;
-        }
-        thisAmount = tragedyBasePrice;
+        thisAmount = calcTragedy(performance);
         break;
       case "comedy":
         const comedyBasePrice = 30000;
