@@ -134,6 +134,17 @@
       super(play,performance);
     }
     amount(){
+      let thisAmount = 0;
+      const comedyBasePrice = 30000;
+      thisAmount = comedyBasePrice;
+      //超過料金の算定
+      if (performance.audience > 20) {
+        thisAmount += 10000;
+        thisAmount += (performance.audience - 20) * 500;
+      }
+      //喜劇の場合のみ超過にかかわらず一人につき$300の追加
+      thisAmount += performance.audience * 300;
+      return thisAmount;
     }
   }
 
