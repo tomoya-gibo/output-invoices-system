@@ -89,6 +89,20 @@
     }
   }
 
+  export function calcAmount(play,performance) {
+    let thisAmount = 0;
+
+    switch (play.type) {
+      case "tragedy":
+        thisAmount = calcTragedy(performance);
+        break;
+      case "comedy":
+        thisAmount = calcComedy(performance);
+        break;
+    }
+    return thisAmount;
+  }
+
   // 2サブクラスを作る
   class CalcTragedy extends PerformanceCalculator {
     constructor(play,performance) {
@@ -150,20 +164,6 @@
     }
     //喜劇の場合のみ超過にかかわらず一人につき$300の追加
     thisAmount += performance.audience * 300;
-    return thisAmount;
-  }
-
-  export function calcAmount(play,performance) {
-    let thisAmount = 0;
-
-    switch (play.type) {
-      case "tragedy":
-        thisAmount = calcTragedy(performance);
-        break;
-      case "comedy":
-        thisAmount = calcComedy(performance);
-        break;
-    }
     return thisAmount;
   }
 
