@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { CreateInvoice, Tragedy, Comedy } from "../../../src/main";
+import { CreateInvoice } from "../../../src/main";
 
 const plays = { "hamlet": { "name": "Hamlet", "type": "tragedy" },
                 "as-like": { "name": "As You Like It", "type": "comedy" },
@@ -16,17 +16,32 @@ class MockTotalCalculator {
 
     point() { return 47; }
 
-    createCalculator(plays, performance) {
-        switch (plays[performance.playID].type) {
-            case "tragedy":
-                return new Tragedy(plays, performance);
-            case "comedy":
-                return new Comedy(plays, performance);
-            default:
-                throw new Error("想定外の劇タイプです");
-        }
+    createCalculator(performance) {
+        return new MockCalculator(this.plays, performance);
     }
 }
+
+class MockCalculator {
+    constructor(plays, performance) {
+		this._data = { plays: plays, performance: performance };
+	}
+    get plays() { return this._data.plays; }
+	get performance() { return this._data.performance; }
+
+    amount() {
+        // render()の単価計算でcreateInvoice.amount()しているので分岐必要
+        // amountの呼び出し方が変更できたら、return１つの形に修正する
+        switch(this.performance.playID) {
+			case "hamlet":
+				return 65000;
+			case "as-like":
+				return 58000;
+            case "othello":
+                return 50000;
+		}
+	}
+}
+
 
 describe('CreateInvoiceのテスト', () => {
     test('renderTxtのテスト', () => {
