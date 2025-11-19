@@ -111,8 +111,10 @@
     for (let performance of invoices[0].performances) {
       // playsのキーとperformance.playIDを照合してplayに代入
       const play = plays[performance.playID];
+      //ファクトリ関数を使うようにする
+      const Calculator = createPerformanceCalculator (play,performance)
       //合計金額
-      totalAmount += calcAmount(play,performance);
+      totalAmount += Calculator.amount();
     }
     return totalAmount;
   }
