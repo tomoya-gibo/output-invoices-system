@@ -240,24 +240,26 @@ const plays = {
 
 //期待値文字列
 const expectedOutput = `<p>請求書</p>
- <p>TestCase No.17</p>
+<p>TestCase No.17</p>
 
-<ul><li>Hamlet(観客数: 31、金額: $41000)</li>
+<ul>
+<li>Hamlet(観客数: 31、金額: $41000)</li>
 </ul>
- <p>合計金額: $41000</p>
- <p>獲得ポイント: 1pt</p>`;
+<p>合計金額: $41000</p>
+<p>獲得ポイント: 1pt</p>`;
 
 
 //期待値文字列3件分
 const testText = `<p>請求書</p>
- <p>TestCase No.17</p>
+<p>TestCase No.17</p>
 
-<ul><li>Hamlet(観客数: 31、金額: $41000)</li>
+<ul>
+<li>Hamlet(観客数: 31、金額: $41000)</li>
 <li>As You Like It(観客数: 35、金額: $58000)</li>
 <li>Othello(観客数: 31、金額: $41000)</li>
 </ul>
- <p>合計金額: $140000</p>
- <p>獲得ポイント: 14pt</p>`;
+<p>合計金額: $140000</p>
+<p>獲得ポイント: 14pt</p>`;
 
 
  it('1件分の請求データで関数が生成した文字列と検証用の文字列が一致するかをテストする', () => {
