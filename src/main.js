@@ -55,6 +55,9 @@
     }
   }
 
+  function playFor() {
+  }
+
   export function calculateTotalAmounts(invoices,plays) {
     let totalAmount = 0;
     for (let performance of invoices[0].performances) {
