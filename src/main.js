@@ -13,7 +13,7 @@
   export function main() {
     // 1 入力データの読み込み
     const invoices = inputInvoice();
-    const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
+    const plays = loadPlays();
 
     outputFile(invoices,plays);
   }
@@ -21,6 +21,11 @@
   function inputInvoice() {
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     return invoices;
+  }
+
+  function loadPlays() {
+    const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
+    return plays;
   }
 
   export function buildText(invoices,plays) {
