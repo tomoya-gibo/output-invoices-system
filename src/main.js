@@ -24,7 +24,7 @@
     for (let performance of invoices[0].performances) {
       //console.log(performance);
       // playsのキーとperformance.playIDを照合してplayに代入
-      const play = plays[performance.playID];
+      const play = playFor(plays,performance);
       outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${calcAmount(play,performance)})\n`;
     }
     return outputTxt += `\n 合計金額: $${calculateTotalAmounts(invoices,plays)}\n 獲得ポイント: ${calculateTotalPoints(invoices,plays)}pt`
@@ -36,7 +36,7 @@
     for (let performance of invoices[0].performances) {
       //console.log(performance);
       // playsのキーとperformance.playIDを照合してplayに代入
-      const play = plays[performance.playID];
+      const play = playFor(plays,performance);
       outputHtml += `<li>${play.name}(観客数: ${performance.audience}、金額: $${calcAmount(play,performance)})</li>\n`;
     }
     return outputHtml += `</ul>\n<p>合計金額: $${calculateTotalAmounts(invoices,plays)}</p>\n<p>獲得ポイント: ${calculateTotalPoints(invoices,plays)}pt</p>`
@@ -75,7 +75,7 @@
     for (let performance of invoices[0].performances) {
       //console.log(performance);
       // playsのキーとperformance.playIDを照合してplayに代入
-      const play = plays[performance.playID];      
+      const play = playFor(plays,performance);      
       //獲得ポイントの合計
       totalPoint += calcPoint(performance,play);
     }
