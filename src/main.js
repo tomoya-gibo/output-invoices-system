@@ -111,33 +111,33 @@
   // 11/20　ポリモーフィズム導入
   class performanceCalculator {
     constructor(play,performance) { 
-      this.play = play;
       this.performance = performance;
+      this.play = play;
     }
     get calcAmount(){
       let thisAmount = 0;
-    
-        switch (this.play.type) {
-          case "tragedy":
-            let tragedyBasePrice = 40000;
-            if (this.performance.audience > 30) {
-              tragedyBasePrice += (this.performance.audience - 30) * 1000;
-            }
-            thisAmount = tragedyBasePrice;
-            break;
-          case "comedy":
-            const comedyBasePrice = 30000;
-            thisAmount = comedyBasePrice;
-            //超過料金の算定
-            if (this.performance.audience > 20) {
-              thisAmount += 10000;
-              thisAmount += (this.performance.audience - 20) * 500;
-            }
-            //喜劇の場合のみ超過にかかわらず一人につき$300の追加
-            thisAmount += this.performance.audience * 300;
-            break;
-        }
-        return thisAmount;
+  
+      switch (this.play.type) {
+        case "tragedy":
+          let tragedyBasePrice = 40000;
+          if (this.performance.audience > 30) {
+            tragedyBasePrice += (this.performance.audience - 30) * 1000;
+          }
+          thisAmount = tragedyBasePrice;
+          break;
+        case "comedy":
+          const comedyBasePrice = 30000;
+          thisAmount = comedyBasePrice;
+          //超過料金の算定
+          if (this.performance.audience > 20) {
+            thisAmount += 10000;
+            thisAmount += (this.performance.audience - 20) * 500;
+          }
+          //喜劇の場合のみ超過にかかわらず一人につき$300の追加
+          thisAmount += this.performance.audience * 300;
+          break;
+      }
+      return thisAmount;
     }
     
     get calcPoint() {
@@ -152,7 +152,18 @@
     }
   }
 
-  
+  function createCalculator(play,performance) {
+    return new performanceCalculator(play,performance)
+  }
+
+  class tragedyCalculator extends performanceCalculator {
+
+  }
+
+  class comedyCalculator extends performanceCalculator {
+
+  }
+
 
 
   //ファイルの出力をする関数
