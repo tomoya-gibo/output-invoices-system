@@ -56,17 +56,6 @@ export class Comedy extends Calculator {
 	}
 }
 
-function createCalculator(plays, performance) {
-	switch (plays[performance.playID].type) {
-		case "tragedy":
-			return new Tragedy(plays, performance);
-		case "comedy":
-			return new Comedy(plays, performance);
-		default:
-			throw new Error("想定外の劇タイプです");
-	}
-}
-
 
 export class TotalCalculator {
 	constructor(plays, performances) {
