@@ -102,7 +102,7 @@ export class CreateInvoice {
 		this._data = { invoice: invoice, plays: plays, totalCalc: totalCalc };
 	}
 	get invoice() { return this._data.invoice; }
-	get plays() { return this._data.plays; }
+	get plays() { return this._data.totalCalc.plays; }
 	get totalCalc() { return this._data.totalCalc; }
 
 	renderTxt() {
