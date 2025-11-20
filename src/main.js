@@ -105,7 +105,7 @@
         thisAmount += performance.audience * 300;
         break;
     }
-    return thisAmount;
+    return createCalculator(play,performance).calcAmount;
   }
 
   // 11/20　ポリモーフィズム導入
