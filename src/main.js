@@ -22,10 +22,7 @@
     let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
     
     for (let performance of invoices[0].performances) {
-      //console.log(performance);
-      // playsのキーとperformance.playIDを照合してplayに代入
-      const play = playFor(plays,performance);
-      outputTxt += `・${play.name} (観客数: ${performance.audience}、金額: $${calcAmount(play,performance)})\n`;
+      outputTxt += `・${playFor(plays,performance).name} (観客数: ${performance.audience}、金額: $${calcAmount(playFor(plays,performance),performance)})\n`;
     }
     return outputTxt += `\n 合計金額: $${calculateTotalAmounts(invoices,plays)}\n 獲得ポイント: ${calculateTotalPoints(invoices,plays)}pt`
   }
@@ -34,10 +31,7 @@
     let outputHtml = `<p>請求書</p>\n<p>${invoices[0].customer}</p>\n\n<ul>\n`
  
     for (let performance of invoices[0].performances) {
-      //console.log(performance);
-      // playsのキーとperformance.playIDを照合してplayに代入
-      const play = playFor(plays,performance);
-      outputHtml += `<li>${play.name}(観客数: ${performance.audience}、金額: $${calcAmount(play,performance)})</li>\n`;
+      outputHtml += `<li>${playFor(plays,performance).name}(観客数: ${performance.audience}、金額: $${calcAmount(playFor(plays,performance),performance)})</li>\n`;
     }
     return outputHtml += `</ul>\n<p>合計金額: $${calculateTotalAmounts(invoices,plays)}</p>\n<p>獲得ポイント: ${calculateTotalPoints(invoices,plays)}pt</p>`
   }
@@ -70,12 +64,9 @@
 
   export function calculateTotalPoints(invoices,plays) {
     let totalPoint = 0;
-    for (let performance of invoices[0].performances) {
-      //console.log(performance);
-      // playsのキーとperformance.playIDを照合してplayに代入
-      const play = playFor(plays,performance);      
+    for (let performance of invoices[0].performances) {   
       //獲得ポイントの合計
-      totalPoint += calcPoint(performance,play);
+      totalPoint += calcPoint(performance,playFor(plays,performance));
     }
     return totalPoint;
   }
