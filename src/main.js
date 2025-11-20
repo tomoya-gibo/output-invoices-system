@@ -123,10 +123,6 @@ export class CreateInvoice {
 	}
 }
 
-export function printInvoice(invoice, plays, arg) {
-	const totalCalc = new TotalCalculator(plays, invoice.performances);
-	return zz_printInvoice(invoice, plays, totalCalc, arg);
-}
 
 export function zz_printInvoice(invoice, plays, totalCalc, arg) {
 	const createInvoice = new CreateInvoice(invoice, plays, totalCalc);
