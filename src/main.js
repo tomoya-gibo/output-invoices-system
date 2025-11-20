@@ -148,7 +148,7 @@ export function main() {
 
 	const totalCalc = new TotalCalculator(plays, invoices[0].performances);
 	const createInvoice = new CreateInvoice(invoices[0], plays, totalCalc);
-	zz_printInvoice(createInvoice, "txt");	// テスト用にargを指定
+	printInvoice(createInvoice, "txt");	// テスト用にargを指定
 }
 
 // main();
