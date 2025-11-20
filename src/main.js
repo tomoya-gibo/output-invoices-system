@@ -62,8 +62,6 @@
   export function calculateTotalAmounts(invoices,plays) {
     let totalAmount = 0;
     for (let performance of invoices[0].performances) {
-      // playsのキーとperformance.playIDを照合してplayに代入
-      const play = playFor(plays,performance);
       //合計金額
       totalAmount += calcAmount(playFor(plays,performance),performance);
     }
