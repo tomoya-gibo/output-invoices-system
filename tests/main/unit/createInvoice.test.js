@@ -50,7 +50,7 @@ describe('CreateInvoiceのテスト', () => {
                                            { "playID": "as-like", "audience": 35 },
                                            { "playID": "othello", "audience": 40 }]};
         const totalCalc = new MockTotalCalculator(plays, invoice.performances);
-        const createInvoice = new CreateInvoice(invoice, plays, totalCalc);
+        const createInvoice = new CreateInvoice(invoice, totalCalc);
         const testResult = createInvoice.renderTxt();
         const expectData = `請求書\n\nCustomer\n\n・Hamlet (観客数:55人、金額:$65000)\n・As You Like It (観客数:35人、金額:$58000)\n`
             + `・Othello (観客数:40人、金額:$50000)\n\n合計金額：$173000\n\n獲得ポイント：47pt\n`;
@@ -63,7 +63,7 @@ describe('CreateInvoiceのテスト', () => {
                                            { "playID": "as-like", "audience": 35 },
                                            { "playID": "othello", "audience": 40 }]};
         const totalCalc = new MockTotalCalculator(plays, invoice.performances);
-        const createInvoice = new CreateInvoice(invoice, plays, totalCalc);
+        const createInvoice = new CreateInvoice(invoice, totalCalc);
         const testResult = createInvoice.renderHtml();
         const expectData = `<h3>請求書</h3><h4>Customer</h4><ul><li>Hamlet (観客数:55人、金額:$65000)</li><br>`
             + `<li>As You Like It (観客数:35人、金額:$58000)</li><br><li>Othello (観客数:40人、金額:$50000)</li><br>`
