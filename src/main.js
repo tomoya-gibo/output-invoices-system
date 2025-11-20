@@ -65,7 +65,7 @@
       // playsのキーとperformance.playIDを照合してplayに代入
       const play = playFor(plays,performance);
       //合計金額
-      totalAmount += calcAmount(play,performance);
+      totalAmount += calcAmount(playFor(plays,performance),performance);
     }
     return totalAmount;
   }
