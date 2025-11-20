@@ -123,6 +123,9 @@ export class CreateInvoice {
 	}
 }
 
+export function printInvoice(invoice, plays, totalCalc, arg) {
+
+}
 
 export function zz_printInvoice(invoice, plays, totalCalc, arg) {
 	const createInvoice = new CreateInvoice(invoice, plays, totalCalc);
