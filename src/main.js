@@ -79,7 +79,7 @@
     if (play.type === "comedy") {
       thisPoint += Math.floor(performance.audience / 5);
     }
-    return thisPoint;
+    return createCalculator(play,performance).calcPoint;
   }
 
   export function calcAmount(play,performance) {
