@@ -12,13 +12,13 @@
 
   export function main() {
     // 1 入力データの読み込み
-    const invoices = inputInvoice();
+    const invoices = loadInvoice();
     const plays = loadPlays();
 
     outputFile(invoices,plays);
   }
 
-  function inputInvoice() {
+  function loadInvoice() {
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
     return invoices;
   }
