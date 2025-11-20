@@ -18,6 +18,11 @@
     outputFile(invoices,plays);
   }
 
+  function inputInvoice (){
+    const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
+    return invoices;
+  }
+
   export function buildText(invoices,plays) {
     let outputTxt = `請求書\n${invoices[0].customer}\n\n`;
     
