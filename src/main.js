@@ -123,10 +123,6 @@ export class CreateInvoice {
 	}
 }
 
-export function zz_printInvoice(createInvoice, arg) {
-	return printInvoice(createInvoice, arg);
-}
-
 export function printInvoice(createInvoice, arg) {
 	switch(arg) {
 		case "txt":
