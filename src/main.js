@@ -138,7 +138,17 @@ export function printInvoice(invoice, plays, totalCalc, arg) {
 }
 
 export function zz_printInvoice(invoice, plays, totalCalc, arg) {
-
+	const createInvoice = new CreateInvoice(invoice, plays, totalCalc);
+	switch(arg) {
+		case "txt":
+			fs.writeFileSync("output/invoice.txt", createInvoice.renderTxt());
+			break;
+		case "html":
+			fs.writeFileSync("output/invoice.html", createInvoice.renderHtml());
+			break;
+		default:
+			console.log("txtかhtmlを指定してください。");
+	}
 }
 
 export function main() {
