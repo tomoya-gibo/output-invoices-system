@@ -19,13 +19,11 @@
   }
 
   function loadInvoice() {
-    const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
-    return invoices;
+    return JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
   }
 
   function loadPlays() {
-    const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
-    return plays;
+    return JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
   }
 
   export function buildText(invoices,plays) {
@@ -116,6 +114,12 @@
         break;
     }
     return thisAmount;
+  }
+
+  class performanceCalculator {
+    constructor(pla) {
+      
+    }
   }
 
   //ファイルの出力をする関数
