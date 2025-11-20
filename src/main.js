@@ -1,5 +1,4 @@
 import fs from 'fs';
-import { totalmem } from 'os';
 
 
 class Calculator {
