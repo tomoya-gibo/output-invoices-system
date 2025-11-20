@@ -136,6 +136,10 @@ export function zz_printInvoice(invoice, plays, totalCalc, createInvoice, arg) {
 	}
 }
 
+export function printInvoice(invoice, plays, totalCalc, createInvoice, arg) {
+
+}
+
 
 export function main() {
 	const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
