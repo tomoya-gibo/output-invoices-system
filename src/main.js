@@ -108,6 +108,51 @@
     return thisAmount;
   }
 
+  // 11/20　ポリモーフィズム導入
+  class performanceCalculator {
+    constructor(performance,play) { 
+      this.performance = performance;
+      this.play = play;
+    }
+    get calcAmount(){
+      let thisAmount = 0;
+    
+        switch (this.play.type) {
+          case "tragedy":
+            let tragedyBasePrice = 40000;
+            if (this.performance.audience > 30) {
+              tragedyBasePrice += (this.performance.audience - 30) * 1000;
+            }
+            thisAmount = tragedyBasePrice;
+            break;
+          case "comedy":
+            const comedyBasePrice = 30000;
+            thisAmount = comedyBasePrice;
+            //超過料金の算定
+            if (this.performance.audience > 20) {
+              thisAmount += 10000;
+              thisAmount += (this.performance.audience - 20) * 500;
+            }
+            //喜劇の場合のみ超過にかかわらず一人につき$300の追加
+            thisAmount += this.performance.audience * 300;
+            break;
+        }
+        return thisAmount;
+    }
+    
+    get calcPoint() {
+      let thisPoint = 0;
+      if (this.performance.audience > 30) {
+        thisPoint += (this.performance.audience - 30);
+      }
+      if (this.play.type === "comedy") {
+        thisPoint += Math.floor(this.performance.audience / 5);
+      }
+      return thisPoint;
+    }
+  }
+
+
   //ファイルの出力をする関数
   export function outputFileTest(outputTxt) {
     fs.writeFileSync("test.txt", outputTxt, 'utf-8');
