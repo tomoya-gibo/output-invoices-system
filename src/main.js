@@ -98,8 +98,8 @@ export class CreateInvoice {
 	constructor(invoice, plays, totalCalc) {
 		this.zz_constructor(invoice, plays, totalCalc);
 	}
-	zz_constructor(invoice, plays, totalCalc) {
-		this._data = { invoice: invoice, plays: plays, totalCalc: totalCalc };
+	zz_constructor(invoice, totalCalc) {
+		this._data = { invoice: invoice, totalCalc: totalCalc };
 	}
 	get invoice() { return this._data.invoice; }
 	get plays() { return this._data.totalCalc.plays; }
