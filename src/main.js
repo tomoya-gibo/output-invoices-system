@@ -124,11 +124,11 @@ export class CreateInvoice {
 }
 
 export function printInvoice(invoice, plays, totalCalc, arg) {
-	return zz_printInvoice(invoice, plays, totalCalc, arg);
+	const createInvoice = new CreateInvoice(invoice, plays, totalCalc);
+	return zz_printInvoice(invoice, plays, totalCalc, createInvoice, arg);
 }
 
-export function zz_printInvoice(invoice, plays, totalCalc, arg) {
-	const createInvoice = new CreateInvoice(invoice, plays, totalCalc);
+export function zz_printInvoice(invoice, plays, totalCalc, createInvoice, arg) {
 	switch(arg) {
 		case "txt":
 			fs.writeFileSync("output/invoice.txt", createInvoice.renderTxt());
