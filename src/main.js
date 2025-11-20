@@ -66,12 +66,12 @@
     let totalPoint = 0;
     for (let performance of invoices[0].performances) {   
       //獲得ポイントの合計
-      totalPoint += calcPoint(performance,playFor(plays,performance));
+      totalPoint += calcPoint(playFor(plays,performance),performance);
     }
     return totalPoint;
   }
 
-  export function calcPoint(performance,play) {
+  export function calcPoint(play,performance) {
     let thisPoint = 0;
     if (performance.audience > 30) {
       thisPoint += (performance.audience - 30);
@@ -110,9 +110,9 @@
 
   // 11/20　ポリモーフィズム導入
   class performanceCalculator {
-    constructor(performance,play) { 
-      this.performance = performance;
+    constructor(play,performance) { 
       this.play = play;
+      this.performance = performance;
     }
     get calcAmount(){
       let thisAmount = 0;
@@ -151,6 +151,8 @@
       return thisPoint;
     }
   }
+
+  
 
 
   //ファイルの出力をする関数
