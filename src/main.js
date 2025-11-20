@@ -72,13 +72,6 @@
   }
 
   export function calcPoint(play,performance) {
-    let thisPoint = 0;
-    if (performance.audience > 30) {
-      thisPoint += (performance.audience - 30);
-    }
-    if (play.type === "comedy") {
-      thisPoint += Math.floor(performance.audience / 5);
-    }
     return createCalculator(play,performance).calcPoint;
   }
 
@@ -132,6 +125,14 @@
 
   function createCalculator(play,performance) {
     return new performanceCalculator(play,performance)
+    switch (play.type){
+      case "tragedy":
+        return new tragedyCalculator(play, performance);
+      case "comedy":
+        return new comedyCalculator(play, performance);
+      default:
+        return new performanceCalculator(play, performance);
+    }
   }
 
   class tragedyCalculator extends performanceCalculator {
