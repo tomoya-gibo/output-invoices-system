@@ -147,7 +147,7 @@ export function main() {
 	const arg = process.argv.slice(2)[0];			// txt/html
 
 	const totalCalc = new TotalCalculator(plays, invoices[0].performances);
-	zz_printInvoice(invoices[0], plays, totalCalc, "txt");	// テスト用にargを指定
+	printInvoice(invoices[0], plays, totalCalc, "txt");	// テスト用にargを指定
 }
 
 // main();
