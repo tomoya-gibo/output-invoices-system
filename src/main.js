@@ -123,7 +123,7 @@ export class CreateInvoice {
 	}
 }
 
-export function zz_printInvoice(invoice, plays, totalCalc, createInvoice, arg) {
+export function zz_printInvoice(createInvoice, arg) {
 	switch(arg) {
 		case "txt":
 			fs.writeFileSync("output/invoice.txt", createInvoice.renderTxt());
@@ -136,7 +136,7 @@ export function zz_printInvoice(invoice, plays, totalCalc, createInvoice, arg) {
 	}
 }
 
-export function printInvoice(invoice, plays, totalCalc, createInvoice, arg) {
+export function printInvoice(createInvoice, arg) {
 	switch(arg) {
 		case "txt":
 			fs.writeFileSync("output/invoice.txt", createInvoice.renderTxt());
@@ -157,7 +157,7 @@ export function main() {
 
 	const totalCalc = new TotalCalculator(plays, invoices[0].performances);
 	const createInvoice = new CreateInvoice(invoices[0], plays, totalCalc);
-	zz_printInvoice(invoices[0], plays, totalCalc, createInvoice, "txt");	// テスト用にargを指定
+	zz_printInvoice(createInvoice, "txt");	// テスト用にargを指定
 }
 
 // main();
