@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { totalmem } from 'os';
 
 
 class Calculator {
@@ -126,7 +127,7 @@ export function printInvoice(invoice, plays, arg) {
 	return zz_printInvoice(invoice, plays, arg);
 }
 
-export function zz_printInvoice(invoice, plays, arg) {
+export function zz_printInvoice(invoice, plays, totalCalc, arg) {
 	const totalCalc = new TotalCalculator(plays, invoice.performances);
 	const createInvoice = new CreateInvoice(invoice, plays, totalCalc);
 	switch(arg) {
