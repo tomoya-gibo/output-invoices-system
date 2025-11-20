@@ -55,13 +55,8 @@
     }
   }
 
-  function playFor() {
-    for (let performance of invoices[0].performances) {
-      // playsのキーとperformance.playIDを照合してplayに代入
-      const play = plays[performance.playID];
-      //合計金額
-      totalAmount += calcAmount(play,performance);
-    }
+  function playFor(plays,performance) {
+    return plays[performance.playID];
   }
 
   export function calculateTotalAmounts(invoices,plays) {
