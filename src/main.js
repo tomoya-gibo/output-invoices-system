@@ -124,16 +124,7 @@ export class CreateInvoice {
 }
 
 export function zz_printInvoice(createInvoice, arg) {
-	switch(arg) {
-		case "txt":
-			fs.writeFileSync("output/invoice.txt", createInvoice.renderTxt());
-			break;
-		case "html":
-			fs.writeFileSync("output/invoice.html", createInvoice.renderHtml());
-			break;
-		default:
-			console.log("txtかhtmlを指定してください。");
-	}
+	return printInvoice(createInvoice, arg);
 }
 
 export function printInvoice(createInvoice, arg) {
