@@ -12,18 +12,10 @@
 
   export function main() {
     // 1 入力データの読み込み
-    const invoices = loadInvoice();
-    const plays = loadPlays();
+    const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
+    const plays = JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
 
     outputFile(invoices,plays);
-  }
-
-  function loadInvoice() {
-    return JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
-  }
-
-  function loadPlays() {
-    return JSON.parse(fs.readFileSync("input/plays.json", "utf8"));
   }
 
   export function buildText(invoices,plays) {
@@ -114,12 +106,6 @@
         break;
     }
     return thisAmount;
-  }
-
-  class performanceCalculator {
-    constructor(pla) {
-      
-    }
   }
 
   //ファイルの出力をする関数
