@@ -92,7 +92,26 @@ export class TotalCalculator {
 	}
 }
 
+// CreateInvoice(render)で使う「データをまとめたもの」を返すクラスを作る
+// customer, performanceInfo(plays.name, audience, amount), totalAmount, totalPoint が必要
+// クラス名などなどはあとから変更してね⚠️
+class Data {
+	constructor(invoice, plays) {
 
+	}
+
+	createInvoiceData() {
+		// 処理かく
+		
+		const data = {customer, performanceInfo:[{playTitle, audience, amount}], totalAmount, totalPoint};
+		
+		return data;
+	}
+}
+
+
+
+// データまとめをもらう、renderで使う、内部で計算しない
 export class CreateInvoice {
 	constructor(invoice, totalCalc) {
 		this._data = { invoice: invoice, totalCalc: totalCalc };
