@@ -136,7 +136,7 @@
   }
 
   class tragedyCalculator extends performanceCalculator {
-    calcAmount() {
+    get calcAmount() {
       const tragedyBasePrice = 40000;
       let result = tragedyBasePrice;
       if (this.performance.audience > 30) {
@@ -144,7 +144,7 @@
       }
       return result;
     }
-    calcPoint() {
+    get calcPoint() {
       let result = 0;
       if (this.performance.audience > 30) {
         result += (this.performance.audience - 30);
