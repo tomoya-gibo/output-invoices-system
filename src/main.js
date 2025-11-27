@@ -10,6 +10,12 @@
   //main関数がESモジュール形式のためimport形式に変更
   import fs from "fs";
 
+  // パラメータオブジェクトの導入
+ class PerformanceData {
+  constructor() {    
+  }
+ }
+
   export function main() {
     // 1 入力データの読み込み
     const invoices = JSON.parse(fs.readFileSync("input/invoices.json", "utf8"));
@@ -66,7 +72,7 @@
     let totalPoint = 0;
     for (let performance of invoices[0].performances) {   
       //獲得ポイントの合計
-      totalPoint += calcPoint(playFor(plays,performance),performance,);
+      totalPoint += calcPoint(playFor(plays,performance),performance);
     }
     return totalPoint;
   }
@@ -107,6 +113,8 @@
     }
     return thisAmount;
   }
+
+
 
   //ファイルの出力をする関数
   export function outputFileTest(outputTxt) {
