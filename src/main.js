@@ -145,7 +145,11 @@
       return result;
     }
     calcPoint() {
-
+      let result = 0;
+      if (this.performance.audience > 30) {
+        result += (this.performance.audience - 30);
+      }
+      return result;
     }
   }
 
