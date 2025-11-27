@@ -136,7 +136,17 @@
   }
 
   class tragedyCalculator extends performanceCalculator {
+    calcAmount() {
+      const tragedyBasePrice = 40000;
+      let result = tragedyBasePrice;
+      if (this.performance.audience > 30) {
+        result += (this.performance.audience - 30) * 1000;
+      }
+      return result;
+    }
+    calcPoint() {
 
+    }
   }
 
   class comedyCalculator extends performanceCalculator {
